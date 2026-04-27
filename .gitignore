@@ -1,0 +1,11 @@
+*.o
+*.obj
+*.a
+*.so
+*.exe
+*.out
+multi_proc_pmu
+*.bak
+.vscode/
+.idea/
+.DS_Store
