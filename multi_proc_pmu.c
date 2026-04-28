@@ -47,11 +47,25 @@ struct read_format {
 /* ------------------------------------------------------------------ */
 
 /*
- * Saved scaling_governor strings, one per CPU, so that we can restore
- * the original governor on program exit. Only NPROC CPUs are touched.
+ * Per-CPU saved cpufreq state for the NPROC active cores so that the
+ * original governor / min / max frequency can be restored on exit.
  */
 static char saved_governor[NPROC][64];
+static char saved_min_freq[NPROC][32];
+static char saved_max_freq[NPROC][32];
 static int  governor_saved[NPROC] = {0};
+static int  min_freq_saved[NPROC] = {0};
+static int  max_freq_saved[NPROC] = {0};
+
+/*
+ * Saved /sys/devices/system/cpu/cpuN/online state for cores that we
+ * forced offline (i.e. cpu indices >= NPROC). Sized to a generous upper
+ * bound; entries beyond the actual CPU count remain 0.
+ */
+#define MAX_TRACKED_CPUS 256
+static int  cpu_was_online[MAX_TRACKED_CPUS] = {0};
+static int  cpu_offline_done[MAX_TRACKED_CPUS] = {0};
+static int  total_cpus_detected = 0;
 
 /*
  * File descriptor kept open against /dev/cpu_dma_latency.
@@ -86,13 +100,36 @@ static int write_file(const char *path, const char *value)
 }
 
 /*
- * Force CPUs 0..NPROC-1 into the "performance" governor so the cores stay
- * at their maximum frequency for the whole measurement run. The original
- * governor is remembered for restoration in restore_cpu_frequency().
+ * Read /sys/devices/system/cpu/cpuN/cpufreq/scaling_max_freq for the given
+ * CPU. Returns the value in kHz on success, or 0 on failure.
+ */
+static unsigned long long read_max_freq(int cpu)
+{
+    char path[256], buf[64];
+    snprintf(path, sizeof(path),
+             "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_max_freq", cpu);
+    if (read_file(path, buf, sizeof(buf)) != 0) return 0;
+    return strtoull(buf, NULL, 10);
+}
+
+/*
+ * Lock CPUs 0..NPROC-1 to a single, identical frequency:
+ *   1. Save each core's original governor / scaling_min_freq / scaling_max_freq.
+ *   2. Switch every core to the 'performance' governor (avoids interference
+ *      from schedutil/ondemand on top of the explicit min=max pin).
+ *   3. Compute target_freq = min(scaling_max_freq) across all NPROC cores
+ *      so the chosen frequency is reachable on every active core (handles
+ *      asymmetric big.LITTLE topologies gracefully).
+ *   4. Write that single frequency into both scaling_min_freq and
+ *      scaling_max_freq on every active core. Order matters:
+ *      first lower scaling_max_freq, then raise scaling_min_freq to the
+ *      same value (or vice versa, picking whichever direction avoids the
+ *      transient where min > max would be rejected by the kernel).
  *
- * If the system does not expose cpufreq (e.g. governor sysfs missing or
- * not writable as the current user), we simply warn and continue: the
- * measurement will still work, just without frequency pinning.
+ * The original values are remembered for restore_cpu_frequency().
+ *
+ * If a step fails (e.g. cpufreq sysfs not writable as the current user),
+ * we warn and continue. The measurement still works without pinning.
  */
 static void pin_cpu_frequency(void)
 {
@@ -101,32 +138,164 @@ static void pin_cpu_frequency(void)
     for (int cpu = 0; cpu < NPROC; cpu++) {
         snprintf(path, sizeof(path),
                  "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", cpu);
-
         if (read_file(path, saved_governor[cpu], sizeof(saved_governor[cpu])) == 0) {
             governor_saved[cpu] = 1;
             if (write_file(path, "performance") != 0) {
                 fprintf(stderr,
-                        "[warn] cannot set %s to 'performance' (errno=%d: %s); "
-                        "frequency may scale dynamically\n",
+                        "[warn] cannot set %s to 'performance' (errno=%d: %s)\n",
                         path, errno, strerror(errno));
-                governor_saved[cpu] = 0;  // nothing to restore
+                governor_saved[cpu] = 0;
             }
         } else {
             fprintf(stderr,
-                    "[warn] cannot read %s (errno=%d: %s); cpufreq pinning skipped\n",
-                    path, errno, strerror(errno));
+                    "[warn] cannot read %s (errno=%d: %s); cpufreq pinning skipped for cpu%d\n",
+                    path, errno, strerror(errno), cpu);
+        }
+
+        snprintf(path, sizeof(path),
+                 "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_min_freq", cpu);
+        if (read_file(path, saved_min_freq[cpu], sizeof(saved_min_freq[cpu])) == 0) {
+            min_freq_saved[cpu] = 1;
+        }
+
+        snprintf(path, sizeof(path),
+                 "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_max_freq", cpu);
+        if (read_file(path, saved_max_freq[cpu], sizeof(saved_max_freq[cpu])) == 0) {
+            max_freq_saved[cpu] = 1;
         }
     }
+
+    /* Find the lowest scaling_max_freq across the NPROC active cores so
+     * the picked frequency is reachable on every one of them. */
+    unsigned long long target_khz = 0;
+    for (int cpu = 0; cpu < NPROC; cpu++) {
+        unsigned long long f = read_max_freq(cpu);
+        if (f == 0) continue;
+        if (target_khz == 0 || f < target_khz) target_khz = f;
+    }
+
+    if (target_khz == 0) {
+        fprintf(stderr,
+                "[warn] could not determine a common max frequency; "
+                "cores will run under the 'performance' governor without an "
+                "explicit min=max pin.\n");
+        return;
+    }
+
+    char freq_str[32];
+    snprintf(freq_str, sizeof(freq_str), "%llu", target_khz);
+
+    for (int cpu = 0; cpu < NPROC; cpu++) {
+        char min_path[256], max_path[256];
+        snprintf(min_path, sizeof(min_path),
+                 "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_min_freq", cpu);
+        snprintf(max_path, sizeof(max_path),
+                 "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_max_freq", cpu);
+
+        /* First lower scaling_max_freq to the target, then raise
+         * scaling_min_freq up to it. The kernel rejects writes that would
+         * leave min > max momentarily; doing max first avoids that. */
+        if (write_file(max_path, freq_str) != 0) {
+            fprintf(stderr,
+                    "[warn] cannot pin %s = %s (errno=%d: %s)\n",
+                    max_path, freq_str, errno, strerror(errno));
+        }
+        if (write_file(min_path, freq_str) != 0) {
+            fprintf(stderr,
+                    "[warn] cannot pin %s = %s (errno=%d: %s)\n",
+                    min_path, freq_str, errno, strerror(errno));
+        }
+    }
+
+    fprintf(stderr,
+            "[info] cpu0..cpu%d locked to %llu kHz via 'performance' governor\n",
+            NPROC - 1, target_khz);
 }
 
 static void restore_cpu_frequency(void)
 {
     char path[256];
+
+    /* Restore in the safe order: widen scaling_max_freq first (back to
+     * its original, possibly higher value), then restore scaling_min_freq,
+     * then the governor. */
     for (int cpu = 0; cpu < NPROC; cpu++) {
-        if (!governor_saved[cpu]) continue;
+        if (max_freq_saved[cpu]) {
+            snprintf(path, sizeof(path),
+                     "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_max_freq", cpu);
+            write_file(path, saved_max_freq[cpu]);
+        }
+        if (min_freq_saved[cpu]) {
+            snprintf(path, sizeof(path),
+                     "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_min_freq", cpu);
+            write_file(path, saved_min_freq[cpu]);
+        }
+        if (governor_saved[cpu]) {
+            snprintf(path, sizeof(path),
+                     "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", cpu);
+            write_file(path, saved_governor[cpu]);
+        }
+    }
+}
+
+/*
+ * Hot-unplug (offline) every CPU outside the active set [0..NPROC-1] so
+ * that they do not run any other workloads, do not steal LLC/memory
+ * bandwidth, and stay in their lowest power state for the duration of
+ * the measurement. The original online state is remembered so that the
+ * cores can be brought back online in restore_offline_cpus() on exit.
+ *
+ * Note: cpu0 is typically not hot-unpluggable on Linux, but cpu0 is in
+ * the active set anyway, so this never tries to offline it.
+ */
+static void offline_other_cpus(void)
+{
+    long n = sysconf(_SC_NPROCESSORS_CONF);
+    if (n <= 0) {
+        fprintf(stderr,
+                "[warn] sysconf(_SC_NPROCESSORS_CONF) failed; cannot offline extra cores\n");
+        return;
+    }
+    if (n > MAX_TRACKED_CPUS) n = MAX_TRACKED_CPUS;
+    total_cpus_detected = (int)n;
+
+    char path[256], buf[16];
+    for (int cpu = NPROC; cpu < total_cpus_detected; cpu++) {
         snprintf(path, sizeof(path),
-                 "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", cpu);
-        write_file(path, saved_governor[cpu]);
+                 "/sys/devices/system/cpu/cpu%d/online", cpu);
+
+        if (read_file(path, buf, sizeof(buf)) != 0) {
+            /* Some CPUs (often cpu0) lack the 'online' attribute. Skip. */
+            continue;
+        }
+        cpu_was_online[cpu] = (buf[0] == '1') ? 1 : 0;
+
+        if (cpu_was_online[cpu]) {
+            if (write_file(path, "0") == 0) {
+                cpu_offline_done[cpu] = 1;
+            } else {
+                fprintf(stderr,
+                        "[warn] cannot offline cpu%d via %s (errno=%d: %s)\n",
+                        cpu, path, errno, strerror(errno));
+            }
+        }
+    }
+
+    if (total_cpus_detected > NPROC) {
+        fprintf(stderr,
+                "[info] offlined cpu%d..cpu%d to isolate the active cores\n",
+                NPROC, total_cpus_detected - 1);
+    }
+}
+
+static void restore_offline_cpus(void)
+{
+    char path[256];
+    for (int cpu = 0; cpu < total_cpus_detected; cpu++) {
+        if (!cpu_offline_done[cpu]) continue;
+        snprintf(path, sizeof(path),
+                 "/sys/devices/system/cpu/cpu%d/online", cpu);
+        write_file(path, "1");
     }
 }
 
@@ -165,6 +334,10 @@ static void release_cpu_idle_block(void)
 
 static void on_exit_cleanup(void)
 {
+    /* Restore order matters: bring cores back online BEFORE touching their
+     * cpufreq sysfs nodes, otherwise writes to offline cores' attributes
+     * would silently fail. */
+    restore_offline_cpus();
     restore_cpu_frequency();
     release_cpu_idle_block();
 }
@@ -401,7 +574,7 @@ static void child_main(int cpu_id, int iteration, int start_fd)
 }
 
 /* ------------------------------------------------------------------ */
-/* Parent: one full iteration (fork â†? start â†? wait)                    */
+/* Parent: one full iteration (fork ï¿½?? start ï¿½?? wait)                    */
 /* ------------------------------------------------------------------ */
 
 /*
@@ -478,11 +651,22 @@ static void usage(const char *argv0)
             "flushes the data caches before the measured region, so every\n"
             "iteration observes a true cold-start baseline.\n"
             "\n"
-            "On startup the program also pins CPUs 0..%d to the 'performance'\n"
-            "cpufreq governor and blocks deep CPU idle states via\n"
-            "/dev/cpu_dma_latency. Both require write access to the relevant\n"
-            "sysfs/dev nodes (typically root). The original governor is\n"
-            "restored on exit.\n",
+            "On startup the program also:\n"
+            "  * offlines every CPU outside cpu0..cpu%d (writes 0 to the\n"
+            "    corresponding /sys/devices/system/cpu/cpuN/online), so\n"
+            "    inactive cores stay powered down and do not steal LLC or\n"
+            "    memory bandwidth;\n"
+            "  * locks the active cores to a single common frequency by\n"
+            "    setting the 'performance' governor and pinning\n"
+            "    scaling_min_freq == scaling_max_freq to the lowest of the\n"
+            "    active cores' max frequencies;\n"
+            "  * blocks deep CPU idle states via /dev/cpu_dma_latency.\n"
+            "All three require write access to the relevant sysfs/dev nodes\n"
+            "(typically root). Original state is restored on exit.\n"
+            "\n"
+            "Build with the provided Makefile (CFLAGS defaults to -O0 -g),\n"
+            "which is required to keep the compiler from optimizing the\n"
+            "measured workload.\n",
             argv0, NPROC, NPROC - 1);
 }
 
@@ -511,8 +695,11 @@ int main(int argc, char **argv)
     }
 
     /* Set up frequency / idle pinning, and ensure they are released even
-     * if we exit early. */
+     * if we exit early. Order: register cleanup first, then offline the
+     * inactive cores, then pin frequency on the active ones, then block
+     * deep idle states. */
     atexit(on_exit_cleanup);
+    offline_other_cpus();
     pin_cpu_frequency();
     block_cpu_idle_states();
 
