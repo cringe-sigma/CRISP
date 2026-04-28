@@ -1,7 +1,9 @@
 #define _GNU_SOURCE
 
 #include <asm/unistd.h>
+#include <ctype.h>
 #include <errno.h>
+#include <fcntl.h>
 #include <inttypes.h>
 #include <linux/perf_event.h>
 #include <sched.h>
@@ -10,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
+#include <sys/stat.h>
 #include <sys/syscall.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -17,6 +20,13 @@
 
 #define NPROC 4          // Number of processes: fixed at 4 here
 #define NEVENTS 3        // Number of PMU events tracked: cycles / instructions / cache-misses
+
+/*
+ * Size of the buffer used to evict L1/L2/LLC caches before each measurement.
+ * Should be larger than the last-level cache of the target SoC.
+ * 32 MiB is conservative for most embedded ARM boards.
+ */
+#define CACHE_FLUSH_BYTES (32u * 1024u * 1024u)
 
 /*
  * Return-value layout for a group read.
@@ -31,6 +41,137 @@ struct read_format {
         uint64_t id;     // Unique id of the event, used to tell which event this value belongs to
     } values[NEVENTS];
 };
+
+/* ------------------------------------------------------------------ */
+/* CPU frequency / idle-state pinning                                  */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Saved scaling_governor strings, one per CPU, so that we can restore
+ * the original governor on program exit. Only NPROC CPUs are touched.
+ */
+static char saved_governor[NPROC][64];
+static int  governor_saved[NPROC] = {0};
+
+/*
+ * File descriptor kept open against /dev/cpu_dma_latency.
+ * Writing a 32-bit 0 and keeping the fd open requests a PM-QoS DMA
+ * latency of 0 us, which prevents the kernel from entering deep C-states
+ * (idle states) on any CPU for the lifetime of this process.
+ */
+static int cpu_dma_latency_fd = -1;
+
+static int read_file(const char *path, char *buf, size_t buflen)
+{
+    int fd = open(path, O_RDONLY);
+    if (fd < 0) return -1;
+    ssize_t n = read(fd, buf, buflen - 1);
+    close(fd);
+    if (n < 0) return -1;
+    buf[n] = '\0';
+    /* Strip trailing newline / whitespace */
+    while (n > 0 && (buf[n - 1] == '\n' || isspace((unsigned char)buf[n - 1]))) {
+        buf[--n] = '\0';
+    }
+    return 0;
+}
+
+static int write_file(const char *path, const char *value)
+{
+    int fd = open(path, O_WRONLY);
+    if (fd < 0) return -1;
+    ssize_t n = write(fd, value, strlen(value));
+    close(fd);
+    return (n >= 0) ? 0 : -1;
+}
+
+/*
+ * Force CPUs 0..NPROC-1 into the "performance" governor so the cores stay
+ * at their maximum frequency for the whole measurement run. The original
+ * governor is remembered for restoration in restore_cpu_frequency().
+ *
+ * If the system does not expose cpufreq (e.g. governor sysfs missing or
+ * not writable as the current user), we simply warn and continue: the
+ * measurement will still work, just without frequency pinning.
+ */
+static void pin_cpu_frequency(void)
+{
+    char path[256];
+
+    for (int cpu = 0; cpu < NPROC; cpu++) {
+        snprintf(path, sizeof(path),
+                 "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", cpu);
+
+        if (read_file(path, saved_governor[cpu], sizeof(saved_governor[cpu])) == 0) {
+            governor_saved[cpu] = 1;
+            if (write_file(path, "performance") != 0) {
+                fprintf(stderr,
+                        "[warn] cannot set %s to 'performance' (errno=%d: %s); "
+                        "frequency may scale dynamically\n",
+                        path, errno, strerror(errno));
+                governor_saved[cpu] = 0;  // nothing to restore
+            }
+        } else {
+            fprintf(stderr,
+                    "[warn] cannot read %s (errno=%d: %s); cpufreq pinning skipped\n",
+                    path, errno, strerror(errno));
+        }
+    }
+}
+
+static void restore_cpu_frequency(void)
+{
+    char path[256];
+    for (int cpu = 0; cpu < NPROC; cpu++) {
+        if (!governor_saved[cpu]) continue;
+        snprintf(path, sizeof(path),
+                 "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", cpu);
+        write_file(path, saved_governor[cpu]);
+    }
+}
+
+/*
+ * Block deep CPU idle states (C-states) by registering a 0us DMA latency
+ * requirement via /dev/cpu_dma_latency. The fd must remain open for the
+ * QoS request to stay in effect; closing it (or process exit) revokes it.
+ */
+static void block_cpu_idle_states(void)
+{
+    cpu_dma_latency_fd = open("/dev/cpu_dma_latency", O_WRONLY);
+    if (cpu_dma_latency_fd < 0) {
+        fprintf(stderr,
+                "[warn] cannot open /dev/cpu_dma_latency (errno=%d: %s); "
+                "deep C-states will not be blocked\n",
+                errno, strerror(errno));
+        return;
+    }
+    int32_t latency = 0;
+    if (write(cpu_dma_latency_fd, &latency, sizeof(latency)) != sizeof(latency)) {
+        fprintf(stderr,
+                "[warn] write(/dev/cpu_dma_latency) failed (errno=%d: %s)\n",
+                errno, strerror(errno));
+        close(cpu_dma_latency_fd);
+        cpu_dma_latency_fd = -1;
+    }
+}
+
+static void release_cpu_idle_block(void)
+{
+    if (cpu_dma_latency_fd >= 0) {
+        close(cpu_dma_latency_fd);
+        cpu_dma_latency_fd = -1;
+    }
+}
+
+static void on_exit_cleanup(void)
+{
+    restore_cpu_frequency();
+    release_cpu_idle_block();
+}
+
+/* ------------------------------------------------------------------ */
+/* perf_event_open helpers                                             */
+/* ------------------------------------------------------------------ */
 
 /*
  * Wrapper for the perf_event_open system call.
@@ -62,17 +203,6 @@ static void bind_to_cpu(int cpu)
 /*
  * Open a group-leader event.
  * The leader is typically cycles; other events are attached to it as group members.
- *
- * Parameters:
- *   config = PERF_COUNT_HW_CPU_CYCLES / PERF_COUNT_HW_INSTRUCTIONS / etc.
- *
- * Here we use:
- *   pid = 0   -> count the current process
- *   cpu = -1  -> follow the current process, rather than counting
- *                everything happening on a particular CPU
- *
- * Since we have already pinned the process to a core, the combination
- * "current process + fixed CPU" gives us per-process data on that core.
  */
 static int open_leader_event(uint64_t config)
 {
@@ -121,9 +251,34 @@ static int open_member_event(int leader_fd, uint64_t config)
     return fd;
 }
 
+/* ------------------------------------------------------------------ */
+/* Cache flushing                                                      */
+/* ------------------------------------------------------------------ */
+
 /*
- * This is the "code under measurement".
- * You can replace it with whatever function or logic you actually want to profile.
+ * Walk a buffer larger than the last-level cache to evict any cache lines
+ * left over from previous activity, ensuring a "cold cache" baseline for
+ * the next measurement. The volatile read prevents the compiler from
+ * removing the loop.
+ */
+static void flush_caches(volatile uint8_t *buf, size_t len)
+{
+    /* Stride of 64 bytes matches a typical cache line size. */
+    const size_t stride = 64;
+    volatile uint8_t sink = 0;
+    for (size_t i = 0; i < len; i += stride) {
+        sink ^= buf[i];
+    }
+    (void)sink;
+}
+
+/* ------------------------------------------------------------------ */
+/* Workload                                                            */
+/* ------------------------------------------------------------------ */
+
+/*
+ * This is the "code under measurement". Replace with whatever function or
+ * logic you actually want to profile.
  *
  * For demonstration, each process runs a simple computation loop.
  * cpu_id participates in the computation only to make the workload
@@ -141,186 +296,160 @@ static void target_work(int cpu_id)
     (void)sum;
 }
 
+/* ------------------------------------------------------------------ */
+/* Child entry: per-iteration measurement                              */
+/* ------------------------------------------------------------------ */
+
 /*
  * Child process entry function:
  * 1. Bind to a CPU core
- * 2. Open the PMU events
- * 3. Wait for the start signal from the parent
- * 4. reset + enable
- * 5. Execute the target code region
- * 6. disable
- * 7. Read the results and print them
+ * 2. Allocate the cache-flush buffer (so each freshly-forked child starts cold)
+ * 3. Open the PMU events
+ * 4. Wait for the start signal from the parent
+ * 5. Flush caches, then reset + enable
+ * 6. Execute the target code region
+ * 7. disable
+ * 8. Read the results and print them
  */
-static void child_main(int cpu_id, int start_fd)
+static void child_main(int cpu_id, int iteration, int start_fd)
 {
     // Step 1: pin this child process to the specified CPU
     bind_to_cpu(cpu_id);
 
-    // Step 2: create a group of PMU events.
-    // Leader: cycles
+    // Step 2: allocate flush buffer. Allocated *after* fork so this child
+    // owns fresh, never-touched-by-the-parent pages.
+    uint8_t *flush_buf = (uint8_t *)malloc(CACHE_FLUSH_BYTES);
+    if (!flush_buf) {
+        perror("malloc flush_buf");
+        exit(EXIT_FAILURE);
+    }
+    /* Touch the buffer once to make sure pages are populated; otherwise
+     * the first access in flush_caches() would page-fault inside the
+     * measured region of subsequent iterations (here only one, but keep
+     * the contract clean). */
+    memset(flush_buf, 0, CACHE_FLUSH_BYTES);
+
+    // Step 3: create a group of PMU events.
     int fd_cycles = open_leader_event(PERF_COUNT_HW_CPU_CYCLES);
-
-    // Member: instructions
-    int fd_instr = open_member_event(fd_cycles, PERF_COUNT_HW_INSTRUCTIONS);
-
-    // Member: cache-misses
+    int fd_instr  = open_member_event(fd_cycles, PERF_COUNT_HW_INSTRUCTIONS);
     int fd_cachem = open_member_event(fd_cycles, PERF_COUNT_HW_CACHE_MISSES);
 
-    // To know which value in a group read corresponds to which event,
-    // fetch the unique id of each fd here.
-    uint64_t id_cycles = 0;
-    uint64_t id_instr = 0;
-    uint64_t id_cachem = 0;
-
-    if (ioctl(fd_cycles, PERF_EVENT_IOC_ID, &id_cycles) == -1) {
-        perror("ioctl PERF_EVENT_IOC_ID cycles");
-        exit(EXIT_FAILURE);
-    }
-    if (ioctl(fd_instr, PERF_EVENT_IOC_ID, &id_instr) == -1) {
-        perror("ioctl PERF_EVENT_IOC_ID instr");
-        exit(EXIT_FAILURE);
-    }
-    if (ioctl(fd_cachem, PERF_EVENT_IOC_ID, &id_cachem) == -1) {
-        perror("ioctl PERF_EVENT_IOC_ID cachem");
+    uint64_t id_cycles = 0, id_instr = 0, id_cachem = 0;
+    if (ioctl(fd_cycles, PERF_EVENT_IOC_ID, &id_cycles) == -1 ||
+        ioctl(fd_instr,  PERF_EVENT_IOC_ID, &id_instr)  == -1 ||
+        ioctl(fd_cachem, PERF_EVENT_IOC_ID, &id_cachem) == -1) {
+        perror("ioctl PERF_EVENT_IOC_ID");
         exit(EXIT_FAILURE);
     }
 
-    /*
-     * Step 3: wait for the start signal from the parent process.
-     * The parent writes 1 byte through the pipe; only after reading it
-     * does the child actually begin the measured work.
-     */
+    // Step 4: wait for the start signal from the parent process.
     char ch;
     if (read(start_fd, &ch, 1) != 1) {
         perror("read start signal");
         exit(EXIT_FAILURE);
     }
 
-    // Step 4: reset the entire group's counters before starting
-    if (ioctl(fd_cycles, PERF_EVENT_IOC_RESET, PERF_IOC_FLAG_GROUP) == -1) {
-        perror("ioctl RESET");
+    // Step 5a: evict caches just before the measured region so every
+    // iteration starts from a cold-cache baseline.
+    flush_caches(flush_buf, CACHE_FLUSH_BYTES);
+
+    // Step 5b: reset + enable counters
+    if (ioctl(fd_cycles, PERF_EVENT_IOC_RESET,  PERF_IOC_FLAG_GROUP) == -1 ||
+        ioctl(fd_cycles, PERF_EVENT_IOC_ENABLE, PERF_IOC_FLAG_GROUP) == -1) {
+        perror("ioctl RESET/ENABLE");
         exit(EXIT_FAILURE);
     }
 
-    // Enable counting on the whole group at once
-    if (ioctl(fd_cycles, PERF_EVENT_IOC_ENABLE, PERF_IOC_FLAG_GROUP) == -1) {
-        perror("ioctl ENABLE");
-        exit(EXIT_FAILURE);
-    }
-
-    // Step 5: run the actual code region under measurement
+    // Step 6: run the actual code region under measurement
     target_work(cpu_id);
 
-    // Step 6: stop counting on the whole group
+    // Step 7: stop counting on the whole group
     if (ioctl(fd_cycles, PERF_EVENT_IOC_DISABLE, PERF_IOC_FLAG_GROUP) == -1) {
         perror("ioctl DISABLE");
         exit(EXIT_FAILURE);
     }
 
-    /*
-     * Step 7: read the PMU results.
-     * Note: we read from the group leader (fd_cycles) once, which returns
-     * the values of all events in the group.
-     */
+    // Step 8: read the PMU results from the group leader.
     struct read_format rf;
     memset(&rf, 0, sizeof(rf));
-
     ssize_t n = read(fd_cycles, &rf, sizeof(rf));
     if (n < 0) {
         perror("read perf group");
         exit(EXIT_FAILURE);
     }
 
-    uint64_t cycles = 0;
-    uint64_t instructions = 0;
-    uint64_t cache_misses = 0;
-
-    // Iterate over the events returned by read() and map each id back to its event
+    uint64_t cycles = 0, instructions = 0, cache_misses = 0;
     for (uint64_t i = 0; i < rf.nr; i++) {
-        if (rf.values[i].id == id_cycles) {
-            cycles = rf.values[i].value;
-        } else if (rf.values[i].id == id_instr) {
-            instructions = rf.values[i].value;
-        } else if (rf.values[i].id == id_cachem) {
-            cache_misses = rf.values[i].value;
-        }
+        if      (rf.values[i].id == id_cycles) cycles       = rf.values[i].value;
+        else if (rf.values[i].id == id_instr)  instructions = rf.values[i].value;
+        else if (rf.values[i].id == id_cachem) cache_misses = rf.values[i].value;
     }
 
-    // Print the per-process / per-core measurement results
-    printf("[child] pid=%d cpu=%d cycles=%" PRIu64
+    printf("[iter=%d] pid=%d cpu=%d cycles=%" PRIu64
            " instructions=%" PRIu64
            " cache-misses=%" PRIu64 "\n",
-           getpid(), cpu_id, cycles, instructions, cache_misses);
+           iteration, getpid(), cpu_id, cycles, instructions, cache_misses);
+    fflush(stdout);
 
     close(fd_cachem);
     close(fd_instr);
     close(fd_cycles);
     close(start_fd);
+    free(flush_buf);
 
     exit(EXIT_SUCCESS);
 }
 
-int main(void)
+/* ------------------------------------------------------------------ */
+/* Parent: one full iteration (fork â†? start â†? wait)                    */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Run one fully cold-started iteration: every iteration spawns a brand-new
+ * set of child processes, so each measurement starts with empty TLBs,
+ * fresh page tables, untrained branch predictors, and (after flush_caches)
+ * cold data/instruction caches.
+ */
+static int run_one_iteration(int iteration)
 {
     pid_t pids[NPROC];
     int start_pipe[NPROC][2];
 
-    /*
-     * Create a pipe for each child process:
-     *   - the parent sends the start signal via write()
-     *   - the child waits for the start signal via read()
-     */
     for (int i = 0; i < NPROC; i++) {
         if (pipe(start_pipe[i]) < 0) {
             perror("pipe");
-            return EXIT_FAILURE;
+            return -1;
         }
     }
 
-    // Spawn 4 child processes
     for (int i = 0; i < NPROC; i++) {
         pid_t pid = fork();
         if (pid < 0) {
             perror("fork");
-            return EXIT_FAILURE;
+            return -1;
         }
 
         if (pid == 0) {
-            // Child: close the pipe ends it does not use
-            close(start_pipe[i][1]); // child does not write
-
-            // The other pipes belong to other children; close them all
+            // Child: keep only its own read end open
+            close(start_pipe[i][1]);
             for (int j = 0; j < NPROC; j++) {
                 if (j != i) {
                     close(start_pipe[j][0]);
                     close(start_pipe[j][1]);
                 }
             }
-
-            // The i-th child binds to CPU i
-            child_main(i, start_pipe[i][0]);
+            child_main(i, iteration, start_pipe[i][0]);
+            /* not reached */
         } else {
-            // Parent: record the child's pid
             pids[i] = pid;
-
-            // Parent does not need the read end; keep only the write end
-            // so it can later send the start signal to the child
-            close(start_pipe[i][0]);
+            close(start_pipe[i][0]);  // parent only writes
         }
     }
 
-    /*
-     * Wait a little to make sure all children have finished pinning to
-     * their cores and initializing the PMU before the parent fires the
-     * start signal.
-     */
-    sleep(1);
+    /* Give children a moment to bind, allocate and arm PMUs. */
+    usleep(200 * 1000);
 
-    /*
-     * Broadcast the start signal to all children.
-     * This does not guarantee a strictly identical CPU-cycle start,
-     * but it is good enough for typical parallel measurement scenarios.
-     */
+    /* Broadcast start signal. */
     for (int i = 0; i < NPROC; i++) {
         if (write(start_pipe[i][1], "S", 1) != 1) {
             perror("write start signal");
@@ -328,9 +457,72 @@ int main(void)
         close(start_pipe[i][1]);
     }
 
-    // Wait for all child processes to finish
     for (int i = 0; i < NPROC; i++) {
         waitpid(pids[i], NULL, 0);
+    }
+
+    return 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* CLI                                                                 */
+/* ------------------------------------------------------------------ */
+
+static void usage(const char *argv0)
+{
+    fprintf(stderr,
+            "Usage: %s [-n N]\n"
+            "  -n N    Number of cold-start iterations to run (default: 1)\n"
+            "\n"
+            "Each iteration spawns NPROC=%d child processes from scratch and\n"
+            "flushes the data caches before the measured region, so every\n"
+            "iteration observes a true cold-start baseline.\n"
+            "\n"
+            "On startup the program also pins CPUs 0..%d to the 'performance'\n"
+            "cpufreq governor and blocks deep CPU idle states via\n"
+            "/dev/cpu_dma_latency. Both require write access to the relevant\n"
+            "sysfs/dev nodes (typically root). The original governor is\n"
+            "restored on exit.\n",
+            argv0, NPROC, NPROC - 1);
+}
+
+int main(int argc, char **argv)
+{
+    int iterations = 1;
+
+    int opt;
+    while ((opt = getopt(argc, argv, "n:h")) != -1) {
+        switch (opt) {
+            case 'n': {
+                char *end = NULL;
+                long v = strtol(optarg, &end, 10);
+                if (!end || *end != '\0' || v <= 0 || v > 100000) {
+                    fprintf(stderr, "Invalid -n value: %s\n", optarg);
+                    return EXIT_FAILURE;
+                }
+                iterations = (int)v;
+                break;
+            }
+            case 'h':
+            default:
+                usage(argv[0]);
+                return (opt == 'h') ? EXIT_SUCCESS : EXIT_FAILURE;
+        }
+    }
+
+    /* Set up frequency / idle pinning, and ensure they are released even
+     * if we exit early. */
+    atexit(on_exit_cleanup);
+    pin_cpu_frequency();
+    block_cpu_idle_states();
+
+    printf("# multi_proc_pmu: iterations=%d, NPROC=%d\n", iterations, NPROC);
+    fflush(stdout);
+
+    for (int it = 0; it < iterations; it++) {
+        if (run_one_iteration(it) != 0) {
+            return EXIT_FAILURE;
+        }
     }
 
     return 0;
