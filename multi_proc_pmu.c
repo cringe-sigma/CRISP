@@ -18,8 +18,18 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-#define NPROC 4          // Number of processes: fixed at 4 here
+#define NPROC 4          // Maximum number of active cores (== max sized arrays).
+                         // The number of cores actually used in a given run is
+                         // controlled by g_active_cores (CLI: -c N, 1..NPROC).
 #define NEVENTS 3        // Number of PMU events tracked: cycles / instructions / cache-misses
+
+/*
+ * Number of cores that will actually run a test case in this invocation.
+ * Set from -c N at startup; defaults to NPROC. The remaining
+ * total_cpus_detected - g_active_cores cores are hot-unplugged (offlined)
+ * so they do not run anything and are not affected by frequency locking.
+ */
+static int g_active_cores = NPROC;
 
 /*
  * Size of the buffer used to evict L1/L2/LLC caches before each measurement.
@@ -57,8 +67,8 @@ struct read_format {
 /* ------------------------------------------------------------------ */
 
 /*
- * Per-CPU saved cpufreq state for the NPROC active cores so that the
- * original governor / min / max frequency can be restored on exit.
+ * Per-CPU saved cpufreq state (sized for the maximum NPROC active cores) so
+ * that the original governor/min/max can be restored on exit.
  */
 static char saved_governor[NPROC][64];
 static char saved_min_freq[NPROC][32];
@@ -145,7 +155,10 @@ static int freq_is_available(int cpu, unsigned long long khz)
 }
 
 /*
- * Lock CPUs 0..NPROC-1 to a single, identical frequency.
+ * Lock CPUs 0..g_active_cores-1 to a single, identical frequency. Cores
+ * outside that set are NOT touched here — they are offlined separately by
+ * offline_other_cpus(), and offlined cores must not have their cpufreq
+ * attributes written.
  *
  * If `requested_khz` is non-zero, that value (in kHz) is used as the
  * target frequency. The function verifies it is within
@@ -162,7 +175,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
 {
     char path[256];
 
-    for (int cpu = 0; cpu < NPROC; cpu++) {
+    for (int cpu = 0; cpu < g_active_cores; cpu++) {
         snprintf(path, sizeof(path),
                  "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", cpu);
         if (read_file(path, saved_governor[cpu], sizeof(saved_governor[cpu])) == 0) {
@@ -196,7 +209,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
 
     if (target_khz != 0) {
         /* Validate the user-supplied frequency against every active core. */
-        for (int cpu = 0; cpu < NPROC; cpu++) {
+        for (int cpu = 0; cpu < g_active_cores; cpu++) {
             char buf[32];
             unsigned long long lo = 0, hi = 0;
 
@@ -230,7 +243,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
 
     if (target_khz == 0) {
         /* Fallback: lowest scaling_max_freq across the active cores. */
-        for (int cpu = 0; cpu < NPROC; cpu++) {
+        for (int cpu = 0; cpu < g_active_cores; cpu++) {
             unsigned long long f = read_max_freq(cpu);
             if (f == 0) continue;
             if (target_khz == 0 || f < target_khz) target_khz = f;
@@ -247,7 +260,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
     char freq_str[32];
     snprintf(freq_str, sizeof(freq_str), "%llu", target_khz);
 
-    for (int cpu = 0; cpu < NPROC; cpu++) {
+    for (int cpu = 0; cpu < g_active_cores; cpu++) {
         char min_path[256], max_path[256];
         snprintf(min_path, sizeof(min_path),
                  "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_min_freq", cpu);
@@ -271,7 +284,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
 
     fprintf(stderr,
             "[info] cpu0..cpu%d locked to %llu kHz via 'performance' governor%s\n",
-            NPROC - 1, target_khz,
+            g_active_cores - 1, target_khz,
             (requested_khz != 0 && requested_khz == target_khz) ? " (user-specified)" : "");
 }
 
@@ -282,7 +295,7 @@ static void restore_cpu_frequency(void)
     /* Restore in the safe order: widen scaling_max_freq first (back to
      * its original, possibly higher value), then restore scaling_min_freq,
      * then the governor. */
-    for (int cpu = 0; cpu < NPROC; cpu++) {
+    for (int cpu = 0; cpu < g_active_cores; cpu++) {
         if (max_freq_saved[cpu]) {
             snprintf(path, sizeof(path),
                      "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_max_freq", cpu);
@@ -302,11 +315,15 @@ static void restore_cpu_frequency(void)
 }
 
 /*
- * Hot-unplug (offline) every CPU outside the active set [0..NPROC-1] so
- * that they do not run any other workloads, do not steal LLC/memory
- * bandwidth, and stay in their lowest power state for the duration of
- * the measurement. The original online state is remembered so that the
- * cores can be brought back online in restore_offline_cpus() on exit.
+ * Hot-unplug (offline) every CPU outside the active set
+ * [0..g_active_cores-1] so that they do not run any other workloads, do
+ * not steal LLC/memory bandwidth, and stay in their lowest power state
+ * for the duration of the measurement. The original online state is
+ * remembered so that the cores can be brought back online in
+ * restore_offline_cpus() on exit.
+ *
+ * Frequency locking is intentionally NOT applied to these cores — they
+ * are simply offlined and stay out of the way of the measured workload.
  *
  * Note: cpu0 is typically not hot-unpluggable on Linux, but cpu0 is in
  * the active set anyway, so this never tries to offline it.
@@ -323,7 +340,7 @@ static void offline_other_cpus(void)
     total_cpus_detected = (int)n;
 
     char path[256], buf[16];
-    for (int cpu = NPROC; cpu < total_cpus_detected; cpu++) {
+    for (int cpu = g_active_cores; cpu < total_cpus_detected; cpu++) {
         snprintf(path, sizeof(path),
                  "/sys/devices/system/cpu/cpu%d/online", cpu);
 
@@ -344,10 +361,10 @@ static void offline_other_cpus(void)
         }
     }
 
-    if (total_cpus_detected > NPROC) {
+    if (total_cpus_detected > g_active_cores) {
         fprintf(stderr,
                 "[info] offlined cpu%d..cpu%d to isolate the active cores\n",
-                NPROC, total_cpus_detected - 1);
+                g_active_cores, total_cpus_detected - 1);
     }
 }
 
@@ -650,15 +667,16 @@ static int run_one_iteration(int iteration)
 {
     pid_t pids[NPROC];
     int start_pipe[NPROC][2];
+    const int n = g_active_cores;
 
-    for (int i = 0; i < NPROC; i++) {
+    for (int i = 0; i < n; i++) {
         if (pipe(start_pipe[i]) < 0) {
             perror("pipe");
             return -1;
         }
     }
 
-    for (int i = 0; i < NPROC; i++) {
+    for (int i = 0; i < n; i++) {
         pid_t pid = fork();
         if (pid < 0) {
             perror("fork");
@@ -668,7 +686,7 @@ static int run_one_iteration(int iteration)
         if (pid == 0) {
             // Child: keep only its own read end open
             close(start_pipe[i][1]);
-            for (int j = 0; j < NPROC; j++) {
+            for (int j = 0; j < n; j++) {
                 if (j != i) {
                     close(start_pipe[j][0]);
                     close(start_pipe[j][1]);
@@ -686,14 +704,14 @@ static int run_one_iteration(int iteration)
     usleep(200 * 1000);
 
     /* Broadcast start signal. */
-    for (int i = 0; i < NPROC; i++) {
+    for (int i = 0; i < n; i++) {
         if (write(start_pipe[i][1], "S", 1) != 1) {
             perror("write start signal");
         }
         close(start_pipe[i][1]);
     }
 
-    for (int i = 0; i < NPROC; i++) {
+    for (int i = 0; i < n; i++) {
         waitpid(pids[i], NULL, 0);
     }
 
@@ -707,23 +725,29 @@ static int run_one_iteration(int iteration)
 static void usage(const char *argv0)
 {
     fprintf(stderr,
-            "Usage: %s [-n N] [-f KHZ]\n"
+            "Usage: %s [-n N] [-f KHZ] [-c COUNT]\n"
             "  -n N      Number of cold-start iterations to run (default: 1)\n"
+            "  -c COUNT  Number of active cores running test cases, 1..%d\n"
+            "            (default: %d). Cores cpu0..cpu(COUNT-1) are bound\n"
+            "            to processes, frequency-locked, and measured. Every\n"
+            "            CPU outside that range is hot-unplugged (offlined)\n"
+            "            and its frequency is NOT touched, so cores without a\n"
+            "            test case stay disabled and do not affect the run.\n"
             "  -f KHZ    Lock active cores to this exact frequency, in kHz.\n"
             "            Must lie within [cpuinfo_min_freq, cpuinfo_max_freq];\n"
             "            a warning is printed if the value is not listed in\n"
             "            scaling_available_frequencies. Default: %llu\n"
             "            (0 = auto, picks min(scaling_max_freq) across active cores).\n"
             "\n"
-            "Each iteration spawns NPROC=%d child processes from scratch and\n"
+            "Each iteration spawns COUNT child processes from scratch and\n"
             "flushes the data caches before the measured region, so every\n"
             "iteration observes a true cold-start baseline.\n"
             "\n"
             "On startup the program also:\n"
-            "  * offlines every CPU outside cpu0..cpu%d (writes 0 to the\n"
-            "    corresponding /sys/devices/system/cpu/cpuN/online);\n"
-            "  * locks the active cores to the selected frequency by setting\n"
-            "    the 'performance' governor and pinning\n"
+            "  * offlines every CPU outside cpu0..cpu(COUNT-1) (writes 0 to\n"
+            "    the corresponding /sys/devices/system/cpu/cpuN/online);\n"
+            "  * locks ONLY the active cores to the selected frequency by\n"
+            "    setting the 'performance' governor and pinning\n"
             "    scaling_min_freq == scaling_max_freq == target;\n"
             "  * blocks deep CPU idle states via /dev/cpu_dma_latency.\n"
             "All three require write access to the relevant sysfs/dev nodes\n"
@@ -732,7 +756,7 @@ static void usage(const char *argv0)
             "Build with the provided Makefile (CFLAGS defaults to -O0 -g);\n"
             "the compile-time default frequency can be overridden with\n"
             "  make CFLAGS='-O0 -g -DDEFAULT_LOCK_FREQ_KHZ=1200000'\n",
-            argv0, (unsigned long long)DEFAULT_LOCK_FREQ_KHZ, NPROC, NPROC - 1);
+            argv0, NPROC, NPROC, (unsigned long long)DEFAULT_LOCK_FREQ_KHZ);
 }
 
 int main(int argc, char **argv)
@@ -741,7 +765,7 @@ int main(int argc, char **argv)
     unsigned long long lock_freq_khz = DEFAULT_LOCK_FREQ_KHZ;
 
     int opt;
-    while ((opt = getopt(argc, argv, "n:f:h")) != -1) {
+    while ((opt = getopt(argc, argv, "n:f:c:h")) != -1) {
         switch (opt) {
             case 'n': {
                 char *end = NULL;
@@ -765,6 +789,18 @@ int main(int argc, char **argv)
                 lock_freq_khz = v;
                 break;
             }
+            case 'c': {
+                char *end = NULL;
+                long v = strtol(optarg, &end, 10);
+                if (!end || *end != '\0' || v < 1 || v > NPROC) {
+                    fprintf(stderr,
+                            "Invalid -c value (expected 1..%d): %s\n",
+                            NPROC, optarg);
+                    return EXIT_FAILURE;
+                }
+                g_active_cores = (int)v;
+                break;
+            }
             case 'h':
             default:
                 usage(argv[0]);
@@ -774,15 +810,16 @@ int main(int argc, char **argv)
 
     /* Set up frequency / idle pinning, and ensure they are released even
      * if we exit early. Order: register cleanup first, then offline the
-     * inactive cores, then pin frequency on the active ones, then block
-     * deep idle states. */
+     * inactive cores (cpu indices >= g_active_cores), then pin frequency
+     * ONLY on the active ones, then block deep idle states. */
     atexit(on_exit_cleanup);
     offline_other_cpus();
     pin_cpu_frequency(lock_freq_khz);
     block_cpu_idle_states();
 
-    printf("# multi_proc_pmu: iterations=%d, NPROC=%d, lock_freq_khz=%llu%s\n",
-           iterations, NPROC, lock_freq_khz,
+    printf("# multi_proc_pmu: iterations=%d, active_cores=%d (max NPROC=%d), "
+           "lock_freq_khz=%llu%s\n",
+           iterations, g_active_cores, NPROC, lock_freq_khz,
            (lock_freq_khz == 0) ? " (auto)" : "");
     fflush(stdout);
 
