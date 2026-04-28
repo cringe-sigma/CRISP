@@ -26,6 +26,16 @@
  * Should be larger than the last-level cache of the target SoC.
  * 32 MiB is conservative for most embedded ARM boards.
  */
+/*
+ * Compile-time default for the locked CPU frequency, in kHz.
+ * Override via -f on the command line, or by passing
+ * -DDEFAULT_LOCK_FREQ_KHZ=<value> at build time.
+ * 0 means "auto": use min(scaling_max_freq) across active cores.
+ */
+#ifndef DEFAULT_LOCK_FREQ_KHZ
+#define DEFAULT_LOCK_FREQ_KHZ 0ULL
+#endif
+
 #define CACHE_FLUSH_BYTES (32u * 1024u * 1024u)
 
 /*
@@ -113,25 +123,42 @@ static unsigned long long read_max_freq(int cpu)
 }
 
 /*
- * Lock CPUs 0..NPROC-1 to a single, identical frequency:
- *   1. Save each core's original governor / scaling_min_freq / scaling_max_freq.
- *   2. Switch every core to the 'performance' governor (avoids interference
- *      from schedutil/ondemand on top of the explicit min=max pin).
- *   3. Compute target_freq = min(scaling_max_freq) across all NPROC cores
- *      so the chosen frequency is reachable on every active core (handles
- *      asymmetric big.LITTLE topologies gracefully).
- *   4. Write that single frequency into both scaling_min_freq and
- *      scaling_max_freq on every active core. Order matters:
- *      first lower scaling_max_freq, then raise scaling_min_freq to the
- *      same value (or vice versa, picking whichever direction avoids the
- *      transient where min > max would be rejected by the kernel).
- *
- * The original values are remembered for restore_cpu_frequency().
- *
- * If a step fails (e.g. cpufreq sysfs not writable as the current user),
- * we warn and continue. The measurement still works without pinning.
+ * Read /sys/devices/system/cpu/cpuN/cpufreq/scaling_available_frequencies for
+ * the given CPU and check whether `khz` appears in it (exact match).
+ * Returns 1 on match, 0 on no match, -1 on read failure (e.g. attribute
+ * missing on this driver — common on intel_pstate / schedutil setups).
  */
-static void pin_cpu_frequency(void)
+static int freq_is_available(int cpu, unsigned long long khz)
+{
+    char path[256], buf[1024];
+    snprintf(path, sizeof(path),
+             "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_available_frequencies",
+             cpu);
+    if (read_file(path, buf, sizeof(buf)) != 0) return -1;
+
+    char *save = NULL;
+    for (char *tok = strtok_r(buf, " \t\n", &save); tok;
+         tok = strtok_r(NULL, " \t\n", &save)) {
+        if (strtoull(tok, NULL, 10) == khz) return 1;
+    }
+    return 0;
+}
+
+/*
+ * Lock CPUs 0..NPROC-1 to a single, identical frequency.
+ *
+ * If `requested_khz` is non-zero, that value (in kHz) is used as the
+ * target frequency. The function verifies it is within
+ * [cpuinfo_min_freq, cpuinfo_max_freq] for every active core, and warns
+ * if it is not listed in scaling_available_frequencies (which on some
+ * drivers is absent altogether — that's fine, the kernel will accept any
+ * value inside the [min, max] range).
+ *
+ * If `requested_khz` is 0, the function falls back to min(scaling_max_freq)
+ * across all active cores, which always yields a value reachable on every
+ * one of them (handy for quick runs and for asymmetric big.LITTLE SoCs).
+ */
+static void pin_cpu_frequency(unsigned long long requested_khz)
 {
     char path[256];
 
@@ -165,20 +192,55 @@ static void pin_cpu_frequency(void)
         }
     }
 
-    /* Find the lowest scaling_max_freq across the NPROC active cores so
-     * the picked frequency is reachable on every one of them. */
-    unsigned long long target_khz = 0;
-    for (int cpu = 0; cpu < NPROC; cpu++) {
-        unsigned long long f = read_max_freq(cpu);
-        if (f == 0) continue;
-        if (target_khz == 0 || f < target_khz) target_khz = f;
+    unsigned long long target_khz = requested_khz;
+
+    if (target_khz != 0) {
+        /* Validate the user-supplied frequency against every active core. */
+        for (int cpu = 0; cpu < NPROC; cpu++) {
+            char buf[32];
+            unsigned long long lo = 0, hi = 0;
+
+            snprintf(path, sizeof(path),
+                     "/sys/devices/system/cpu/cpu%d/cpufreq/cpuinfo_min_freq", cpu);
+            if (read_file(path, buf, sizeof(buf)) == 0) lo = strtoull(buf, NULL, 10);
+
+            snprintf(path, sizeof(path),
+                     "/sys/devices/system/cpu/cpu%d/cpufreq/cpuinfo_max_freq", cpu);
+            if (read_file(path, buf, sizeof(buf)) == 0) hi = strtoull(buf, NULL, 10);
+
+            if (lo != 0 && hi != 0 && (target_khz < lo || target_khz > hi)) {
+                fprintf(stderr,
+                        "[error] requested frequency %llu kHz is outside cpu%d's "
+                        "supported range [%llu, %llu] kHz\n",
+                        target_khz, cpu, lo, hi);
+                target_khz = 0;
+                break;
+            }
+
+            int avail = freq_is_available(cpu, target_khz);
+            if (avail == 0) {
+                fprintf(stderr,
+                        "[warn] cpu%d does not list %llu kHz in "
+                        "scaling_available_frequencies; the cpufreq driver "
+                        "may snap to the nearest supported step\n",
+                        cpu, target_khz);
+            }
+        }
+    }
+
+    if (target_khz == 0) {
+        /* Fallback: lowest scaling_max_freq across the active cores. */
+        for (int cpu = 0; cpu < NPROC; cpu++) {
+            unsigned long long f = read_max_freq(cpu);
+            if (f == 0) continue;
+            if (target_khz == 0 || f < target_khz) target_khz = f;
+        }
     }
 
     if (target_khz == 0) {
         fprintf(stderr,
-                "[warn] could not determine a common max frequency; "
-                "cores will run under the 'performance' governor without an "
-                "explicit min=max pin.\n");
+                "[warn] could not determine a target frequency; cores will run "
+                "under the 'performance' governor without an explicit min=max pin.\n");
         return;
     }
 
@@ -192,9 +254,9 @@ static void pin_cpu_frequency(void)
         snprintf(max_path, sizeof(max_path),
                  "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_max_freq", cpu);
 
-        /* First lower scaling_max_freq to the target, then raise
-         * scaling_min_freq up to it. The kernel rejects writes that would
-         * leave min > max momentarily; doing max first avoids that. */
+        /* First lower scaling_max_freq, then raise scaling_min_freq up to
+         * it. The kernel rejects writes that would leave min > max
+         * momentarily; doing max first avoids that. */
         if (write_file(max_path, freq_str) != 0) {
             fprintf(stderr,
                     "[warn] cannot pin %s = %s (errno=%d: %s)\n",
@@ -208,8 +270,9 @@ static void pin_cpu_frequency(void)
     }
 
     fprintf(stderr,
-            "[info] cpu0..cpu%d locked to %llu kHz via 'performance' governor\n",
-            NPROC - 1, target_khz);
+            "[info] cpu0..cpu%d locked to %llu kHz via 'performance' governor%s\n",
+            NPROC - 1, target_khz,
+            (requested_khz != 0 && requested_khz == target_khz) ? " (user-specified)" : "");
 }
 
 static void restore_cpu_frequency(void)
@@ -644,8 +707,13 @@ static int run_one_iteration(int iteration)
 static void usage(const char *argv0)
 {
     fprintf(stderr,
-            "Usage: %s [-n N]\n"
-            "  -n N    Number of cold-start iterations to run (default: 1)\n"
+            "Usage: %s [-n N] [-f KHZ]\n"
+            "  -n N      Number of cold-start iterations to run (default: 1)\n"
+            "  -f KHZ    Lock active cores to this exact frequency, in kHz.\n"
+            "            Must lie within [cpuinfo_min_freq, cpuinfo_max_freq];\n"
+            "            a warning is printed if the value is not listed in\n"
+            "            scaling_available_frequencies. Default: %llu\n"
+            "            (0 = auto, picks min(scaling_max_freq) across active cores).\n"
             "\n"
             "Each iteration spawns NPROC=%d child processes from scratch and\n"
             "flushes the data caches before the measured region, so every\n"
@@ -653,29 +721,27 @@ static void usage(const char *argv0)
             "\n"
             "On startup the program also:\n"
             "  * offlines every CPU outside cpu0..cpu%d (writes 0 to the\n"
-            "    corresponding /sys/devices/system/cpu/cpuN/online), so\n"
-            "    inactive cores stay powered down and do not steal LLC or\n"
-            "    memory bandwidth;\n"
-            "  * locks the active cores to a single common frequency by\n"
-            "    setting the 'performance' governor and pinning\n"
-            "    scaling_min_freq == scaling_max_freq to the lowest of the\n"
-            "    active cores' max frequencies;\n"
+            "    corresponding /sys/devices/system/cpu/cpuN/online);\n"
+            "  * locks the active cores to the selected frequency by setting\n"
+            "    the 'performance' governor and pinning\n"
+            "    scaling_min_freq == scaling_max_freq == target;\n"
             "  * blocks deep CPU idle states via /dev/cpu_dma_latency.\n"
             "All three require write access to the relevant sysfs/dev nodes\n"
             "(typically root). Original state is restored on exit.\n"
             "\n"
-            "Build with the provided Makefile (CFLAGS defaults to -O0 -g),\n"
-            "which is required to keep the compiler from optimizing the\n"
-            "measured workload.\n",
-            argv0, NPROC, NPROC - 1);
+            "Build with the provided Makefile (CFLAGS defaults to -O0 -g);\n"
+            "the compile-time default frequency can be overridden with\n"
+            "  make CFLAGS='-O0 -g -DDEFAULT_LOCK_FREQ_KHZ=1200000'\n",
+            argv0, (unsigned long long)DEFAULT_LOCK_FREQ_KHZ, NPROC, NPROC - 1);
 }
 
 int main(int argc, char **argv)
 {
     int iterations = 1;
+    unsigned long long lock_freq_khz = DEFAULT_LOCK_FREQ_KHZ;
 
     int opt;
-    while ((opt = getopt(argc, argv, "n:h")) != -1) {
+    while ((opt = getopt(argc, argv, "n:f:h")) != -1) {
         switch (opt) {
             case 'n': {
                 char *end = NULL;
@@ -685,6 +751,18 @@ int main(int argc, char **argv)
                     return EXIT_FAILURE;
                 }
                 iterations = (int)v;
+                break;
+            }
+            case 'f': {
+                char *end = NULL;
+                unsigned long long v = strtoull(optarg, &end, 10);
+                if (!end || *end != '\0' || v == 0) {
+                    fprintf(stderr,
+                            "Invalid -f value (expected positive integer in kHz): %s\n",
+                            optarg);
+                    return EXIT_FAILURE;
+                }
+                lock_freq_khz = v;
                 break;
             }
             case 'h':
@@ -700,10 +778,12 @@ int main(int argc, char **argv)
      * deep idle states. */
     atexit(on_exit_cleanup);
     offline_other_cpus();
-    pin_cpu_frequency();
+    pin_cpu_frequency(lock_freq_khz);
     block_cpu_idle_states();
 
-    printf("# multi_proc_pmu: iterations=%d, NPROC=%d\n", iterations, NPROC);
+    printf("# multi_proc_pmu: iterations=%d, NPROC=%d, lock_freq_khz=%llu%s\n",
+           iterations, NPROC, lock_freq_khz,
+           (lock_freq_khz == 0) ? " (auto)" : "");
     fflush(stdout);
 
     for (int it = 0; it < iterations; it++) {
