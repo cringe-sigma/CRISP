@@ -1,0 +1,30 @@
+[info] offlined cpu2..cpu3 to isolate the active cores
+[info] cpu0..cpu1 locked to 1600000 kHz via 'performance' governor
+# multi_proc_pmu: samples=20, active_cores=2, lock_freq_khz=0 (auto)
+# cpu0=fmref (measured)  cpu1=CACHE
+[sample=0] cpu=0 bench=fmref cycles=763619 instructions=454814 cache-misses=158
+[sample=1] cpu=0 bench=fmref cycles=656580 instructions=417301 cache-misses=64
+[sample=2] cpu=0 bench=fmref cycles=654048 instructions=417298 cache-misses=37
+[sample=3] cpu=0 bench=fmref cycles=655069 instructions=417299 cache-misses=49
+[sample=4] cpu=0 bench=fmref cycles=654211 instructions=417302 cache-misses=49
+[sample=5] cpu=0 bench=fmref cycles=653783 instructions=417295 cache-misses=33
+[sample=6] cpu=0 bench=fmref cycles=653815 instructions=417295 cache-misses=30
+[sample=7] cpu=0 bench=fmref cycles=653751 instructions=417297 cache-misses=28
+[sample=8] cpu=0 bench=fmref cycles=653639 instructions=417293 cache-misses=26
+[sample=9] cpu=0 bench=fmref cycles=653586 instructions=417294 cache-misses=24
+[sample=10] cpu=0 bench=fmref cycles=653735 instructions=417297 cache-misses=28
+[sample=11] cpu=0 bench=fmref cycles=653724 instructions=417295 cache-misses=29
+[sample=12] cpu=0 bench=fmref cycles=693545 instructions=417308 cache-misses=91
+[sample=13] cpu=0 bench=fmref cycles=688611 instructions=417305 cache-misses=75
+[sample=14] cpu=0 bench=fmref cycles=674619 instructions=417305 cache-misses=76
+[sample=15] cpu=0 bench=fmref cycles=671866 instructions=417302 cache-misses=80
+[sample=16] cpu=0 bench=fmref cycles=689745 instructions=417307 cache-misses=78
+[sample=17] cpu=0 bench=fmref cycles=654186 instructions=417303 cache-misses=55
+[sample=18] cpu=0 bench=fmref cycles=654098 instructions=417302 cache-misses=35
+[sample=19] cpu=0 bench=fmref cycles=653721 instructions=417298 cache-misses=32
+
+# Statistics over 20 samples on cpu0 bench=fmref (background load on cpu1..cpu1)
+# event                          min                  max                  avg               median
+  cycles                      653586               763619            666997.55            654142.00
+  instructions                417293               454814            419175.50            417300.00
+  cache-misses                    24                  158                53.85                43.00

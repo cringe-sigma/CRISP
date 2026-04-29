@@ -1,0 +1,43 @@
+[1/42] SOLO  cpu0=adpcm_dec
+[2/42] SOLO  cpu0=binarysearch
+[3/42] SOLO  cpu0=fir2dim
+[4/42] SOLO  cpu0=fmref
+[5/42] SOLO  cpu0=iir
+[6/42] SOLO  cpu0=statemate
+[7/42] PAIR  cpu0=adpcm_dec   cpu1..3=adpcm_dec
+[8/42] PAIR  cpu0=adpcm_dec   cpu1..3=binarysearch
+[9/42] PAIR  cpu0=adpcm_dec   cpu1..3=fir2dim
+[10/42] PAIR  cpu0=adpcm_dec   cpu1..3=fmref
+[11/42] PAIR  cpu0=adpcm_dec   cpu1..3=iir
+[12/42] PAIR  cpu0=adpcm_dec   cpu1..3=statemate
+[13/42] PAIR  cpu0=binarysearch   cpu1..3=adpcm_dec
+[14/42] PAIR  cpu0=binarysearch   cpu1..3=binarysearch
+[15/42] PAIR  cpu0=binarysearch   cpu1..3=fir2dim
+[16/42] PAIR  cpu0=binarysearch   cpu1..3=fmref
+[17/42] PAIR  cpu0=binarysearch   cpu1..3=iir
+[18/42] PAIR  cpu0=binarysearch   cpu1..3=statemate
+[19/42] PAIR  cpu0=fir2dim   cpu1..3=adpcm_dec
+[20/42] PAIR  cpu0=fir2dim   cpu1..3=binarysearch
+[21/42] PAIR  cpu0=fir2dim   cpu1..3=fir2dim
+[22/42] PAIR  cpu0=fir2dim   cpu1..3=fmref
+[23/42] PAIR  cpu0=fir2dim   cpu1..3=iir
+[24/42] PAIR  cpu0=fir2dim   cpu1..3=statemate
+[25/42] PAIR  cpu0=fmref   cpu1..3=adpcm_dec
+[26/42] PAIR  cpu0=fmref   cpu1..3=binarysearch
+[27/42] PAIR  cpu0=fmref   cpu1..3=fir2dim
+[28/42] PAIR  cpu0=fmref   cpu1..3=fmref
+[29/42] PAIR  cpu0=fmref   cpu1..3=iir
+[30/42] PAIR  cpu0=fmref   cpu1..3=statemate
+[31/42] PAIR  cpu0=iir   cpu1..3=adpcm_dec
+[32/42] PAIR  cpu0=iir   cpu1..3=binarysearch
+[33/42] PAIR  cpu0=iir   cpu1..3=fir2dim
+[34/42] PAIR  cpu0=iir   cpu1..3=fmref
+[35/42] PAIR  cpu0=iir   cpu1..3=iir
+[36/42] PAIR  cpu0=iir   cpu1..3=statemate
+[37/42] PAIR  cpu0=statemate   cpu1..3=adpcm_dec
+[38/42] PAIR  cpu0=statemate   cpu1..3=binarysearch
+[39/42] PAIR  cpu0=statemate   cpu1..3=fir2dim
+[40/42] PAIR  cpu0=statemate   cpu1..3=fmref
+[41/42] PAIR  cpu0=statemate   cpu1..3=iir
+[42/42] PAIR  cpu0=statemate   cpu1..3=statemate
+All runs complete. Results in results/

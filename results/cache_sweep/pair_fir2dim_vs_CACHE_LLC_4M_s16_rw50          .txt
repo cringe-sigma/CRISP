@@ -1,0 +1,30 @@
+[info] offlined cpu2..cpu3 to isolate the active cores
+[info] cpu0..cpu1 locked to 1600000 kHz via 'performance' governor
+# multi_proc_pmu: samples=20, active_cores=2, lock_freq_khz=0 (auto)
+# cpu0=fir2dim (measured)  cpu1=CACHE
+[sample=0] cpu=0 bench=fir2dim cycles=20124 instructions=10136 cache-misses=17
+[sample=1] cpu=0 bench=fir2dim cycles=26741 instructions=10125 cache-misses=10
+[sample=2] cpu=0 bench=fir2dim cycles=13231 instructions=10124 cache-misses=6
+[sample=3] cpu=0 bench=fir2dim cycles=13125 instructions=10114 cache-misses=3
+[sample=4] cpu=0 bench=fir2dim cycles=13030 instructions=10113 cache-misses=2
+[sample=5] cpu=0 bench=fir2dim cycles=15595 instructions=10110 cache-misses=2
+[sample=6] cpu=0 bench=fir2dim cycles=13000 instructions=10109 cache-misses=2
+[sample=7] cpu=0 bench=fir2dim cycles=12961 instructions=10105 cache-misses=2
+[sample=8] cpu=0 bench=fir2dim cycles=13019 instructions=10105 cache-misses=2
+[sample=9] cpu=0 bench=fir2dim cycles=12907 instructions=10107 cache-misses=2
+[sample=10] cpu=0 bench=fir2dim cycles=12883 instructions=10102 cache-misses=1
+[sample=11] cpu=0 bench=fir2dim cycles=12928 instructions=10101 cache-misses=2
+[sample=12] cpu=0 bench=fir2dim cycles=12923 instructions=10100 cache-misses=2
+[sample=13] cpu=0 bench=fir2dim cycles=12883 instructions=10103 cache-misses=2
+[sample=14] cpu=0 bench=fir2dim cycles=12863 instructions=10103 cache-misses=2
+[sample=15] cpu=0 bench=fir2dim cycles=12897 instructions=10102 cache-misses=2
+[sample=16] cpu=0 bench=fir2dim cycles=12912 instructions=10102 cache-misses=2
+[sample=17] cpu=0 bench=fir2dim cycles=12950 instructions=10108 cache-misses=2
+[sample=18] cpu=0 bench=fir2dim cycles=12876 instructions=10102 cache-misses=2
+[sample=19] cpu=0 bench=fir2dim cycles=12932 instructions=10102 cache-misses=2
+
+# Statistics over 20 samples on cpu0 bench=fir2dim (background load on cpu1..cpu1)
+# event                          min                  max                  avg               median
+  cycles                       12863                26741             14139.00             12941.00
+  instructions                 10100                10136             10108.65             10105.00
+  cache-misses                     1                   17                 3.35                 2.00

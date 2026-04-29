@@ -1,0 +1,30 @@
+[info] offlined cpu2..cpu3 to isolate the active cores
+[info] cpu0..cpu1 locked to 1600000 kHz via 'performance' governor
+# multi_proc_pmu: samples=20, active_cores=2, lock_freq_khz=0 (auto)
+# cpu0=adpcm_dec (measured)  cpu1=CACHE
+[sample=0] cpu=0 bench=adpcm_dec cycles=341349 instructions=228477 cache-misses=54
+[sample=1] cpu=0 bench=adpcm_dec cycles=318202 instructions=228471 cache-misses=41
+[sample=2] cpu=0 bench=adpcm_dec cycles=314467 instructions=228472 cache-misses=14
+[sample=3] cpu=0 bench=adpcm_dec cycles=314911 instructions=228469 cache-misses=14
+[sample=4] cpu=0 bench=adpcm_dec cycles=314627 instructions=228469 cache-misses=12
+[sample=5] cpu=0 bench=adpcm_dec cycles=314477 instructions=228470 cache-misses=10
+[sample=6] cpu=0 bench=adpcm_dec cycles=314377 instructions=228470 cache-misses=10
+[sample=7] cpu=0 bench=adpcm_dec cycles=314935 instructions=228471 cache-misses=8
+[sample=8] cpu=0 bench=adpcm_dec cycles=314413 instructions=228469 cache-misses=9
+[sample=9] cpu=0 bench=adpcm_dec cycles=314579 instructions=228469 cache-misses=5
+[sample=10] cpu=0 bench=adpcm_dec cycles=314313 instructions=228470 cache-misses=5
+[sample=11] cpu=0 bench=adpcm_dec cycles=314644 instructions=228470 cache-misses=25
+[sample=12] cpu=0 bench=adpcm_dec cycles=315154 instructions=228470 cache-misses=23
+[sample=13] cpu=0 bench=adpcm_dec cycles=314599 instructions=228469 cache-misses=16
+[sample=14] cpu=0 bench=adpcm_dec cycles=314657 instructions=228468 cache-misses=17
+[sample=15] cpu=0 bench=adpcm_dec cycles=314581 instructions=228469 cache-misses=11
+[sample=16] cpu=0 bench=adpcm_dec cycles=314452 instructions=228467 cache-misses=8
+[sample=17] cpu=0 bench=adpcm_dec cycles=314320 instructions=228468 cache-misses=9
+[sample=18] cpu=0 bench=adpcm_dec cycles=314733 instructions=228467 cache-misses=15
+[sample=19] cpu=0 bench=adpcm_dec cycles=316510 instructions=228467 cache-misses=11
+
+# Statistics over 20 samples on cpu0 bench=adpcm_dec (background load on cpu1..cpu1)
+# event                          min                  max                  avg               median
+  cycles                      314313               341349            316215.00            314613.00
+  instructions                228467               228477            228469.60            228469.00
+  cache-misses                     5                   54                15.85                11.50

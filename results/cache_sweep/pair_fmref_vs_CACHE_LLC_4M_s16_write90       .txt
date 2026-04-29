@@ -1,0 +1,30 @@
+[info] offlined cpu2..cpu3 to isolate the active cores
+[info] cpu0..cpu1 locked to 1600000 kHz via 'performance' governor
+# multi_proc_pmu: samples=20, active_cores=2, lock_freq_khz=0 (auto)
+# cpu0=fmref (measured)  cpu1=CACHE
+[sample=0] cpu=0 bench=fmref cycles=749973 instructions=454809 cache-misses=129
+[sample=1] cpu=0 bench=fmref cycles=669870 instructions=417307 cache-misses=93
+[sample=2] cpu=0 bench=fmref cycles=657419 instructions=417302 cache-misses=64
+[sample=3] cpu=0 bench=fmref cycles=655100 instructions=417301 cache-misses=67
+[sample=4] cpu=0 bench=fmref cycles=654935 instructions=417302 cache-misses=65
+[sample=5] cpu=0 bench=fmref cycles=655411 instructions=417304 cache-misses=71
+[sample=6] cpu=0 bench=fmref cycles=655633 instructions=417302 cache-misses=65
+[sample=7] cpu=0 bench=fmref cycles=655373 instructions=417304 cache-misses=84
+[sample=8] cpu=0 bench=fmref cycles=655783 instructions=417302 cache-misses=69
+[sample=9] cpu=0 bench=fmref cycles=655200 instructions=417302 cache-misses=68
+[sample=10] cpu=0 bench=fmref cycles=655593 instructions=417303 cache-misses=65
+[sample=11] cpu=0 bench=fmref cycles=654884 instructions=417301 cache-misses=67
+[sample=12] cpu=0 bench=fmref cycles=655788 instructions=417306 cache-misses=67
+[sample=13] cpu=0 bench=fmref cycles=654972 instructions=417307 cache-misses=65
+[sample=14] cpu=0 bench=fmref cycles=667928 instructions=417308 cache-misses=72
+[sample=15] cpu=0 bench=fmref cycles=658094 instructions=417306 cache-misses=87
+[sample=16] cpu=0 bench=fmref cycles=655733 instructions=417306 cache-misses=85
+[sample=17] cpu=0 bench=fmref cycles=656603 instructions=417300 cache-misses=68
+[sample=18] cpu=0 bench=fmref cycles=654822 instructions=417302 cache-misses=65
+[sample=19] cpu=0 bench=fmref cycles=693182 instructions=417314 cache-misses=110
+
+# Statistics over 20 samples on cpu0 bench=fmref (background load on cpu1..cpu1)
+# event                          min                  max                  avg               median
+  cycles                      654822               749973            663614.80            655683.00
+  instructions                417300               454809            419179.40            417303.50
+  cache-misses                    64                  129                76.30                68.00

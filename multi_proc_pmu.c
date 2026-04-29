@@ -16,20 +16,21 @@
 #include <sys/syscall.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <signal.h>
 #include <unistd.h>
 
-#define NPROC 4          // Maximum number of active cores (== max sized arrays).
-                         // The number of cores actually used in a given run is
-                         // controlled by g_active_cores (CLI: -c N, 1..NPROC).
-#define NEVENTS 3        // Number of PMU events tracked: cycles / instructions / cache-misses
+#include "bench_registry.h"
 
 /*
- * Number of cores that will actually run a test case in this invocation.
- * Set from -c N at startup; defaults to NPROC. The remaining
- * total_cpus_detected - g_active_cores cores are hot-unplugged (offlined)
- * so they do not run anything and are not affected by frequency locking.
+ * Maximum number of active cores supported by the harness (cpu0 measurement
+ * + up to MAX_NPROC-1 background co-runners). The actual number of active
+ * cores for a given run is g_nproc, derived from the CLI: it equals 1 +
+ * (number of background bench arguments). All cpus with index >= g_nproc
+ * are hot-unplugged so they cannot interfere with the measured cores.
  */
-static int g_active_cores = NPROC;
+#define MAX_NPROC 8
+static int g_nproc = 1;
+#define NEVENTS 3        // Number of PMU events tracked: cycles / instructions / cache-misses
 
 /*
  * Size of the buffer used to evict L1/L2/LLC caches before each measurement.
@@ -67,15 +68,15 @@ struct read_format {
 /* ------------------------------------------------------------------ */
 
 /*
- * Per-CPU saved cpufreq state (sized for the maximum NPROC active cores) so
- * that the original governor/min/max can be restored on exit.
+ * Per-CPU saved cpufreq state for the active cores so that the
+ * original governor / min / max frequency can be restored on exit.
  */
-static char saved_governor[NPROC][64];
-static char saved_min_freq[NPROC][32];
-static char saved_max_freq[NPROC][32];
-static int  governor_saved[NPROC] = {0};
-static int  min_freq_saved[NPROC] = {0};
-static int  max_freq_saved[NPROC] = {0};
+static char saved_governor[MAX_NPROC][64];
+static char saved_min_freq[MAX_NPROC][32];
+static char saved_max_freq[MAX_NPROC][32];
+static int  governor_saved[MAX_NPROC] = {0};
+static int  min_freq_saved[MAX_NPROC] = {0};
+static int  max_freq_saved[MAX_NPROC] = {0};
 
 /*
  * Saved /sys/devices/system/cpu/cpuN/online state for cores that we
@@ -136,7 +137,7 @@ static unsigned long long read_max_freq(int cpu)
  * Read /sys/devices/system/cpu/cpuN/cpufreq/scaling_available_frequencies for
  * the given CPU and check whether `khz` appears in it (exact match).
  * Returns 1 on match, 0 on no match, -1 on read failure (e.g. attribute
- * missing on this driver — common on intel_pstate / schedutil setups).
+ * missing on this driver -- common on intel_pstate / schedutil setups).
  */
 static int freq_is_available(int cpu, unsigned long long khz)
 {
@@ -155,16 +156,13 @@ static int freq_is_available(int cpu, unsigned long long khz)
 }
 
 /*
- * Lock CPUs 0..g_active_cores-1 to a single, identical frequency. Cores
- * outside that set are NOT touched here — they are offlined separately by
- * offline_other_cpus(), and offlined cores must not have their cpufreq
- * attributes written.
+ * Lock CPUs 0..NPROC-1 to a single, identical frequency.
  *
  * If `requested_khz` is non-zero, that value (in kHz) is used as the
  * target frequency. The function verifies it is within
  * [cpuinfo_min_freq, cpuinfo_max_freq] for every active core, and warns
  * if it is not listed in scaling_available_frequencies (which on some
- * drivers is absent altogether — that's fine, the kernel will accept any
+ * drivers is absent altogether -- that's fine, the kernel will accept any
  * value inside the [min, max] range).
  *
  * If `requested_khz` is 0, the function falls back to min(scaling_max_freq)
@@ -175,7 +173,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
 {
     char path[256];
 
-    for (int cpu = 0; cpu < g_active_cores; cpu++) {
+    for (int cpu = 0; cpu < g_nproc; cpu++) {
         snprintf(path, sizeof(path),
                  "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", cpu);
         if (read_file(path, saved_governor[cpu], sizeof(saved_governor[cpu])) == 0) {
@@ -209,7 +207,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
 
     if (target_khz != 0) {
         /* Validate the user-supplied frequency against every active core. */
-        for (int cpu = 0; cpu < g_active_cores; cpu++) {
+        for (int cpu = 0; cpu < g_nproc; cpu++) {
             char buf[32];
             unsigned long long lo = 0, hi = 0;
 
@@ -243,7 +241,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
 
     if (target_khz == 0) {
         /* Fallback: lowest scaling_max_freq across the active cores. */
-        for (int cpu = 0; cpu < g_active_cores; cpu++) {
+        for (int cpu = 0; cpu < g_nproc; cpu++) {
             unsigned long long f = read_max_freq(cpu);
             if (f == 0) continue;
             if (target_khz == 0 || f < target_khz) target_khz = f;
@@ -260,7 +258,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
     char freq_str[32];
     snprintf(freq_str, sizeof(freq_str), "%llu", target_khz);
 
-    for (int cpu = 0; cpu < g_active_cores; cpu++) {
+    for (int cpu = 0; cpu < g_nproc; cpu++) {
         char min_path[256], max_path[256];
         snprintf(min_path, sizeof(min_path),
                  "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_min_freq", cpu);
@@ -284,7 +282,7 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
 
     fprintf(stderr,
             "[info] cpu0..cpu%d locked to %llu kHz via 'performance' governor%s\n",
-            g_active_cores - 1, target_khz,
+            g_nproc - 1, target_khz,
             (requested_khz != 0 && requested_khz == target_khz) ? " (user-specified)" : "");
 }
 
@@ -295,7 +293,7 @@ static void restore_cpu_frequency(void)
     /* Restore in the safe order: widen scaling_max_freq first (back to
      * its original, possibly higher value), then restore scaling_min_freq,
      * then the governor. */
-    for (int cpu = 0; cpu < g_active_cores; cpu++) {
+    for (int cpu = 0; cpu < g_nproc; cpu++) {
         if (max_freq_saved[cpu]) {
             snprintf(path, sizeof(path),
                      "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_max_freq", cpu);
@@ -315,15 +313,11 @@ static void restore_cpu_frequency(void)
 }
 
 /*
- * Hot-unplug (offline) every CPU outside the active set
- * [0..g_active_cores-1] so that they do not run any other workloads, do
- * not steal LLC/memory bandwidth, and stay in their lowest power state
- * for the duration of the measurement. The original online state is
- * remembered so that the cores can be brought back online in
- * restore_offline_cpus() on exit.
- *
- * Frequency locking is intentionally NOT applied to these cores — they
- * are simply offlined and stay out of the way of the measured workload.
+ * Hot-unplug (offline) every CPU outside the active set [0..NPROC-1] so
+ * that they do not run any other workloads, do not steal LLC/memory
+ * bandwidth, and stay in their lowest power state for the duration of
+ * the measurement. The original online state is remembered so that the
+ * cores can be brought back online in restore_offline_cpus() on exit.
  *
  * Note: cpu0 is typically not hot-unpluggable on Linux, but cpu0 is in
  * the active set anyway, so this never tries to offline it.
@@ -340,7 +334,7 @@ static void offline_other_cpus(void)
     total_cpus_detected = (int)n;
 
     char path[256], buf[16];
-    for (int cpu = g_active_cores; cpu < total_cpus_detected; cpu++) {
+    for (int cpu = g_nproc; cpu < total_cpus_detected; cpu++) {
         snprintf(path, sizeof(path),
                  "/sys/devices/system/cpu/cpu%d/online", cpu);
 
@@ -361,10 +355,10 @@ static void offline_other_cpus(void)
         }
     }
 
-    if (total_cpus_detected > g_active_cores) {
+    if (total_cpus_detected > g_nproc) {
         fprintf(stderr,
                 "[info] offlined cpu%d..cpu%d to isolate the active cores\n",
-                g_active_cores, total_cpus_detected - 1);
+                g_nproc, total_cpus_detected - 1);
     }
 }
 
@@ -526,63 +520,177 @@ static void flush_caches(volatile uint8_t *buf, size_t len)
 }
 
 /* ------------------------------------------------------------------ */
-/* Workload                                                            */
+/* Workload registry                                                   */
 /* ------------------------------------------------------------------ */
 
 /*
- * This is the "code under measurement". Replace with whatever function or
- * logic you actually want to profile.
- *
- * For demonstration, each process runs a simple computation loop.
- * cpu_id participates in the computation only to make the workload
- * slightly different across processes.
+ * Each TACLeBench kernel exposes the same C API:
+ *   void <name>_init(void);
+ *   void <name>_main(void);
+ *   int  <name>_return(void);
+ * The Makefile auto-discovers every kernel directory under
+ * bench/bench/kernel/, links them into isolated object files (with
+ * --keep-global-symbol), and emits build/bench_registry.h with a
+ * BENCH_LIST(X) macro listing every available bench.
  */
-static void target_work(int cpu_id)
-{
-    volatile uint64_t sum = 0;
+#define DECLARE_BENCH(n)                  \
+    extern void n##_init(void);           \
+    extern void n##_main(void);           \
+    extern int  n##_return(void);
+BENCH_LIST(DECLARE_BENCH)
+#undef DECLARE_BENCH
 
-    for (uint64_t i = 0; i < 300000000ULL; i++) {
-        sum += (i ^ (uint64_t)cpu_id);
+struct bench {
+    const char *name;
+    void (*init)(void);
+    void (*main_fn)(void);
+    int  (*ret)(void);
+};
+
+static const struct bench BENCH_TABLE[] = {
+#define BENCH_ENTRY(n) { #n, n##_init, n##_main, n##_return },
+    BENCH_LIST(BENCH_ENTRY)
+#undef BENCH_ENTRY
+};
+
+static const int NBENCHES = (int)(sizeof(BENCH_TABLE) / sizeof(BENCH_TABLE[0]));
+
+/*
+ * Look up a bench by exact name, or by unique prefix match if no exact
+ * match exists. Returns NULL on no match. If the prefix is ambiguous,
+ * lists all candidates on stderr and returns NULL.
+ */
+static const struct bench *find_bench(const char *name)
+{
+    /* Pass 1: exact match wins (e.g. "fft" should not be ambiguous even if
+     * other bench names happened to start with "fft"). */
+    for (int i = 0; i < NBENCHES; i++) {
+        if (strcmp(BENCH_TABLE[i].name, name) == 0) return &BENCH_TABLE[i];
     }
 
-    /* Prevent the compiler from optimizing the loop away. */
-    (void)sum;
+    /* Pass 2: unique prefix match. */
+    size_t nlen = strlen(name);
+    int match_count = 0;
+    int match_idx   = -1;
+    for (int i = 0; i < NBENCHES; i++) {
+        if (strncmp(BENCH_TABLE[i].name, name, nlen) == 0) {
+            match_idx = i;
+            match_count++;
+        }
+    }
+    if (match_count == 1) return &BENCH_TABLE[match_idx];
+    if (match_count > 1) {
+        fprintf(stderr, "error: prefix '%s' is ambiguous; matches:\n  ", name);
+        for (int i = 0; i < NBENCHES; i++) {
+            if (strncmp(BENCH_TABLE[i].name, name, nlen) == 0) {
+                fprintf(stderr, "%s ", BENCH_TABLE[i].name);
+            }
+        }
+        fprintf(stderr, "\n");
+    }
+    return NULL;
+}
+
+static void list_all_benches(FILE *f)
+{
+    fprintf(f, "available benches (%d):\n  ", NBENCHES);
+    for (int i = 0; i < NBENCHES; i++) {
+        fprintf(f, "%s%s", BENCH_TABLE[i].name,
+                (i + 1 == NBENCHES) ? "\n" : " ");
+    }
+}
+
+/*
+ * Run one full bench iteration: init -> main -> return. The return value
+ * is consumed via a `volatile` sink so the compiler cannot drop the call.
+ */
+static inline void run_bench_once(const struct bench *b)
+{
+    b->init();
+    b->main_fn();
+    volatile int sink = b->ret();
+    (void)sink;
 }
 
 /* ------------------------------------------------------------------ */
-/* Child entry: per-iteration measurement                              */
+/* Statistics helpers                                                  */
+/* ------------------------------------------------------------------ */
+
+static int u64_cmp(const void *a, const void *b)
+{
+    uint64_t x = *(const uint64_t *)a;
+    uint64_t y = *(const uint64_t *)b;
+    if (x < y) return -1;
+    if (x > y) return  1;
+    return 0;
+}
+
+struct stats {
+    uint64_t min;
+    uint64_t max;
+    double   avg;
+    double   median;
+};
+
+static void compute_stats(uint64_t *vals, int n, struct stats *out)
+{
+    qsort(vals, (size_t)n, sizeof(vals[0]), u64_cmp);
+    out->min = vals[0];
+    out->max = vals[n - 1];
+
+    long double sum = 0.0L;
+    for (int i = 0; i < n; i++) sum += (long double)vals[i];
+    out->avg = (double)(sum / (long double)n);
+
+    if (n % 2 == 1) {
+        out->median = (double)vals[n / 2];
+    } else {
+        out->median = ((double)vals[n / 2 - 1] + (double)vals[n / 2]) / 2.0;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Background worker (cpu 1..NPROC-1)                                  */
 /* ------------------------------------------------------------------ */
 
 /*
- * Child process entry function:
- * 1. Bind to a CPU core
- * 2. Allocate the cache-flush buffer (so each freshly-forked child starts cold)
- * 3. Open the PMU events
- * 4. Wait for the start signal from the parent
- * 5. Flush caches, then reset + enable
- * 6. Execute the target code region
- * 7. disable
- * 8. Read the results and print them
+ * Continuously execute the assigned bench to provide steady-state
+ * interference for the measured core. The process exits when the parent
+ * sends SIGTERM after core 0 finishes its sample collection.
  */
-static void child_main(int cpu_id, int iteration, int start_fd)
+static void background_worker_main(int cpu_id, const struct bench *b)
 {
-    // Step 1: pin this child process to the specified CPU
     bind_to_cpu(cpu_id);
 
-    // Step 2: allocate flush buffer. Allocated *after* fork so this child
-    // owns fresh, never-touched-by-the-parent pages.
+    for (;;) {
+        run_bench_once(b);
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Measurement process (cpu 0): N samples + statistics                 */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Core-0 measurement entry function:
+ * 1. Bind to cpu0
+ * 2. Allocate the cache-flush buffer
+ * 3. Open the PMU event group (cycles / instructions / cache-misses)
+ * 4. Loop `samples` times: flush caches, reset+enable, run bench,
+ *    disable, read counters, record values
+ * 5. Print every sample, then min/max/avg/median across samples
+ */
+static void measurement_main(int samples, const struct bench *b)
+{
+    bind_to_cpu(0);
+
     uint8_t *flush_buf = (uint8_t *)malloc(CACHE_FLUSH_BYTES);
     if (!flush_buf) {
         perror("malloc flush_buf");
         exit(EXIT_FAILURE);
     }
-    /* Touch the buffer once to make sure pages are populated; otherwise
-     * the first access in flush_caches() would page-fault inside the
-     * measured region of subsequent iterations (here only one, but keep
-     * the contract clean). */
     memset(flush_buf, 0, CACHE_FLUSH_BYTES);
 
-    // Step 3: create a group of PMU events.
     int fd_cycles = open_leader_event(PERF_COUNT_HW_CPU_CYCLES);
     int fd_instr  = open_member_event(fd_cycles, PERF_COUNT_HW_INSTRUCTIONS);
     int fd_cachem = open_member_event(fd_cycles, PERF_COUNT_HW_CACHE_MISSES);
@@ -595,127 +703,160 @@ static void child_main(int cpu_id, int iteration, int start_fd)
         exit(EXIT_FAILURE);
     }
 
-    // Step 4: wait for the start signal from the parent process.
-    char ch;
-    if (read(start_fd, &ch, 1) != 1) {
-        perror("read start signal");
+    uint64_t *s_cycles = (uint64_t *)malloc(sizeof(uint64_t) * (size_t)samples);
+    uint64_t *s_instr  = (uint64_t *)malloc(sizeof(uint64_t) * (size_t)samples);
+    uint64_t *s_cachem = (uint64_t *)malloc(sizeof(uint64_t) * (size_t)samples);
+    if (!s_cycles || !s_instr || !s_cachem) {
+        perror("malloc samples");
         exit(EXIT_FAILURE);
     }
 
-    // Step 5a: evict caches just before the measured region so every
-    // iteration starts from a cold-cache baseline.
+    /* Flush caches ONCE before the sampling loop, not before every sample.
+     * Per-sample flushing destroys the steady-state cache contents that the
+     * background co-runners on cpu1..cpu(N-1) are trying to pollute, which
+     * masks LLC interference. With a single up-front flush, sample 0 starts
+     * cold but samples 1..N-1 observe the natural cache evolution under
+     * sustained co-runner pressure -- the regime we actually want to
+     * measure. */
     flush_caches(flush_buf, CACHE_FLUSH_BYTES);
 
-    // Step 5b: reset + enable counters
-    if (ioctl(fd_cycles, PERF_EVENT_IOC_RESET,  PERF_IOC_FLAG_GROUP) == -1 ||
-        ioctl(fd_cycles, PERF_EVENT_IOC_ENABLE, PERF_IOC_FLAG_GROUP) == -1) {
-        perror("ioctl RESET/ENABLE");
-        exit(EXIT_FAILURE);
+    for (int it = 0; it < samples; it++) {
+        if (ioctl(fd_cycles, PERF_EVENT_IOC_RESET,  PERF_IOC_FLAG_GROUP) == -1 ||
+            ioctl(fd_cycles, PERF_EVENT_IOC_ENABLE, PERF_IOC_FLAG_GROUP) == -1) {
+            perror("ioctl RESET/ENABLE");
+            exit(EXIT_FAILURE);
+        }
+
+        run_bench_once(b);
+
+        if (ioctl(fd_cycles, PERF_EVENT_IOC_DISABLE, PERF_IOC_FLAG_GROUP) == -1) {
+            perror("ioctl DISABLE");
+            exit(EXIT_FAILURE);
+        }
+
+        struct read_format rf;
+        memset(&rf, 0, sizeof(rf));
+        ssize_t n = read(fd_cycles, &rf, sizeof(rf));
+        if (n < 0) {
+            perror("read perf group");
+            exit(EXIT_FAILURE);
+        }
+
+        uint64_t cycles = 0, instructions = 0, cache_misses = 0;
+        for (uint64_t i = 0; i < rf.nr; i++) {
+            if      (rf.values[i].id == id_cycles) cycles       = rf.values[i].value;
+            else if (rf.values[i].id == id_instr)  instructions = rf.values[i].value;
+            else if (rf.values[i].id == id_cachem) cache_misses = rf.values[i].value;
+        }
+
+        s_cycles[it] = cycles;
+        s_instr[it]  = instructions;
+        s_cachem[it] = cache_misses;
+
+        printf("[sample=%d] cpu=0 bench=%s cycles=%" PRIu64
+               " instructions=%" PRIu64
+               " cache-misses=%" PRIu64 "\n",
+               it, b->name, cycles, instructions, cache_misses);
+        fflush(stdout);
     }
 
-    // Step 6: run the actual code region under measurement
-    target_work(cpu_id);
+    struct stats st_c, st_i, st_m;
+    compute_stats(s_cycles, samples, &st_c);
+    compute_stats(s_instr,  samples, &st_i);
+    compute_stats(s_cachem, samples, &st_m);
 
-    // Step 7: stop counting on the whole group
-    if (ioctl(fd_cycles, PERF_EVENT_IOC_DISABLE, PERF_IOC_FLAG_GROUP) == -1) {
-        perror("ioctl DISABLE");
-        exit(EXIT_FAILURE);
-    }
-
-    // Step 8: read the PMU results from the group leader.
-    struct read_format rf;
-    memset(&rf, 0, sizeof(rf));
-    ssize_t n = read(fd_cycles, &rf, sizeof(rf));
-    if (n < 0) {
-        perror("read perf group");
-        exit(EXIT_FAILURE);
-    }
-
-    uint64_t cycles = 0, instructions = 0, cache_misses = 0;
-    for (uint64_t i = 0; i < rf.nr; i++) {
-        if      (rf.values[i].id == id_cycles) cycles       = rf.values[i].value;
-        else if (rf.values[i].id == id_instr)  instructions = rf.values[i].value;
-        else if (rf.values[i].id == id_cachem) cache_misses = rf.values[i].value;
-    }
-
-    printf("[iter=%d] pid=%d cpu=%d cycles=%" PRIu64
-           " instructions=%" PRIu64
-           " cache-misses=%" PRIu64 "\n",
-           iteration, getpid(), cpu_id, cycles, instructions, cache_misses);
+    printf("\n# Statistics over %d samples on cpu0 bench=%s (background load on cpu1..cpu%d)\n",
+           samples, b->name, g_nproc - 1);
+    printf("# %-13s %20s %20s %20s %20s\n",
+           "event", "min", "max", "avg", "median");
+    printf("  %-13s %20" PRIu64 " %20" PRIu64 " %20.2f %20.2f\n",
+           "cycles",       st_c.min, st_c.max, st_c.avg, st_c.median);
+    printf("  %-13s %20" PRIu64 " %20" PRIu64 " %20.2f %20.2f\n",
+           "instructions", st_i.min, st_i.max, st_i.avg, st_i.median);
+    printf("  %-13s %20" PRIu64 " %20" PRIu64 " %20.2f %20.2f\n",
+           "cache-misses", st_m.min, st_m.max, st_m.avg, st_m.median);
     fflush(stdout);
 
+    free(s_cycles);
+    free(s_instr);
+    free(s_cachem);
     close(fd_cachem);
     close(fd_instr);
     close(fd_cycles);
-    close(start_fd);
     free(flush_buf);
 
     exit(EXIT_SUCCESS);
 }
 
 /* ------------------------------------------------------------------ */
-/* Parent: one full iteration (fork �?? start �?? wait)                    */
+/* Parent: launch background workers + measurement, then join          */
 /* ------------------------------------------------------------------ */
 
 /*
- * Run one fully cold-started iteration: every iteration spawns a brand-new
- * set of child processes, so each measurement starts with empty TLBs,
- * fresh page tables, untrained branch predictors, and (after flush_caches)
- * cold data/instruction caches.
+ * Spawn (g_nproc - 1) background workers on cpu1..cpu(g_nproc-1) that
+ * loop their assigned bench forever, plus one measurement process on
+ * cpu0 that collects `samples` PMU readings of `meas_bench`.
+ * `bg_benches[i]` (i = 1..g_nproc-1) is the bench assigned to cpu i.
+ * If g_nproc == 1, no background workers are spawned: cpu0 runs alone
+ * while every other CPU is hot-unplugged, so cpu0 sees zero on-chip
+ * interference.
  */
-static int run_one_iteration(int iteration)
+static int run_measurements(int samples,
+                            const struct bench *meas_bench,
+                            const struct bench *bg_benches[MAX_NPROC])
 {
-    pid_t pids[NPROC];
-    int start_pipe[NPROC][2];
-    const int n = g_active_cores;
+    pid_t bg_pids[MAX_NPROC];      // index 0 unused; entries [1..g_nproc-1] valid
+    pid_t meas_pid;
+    int n_bg = g_nproc - 1;
 
-    for (int i = 0; i < n; i++) {
-        if (pipe(start_pipe[i]) < 0) {
-            perror("pipe");
-            return -1;
-        }
-    }
-
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i <= n_bg; i++) {
         pid_t pid = fork();
         if (pid < 0) {
-            perror("fork");
+            perror("fork background");
+            for (int j = 1; j < i; j++) {
+                kill(bg_pids[j], SIGTERM);
+                waitpid(bg_pids[j], NULL, 0);
+            }
             return -1;
         }
-
         if (pid == 0) {
-            // Child: keep only its own read end open
-            close(start_pipe[i][1]);
-            for (int j = 0; j < n; j++) {
-                if (j != i) {
-                    close(start_pipe[j][0]);
-                    close(start_pipe[j][1]);
-                }
-            }
-            child_main(i, iteration, start_pipe[i][0]);
+            background_worker_main(i, bg_benches[i]);
             /* not reached */
-        } else {
-            pids[i] = pid;
-            close(start_pipe[i][0]);  // parent only writes
         }
+        bg_pids[i] = pid;
     }
 
-    /* Give children a moment to bind, allocate and arm PMUs. */
-    usleep(200 * 1000);
+    /* Let the background workers ramp up so the measured samples see a
+     * steady-state interference pattern from sample #0. */
+    if (n_bg > 0) usleep(200 * 1000);
 
-    /* Broadcast start signal. */
-    for (int i = 0; i < n; i++) {
-        if (write(start_pipe[i][1], "S", 1) != 1) {
-            perror("write start signal");
+    meas_pid = fork();
+    if (meas_pid < 0) {
+        perror("fork measurement");
+        for (int j = 1; j <= n_bg; j++) {
+            kill(bg_pids[j], SIGTERM);
+            waitpid(bg_pids[j], NULL, 0);
         }
-        close(start_pipe[i][1]);
+        return -1;
+    }
+    if (meas_pid == 0) {
+        measurement_main(samples, meas_bench);
+        /* not reached */
     }
 
-    for (int i = 0; i < n; i++) {
-        waitpid(pids[i], NULL, 0);
+    int meas_status = 0;
+    waitpid(meas_pid, &meas_status, 0);
+
+    /* Tear down background workers. */
+    for (int j = 1; j <= n_bg; j++) {
+        kill(bg_pids[j], SIGTERM);
+    }
+    for (int j = 1; j <= n_bg; j++) {
+        waitpid(bg_pids[j], NULL, 0);
     }
 
-    return 0;
+    if (WIFEXITED(meas_status) && WEXITSTATUS(meas_status) == 0) return 0;
+    return -1;
 }
 
 /* ------------------------------------------------------------------ */
@@ -725,47 +866,50 @@ static int run_one_iteration(int iteration)
 static void usage(const char *argv0)
 {
     fprintf(stderr,
-            "Usage: %s [-n N] [-f KHZ] [-c COUNT]\n"
-            "  -n N      Number of cold-start iterations to run (default: 1)\n"
-            "  -c COUNT  Number of active cores running test cases, 1..%d\n"
-            "            (default: %d). Cores cpu0..cpu(COUNT-1) are bound\n"
-            "            to processes, frequency-locked, and measured. Every\n"
-            "            CPU outside that range is hot-unplugged (offlined)\n"
-            "            and its frequency is NOT touched, so cores without a\n"
-            "            test case stay disabled and do not affect the run.\n"
+            "Usage: %s [-n N] [-f KHZ] BENCH [BG_BENCH ...]\n"
+            "  -n N      Number of PMU samples to collect on cpu0 (default: 1)\n"
             "  -f KHZ    Lock active cores to this exact frequency, in kHz.\n"
             "            Must lie within [cpuinfo_min_freq, cpuinfo_max_freq];\n"
             "            a warning is printed if the value is not listed in\n"
             "            scaling_available_frequencies. Default: %llu\n"
             "            (0 = auto, picks min(scaling_max_freq) across active cores).\n"
+            "  -l        List all available benches and exit.\n"
             "\n"
-            "Each iteration spawns COUNT child processes from scratch and\n"
-            "flushes the data caches before the measured region, so every\n"
-            "iteration observes a true cold-start baseline.\n"
+            "Positional arguments:\n"
+            "  BENCH         Bench name to run on cpu0 (the *measured* workload).\n"
+            "  BG_BENCH ...  Up to %d additional bench names, assigned in order to\n"
+            "                cpu1, cpu2, ... The number of *active* cores equals\n"
+            "                1 + (number of BG_BENCH arguments). Extra names\n"
+            "                beyond cpu%d are rejected.\n"
+            "\n"
+            "cpu0 measures (cycles / instructions / cache-misses) over BENCH for\n"
+            "N samples; the active background cores run their assigned bench in\n"
+            "an infinite loop to provide steady-state interference. After all N\n"
+            "samples are collected, min/max/avg/median are printed.\n"
+            "Caches are flushed before every measured sample.\n"
             "\n"
             "On startup the program also:\n"
-            "  * offlines every CPU outside cpu0..cpu(COUNT-1) (writes 0 to\n"
-            "    the corresponding /sys/devices/system/cpu/cpuN/online);\n"
-            "  * locks ONLY the active cores to the selected frequency by\n"
-            "    setting the 'performance' governor and pinning\n"
+            "  * offlines every CPU outside the active set (writes 0 to the\n"
+            "    corresponding /sys/devices/system/cpu/cpuN/online), so cores\n"
+            "    that are *not* running a bench cannot interfere with the ones\n"
+            "    that are;\n"
+            "  * locks the active cores to the selected frequency by setting\n"
+            "    the 'performance' governor and pinning\n"
             "    scaling_min_freq == scaling_max_freq == target;\n"
             "  * blocks deep CPU idle states via /dev/cpu_dma_latency.\n"
             "All three require write access to the relevant sysfs/dev nodes\n"
-            "(typically root). Original state is restored on exit.\n"
-            "\n"
-            "Build with the provided Makefile (CFLAGS defaults to -O0 -g);\n"
-            "the compile-time default frequency can be overridden with\n"
-            "  make CFLAGS='-O0 -g -DDEFAULT_LOCK_FREQ_KHZ=1200000'\n",
-            argv0, NPROC, NPROC, (unsigned long long)DEFAULT_LOCK_FREQ_KHZ);
+            "(typically root). Original state is restored on exit.\n",
+            argv0, (unsigned long long)DEFAULT_LOCK_FREQ_KHZ,
+            MAX_NPROC - 1, MAX_NPROC - 1);
 }
 
 int main(int argc, char **argv)
 {
-    int iterations = 1;
+    int samples = 1;
     unsigned long long lock_freq_khz = DEFAULT_LOCK_FREQ_KHZ;
 
     int opt;
-    while ((opt = getopt(argc, argv, "n:f:c:h")) != -1) {
+    while ((opt = getopt(argc, argv, "n:f:lh")) != -1) {
         switch (opt) {
             case 'n': {
                 char *end = NULL;
@@ -774,7 +918,7 @@ int main(int argc, char **argv)
                     fprintf(stderr, "Invalid -n value: %s\n", optarg);
                     return EXIT_FAILURE;
                 }
-                iterations = (int)v;
+                samples = (int)v;
                 break;
             }
             case 'f': {
@@ -789,18 +933,9 @@ int main(int argc, char **argv)
                 lock_freq_khz = v;
                 break;
             }
-            case 'c': {
-                char *end = NULL;
-                long v = strtol(optarg, &end, 10);
-                if (!end || *end != '\0' || v < 1 || v > NPROC) {
-                    fprintf(stderr,
-                            "Invalid -c value (expected 1..%d): %s\n",
-                            NPROC, optarg);
-                    return EXIT_FAILURE;
-                }
-                g_active_cores = (int)v;
-                break;
-            }
+            case 'l':
+                list_all_benches(stdout);
+                return EXIT_SUCCESS;
             case 'h':
             default:
                 usage(argv[0]);
@@ -808,25 +943,73 @@ int main(int argc, char **argv)
         }
     }
 
+    if (optind >= argc) {
+        fprintf(stderr, "error: missing BENCH (measured workload) argument.\n\n");
+        usage(argv[0]);
+        list_all_benches(stderr);
+        return EXIT_FAILURE;
+    }
+
+    const struct bench *meas_bench = find_bench(argv[optind]);
+    if (!meas_bench) {
+        fprintf(stderr, "error: unknown bench '%s'.\n", argv[optind]);
+        list_all_benches(stderr);
+        return EXIT_FAILURE;
+    }
+
+    /* Active core count = 1 (cpu0) + number of background bench arguments.
+     * Capped at MAX_NPROC. CPUs >= g_nproc are hot-unplugged so they cannot
+     * interfere with the active set. */
+    int n_bg_args = argc - optind - 1;
+    if (n_bg_args < 0) n_bg_args = 0;
+    if (n_bg_args > MAX_NPROC - 1) {
+        fprintf(stderr,
+                "error: too many background bench arguments (%d); max is %d.\n",
+                n_bg_args, MAX_NPROC - 1);
+        return EXIT_FAILURE;
+    }
+    g_nproc = 1 + n_bg_args;
+
+    /* bg_benches[0] is unused; bg_benches[i] is the bench assigned to cpu i
+     * for i = 1..g_nproc-1. */
+    const struct bench *bg_benches[MAX_NPROC] = {0};
+    for (int i = 1; i < g_nproc; i++) {
+        const struct bench *bb = find_bench(argv[optind + i]);
+        if (!bb) {
+            fprintf(stderr,
+                    "error: unknown background bench '%s' (slot cpu%d).\n",
+                    argv[optind + i], i);
+            list_all_benches(stderr);
+            return EXIT_FAILURE;
+        }
+        bg_benches[i] = bb;
+    }
+
     /* Set up frequency / idle pinning, and ensure they are released even
      * if we exit early. Order: register cleanup first, then offline the
-     * inactive cores (cpu indices >= g_active_cores), then pin frequency
-     * ONLY on the active ones, then block deep idle states. */
+     * inactive cores, then pin frequency on the active ones, then block
+     * deep idle states. */
     atexit(on_exit_cleanup);
     offline_other_cpus();
     pin_cpu_frequency(lock_freq_khz);
     block_cpu_idle_states();
 
-    printf("# multi_proc_pmu: iterations=%d, active_cores=%d (max NPROC=%d), "
-           "lock_freq_khz=%llu%s\n",
-           iterations, g_active_cores, NPROC, lock_freq_khz,
+    printf("# multi_proc_pmu: samples=%d, active_cores=%d, lock_freq_khz=%llu%s\n",
+           samples, g_nproc, lock_freq_khz,
            (lock_freq_khz == 0) ? " (auto)" : "");
+    printf("# cpu0=%s (measured)", meas_bench->name);
+    if (g_nproc == 1) {
+        printf("  (solo: all other cpus offlined)");
+    } else {
+        for (int i = 1; i < g_nproc; i++) {
+            printf("  cpu%d=%s", i, bg_benches[i]->name);
+        }
+    }
+    printf("\n");
     fflush(stdout);
 
-    for (int it = 0; it < iterations; it++) {
-        if (run_one_iteration(it) != 0) {
-            return EXIT_FAILURE;
-        }
+    if (run_measurements(samples, meas_bench, bg_benches) != 0) {
+        return EXIT_FAILURE;
     }
 
     return 0;

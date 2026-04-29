@@ -1,0 +1,30 @@
+[info] offlined cpu2..cpu3 to isolate the active cores
+[info] cpu0..cpu1 locked to 1600000 kHz via 'performance' governor
+# multi_proc_pmu: samples=20, active_cores=2, lock_freq_khz=0 (auto)
+# cpu0=iir (measured)  cpu1=CACHE
+[sample=0] cpu=0 bench=iir cycles=8327 instructions=2593 cache-misses=16
+[sample=1] cpu=0 bench=iir cycles=11010 instructions=2589 cache-misses=12
+[sample=2] cpu=0 bench=iir cycles=4553 instructions=2588 cache-misses=2
+[sample=3] cpu=0 bench=iir cycles=3719 instructions=2589 cache-misses=1
+[sample=4] cpu=0 bench=iir cycles=4253 instructions=2589 cache-misses=1
+[sample=5] cpu=0 bench=iir cycles=3664 instructions=2591 cache-misses=3
+[sample=6] cpu=0 bench=iir cycles=3546 instructions=2588 cache-misses=2
+[sample=7] cpu=0 bench=iir cycles=3499 instructions=2588 cache-misses=0
+[sample=8] cpu=0 bench=iir cycles=3542 instructions=2588 cache-misses=1
+[sample=9] cpu=0 bench=iir cycles=3514 instructions=2588 cache-misses=0
+[sample=10] cpu=0 bench=iir cycles=3505 instructions=2588 cache-misses=0
+[sample=11] cpu=0 bench=iir cycles=3502 instructions=2588 cache-misses=1
+[sample=12] cpu=0 bench=iir cycles=3530 instructions=2588 cache-misses=2
+[sample=13] cpu=0 bench=iir cycles=3511 instructions=2588 cache-misses=1
+[sample=14] cpu=0 bench=iir cycles=3495 instructions=2588 cache-misses=1
+[sample=15] cpu=0 bench=iir cycles=3518 instructions=2588 cache-misses=1
+[sample=16] cpu=0 bench=iir cycles=3508 instructions=2588 cache-misses=1
+[sample=17] cpu=0 bench=iir cycles=3533 instructions=2588 cache-misses=1
+[sample=18] cpu=0 bench=iir cycles=3525 instructions=2588 cache-misses=1
+[sample=19] cpu=0 bench=iir cycles=3526 instructions=2588 cache-misses=0
+
+# Statistics over 20 samples on cpu0 bench=iir (background load on cpu1..cpu1)
+# event                          min                  max                  avg               median
+  cycles                        3495                11010              4239.00              3528.00
+  instructions                  2588                 2593              2588.55              2588.00
+  cache-misses                     0                   16                 2.35                 1.00

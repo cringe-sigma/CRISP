@@ -1,0 +1,30 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor
+# multi_proc_pmu: samples=20, active_cores=1, lock_freq_khz=0 (auto)
+# cpu0=fir2dim (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=fir2dim cycles=20769 instructions=10127 cache-misses=17
+[sample=1] cpu=0 bench=fir2dim cycles=15107 instructions=10119 cache-misses=13
+[sample=2] cpu=0 bench=fir2dim cycles=13795 instructions=10109 cache-misses=11
+[sample=3] cpu=0 bench=fir2dim cycles=13672 instructions=10112 cache-misses=11
+[sample=4] cpu=0 bench=fir2dim cycles=13850 instructions=10111 cache-misses=9
+[sample=5] cpu=0 bench=fir2dim cycles=13333 instructions=10113 cache-misses=10
+[sample=6] cpu=0 bench=fir2dim cycles=13597 instructions=10113 cache-misses=9
+[sample=7] cpu=0 bench=fir2dim cycles=13395 instructions=10114 cache-misses=11
+[sample=8] cpu=0 bench=fir2dim cycles=13311 instructions=10116 cache-misses=9
+[sample=9] cpu=0 bench=fir2dim cycles=13382 instructions=10114 cache-misses=10
+[sample=10] cpu=0 bench=fir2dim cycles=13612 instructions=10111 cache-misses=11
+[sample=11] cpu=0 bench=fir2dim cycles=13381 instructions=10115 cache-misses=11
+[sample=12] cpu=0 bench=fir2dim cycles=13351 instructions=10115 cache-misses=11
+[sample=13] cpu=0 bench=fir2dim cycles=13356 instructions=10115 cache-misses=10
+[sample=14] cpu=0 bench=fir2dim cycles=13340 instructions=10113 cache-misses=11
+[sample=15] cpu=0 bench=fir2dim cycles=13335 instructions=10110 cache-misses=10
+[sample=16] cpu=0 bench=fir2dim cycles=13750 instructions=10112 cache-misses=28
+[sample=17] cpu=0 bench=fir2dim cycles=13118 instructions=10108 cache-misses=4
+[sample=18] cpu=0 bench=fir2dim cycles=13061 instructions=10109 cache-misses=2
+[sample=19] cpu=0 bench=fir2dim cycles=13024 instructions=10105 cache-misses=1
+
+# Statistics over 20 samples on cpu0 bench=fir2dim (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                       13024                20769             13876.95             13381.50
+  instructions                 10105                10127             10113.05             10113.00
+  cache-misses                     1                   28                10.45                10.50

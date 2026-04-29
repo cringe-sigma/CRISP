@@ -1,0 +1,30 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor
+# multi_proc_pmu: samples=20, active_cores=1, lock_freq_khz=0 (auto)
+# cpu0=fir2dim (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=fir2dim cycles=20587 instructions=10142 cache-misses=19
+[sample=1] cpu=0 bench=fir2dim cycles=13398 instructions=10129 cache-misses=11
+[sample=2] cpu=0 bench=fir2dim cycles=13150 instructions=10117 cache-misses=6
+[sample=3] cpu=0 bench=fir2dim cycles=13065 instructions=10109 cache-misses=7
+[sample=4] cpu=0 bench=fir2dim cycles=12985 instructions=10110 cache-misses=4
+[sample=5] cpu=0 bench=fir2dim cycles=12976 instructions=10107 cache-misses=6
+[sample=6] cpu=0 bench=fir2dim cycles=12951 instructions=10105 cache-misses=5
+[sample=7] cpu=0 bench=fir2dim cycles=12915 instructions=10103 cache-misses=7
+[sample=8] cpu=0 bench=fir2dim cycles=12924 instructions=10106 cache-misses=7
+[sample=9] cpu=0 bench=fir2dim cycles=12976 instructions=10101 cache-misses=4
+[sample=10] cpu=0 bench=fir2dim cycles=12883 instructions=10102 cache-misses=4
+[sample=11] cpu=0 bench=fir2dim cycles=12952 instructions=10105 cache-misses=2
+[sample=12] cpu=0 bench=fir2dim cycles=12929 instructions=10102 cache-misses=4
+[sample=13] cpu=0 bench=fir2dim cycles=12915 instructions=10101 cache-misses=4
+[sample=14] cpu=0 bench=fir2dim cycles=12962 instructions=10104 cache-misses=3
+[sample=15] cpu=0 bench=fir2dim cycles=12946 instructions=10104 cache-misses=3
+[sample=16] cpu=0 bench=fir2dim cycles=12964 instructions=10104 cache-misses=4
+[sample=17] cpu=0 bench=fir2dim cycles=12940 instructions=10105 cache-misses=4
+[sample=18] cpu=0 bench=fir2dim cycles=12982 instructions=10109 cache-misses=4
+[sample=19] cpu=0 bench=fir2dim cycles=12952 instructions=10105 cache-misses=4
+
+# Statistics over 20 samples on cpu0 bench=fir2dim (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                       12883                20587             13367.60             12957.00
+  instructions                 10101                10142             10108.50             10105.00
+  cache-misses                     2                   19                 5.60                 4.00

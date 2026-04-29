@@ -1,0 +1,5 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor
+# multi_proc_pmu: samples=20, active_cores=1, lock_freq_khz=0 (auto)
+# cpu0=huff_dec (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=huff_dec cycles=441848 instructions=321078 cache-misses=92
