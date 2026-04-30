@@ -1,0 +1,19 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=10, active_cores=4, lock_freq_khz=1600000
+# cpu0=cjpeg_wrbmp (measured)  cpu1=POINTER  cpu2=MTH_POINTER  cpu3=PR_POINTER
+[sample=0] cpu=0 bench=cjpeg_wrbmp cycles=281171 instructions=212420 cache-misses=65
+[sample=1] cpu=0 bench=cjpeg_wrbmp cycles=269889 instructions=212405 cache-misses=70
+[sample=2] cpu=0 bench=cjpeg_wrbmp cycles=268334 instructions=212405 cache-misses=45
+[sample=3] cpu=0 bench=cjpeg_wrbmp cycles=269129 instructions=212405 cache-misses=35
+[sample=4] cpu=0 bench=cjpeg_wrbmp cycles=273543 instructions=212405 cache-misses=45
+[sample=5] cpu=0 bench=cjpeg_wrbmp cycles=268271 instructions=212405 cache-misses=39
+[sample=6] cpu=0 bench=cjpeg_wrbmp cycles=270264 instructions=212407 cache-misses=42
+[sample=7] cpu=0 bench=cjpeg_wrbmp cycles=272257 instructions=212406 cache-misses=28
+[sample=8] cpu=0 bench=cjpeg_wrbmp cycles=268648 instructions=212406 cache-misses=46
+[sample=9] cpu=0 bench=cjpeg_wrbmp cycles=268232 instructions=212406 cache-misses=34
+
+# Statistics over 10 samples on cpu0 bench=cjpeg_wrbmp (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      268232               281171            270973.80            269509.00
+  instructions                212405               212420            212407.00            212405.50
+  cache-misses                    28                   70                44.90                43.50

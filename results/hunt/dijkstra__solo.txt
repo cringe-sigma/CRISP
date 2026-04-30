@@ -1,0 +1,18 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=1, lock_freq_khz=1600000
+# cpu0=dijkstra (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=dijkstra cycles=108995498 instructions=82753880 cache-misses=7716
+[sample=1] cpu=0 bench=dijkstra cycles=108229892 instructions=82753801 cache-misses=5333
+[sample=2] cpu=0 bench=dijkstra cycles=108335065 instructions=82753816 cache-misses=6198
+[sample=3] cpu=0 bench=dijkstra cycles=108736548 instructions=82753821 cache-misses=6585
+[sample=4] cpu=0 bench=dijkstra cycles=108769604 instructions=82753811 cache-misses=6141
+[sample=5] cpu=0 bench=dijkstra cycles=108903108 instructions=82753825 cache-misses=7166
+[sample=6] cpu=0 bench=dijkstra cycles=108596873 instructions=82753831 cache-misses=5919
+[sample=7] cpu=0 bench=dijkstra cycles=108760691 instructions=82753822 cache-misses=6167
+
+# Statistics over 8 samples on cpu0 bench=dijkstra (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                   108229892            108995498         108665909.88         108748619.50
+  instructions              82753801             82753880          82753825.88          82753821.50
+  cache-misses                  5333                 7716              6403.12              6182.50

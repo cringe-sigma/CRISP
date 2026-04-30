@@ -1,0 +1,7 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
+# cpu0=audiobeam (measured)  cpu1=PR_ROWBUF  cpu2=PR_ROWBUF  cpu3=PR_ROWBUF
+[sample=0] cpu=0 bench=audiobeam cycles=1647834 instructions=1138626 cache-misses=172
+[sample=1] cpu=0 bench=audiobeam cycles=1652614 instructions=1138585 cache-misses=134
+[sample=2] cpu=0 bench=audiobeam cycles=1637001 instructions=1138579 cache-misses=138
+[sample=3] cpu=0 bench=audiobeam cycles=1665895 instructions=1138583 cache-misses=110

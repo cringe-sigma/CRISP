@@ -1,0 +1,19 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=10, active_cores=4, lock_freq_khz=1600000
+# cpu0=dijkstra (measured)  cpu1=CACHE  cpu2=MTH_CACHE  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=dijkstra cycles=108977349 instructions=82753834 cache-misses=5950
+[sample=1] cpu=0 bench=dijkstra cycles=108636200 instructions=82753777 cache-misses=5166
+[sample=2] cpu=0 bench=dijkstra cycles=109217811 instructions=82753830 cache-misses=6969
+[sample=3] cpu=0 bench=dijkstra cycles=108981635 instructions=82753843 cache-misses=7357
+[sample=4] cpu=0 bench=dijkstra cycles=108808476 instructions=82753814 cache-misses=6592
+[sample=5] cpu=0 bench=dijkstra cycles=108898339 instructions=82753863 cache-misses=7374
+[sample=6] cpu=0 bench=dijkstra cycles=108836907 instructions=82753819 cache-misses=6167
+[sample=7] cpu=0 bench=dijkstra cycles=109017821 instructions=82753874 cache-misses=8141
+[sample=8] cpu=0 bench=dijkstra cycles=109054624 instructions=82753846 cache-misses=7593
+[sample=9] cpu=0 bench=dijkstra cycles=109033211 instructions=82753857 cache-misses=7314
+
+# Statistics over 10 samples on cpu0 bench=dijkstra (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                   108636200            109217811         108946237.30         108979492.00
+  instructions              82753777             82753874          82753835.70          82753838.50
+  cache-misses                  5166                 8141              6862.30              7141.50

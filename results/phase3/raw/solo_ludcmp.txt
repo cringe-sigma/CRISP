@@ -1,0 +1,22 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=1, lock_freq_khz=1600000
+# cpu0=ludcmp (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=ludcmp cycles=22561 instructions=7026 cache-misses=33
+[sample=1] cpu=0 bench=ludcmp cycles=21762 instructions=7015 cache-misses=33
+[sample=2] cpu=0 bench=ludcmp cycles=13568 instructions=7014 cache-misses=16
+[sample=3] cpu=0 bench=ludcmp cycles=10806 instructions=7014 cache-misses=7
+[sample=4] cpu=0 bench=ludcmp cycles=10739 instructions=7012 cache-misses=7
+[sample=5] cpu=0 bench=ludcmp cycles=10665 instructions=7011 cache-misses=7
+[sample=6] cpu=0 bench=ludcmp cycles=10697 instructions=7011 cache-misses=4
+[sample=7] cpu=0 bench=ludcmp cycles=10911 instructions=7012 cache-misses=5
+[sample=8] cpu=0 bench=ludcmp cycles=10688 instructions=7011 cache-misses=6
+[sample=9] cpu=0 bench=ludcmp cycles=10673 instructions=7011 cache-misses=5
+[sample=10] cpu=0 bench=ludcmp cycles=10686 instructions=7011 cache-misses=6
+[sample=11] cpu=0 bench=ludcmp cycles=10740 instructions=7011 cache-misses=6
+
+# Statistics over 12 samples on cpu0 bench=ludcmp (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                       10665                22561             12874.67             10739.50
+  instructions                  7011                 7026              7013.25              7011.50
+  cache-misses                     4                   33                11.25                 6.50

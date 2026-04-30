@@ -26,7 +26,7 @@ BUILD_DIR  := build
 # trees that don't fit the simple per-bench `<name>_{init,main,return}` API
 # this harness expects, and they pull in arch-specific code (arm7, mpc5554,
 # tc1797) that would not compile on a generic x86_64 Linux host.
-BENCH_CATEGORIES := kernel app sequential test TIM
+BENCH_CATEGORIES := kernel app sequential test TIM POLY MTH
 
 # Auto-discover every bench directory across the selected categories.
 BENCH_DIRS := $(sort $(wildcard $(addprefix $(BENCH_ROOT)/,$(addsuffix /*/,$(BENCH_CATEGORIES)))))

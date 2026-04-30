@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=huff_enc (measured)  cpu1=PR_CACHE  cpu2=MEM  cpu3=PR_TLB
+[sample=0] cpu=0 bench=huff_enc cycles=1905848 instructions=1109061 cache-misses=319
+[sample=1] cpu=0 bench=huff_enc cycles=1634396 instructions=1102350 cache-misses=251
+[sample=2] cpu=0 bench=huff_enc cycles=1605184 instructions=1102336 cache-misses=219
+[sample=3] cpu=0 bench=huff_enc cycles=1610527 instructions=1102324 cache-misses=276
+[sample=4] cpu=0 bench=huff_enc cycles=1615042 instructions=1109031 cache-misses=158
+[sample=5] cpu=0 bench=huff_enc cycles=1609108 instructions=1102339 cache-misses=207
+[sample=6] cpu=0 bench=huff_enc cycles=2012093 instructions=1102337 cache-misses=181
+[sample=7] cpu=0 bench=huff_enc cycles=1580009 instructions=1102331 cache-misses=240
+[sample=8] cpu=0 bench=huff_enc cycles=1612917 instructions=1109032 cache-misses=251
+[sample=9] cpu=0 bench=huff_enc cycles=1590302 instructions=1102336 cache-misses=197
+[sample=10] cpu=0 bench=huff_enc cycles=1597578 instructions=1102339 cache-misses=211
+[sample=11] cpu=0 bench=huff_enc cycles=1584689 instructions=1102334 cache-misses=194
+[sample=12] cpu=0 bench=huff_enc cycles=1599922 instructions=1109034 cache-misses=187
+[sample=13] cpu=0 bench=huff_enc cycles=1723345 instructions=1102336 cache-misses=204
+[sample=14] cpu=0 bench=huff_enc cycles=1577068 instructions=1102344 cache-misses=185
+[sample=15] cpu=0 bench=huff_enc cycles=1605975 instructions=1102328 cache-misses=234
+[sample=16] cpu=0 bench=huff_enc cycles=1611301 instructions=1109031 cache-misses=223
+[sample=17] cpu=0 bench=huff_enc cycles=1600091 instructions=1102349 cache-misses=223
+[sample=18] cpu=0 bench=huff_enc cycles=1586064 instructions=1102334 cache-misses=204
+[sample=19] cpu=0 bench=huff_enc cycles=1573688 instructions=1102325 cache-misses=259
+
+# Statistics over 20 samples on cpu0 bench=huff_enc (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     1573688              2012093           1641757.35           1605579.50
+  instructions               1102324              1109061           1104011.55           1102338.00
+  cache-misses                   158                  319               221.15               215.00

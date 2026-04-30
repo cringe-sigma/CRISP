@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=jfdctint (measured)  cpu1=PR_SPAWN  cpu2=PR_SPAWN  cpu3=PR_SPAWN
+[sample=0] cpu=0 bench=jfdctint cycles=21343 instructions=6386 cache-misses=12
+[sample=1] cpu=0 bench=jfdctint cycles=19985 instructions=6381 cache-misses=10
+[sample=2] cpu=0 bench=jfdctint cycles=22014 instructions=6381 cache-misses=5
+[sample=3] cpu=0 bench=jfdctint cycles=16238 instructions=6381 cache-misses=6
+[sample=4] cpu=0 bench=jfdctint cycles=15386 instructions=6381 cache-misses=4
+[sample=5] cpu=0 bench=jfdctint cycles=13105 instructions=6381 cache-misses=5
+[sample=6] cpu=0 bench=jfdctint cycles=13605 instructions=6381 cache-misses=5
+[sample=7] cpu=0 bench=jfdctint cycles=9782 instructions=6381 cache-misses=4
+[sample=8] cpu=0 bench=jfdctint cycles=8562 instructions=6382 cache-misses=4
+[sample=9] cpu=0 bench=jfdctint cycles=9448 instructions=6382 cache-misses=6
+[sample=10] cpu=0 bench=jfdctint cycles=10039 instructions=6381 cache-misses=6
+[sample=11] cpu=0 bench=jfdctint cycles=9936 instructions=6381 cache-misses=5
+[sample=12] cpu=0 bench=jfdctint cycles=12219 instructions=6381 cache-misses=5
+[sample=13] cpu=0 bench=jfdctint cycles=13923 instructions=6381 cache-misses=7
+[sample=14] cpu=0 bench=jfdctint cycles=13668 instructions=6381 cache-misses=4
+[sample=15] cpu=0 bench=jfdctint cycles=11074 instructions=6381 cache-misses=6
+[sample=16] cpu=0 bench=jfdctint cycles=8926 instructions=6381 cache-misses=4
+[sample=17] cpu=0 bench=jfdctint cycles=8979 instructions=6381 cache-misses=5
+[sample=18] cpu=0 bench=jfdctint cycles=9996 instructions=6381 cache-misses=5
+[sample=19] cpu=0 bench=jfdctint cycles=9059 instructions=6381 cache-misses=5
+
+# Statistics over 20 samples on cpu0 bench=jfdctint (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        8562                22014             12864.35             11646.50
+  instructions                  6381                 6386              6381.35              6381.00
+  cache-misses                     4                   12                 5.65                 5.00

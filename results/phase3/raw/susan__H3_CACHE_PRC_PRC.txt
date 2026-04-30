@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=susan (measured)  cpu1=CACHE  cpu2=PR_CACHE  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=susan cycles=79124729 instructions=64456326 cache-misses=802
+[sample=1] cpu=0 bench=susan cycles=78965843 instructions=64456278 cache-misses=590
+[sample=2] cpu=0 bench=susan cycles=79044455 instructions=64456281 cache-misses=730
+[sample=3] cpu=0 bench=susan cycles=79078641 instructions=64456300 cache-misses=722
+[sample=4] cpu=0 bench=susan cycles=79118972 instructions=64456311 cache-misses=784
+[sample=5] cpu=0 bench=susan cycles=78984170 instructions=64456283 cache-misses=837
+[sample=6] cpu=0 bench=susan cycles=79122107 instructions=64456314 cache-misses=864
+[sample=7] cpu=0 bench=susan cycles=78982240 instructions=64456283 cache-misses=779
+[sample=8] cpu=0 bench=susan cycles=79067902 instructions=64456300 cache-misses=803
+[sample=9] cpu=0 bench=susan cycles=79016821 instructions=64456290 cache-misses=805
+[sample=10] cpu=0 bench=susan cycles=79288509 instructions=64456322 cache-misses=891
+[sample=11] cpu=0 bench=susan cycles=79409886 instructions=64456344 cache-misses=1146
+
+# Statistics over 12 samples on cpu0 bench=susan (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                    78965843             79409886          79100356.25          79073271.50
+  instructions              64456278             64456344          64456302.67          64456300.00
+  cache-misses                   590                 1146               812.75               802.50

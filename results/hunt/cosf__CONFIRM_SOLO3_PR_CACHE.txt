@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=cosf (measured)  cpu1=PR_CACHE  cpu2=PR_CACHE  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=cosf cycles=63965 instructions=23697 cache-misses=20
+[sample=1] cpu=0 bench=cosf cycles=65619 instructions=23690 cache-misses=14
+[sample=2] cpu=0 bench=cosf cycles=59962 instructions=23693 cache-misses=12
+[sample=3] cpu=0 bench=cosf cycles=53584 instructions=23691 cache-misses=14
+[sample=4] cpu=0 bench=cosf cycles=54535 instructions=23692 cache-misses=9
+[sample=5] cpu=0 bench=cosf cycles=52620 instructions=23690 cache-misses=8
+[sample=6] cpu=0 bench=cosf cycles=50711 instructions=23692 cache-misses=10
+[sample=7] cpu=0 bench=cosf cycles=51772 instructions=23691 cache-misses=11
+[sample=8] cpu=0 bench=cosf cycles=48526 instructions=23692 cache-misses=11
+[sample=9] cpu=0 bench=cosf cycles=54328 instructions=23690 cache-misses=14
+[sample=10] cpu=0 bench=cosf cycles=31809 instructions=23690 cache-misses=2
+[sample=11] cpu=0 bench=cosf cycles=31170 instructions=23689 cache-misses=1
+[sample=12] cpu=0 bench=cosf cycles=31093 instructions=23691 cache-misses=2
+[sample=13] cpu=0 bench=cosf cycles=31123 instructions=23690 cache-misses=3
+[sample=14] cpu=0 bench=cosf cycles=31138 instructions=23690 cache-misses=1
+[sample=15] cpu=0 bench=cosf cycles=31078 instructions=23690 cache-misses=1
+[sample=16] cpu=0 bench=cosf cycles=31096 instructions=23691 cache-misses=2
+[sample=17] cpu=0 bench=cosf cycles=31092 instructions=23690 cache-misses=0
+[sample=18] cpu=0 bench=cosf cycles=31208 instructions=23691 cache-misses=0
+[sample=19] cpu=0 bench=cosf cycles=31139 instructions=23690 cache-misses=0
+
+# Statistics over 20 samples on cpu0 bench=cosf (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       31078                65619             43378.40             40167.50
+  instructions                 23689                23697             23691.00             23690.50
+  cache-misses                     0                   20                 6.75                 5.50

@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=mpeg2 (measured)  cpu1=MTH_MEM  cpu2=PR_CACHE  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=mpeg2 cycles=586418467 instructions=394401784 cache-misses=6348
+[sample=1] cpu=0 bench=mpeg2 cycles=587457837 instructions=394401657 cache-misses=4491
+[sample=2] cpu=0 bench=mpeg2 cycles=580788598 instructions=394401606 cache-misses=5270
+[sample=3] cpu=0 bench=mpeg2 cycles=573932598 instructions=394401432 cache-misses=4628
+[sample=4] cpu=0 bench=mpeg2 cycles=577787460 instructions=394401614 cache-misses=5285
+[sample=5] cpu=0 bench=mpeg2 cycles=585331368 instructions=394401853 cache-misses=6834
+[sample=6] cpu=0 bench=mpeg2 cycles=586336939 instructions=394401469 cache-misses=4788
+[sample=7] cpu=0 bench=mpeg2 cycles=583841940 instructions=394401570 cache-misses=4956
+[sample=8] cpu=0 bench=mpeg2 cycles=586534456 instructions=394401709 cache-misses=5846
+[sample=9] cpu=0 bench=mpeg2 cycles=586458996 instructions=394401839 cache-misses=6270
+[sample=10] cpu=0 bench=mpeg2 cycles=583035196 instructions=394401478 cache-misses=4445
+[sample=11] cpu=0 bench=mpeg2 cycles=581997027 instructions=394401448 cache-misses=4525
+[sample=12] cpu=0 bench=mpeg2 cycles=580683484 instructions=394401401 cache-misses=4503
+[sample=13] cpu=0 bench=mpeg2 cycles=586312318 instructions=394401653 cache-misses=6361
+[sample=14] cpu=0 bench=mpeg2 cycles=585407700 instructions=394401696 cache-misses=5423
+[sample=15] cpu=0 bench=mpeg2 cycles=588430392 instructions=394401476 cache-misses=4980
+[sample=16] cpu=0 bench=mpeg2 cycles=581909489 instructions=394401607 cache-misses=4415
+[sample=17] cpu=0 bench=mpeg2 cycles=582171219 instructions=394401311 cache-misses=4059
+[sample=18] cpu=0 bench=mpeg2 cycles=583127578 instructions=394401501 cache-misses=4892
+[sample=19] cpu=0 bench=mpeg2 cycles=581878540 instructions=394401347 cache-misses=4513
+
+# Statistics over 20 samples on cpu0 bench=mpeg2 (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                   573932598            588430392         583492080.10         583484759.00
+  instructions             394401311            394401853         394401572.55         394401588.00
+  cache-misses                  4059                 6834              5141.60              4924.00

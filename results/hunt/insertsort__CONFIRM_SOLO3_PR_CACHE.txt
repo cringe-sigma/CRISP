@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=insertsort (measured)  cpu1=PR_CACHE  cpu2=PR_CACHE  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=insertsort cycles=31503 instructions=2953 cache-misses=22
+[sample=1] cpu=0 bench=insertsort cycles=12461 instructions=2946 cache-misses=14
+[sample=2] cpu=0 bench=insertsort cycles=5351 instructions=2947 cache-misses=9
+[sample=3] cpu=0 bench=insertsort cycles=4227 instructions=2947 cache-misses=6
+[sample=4] cpu=0 bench=insertsort cycles=4231 instructions=2947 cache-misses=4
+[sample=5] cpu=0 bench=insertsort cycles=4212 instructions=2947 cache-misses=3
+[sample=6] cpu=0 bench=insertsort cycles=4168 instructions=2947 cache-misses=4
+[sample=7] cpu=0 bench=insertsort cycles=4145 instructions=2946 cache-misses=5
+[sample=8] cpu=0 bench=insertsort cycles=4161 instructions=2947 cache-misses=4
+[sample=9] cpu=0 bench=insertsort cycles=4168 instructions=2947 cache-misses=4
+[sample=10] cpu=0 bench=insertsort cycles=4176 instructions=2946 cache-misses=1
+[sample=11] cpu=0 bench=insertsort cycles=4165 instructions=2946 cache-misses=6
+[sample=12] cpu=0 bench=insertsort cycles=4171 instructions=2947 cache-misses=4
+[sample=13] cpu=0 bench=insertsort cycles=4192 instructions=2946 cache-misses=7
+[sample=14] cpu=0 bench=insertsort cycles=4200 instructions=2947 cache-misses=6
+[sample=15] cpu=0 bench=insertsort cycles=4194 instructions=2946 cache-misses=6
+[sample=16] cpu=0 bench=insertsort cycles=4155 instructions=2947 cache-misses=2
+[sample=17] cpu=0 bench=insertsort cycles=4202 instructions=2947 cache-misses=4
+[sample=18] cpu=0 bench=insertsort cycles=4173 instructions=2946 cache-misses=4
+[sample=19] cpu=0 bench=insertsort cycles=4131 instructions=2946 cache-misses=1
+
+# Statistics over 20 samples on cpu0 bench=insertsort (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        4131                31503              6019.30              4184.00
+  instructions                  2946                 2953              2946.90              2947.00
+  cache-misses                     1                   22                 5.80                 4.00

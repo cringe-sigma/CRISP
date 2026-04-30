@@ -1,0 +1,17 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
+# cpu0=fir2dim (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=PR_SPAWN
+[sample=0] cpu=0 bench=fir2dim cycles=21657 instructions=10128 cache-misses=18
+[sample=1] cpu=0 bench=fir2dim cycles=23735 instructions=10122 cache-misses=9
+[sample=2] cpu=0 bench=fir2dim cycles=18883 instructions=10116 cache-misses=12
+[sample=3] cpu=0 bench=fir2dim cycles=17768 instructions=10115 cache-misses=11
+[sample=4] cpu=0 bench=fir2dim cycles=14300 instructions=10111 cache-misses=11
+[sample=5] cpu=0 bench=fir2dim cycles=15887 instructions=10115 cache-misses=10
+[sample=6] cpu=0 bench=fir2dim cycles=14566 instructions=10111 cache-misses=9
+[sample=7] cpu=0 bench=fir2dim cycles=13493 instructions=10111 cache-misses=9
+
+# Statistics over 8 samples on cpu0 bench=fir2dim (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       13493                23735             17536.12             16827.50
+  instructions                 10111                10128             10116.12             10115.00
+  cache-misses                     9                   18                11.12                10.50

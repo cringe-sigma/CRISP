@@ -1,0 +1,277 @@
+nohup: ignoring input
+Estimated 1456 runs; phase-1 = 1176
+[1/1456 t=0s] solo adpcm_dec base=315521.00
+  adpcm_dec phase-1 top: PR_ROWBUF(1.0847) > PR_DISKIO > MTH_CACHE
+  adpcm_dec champion: PR_ROWBUF PR_ROWBUF PR_ROWBUF  -> 1.0212x median (N=20)
+[27/1456 t=10s] solo adpcm_enc base=307052.50
+  adpcm_enc phase-1 top: BUS(1.0986) > PR_SPAWN > PR_TLB
+  adpcm_enc champion: BUS BUS PR_SPAWN  -> 1.0058x median (N=20)
+[53/1456 t=22s] solo ammunition base=228853644.00
+  ammunition phase-1 top: MTH_MEM(1.0098) > MEM > PR_CACHE
+  ammunition champion: MTH_MEM MTH_MEM MEM  -> 1.0114x median (N=20)
+[warn] failed: anagram
+[79/1456 t=81s] solo anagram base=0
+[warn] failed: anagram CACHE CACHE CACHE
+[warn] failed: anagram BUS BUS BUS
+[warn] failed: anagram MEM MEM MEM
+[warn] failed: anagram POINTER POINTER POINTER
+[warn] failed: anagram PIPELINE PIPELINE PIPELINE
+[warn] failed: anagram MTH_CACHE MTH_CACHE MTH_CACHE
+[warn] failed: anagram MTH_BUS MTH_BUS MTH_BUS
+[warn] failed: anagram MTH_MEM MTH_MEM MTH_MEM
+[warn] failed: anagram MTH_POINTER MTH_POINTER MTH_POINTER
+[warn] failed: anagram MTH_PIPELINE MTH_PIPELINE MTH_PIPELINE
+[warn] failed: anagram MTH_SYSCALLS MTH_SYSCALLS MTH_SYSCALLS
+[warn] failed: anagram PR_CACHE PR_CACHE PR_CACHE
+[warn] failed: anagram PR_MEMBUS PR_MEMBUS PR_MEMBUS
+[warn] failed: anagram PR_ROWBUF PR_ROWBUF PR_ROWBUF
+[warn] failed: anagram PR_POINTER PR_POINTER PR_POINTER
+[warn] failed: anagram PR_TLB PR_TLB PR_TLB
+[warn] failed: anagram PR_DISKIO PR_DISKIO PR_DISKIO
+[warn] failed: anagram PR_FILESYS PR_FILESYS PR_FILESYS
+[warn] failed: anagram PR_NET PR_NET PR_NET
+[warn] failed: anagram PR_SPAWN PR_SPAWN PR_SPAWN
+  anagram phase-1 top: BUS(0) > CACHE > MEM
+[warn] failed: anagram BUS BUS BUS
+[warn] failed: anagram BUS CACHE MEM
+[warn] failed: anagram BUS BUS CACHE
+[warn] failed: anagram CACHE CACHE CACHE
+[warn] failed: anagram BUS MEM MEM
+  anagram champion:   -> 0x median (N=20)
+[warn] failed: audiobeam
+[105/1456 t=95s] solo audiobeam base=0
+[warn] failed: audiobeam CACHE CACHE CACHE
+[warn] failed: audiobeam BUS BUS BUS
+[warn] failed: audiobeam MEM MEM MEM
+[warn] failed: audiobeam POINTER POINTER POINTER
+[warn] failed: audiobeam PIPELINE PIPELINE PIPELINE
+[warn] failed: audiobeam MTH_CACHE MTH_CACHE MTH_CACHE
+[warn] failed: audiobeam MTH_BUS MTH_BUS MTH_BUS
+[warn] failed: audiobeam MTH_MEM MTH_MEM MTH_MEM
+[warn] failed: audiobeam MTH_POINTER MTH_POINTER MTH_POINTER
+[warn] failed: audiobeam MTH_PIPELINE MTH_PIPELINE MTH_PIPELINE
+[warn] failed: audiobeam MTH_SYSCALLS MTH_SYSCALLS MTH_SYSCALLS
+[warn] failed: audiobeam PR_CACHE PR_CACHE PR_CACHE
+[warn] failed: audiobeam PR_MEMBUS PR_MEMBUS PR_MEMBUS
+[warn] failed: audiobeam PR_ROWBUF PR_ROWBUF PR_ROWBUF
+[warn] failed: audiobeam PR_POINTER PR_POINTER PR_POINTER
+[warn] failed: audiobeam PR_TLB PR_TLB PR_TLB
+[warn] failed: audiobeam PR_DISKIO PR_DISKIO PR_DISKIO
+[warn] failed: audiobeam PR_FILESYS PR_FILESYS PR_FILESYS
+[warn] failed: audiobeam PR_NET PR_NET PR_NET
+[warn] failed: audiobeam PR_SPAWN PR_SPAWN PR_SPAWN
+  audiobeam phase-1 top: BUS(0) > CACHE > MEM
+[warn] failed: audiobeam BUS BUS BUS
+[warn] failed: audiobeam BUS CACHE MEM
+[warn] failed: audiobeam BUS BUS CACHE
+[warn] failed: audiobeam CACHE CACHE CACHE
+[warn] failed: audiobeam BUS MEM MEM
+  audiobeam champion:   -> 0x median (N=20)
+[131/1456 t=106s] solo binarysearch base=1870.00
+  binarysearch phase-1 top: PR_SPAWN(2.3005) > PR_TLB > PR_POINTER
+  binarysearch champion: PR_SPAWN PR_SPAWN PR_TLB  -> 1.0206x median (N=20)
+[157/1456 t=116s] solo bitcount base=30444.50
+  bitcount phase-1 top: PR_SPAWN(1.2634) > POINTER > MTH_MEM
+  bitcount champion: PR_SPAWN POINTER MTH_MEM  -> 1.1469x median (N=20)
+[183/1456 t=126s] solo bitonic base=21871.00
+  bitonic phase-1 top: PR_CACHE(1.1089) > PR_SPAWN > BUS
+  bitonic champion: PR_CACHE PR_CACHE PR_CACHE  -> 1.0000x median (N=20)
+[209/1456 t=136s] solo bsort base=358009.00
+  bsort phase-1 top: PR_SPAWN(1.0137) > PR_TLB > MTH_CACHE
+  bsort champion: PR_SPAWN PR_SPAWN PR_SPAWN  -> 1.0112x median (N=20)
+[235/1456 t=147s] solo cjpeg_transupp base=7206056.00
+  cjpeg_transupp phase-1 top: MTH_MEM(1.0260) > MEM > PR_TLB
+  cjpeg_transupp champion: MTH_MEM MTH_MEM MTH_MEM  -> 1.0176x median (N=20)
+[261/1456 t=161s] solo cjpeg_wrbmp base=267650.50
+  cjpeg_wrbmp phase-1 top: PR_NET(1.0628) > PR_SPAWN > CACHE
+  cjpeg_wrbmp champion: PR_NET PR_NET PR_NET  -> 1.0000x median (N=20)
+[287/1456 t=170s] solo complex_updates base=3576.00
+  complex_updates phase-1 top: POINTER(2.3663) > PR_FILESYS > MTH_SYSCALLS
+  complex_updates champion: POINTER POINTER POINTER  -> 1.0055x median (N=20)
+[313/1456 t=180s] solo cosf base=31066.00
+  cosf phase-1 top: PR_CACHE(1.9334) > PR_SPAWN > POINTER
+  cosf champion: PR_CACHE PR_CACHE PR_CACHE  -> 1.2930x median (N=20)
+[339/1456 t=190s] solo countnegative base=33976.00
+  countnegative phase-1 top: POINTER(1.1179) > PR_SPAWN > MTH_SYSCALLS
+  countnegative champion: PR_SPAWN PR_SPAWN PR_SPAWN  -> 0.9984x median (N=20)
+[365/1456 t=199s] solo cover base=6232.50
+  cover phase-1 top: POINTER(3.1774) > MEM > MTH_CACHE
+  cover champion: POINTER POINTER MEM  -> 1.0855x median (N=20)
+[391/1456 t=209s] solo cubic base=2162194.00
+  cubic phase-1 top: PR_CACHE(1.0284) > POINTER > PR_TLB
+  cubic champion: PR_CACHE PR_CACHE PR_CACHE  -> 1.0224x median (N=20)
+[417/1456 t=220s] solo deg2rad base=17223.00
+  deg2rad phase-1 top: POINTER(1.1310) > PR_SPAWN > PR_DISKIO
+  deg2rad champion: POINTER POINTER POINTER  -> 1.0058x median (N=20)
+[443/1456 t=231s] solo dijkstra base=108748619.50
+  dijkstra phase-1 top: MEM(1.0260) > MTH_MEM > PR_TLB
+  dijkstra champion: MEM MEM MEM  -> 1.0248x median (N=20)
+[469/1456 t=263s] solo duff base=4789.50
+  duff phase-1 top: MTH_MEM(2.1513) > MTH_CACHE > MTH_POINTER
+  duff champion: MTH_MEM MTH_MEM MTH_MEM  -> 1.1356x median (N=20)
+[495/1456 t=277s] solo epic base=5562163.00
+  epic phase-1 top: MTH_MEM(1.0280) > MEM > MTH_BUS
+  epic champion: MTH_MEM MEM MTH_BUS  -> 1.0226x median (N=20)
+[521/1456 t=290s] solo fac base=741.00
+  fac phase-1 top: POINTER(2.1397) > MTH_MEM > MEM
+  fac champion: POINTER POINTER POINTER  -> 1.1201x median (N=20)
+[547/1456 t=301s] solo fft base=979871.00
+  fft phase-1 top: PR_TLB(1.0401) > PR_CACHE > POINTER
+  fft champion: PR_TLB PR_TLB PR_CACHE  -> 1.0298x median (N=20)
+[573/1456 t=311s] solo filterbank base=15631621.50
+  filterbank phase-1 top: MTH_MEM(1.0091) > MEM > PR_TLB
+  filterbank champion: MTH_MEM PR_TLB PR_TLB  -> 1.0071x median (N=20)
+[599/1456 t=326s] solo fir2dim base=13017.50
+  fir2dim phase-1 top: POINTER(1.6447) > PR_SPAWN > MTH_MEM
+  fir2dim champion: POINTER POINTER POINTER  -> 1.5495x median (N=20)
+[625/1456 t=337s] solo fmref base=654084.50
+  fmref phase-1 top: PR_CACHE(1.0929) > POINTER > PR_SPAWN
+  fmref champion: PR_CACHE PR_CACHE POINTER  -> 1.0813x median (N=20)
+[651/1456 t=348s] solo g723_enc base=1033081.00
+  g723_enc phase-1 top: PR_CACHE(1.0679) > POINTER > CACHE
+  g723_enc champion: PR_CACHE PR_CACHE PR_CACHE  -> 1.0328x median (N=20)
+[677/1456 t=358s] solo gsm_dec base=3777224.50
+  gsm_dec phase-1 top: MTH_MEM(1.0393) > BUS > PR_CACHE
+  gsm_dec champion: MTH_MEM MTH_MEM BUS  -> 1.0552x median (N=20)
+[703/1456 t=371s] solo gsm_enc base=11827671.50
+  gsm_enc phase-1 top: PR_CACHE(1.0369) > MTH_MEM > PR_TLB
+  gsm_enc champion: PR_CACHE MTH_MEM PR_TLB  -> 1.0807x median (N=20)
+[729/1456 t=385s] solo h264_dec base=522207.00
+  h264_dec phase-1 top: PR_TLB(1.0742) > PR_CACHE > PR_SPAWN
+  h264_dec champion: PR_TLB PR_TLB PR_CACHE  -> 1.0326x median (N=20)
+[755/1456 t=395s] solo huff_enc base=1495374.00
+  huff_enc phase-1 top: PR_CACHE(1.0363) > MEM > PR_TLB
+  huff_enc champion: PR_CACHE MEM PR_TLB  -> 1.0737x median (N=20)
+[781/1456 t=406s] solo iir base=3671.50
+  iir phase-1 top: PR_CACHE(3.7588) > MTH_CACHE > PR_SPAWN
+  iir champion: PR_CACHE PR_CACHE PR_CACHE  -> 0.9579x median (N=20)
+[807/1456 t=417s] solo insertsort base=4276.50
+  insertsort phase-1 top: PR_CACHE(4.8783) > PR_SPAWN > MTH_CACHE
+  insertsort champion: PR_CACHE PR_CACHE PR_CACHE  -> 0.9784x median (N=20)
+[833/1456 t=428s] solo isqrt base=1433754.00
+  isqrt phase-1 top: PR_TLB(1.0115) > PR_CACHE > PR_SPAWN
+  isqrt champion: PR_TLB PR_TLB PR_TLB  -> 1.0110x median (N=20)
+[859/1456 t=438s] solo jfdctint base=8565.50
+  jfdctint phase-1 top: PR_SPAWN(1.7579) > PR_FILESYS > MEM
+  jfdctint champion: PR_SPAWN PR_SPAWN PR_SPAWN  -> 1.3597x median (N=20)
+[885/1456 t=448s] solo lift base=1410045.50
+  lift phase-1 top: PR_CACHE(1.0134) > MTH_POINTER > PR_SPAWN
+  lift champion: PR_CACHE PR_SPAWN PR_SPAWN  -> 1.0088x median (N=20)
+[911/1456 t=459s] solo lms base=460561.00
+  lms phase-1 top: PR_CACHE(1.0445) > POINTER > PR_SPAWN
+  lms champion: PR_CACHE PR_CACHE POINTER  -> 1.0242x median (N=20)
+[937/1456 t=469s] solo ludcmp base=10767.00
+  ludcmp phase-1 top: POINTER(1.7264) > PR_DISKIO > MEM
+  ludcmp champion: POINTER POINTER POINTER  -> 0.9942x median (N=20)
+[963/1456 t=480s] solo matrix1 base=20701.50
+  matrix1 phase-1 top: PR_CACHE(1.4665) > POINTER > MTH_POINTER
+  matrix1 champion: PR_CACHE PR_CACHE PR_CACHE  -> 0.9983x median (N=20)
+[989/1456 t=491s] solo md5 base=36046736.00
+  md5 phase-1 top: MTH_MEM(1.0201) > MEM > PR_POINTER
+  md5 champion: MTH_MEM MTH_MEM MTH_MEM  -> 1.0061x median (N=20)
+[1015/1456 t=510s] solo minver base=6780.00
+  minver phase-1 top: MEM(3.3878) > PR_SPAWN > POINTER
+  minver champion: MEM POINTER POINTER  -> 0.9410x median (N=20)
+[1041/1456 t=525s] solo mpeg2 base=566236650.50
+  mpeg2 phase-1 top: MTH_MEM(1.0298) > MEM > PR_CACHE
+  mpeg2 champion: MTH_MEM PR_CACHE PR_CACHE  -> 1.0305x median (N=20)
+[1067/1456 t=639s] solo ndes base=105587.50
+  ndes phase-1 top: PR_SPAWN(1.2148) > MTH_MEM > MTH_POINTER
+  ndes champion: PR_SPAWN PR_SPAWN MTH_MEM  -> 1.0020x median (N=20)
+[1093/1456 t=652s] solo petrinet base=3426.00
+  petrinet phase-1 top: PR_ROWBUF(5.6208) > PR_MEMBUS > PR_POINTER
+  petrinet champion: PR_ROWBUF PR_ROWBUF PR_ROWBUF  -> 0.9784x median (N=20)
+[1119/1456 t=664s] solo pm base=21330830.50
+  pm phase-1 top: MEM(1.0155) > MTH_MEM > PR_TLB
+  pm champion: MEM MTH_MEM PR_TLB  -> 1.0184x median (N=20)
+[1145/1456 t=681s] solo powerwindow base=2934370.00
+  powerwindow phase-1 top: MTH_MEM(1.1323) > PR_CACHE > PR_SPAWN
+  powerwindow champion: MTH_MEM MTH_MEM MTH_MEM  -> 1.0706x median (N=20)
+[1171/1456 t=693s] solo prime base=1058.50
+  prime phase-1 top: POINTER(4.7558) > PR_SPAWN > MTH_SYSCALLS
+  prime champion: POINTER POINTER POINTER  -> 1.0392x median (N=20)
+[1197/1456 t=703s] solo quicksort base=6052417.00
+  quicksort phase-1 top: MEM(1.0483) > MTH_MEM > PR_TLB
+  quicksort champion: MEM MTH_MEM PR_TLB  -> 1.0671x median (N=20)
+[1223/1456 t=716s] solo rad2deg base=17559.50
+  rad2deg phase-1 top: MEM(1.1996) > POINTER > PR_SPAWN
+  rad2deg champion: MEM MEM MEM  -> 0.9939x median (N=20)
+[1249/1456 t=728s] solo recursion base=4554.50
+  recursion phase-1 top: MTH_MEM(1.4037) > MTH_CACHE > PR_SPAWN
+  recursion champion: MTH_MEM MTH_MEM MTH_MEM  -> 1.1071x median (N=20)
+[warn] failed: rijndael_dec
+[1275/1456 t=740s] solo rijndael_dec base=0
+[warn] failed: rijndael_dec CACHE CACHE CACHE
+[warn] failed: rijndael_dec BUS BUS BUS
+[warn] failed: rijndael_dec MEM MEM MEM
+[warn] failed: rijndael_dec POINTER POINTER POINTER
+[warn] failed: rijndael_dec PIPELINE PIPELINE PIPELINE
+[warn] failed: rijndael_dec MTH_CACHE MTH_CACHE MTH_CACHE
+[warn] failed: rijndael_dec MTH_BUS MTH_BUS MTH_BUS
+[warn] failed: rijndael_dec MTH_MEM MTH_MEM MTH_MEM
+[warn] failed: rijndael_dec MTH_POINTER MTH_POINTER MTH_POINTER
+[warn] failed: rijndael_dec MTH_PIPELINE MTH_PIPELINE MTH_PIPELINE
+[warn] failed: rijndael_dec MTH_SYSCALLS MTH_SYSCALLS MTH_SYSCALLS
+[warn] failed: rijndael_dec PR_CACHE PR_CACHE PR_CACHE
+[warn] failed: rijndael_dec PR_MEMBUS PR_MEMBUS PR_MEMBUS
+[warn] failed: rijndael_dec PR_ROWBUF PR_ROWBUF PR_ROWBUF
+[warn] failed: rijndael_dec PR_POINTER PR_POINTER PR_POINTER
+[warn] failed: rijndael_dec PR_TLB PR_TLB PR_TLB
+[warn] failed: rijndael_dec PR_DISKIO PR_DISKIO PR_DISKIO
+[warn] failed: rijndael_dec PR_FILESYS PR_FILESYS PR_FILESYS
+[warn] failed: rijndael_dec PR_NET PR_NET PR_NET
+[warn] failed: rijndael_dec PR_SPAWN PR_SPAWN PR_SPAWN
+  rijndael_dec phase-1 top: BUS(0) > CACHE > MEM
+[warn] failed: rijndael_dec BUS BUS BUS
+[warn] failed: rijndael_dec BUS CACHE MEM
+[warn] failed: rijndael_dec BUS BUS CACHE
+[warn] failed: rijndael_dec CACHE CACHE CACHE
+[warn] failed: rijndael_dec BUS MEM MEM
+  rijndael_dec champion:   -> 0x median (N=20)
+[warn] failed: rijndael_enc
+[1301/1456 t=751s] solo rijndael_enc base=0
+[warn] failed: rijndael_enc CACHE CACHE CACHE
+[warn] failed: rijndael_enc BUS BUS BUS
+[warn] failed: rijndael_enc MEM MEM MEM
+[warn] failed: rijndael_enc POINTER POINTER POINTER
+[warn] failed: rijndael_enc PIPELINE PIPELINE PIPELINE
+[warn] failed: rijndael_enc MTH_CACHE MTH_CACHE MTH_CACHE
+[warn] failed: rijndael_enc MTH_BUS MTH_BUS MTH_BUS
+[warn] failed: rijndael_enc MTH_MEM MTH_MEM MTH_MEM
+[warn] failed: rijndael_enc MTH_POINTER MTH_POINTER MTH_POINTER
+[warn] failed: rijndael_enc MTH_PIPELINE MTH_PIPELINE MTH_PIPELINE
+[warn] failed: rijndael_enc MTH_SYSCALLS MTH_SYSCALLS MTH_SYSCALLS
+[warn] failed: rijndael_enc PR_CACHE PR_CACHE PR_CACHE
+[warn] failed: rijndael_enc PR_MEMBUS PR_MEMBUS PR_MEMBUS
+[warn] failed: rijndael_enc PR_ROWBUF PR_ROWBUF PR_ROWBUF
+[warn] failed: rijndael_enc PR_POINTER PR_POINTER PR_POINTER
+[warn] failed: rijndael_enc PR_TLB PR_TLB PR_TLB
+[warn] failed: rijndael_enc PR_DISKIO PR_DISKIO PR_DISKIO
+[warn] failed: rijndael_enc PR_FILESYS PR_FILESYS PR_FILESYS
+[warn] failed: rijndael_enc PR_NET PR_NET PR_NET
+[warn] failed: rijndael_enc PR_SPAWN PR_SPAWN PR_SPAWN
+  rijndael_enc phase-1 top: BUS(0) > CACHE > MEM
+[warn] failed: rijndael_enc BUS BUS BUS
+[warn] failed: rijndael_enc BUS CACHE MEM
+[warn] failed: rijndael_enc BUS BUS CACHE
+[warn] failed: rijndael_enc CACHE CACHE CACHE
+[warn] failed: rijndael_enc BUS MEM MEM
+  rijndael_enc champion:   -> 0x median (N=20)
+[1327/1456 t=762s] solo sha base=5438545.50
+  sha phase-1 top: MTH_MEM(1.0292) > PR_TLB > MEM
+  sha champion: MTH_MEM PR_TLB MEM  -> 1.0538x median (N=20)
+[1353/1456 t=775s] solo st base=321609.50
+  st phase-1 top: PR_SPAWN(1.0382) > POINTER > MEM
+  st champion: PR_SPAWN POINTER MEM  -> 1.0033x median (N=20)
+[1379/1456 t=787s] solo statemate base=105857.50
+  statemate phase-1 top: MTH_MEM(1.5660) > BUS > PR_CACHE
+  statemate champion: MTH_MEM MTH_MEM MTH_MEM  -> 1.0530x median (N=20)
+[1405/1456 t=800s] solo susan base=78976611.00
+  susan phase-1 top: MTH_MEM(1.0088) > MEM > PR_TLB
+  susan champion: MTH_MEM MTH_MEM MTH_MEM  -> 1.0075x median (N=20)
+[1431/1456 t=837s] solo test3 base=768144447.50
+  test3 phase-1 top: MEM(1.4008) > MTH_MEM > PR_CACHE
+  test3 champion: MEM MEM MEM  -> 1.2226x median (N=20)
+=== hunt done ===
+all rows : results/hunt/per_victim_top.csv
+champions: results/hunt/champions.csv

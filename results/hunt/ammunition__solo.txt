@@ -1,0 +1,18 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=1, lock_freq_khz=1600000
+# cpu0=ammunition (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=ammunition cycles=228889633 instructions=183613771 cache-misses=700
+[sample=1] cpu=0 bench=ammunition cycles=229094540 instructions=183614251 cache-misses=927
+[sample=2] cpu=0 bench=ammunition cycles=228910671 instructions=183614139 cache-misses=745
+[sample=3] cpu=0 bench=ammunition cycles=228817655 instructions=183613941 cache-misses=759
+[sample=4] cpu=0 bench=ammunition cycles=228744429 instructions=183613865 cache-misses=745
+[sample=5] cpu=0 bench=ammunition cycles=228759639 instructions=183614502 cache-misses=648
+[sample=6] cpu=0 bench=ammunition cycles=228762693 instructions=183613726 cache-misses=516
+[sample=7] cpu=0 bench=ammunition cycles=228918303 instructions=183613738 cache-misses=528
+
+# Statistics over 8 samples on cpu0 bench=ammunition (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                   228744429            229094540         228862195.38         228853644.00
+  instructions             183613726            183614502         183613991.62         183613903.00
+  cache-misses                   516                  927               696.00               722.50

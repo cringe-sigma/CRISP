@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=bitcount (measured)  cpu1=PR_CACHE  cpu2=PR_ROWBUF  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=bitcount cycles=113026 instructions=24592 cache-misses=44
+[sample=1] cpu=0 bench=bitcount cycles=112826 instructions=24587 cache-misses=34
+[sample=2] cpu=0 bench=bitcount cycles=38823 instructions=24586 cache-misses=18
+[sample=3] cpu=0 bench=bitcount cycles=31396 instructions=24585 cache-misses=8
+[sample=4] cpu=0 bench=bitcount cycles=30918 instructions=24584 cache-misses=6
+[sample=5] cpu=0 bench=bitcount cycles=31054 instructions=24585 cache-misses=6
+[sample=6] cpu=0 bench=bitcount cycles=32268 instructions=24584 cache-misses=5
+[sample=7] cpu=0 bench=bitcount cycles=32088 instructions=24584 cache-misses=7
+[sample=8] cpu=0 bench=bitcount cycles=31977 instructions=24583 cache-misses=6
+[sample=9] cpu=0 bench=bitcount cycles=34723 instructions=24585 cache-misses=5
+[sample=10] cpu=0 bench=bitcount cycles=35467 instructions=24582 cache-misses=6
+[sample=11] cpu=0 bench=bitcount cycles=35092 instructions=24583 cache-misses=4
+
+# Statistics over 12 samples on cpu0 bench=bitcount (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       30918               113026             46638.17             33495.50
+  instructions                 24582                24592             24585.00             24584.50
+  cache-misses                     4                   44                12.42                 6.00

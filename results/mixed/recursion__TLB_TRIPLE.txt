@@ -1,0 +1,19 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=10, active_cores=4, lock_freq_khz=1600000
+# cpu0=recursion (measured)  cpu1=PR_TLB  cpu2=PR_TLB  cpu3=PR_TLB
+[sample=0] cpu=0 bench=recursion cycles=7988 instructions=3153 cache-misses=16
+[sample=1] cpu=0 bench=recursion cycles=8622 instructions=3147 cache-misses=15
+[sample=2] cpu=0 bench=recursion cycles=4765 instructions=3148 cache-misses=6
+[sample=3] cpu=0 bench=recursion cycles=4380 instructions=3147 cache-misses=3
+[sample=4] cpu=0 bench=recursion cycles=4357 instructions=3147 cache-misses=2
+[sample=5] cpu=0 bench=recursion cycles=4263 instructions=3147 cache-misses=4
+[sample=6] cpu=0 bench=recursion cycles=4267 instructions=3147 cache-misses=1
+[sample=7] cpu=0 bench=recursion cycles=4367 instructions=3147 cache-misses=2
+[sample=8] cpu=0 bench=recursion cycles=4280 instructions=3147 cache-misses=3
+[sample=9] cpu=0 bench=recursion cycles=4293 instructions=3147 cache-misses=2
+
+# Statistics over 10 samples on cpu0 bench=recursion (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        4263                 8622              5158.20              4362.00
+  instructions                  3147                 3153              3147.70              3147.00
+  cache-misses                     1                   16                 5.40                 3.00

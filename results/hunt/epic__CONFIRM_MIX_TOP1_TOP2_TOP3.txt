@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=epic (measured)  cpu1=MTH_MEM  cpu2=MEM  cpu3=MTH_BUS
+[sample=0] cpu=0 bench=epic cycles=6099869 instructions=4328444 cache-misses=590
+[sample=1] cpu=0 bench=epic cycles=5725594 instructions=4328398 cache-misses=514
+[sample=2] cpu=0 bench=epic cycles=5751643 instructions=4328369 cache-misses=466
+[sample=3] cpu=0 bench=epic cycles=5828898 instructions=4328379 cache-misses=530
+[sample=4] cpu=0 bench=epic cycles=5664091 instructions=4328335 cache-misses=504
+[sample=5] cpu=0 bench=epic cycles=5684029 instructions=4328357 cache-misses=570
+[sample=6] cpu=0 bench=epic cycles=5696248 instructions=4328408 cache-misses=518
+[sample=7] cpu=0 bench=epic cycles=5632287 instructions=4328383 cache-misses=488
+[sample=8] cpu=0 bench=epic cycles=5615133 instructions=4328380 cache-misses=512
+[sample=9] cpu=0 bench=epic cycles=5691993 instructions=4328384 cache-misses=620
+[sample=10] cpu=0 bench=epic cycles=5674385 instructions=4328350 cache-misses=560
+[sample=11] cpu=0 bench=epic cycles=5660659 instructions=4328371 cache-misses=500
+[sample=12] cpu=0 bench=epic cycles=6017540 instructions=4328402 cache-misses=524
+[sample=13] cpu=0 bench=epic cycles=5617564 instructions=4328322 cache-misses=488
+[sample=14] cpu=0 bench=epic cycles=5600593 instructions=4328354 cache-misses=455
+[sample=15] cpu=0 bench=epic cycles=5593082 instructions=4328380 cache-misses=421
+[sample=16] cpu=0 bench=epic cycles=6264879 instructions=4328398 cache-misses=561
+[sample=17] cpu=0 bench=epic cycles=5673936 instructions=4328383 cache-misses=502
+[sample=18] cpu=0 bench=epic cycles=5758019 instructions=4328364 cache-misses=595
+[sample=19] cpu=0 bench=epic cycles=5792041 instructions=4328454 cache-misses=597
+
+# Statistics over 20 samples on cpu0 bench=epic (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     5593082              6264879           5752124.15           5688011.00
+  instructions               4328322              4328454           4328380.75           4328380.00
+  cache-misses                   421                  620               525.75               516.00

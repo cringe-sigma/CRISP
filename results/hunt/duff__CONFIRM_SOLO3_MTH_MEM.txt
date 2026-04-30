@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=duff (measured)  cpu1=MTH_MEM  cpu2=MTH_MEM  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=duff cycles=34248 instructions=3912 cache-misses=13
+[sample=1] cpu=0 bench=duff cycles=7246 instructions=3909 cache-misses=6
+[sample=2] cpu=0 bench=duff cycles=5775 instructions=3909 cache-misses=2
+[sample=3] cpu=0 bench=duff cycles=5925 instructions=3909 cache-misses=2
+[sample=4] cpu=0 bench=duff cycles=5529 instructions=3909 cache-misses=2
+[sample=5] cpu=0 bench=duff cycles=5349 instructions=3908 cache-misses=1
+[sample=6] cpu=0 bench=duff cycles=5553 instructions=3909 cache-misses=3
+[sample=7] cpu=0 bench=duff cycles=4949 instructions=3908 cache-misses=2
+[sample=8] cpu=0 bench=duff cycles=5745 instructions=3908 cache-misses=1
+[sample=9] cpu=0 bench=duff cycles=5155 instructions=3908 cache-misses=1
+[sample=10] cpu=0 bench=duff cycles=5116 instructions=3908 cache-misses=0
+[sample=11] cpu=0 bench=duff cycles=5301 instructions=3909 cache-misses=2
+[sample=12] cpu=0 bench=duff cycles=7452 instructions=3909 cache-misses=2
+[sample=13] cpu=0 bench=duff cycles=4978 instructions=3908 cache-misses=2
+[sample=14] cpu=0 bench=duff cycles=5145 instructions=3908 cache-misses=2
+[sample=15] cpu=0 bench=duff cycles=5256 instructions=3908 cache-misses=2
+[sample=16] cpu=0 bench=duff cycles=5665 instructions=3908 cache-misses=2
+[sample=17] cpu=0 bench=duff cycles=5293 instructions=3908 cache-misses=1
+[sample=18] cpu=0 bench=duff cycles=5652 instructions=3908 cache-misses=1
+[sample=19] cpu=0 bench=duff cycles=5303 instructions=3908 cache-misses=0
+
+# Statistics over 20 samples on cpu0 bench=duff (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        4949                34248              7031.75              5439.00
+  instructions                  3908                 3912              3908.55              3908.00
+  cache-misses                     0                   13                 2.35                 2.00

@@ -1,0 +1,17 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
+# cpu0=epic (measured)  cpu1=MTH_BUS  cpu2=MTH_BUS  cpu3=MTH_BUS
+[sample=0] cpu=0 bench=epic cycles=5708676 instructions=4328631 cache-misses=1226
+[sample=1] cpu=0 bench=epic cycles=5662512 instructions=4328531 cache-misses=1182
+[sample=2] cpu=0 bench=epic cycles=5689061 instructions=4328489 cache-misses=1020
+[sample=3] cpu=0 bench=epic cycles=5619451 instructions=4328456 cache-misses=1125
+[sample=4] cpu=0 bench=epic cycles=5616375 instructions=4328460 cache-misses=1108
+[sample=5] cpu=0 bench=epic cycles=5772227 instructions=4328429 cache-misses=929
+[sample=6] cpu=0 bench=epic cycles=5723214 instructions=4328555 cache-misses=1127
+[sample=7] cpu=0 bench=epic cycles=5612335 instructions=4328397 cache-misses=942
+
+# Statistics over 8 samples on cpu0 bench=epic (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     5612335              5772227           5675481.38           5675786.50
+  instructions               4328397              4328631           4328493.50           4328474.50
+  cache-misses                   929                 1226              1082.38              1116.50

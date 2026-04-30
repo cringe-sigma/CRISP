@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=ndes (measured)  cpu1=PR_SPAWN  cpu2=PR_SPAWN  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=ndes cycles=130432 instructions=83522 cache-misses=81
+[sample=1] cpu=0 bench=ndes cycles=121325 instructions=83052 cache-misses=55
+[sample=2] cpu=0 bench=ndes cycles=105440 instructions=83053 cache-misses=15
+[sample=3] cpu=0 bench=ndes cycles=106251 instructions=83053 cache-misses=6
+[sample=4] cpu=0 bench=ndes cycles=105837 instructions=83055 cache-misses=8
+[sample=5] cpu=0 bench=ndes cycles=106174 instructions=83053 cache-misses=5
+[sample=6] cpu=0 bench=ndes cycles=106437 instructions=83053 cache-misses=9
+[sample=7] cpu=0 bench=ndes cycles=105370 instructions=83052 cache-misses=6
+[sample=8] cpu=0 bench=ndes cycles=105551 instructions=83053 cache-misses=6
+[sample=9] cpu=0 bench=ndes cycles=106564 instructions=83053 cache-misses=3
+[sample=10] cpu=0 bench=ndes cycles=105671 instructions=83052 cache-misses=8
+[sample=11] cpu=0 bench=ndes cycles=105418 instructions=83053 cache-misses=4
+[sample=12] cpu=0 bench=ndes cycles=105946 instructions=83052 cache-misses=5
+[sample=13] cpu=0 bench=ndes cycles=106219 instructions=83051 cache-misses=7
+[sample=14] cpu=0 bench=ndes cycles=105764 instructions=83051 cache-misses=5
+[sample=15] cpu=0 bench=ndes cycles=106433 instructions=83052 cache-misses=7
+[sample=16] cpu=0 bench=ndes cycles=105498 instructions=83051 cache-misses=3
+[sample=17] cpu=0 bench=ndes cycles=105492 instructions=83051 cache-misses=8
+[sample=18] cpu=0 bench=ndes cycles=105011 instructions=83052 cache-misses=6
+[sample=19] cpu=0 bench=ndes cycles=105732 instructions=83052 cache-misses=5
+
+# Statistics over 20 samples on cpu0 bench=ndes (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      105011               130432            107828.25            105800.50
+  instructions                 83051                83522             83075.80             83052.00
+  cache-misses                     3                   81                12.60                 6.00

@@ -1,0 +1,17 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
+# cpu0=ndes (measured)  cpu1=PR_SPAWN  cpu2=PR_SPAWN  cpu3=PR_SPAWN
+[sample=0] cpu=0 bench=ndes cycles=132799 instructions=83522 cache-misses=77
+[sample=1] cpu=0 bench=ndes cycles=133100 instructions=83055 cache-misses=63
+[sample=2] cpu=0 bench=ndes cycles=132976 instructions=83055 cache-misses=55
+[sample=3] cpu=0 bench=ndes cycles=127493 instructions=83052 cache-misses=57
+[sample=4] cpu=0 bench=ndes cycles=129034 instructions=83054 cache-misses=57
+[sample=5] cpu=0 bench=ndes cycles=120945 instructions=83054 cache-misses=54
+[sample=6] cpu=0 bench=ndes cycles=120226 instructions=83053 cache-misses=61
+[sample=7] cpu=0 bench=ndes cycles=115923 instructions=83054 cache-misses=59
+
+# Statistics over 8 samples on cpu0 bench=ndes (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      115923               133100            126562.00            128263.50
+  instructions                 83052                83522             83112.38             83054.00
+  cache-misses                    54                   77                60.38                58.00

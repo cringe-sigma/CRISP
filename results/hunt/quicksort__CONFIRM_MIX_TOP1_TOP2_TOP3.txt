@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=quicksort (measured)  cpu1=MEM  cpu2=MTH_MEM  cpu3=PR_TLB
+[sample=0] cpu=0 bench=quicksort cycles=6429344 instructions=4619433 cache-misses=628
+[sample=1] cpu=0 bench=quicksort cycles=6435430 instructions=4619415 cache-misses=637
+[sample=2] cpu=0 bench=quicksort cycles=6441288 instructions=4619352 cache-misses=654
+[sample=3] cpu=0 bench=quicksort cycles=6248359 instructions=4619377 cache-misses=363
+[sample=4] cpu=0 bench=quicksort cycles=6550192 instructions=4619359 cache-misses=673
+[sample=5] cpu=0 bench=quicksort cycles=6307647 instructions=4619393 cache-misses=531
+[sample=6] cpu=0 bench=quicksort cycles=6532879 instructions=4619445 cache-misses=544
+[sample=7] cpu=0 bench=quicksort cycles=6245195 instructions=4619329 cache-misses=405
+[sample=8] cpu=0 bench=quicksort cycles=6476041 instructions=4619379 cache-misses=572
+[sample=9] cpu=0 bench=quicksort cycles=6786828 instructions=4619386 cache-misses=871
+[sample=10] cpu=0 bench=quicksort cycles=6343459 instructions=4619434 cache-misses=478
+[sample=11] cpu=0 bench=quicksort cycles=6402353 instructions=4619370 cache-misses=645
+[sample=12] cpu=0 bench=quicksort cycles=6631591 instructions=4619384 cache-misses=799
+[sample=13] cpu=0 bench=quicksort cycles=6403400 instructions=4619409 cache-misses=490
+[sample=14] cpu=0 bench=quicksort cycles=6437668 instructions=4619334 cache-misses=717
+[sample=15] cpu=0 bench=quicksort cycles=6686775 instructions=4619474 cache-misses=630
+[sample=16] cpu=0 bench=quicksort cycles=7057618 instructions=4619357 cache-misses=500
+[sample=17] cpu=0 bench=quicksort cycles=6498649 instructions=4619430 cache-misses=683
+[sample=18] cpu=0 bench=quicksort cycles=7435562 instructions=4619363 cache-misses=709
+[sample=19] cpu=0 bench=quicksort cycles=7281882 instructions=4619406 cache-misses=658
+
+# Statistics over 20 samples on cpu0 bench=quicksort (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     6245195              7435562           6581608.00           6458664.50
+  instructions               4619329              4619474           4619391.45           4619385.00
+  cache-misses                   363                  871               609.35               633.50

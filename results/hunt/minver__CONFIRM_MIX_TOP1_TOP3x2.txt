@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=minver (measured)  cpu1=MEM  cpu2=POINTER  cpu3=POINTER
+[sample=0] cpu=0 bench=minver cycles=77380 instructions=4349 cache-misses=37
+[sample=1] cpu=0 bench=minver cycles=15676 instructions=4437 cache-misses=17
+[sample=2] cpu=0 bench=minver cycles=8644 instructions=4435 cache-misses=9
+[sample=3] cpu=0 bench=minver cycles=6415 instructions=4118 cache-misses=4
+[sample=4] cpu=0 bench=minver cycles=6857 instructions=4433 cache-misses=4
+[sample=5] cpu=0 bench=minver cycles=6893 instructions=4436 cache-misses=6
+[sample=6] cpu=0 bench=minver cycles=6754 instructions=4116 cache-misses=3
+[sample=7] cpu=0 bench=minver cycles=6417 instructions=4117 cache-misses=2
+[sample=8] cpu=0 bench=minver cycles=6334 instructions=4112 cache-misses=3
+[sample=9] cpu=0 bench=minver cycles=6345 instructions=4110 cache-misses=1
+[sample=10] cpu=0 bench=minver cycles=6333 instructions=4110 cache-misses=2
+[sample=11] cpu=0 bench=minver cycles=6452 instructions=4112 cache-misses=2
+[sample=12] cpu=0 bench=minver cycles=6315 instructions=4114 cache-misses=2
+[sample=13] cpu=0 bench=minver cycles=6273 instructions=4109 cache-misses=2
+[sample=14] cpu=0 bench=minver cycles=6296 instructions=4110 cache-misses=1
+[sample=15] cpu=0 bench=minver cycles=6261 instructions=4109 cache-misses=1
+[sample=16] cpu=0 bench=minver cycles=6276 instructions=4112 cache-misses=2
+[sample=17] cpu=0 bench=minver cycles=6292 instructions=4113 cache-misses=3
+[sample=18] cpu=0 bench=minver cycles=7409 instructions=4113 cache-misses=2
+[sample=19] cpu=0 bench=minver cycles=6317 instructions=4115 cache-misses=2
+
+# Statistics over 20 samples on cpu0 bench=minver (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        6261                77380             10596.95              6380.00
+  instructions                  4109                 4437              4189.00              4113.50
+  cache-misses                     1                   37                 5.25                 2.00

@@ -1,0 +1,17 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
+# cpu0=mpeg2 (measured)  cpu1=MTH_MEM  cpu2=MTH_MEM  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=mpeg2 cycles=582664012 instructions=394401568 cache-misses=4856
+[sample=1] cpu=0 bench=mpeg2 cycles=583962006 instructions=394401434 cache-misses=4758
+[sample=2] cpu=0 bench=mpeg2 cycles=584060351 instructions=394401644 cache-misses=5394
+[sample=3] cpu=0 bench=mpeg2 cycles=586579070 instructions=394401863 cache-misses=6344
+[sample=4] cpu=0 bench=mpeg2 cycles=587931165 instructions=394401752 cache-misses=6658
+[sample=5] cpu=0 bench=mpeg2 cycles=584547103 instructions=394401520 cache-misses=5505
+[sample=6] cpu=0 bench=mpeg2 cycles=581103548 instructions=394401411 cache-misses=4553
+[sample=7] cpu=0 bench=mpeg2 cycles=585258389 instructions=394401483 cache-misses=4653
+
+# Statistics over 8 samples on cpu0 bench=mpeg2 (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                   581103548            587931165         584513205.50         584303727.00
+  instructions             394401411            394401863         394401584.38         394401544.00
+  cache-misses                  4553                 6658              5340.12              5125.00

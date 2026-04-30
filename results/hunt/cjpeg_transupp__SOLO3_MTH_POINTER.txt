@@ -1,0 +1,17 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
+# cpu0=cjpeg_transupp (measured)  cpu1=MTH_POINTER  cpu2=MTH_POINTER  cpu3=MTH_POINTER
+[sample=0] cpu=0 bench=cjpeg_transupp cycles=7189146 instructions=5738349 cache-misses=80
+[sample=1] cpu=0 bench=cjpeg_transupp cycles=7164498 instructions=5738344 cache-misses=92
+[sample=2] cpu=0 bench=cjpeg_transupp cycles=7162564 instructions=5738316 cache-misses=59
+[sample=3] cpu=0 bench=cjpeg_transupp cycles=7179500 instructions=5738332 cache-misses=72
+[sample=4] cpu=0 bench=cjpeg_transupp cycles=7195661 instructions=5738375 cache-misses=102
+[sample=5] cpu=0 bench=cjpeg_transupp cycles=7216605 instructions=5738341 cache-misses=95
+[sample=6] cpu=0 bench=cjpeg_transupp cycles=7240126 instructions=5738351 cache-misses=123
+[sample=7] cpu=0 bench=cjpeg_transupp cycles=7242353 instructions=5738394 cache-misses=114
+
+# Statistics over 8 samples on cpu0 bench=cjpeg_transupp (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     7162564              7242353           7198806.62           7192403.50
+  instructions               5738316              5738394           5738350.25           5738346.50
+  cache-misses                    59                  123                92.12                93.50

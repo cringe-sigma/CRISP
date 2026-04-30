@@ -1,0 +1,117 @@
+[warn] cannot read /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor (errno=2: No such file or directory); cpufreq pinning skipped for cpu4
+[warn] cannot read /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor (errno=2: No such file or directory); cpufreq pinning skipped for cpu5
+[warn] cannot pin /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq = 1600000 (errno=2: No such file or directory)
+[info] cpu0..cpu5 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=100, active_cores=6, lock_freq_khz=1600000
+# cpu0=fir2dim (measured)  cpu1=MEM  cpu2=MEM  cpu3=MEM  cpu4=MEM  cpu5=MEM
+sched_setaffinity: Invalid argument
+sched_setaffinity: Invalid argument
+[sample=0] cpu=0 bench=fir2dim cycles=57914 instructions=10129 cache-misses=16
+[sample=1] cpu=0 bench=fir2dim cycles=48264 instructions=10122 cache-misses=13
+[sample=2] cpu=0 bench=fir2dim cycles=17524 instructions=10122 cache-misses=9
+[sample=3] cpu=0 bench=fir2dim cycles=15368 instructions=10120 cache-misses=9
+[sample=4] cpu=0 bench=fir2dim cycles=19045 instructions=10121 cache-misses=8
+[sample=5] cpu=0 bench=fir2dim cycles=15160 instructions=10117 cache-misses=8
+[sample=6] cpu=0 bench=fir2dim cycles=15545 instructions=10117 cache-misses=7
+[sample=7] cpu=0 bench=fir2dim cycles=14271 instructions=10123 cache-misses=8
+[sample=8] cpu=0 bench=fir2dim cycles=17629 instructions=10121 cache-misses=10
+[sample=9] cpu=0 bench=fir2dim cycles=16366 instructions=10120 cache-misses=11
+[sample=10] cpu=0 bench=fir2dim cycles=14018 instructions=10120 cache-misses=8
+[sample=11] cpu=0 bench=fir2dim cycles=14850 instructions=10121 cache-misses=10
+[sample=12] cpu=0 bench=fir2dim cycles=14056 instructions=10122 cache-misses=7
+[sample=13] cpu=0 bench=fir2dim cycles=15423 instructions=10126 cache-misses=10
+[sample=14] cpu=0 bench=fir2dim cycles=14474 instructions=10124 cache-misses=9
+[sample=15] cpu=0 bench=fir2dim cycles=14438 instructions=10124 cache-misses=9
+[sample=16] cpu=0 bench=fir2dim cycles=14416 instructions=10124 cache-misses=12
+[sample=17] cpu=0 bench=fir2dim cycles=19942 instructions=10124 cache-misses=11
+[sample=18] cpu=0 bench=fir2dim cycles=14127 instructions=10125 cache-misses=9
+[sample=19] cpu=0 bench=fir2dim cycles=18011 instructions=10124 cache-misses=9
+[sample=20] cpu=0 bench=fir2dim cycles=18653 instructions=10123 cache-misses=8
+[sample=21] cpu=0 bench=fir2dim cycles=14334 instructions=10122 cache-misses=8
+[sample=22] cpu=0 bench=fir2dim cycles=18281 instructions=10124 cache-misses=7
+[sample=23] cpu=0 bench=fir2dim cycles=14908 instructions=10120 cache-misses=8
+[sample=24] cpu=0 bench=fir2dim cycles=15080 instructions=10123 cache-misses=6
+[sample=25] cpu=0 bench=fir2dim cycles=15559 instructions=10123 cache-misses=7
+[sample=26] cpu=0 bench=fir2dim cycles=20495 instructions=10125 cache-misses=7
+[sample=27] cpu=0 bench=fir2dim cycles=16652 instructions=10124 cache-misses=10
+[sample=28] cpu=0 bench=fir2dim cycles=14372 instructions=10119 cache-misses=8
+[sample=29] cpu=0 bench=fir2dim cycles=15174 instructions=10127 cache-misses=6
+[sample=30] cpu=0 bench=fir2dim cycles=19659 instructions=10121 cache-misses=8
+[sample=31] cpu=0 bench=fir2dim cycles=18361 instructions=10121 cache-misses=8
+[sample=32] cpu=0 bench=fir2dim cycles=19075 instructions=10122 cache-misses=6
+[sample=33] cpu=0 bench=fir2dim cycles=15195 instructions=10122 cache-misses=10
+[sample=34] cpu=0 bench=fir2dim cycles=16506 instructions=10122 cache-misses=9
+[sample=35] cpu=0 bench=fir2dim cycles=19545 instructions=10116 cache-misses=7
+[sample=36] cpu=0 bench=fir2dim cycles=13829 instructions=10125 cache-misses=10
+[sample=37] cpu=0 bench=fir2dim cycles=14169 instructions=10120 cache-misses=7
+[sample=38] cpu=0 bench=fir2dim cycles=14081 instructions=10124 cache-misses=10
+[sample=39] cpu=0 bench=fir2dim cycles=14183 instructions=10121 cache-misses=10
+[sample=40] cpu=0 bench=fir2dim cycles=16396 instructions=10115 cache-misses=8
+[sample=41] cpu=0 bench=fir2dim cycles=17192 instructions=10119 cache-misses=8
+[sample=42] cpu=0 bench=fir2dim cycles=14049 instructions=10118 cache-misses=10
+[sample=43] cpu=0 bench=fir2dim cycles=13945 instructions=10120 cache-misses=11
+[sample=44] cpu=0 bench=fir2dim cycles=14803 instructions=10120 cache-misses=9
+[sample=45] cpu=0 bench=fir2dim cycles=14207 instructions=10114 cache-misses=9
+[sample=46] cpu=0 bench=fir2dim cycles=14504 instructions=10117 cache-misses=9
+[sample=47] cpu=0 bench=fir2dim cycles=14447 instructions=10123 cache-misses=8
+[sample=48] cpu=0 bench=fir2dim cycles=14264 instructions=10119 cache-misses=7
+[sample=49] cpu=0 bench=fir2dim cycles=14908 instructions=10120 cache-misses=8
+[sample=50] cpu=0 bench=fir2dim cycles=14555 instructions=10126 cache-misses=9
+[sample=51] cpu=0 bench=fir2dim cycles=14670 instructions=10118 cache-misses=9
+[sample=52] cpu=0 bench=fir2dim cycles=15279 instructions=10120 cache-misses=9
+[sample=53] cpu=0 bench=fir2dim cycles=14568 instructions=10119 cache-misses=11
+[sample=54] cpu=0 bench=fir2dim cycles=14671 instructions=10121 cache-misses=11
+[sample=55] cpu=0 bench=fir2dim cycles=14761 instructions=10127 cache-misses=9
+[sample=56] cpu=0 bench=fir2dim cycles=14630 instructions=10121 cache-misses=5
+[sample=57] cpu=0 bench=fir2dim cycles=14335 instructions=10127 cache-misses=9
+[sample=58] cpu=0 bench=fir2dim cycles=15572 instructions=10124 cache-misses=8
+[sample=59] cpu=0 bench=fir2dim cycles=14985 instructions=10127 cache-misses=13
+[sample=60] cpu=0 bench=fir2dim cycles=14700 instructions=10120 cache-misses=9
+[sample=61] cpu=0 bench=fir2dim cycles=14815 instructions=10119 cache-misses=9
+[sample=62] cpu=0 bench=fir2dim cycles=14517 instructions=10119 cache-misses=9
+[sample=63] cpu=0 bench=fir2dim cycles=14255 instructions=10119 cache-misses=9
+[sample=64] cpu=0 bench=fir2dim cycles=16507 instructions=10119 cache-misses=9
+[sample=65] cpu=0 bench=fir2dim cycles=14250 instructions=10120 cache-misses=6
+[sample=66] cpu=0 bench=fir2dim cycles=14624 instructions=10119 cache-misses=6
+[sample=67] cpu=0 bench=fir2dim cycles=14272 instructions=10117 cache-misses=9
+[sample=68] cpu=0 bench=fir2dim cycles=16235 instructions=10121 cache-misses=10
+[sample=69] cpu=0 bench=fir2dim cycles=14997 instructions=10118 cache-misses=10
+[sample=70] cpu=0 bench=fir2dim cycles=14313 instructions=10117 cache-misses=8
+[sample=71] cpu=0 bench=fir2dim cycles=14768 instructions=10121 cache-misses=8
+[sample=72] cpu=0 bench=fir2dim cycles=19008 instructions=10120 cache-misses=7
+[sample=73] cpu=0 bench=fir2dim cycles=14744 instructions=10124 cache-misses=8
+[sample=74] cpu=0 bench=fir2dim cycles=19101 instructions=10115 cache-misses=7
+[sample=75] cpu=0 bench=fir2dim cycles=14660 instructions=10121 cache-misses=8
+[sample=76] cpu=0 bench=fir2dim cycles=14530 instructions=10117 cache-misses=7
+[sample=77] cpu=0 bench=fir2dim cycles=14151 instructions=10119 cache-misses=8
+[sample=78] cpu=0 bench=fir2dim cycles=14519 instructions=10118 cache-misses=8
+[sample=79] cpu=0 bench=fir2dim cycles=14302 instructions=10116 cache-misses=9
+[sample=80] cpu=0 bench=fir2dim cycles=18418 instructions=10118 cache-misses=6
+[sample=81] cpu=0 bench=fir2dim cycles=14070 instructions=10118 cache-misses=7
+[sample=82] cpu=0 bench=fir2dim cycles=14096 instructions=10120 cache-misses=8
+[sample=83] cpu=0 bench=fir2dim cycles=13930 instructions=10122 cache-misses=8
+[sample=84] cpu=0 bench=fir2dim cycles=14331 instructions=10123 cache-misses=7
+[sample=85] cpu=0 bench=fir2dim cycles=14764 instructions=10126 cache-misses=11
+[sample=86] cpu=0 bench=fir2dim cycles=18662 instructions=10126 cache-misses=10
+[sample=87] cpu=0 bench=fir2dim cycles=16563 instructions=10124 cache-misses=9
+[sample=88] cpu=0 bench=fir2dim cycles=14501 instructions=10118 cache-misses=6
+[sample=89] cpu=0 bench=fir2dim cycles=14355 instructions=10120 cache-misses=6
+[sample=90] cpu=0 bench=fir2dim cycles=40652 instructions=10127 cache-misses=12
+[sample=91] cpu=0 bench=fir2dim cycles=13960 instructions=10120 cache-misses=5
+[sample=92] cpu=0 bench=fir2dim cycles=13782 instructions=10114 cache-misses=2
+[sample=93] cpu=0 bench=fir2dim cycles=13243 instructions=10114 cache-misses=3
+[sample=94] cpu=0 bench=fir2dim cycles=13994 instructions=10116 cache-misses=3
+[sample=95] cpu=0 bench=fir2dim cycles=13821 instructions=10111 cache-misses=2
+[sample=96] cpu=0 bench=fir2dim cycles=13634 instructions=10114 cache-misses=3
+[sample=97] cpu=0 bench=fir2dim cycles=18901 instructions=10114 cache-misses=0
+[sample=98] cpu=0 bench=fir2dim cycles=15842 instructions=10112 cache-misses=1
+[sample=99] cpu=0 bench=fir2dim cycles=16402 instructions=10111 cache-misses=1
+
+# Statistics over 100 samples on cpu0 bench=fir2dim (background load on cpu1..cpu5)
+# event                          min                  max                  avg               median
+  cycles                       13243                57914             16468.82             14752.50
+  instructions                 10111                10129             10120.52             10120.00
+  cache-misses                     0                   16                 8.07                 8.00

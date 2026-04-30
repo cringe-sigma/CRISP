@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=cosf (measured)  cpu1=POINTER  cpu2=PR_POINTER  cpu3=MTH_POINTER
+[sample=0] cpu=0 bench=cosf cycles=51715 instructions=23701 cache-misses=20
+[sample=1] cpu=0 bench=cosf cycles=55788 instructions=23694 cache-misses=17
+[sample=2] cpu=0 bench=cosf cycles=46613 instructions=23695 cache-misses=13
+[sample=3] cpu=0 bench=cosf cycles=32033 instructions=23690 cache-misses=7
+[sample=4] cpu=0 bench=cosf cycles=31034 instructions=23689 cache-misses=2
+[sample=5] cpu=0 bench=cosf cycles=31308 instructions=23690 cache-misses=3
+[sample=6] cpu=0 bench=cosf cycles=31005 instructions=23691 cache-misses=1
+[sample=7] cpu=0 bench=cosf cycles=31034 instructions=23691 cache-misses=2
+[sample=8] cpu=0 bench=cosf cycles=31057 instructions=23691 cache-misses=2
+[sample=9] cpu=0 bench=cosf cycles=58142 instructions=23692 cache-misses=24
+[sample=10] cpu=0 bench=cosf cycles=33508 instructions=23688 cache-misses=5
+[sample=11] cpu=0 bench=cosf cycles=30971 instructions=23689 cache-misses=4
+
+# Statistics over 12 samples on cpu0 bench=cosf (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       30971                58142             38684.00             31670.50
+  instructions                 23688                23701             23691.75             23691.00
+  cache-misses                     1                   24                 8.33                 4.50

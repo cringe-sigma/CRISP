@@ -1,0 +1,18 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=1, lock_freq_khz=1600000
+# cpu0=cjpeg_transupp (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=cjpeg_transupp cycles=7213340 instructions=5738347 cache-misses=129
+[sample=1] cpu=0 bench=cjpeg_transupp cycles=7228333 instructions=5738462 cache-misses=101
+[sample=2] cpu=0 bench=cjpeg_transupp cycles=7210687 instructions=5738362 cache-misses=97
+[sample=3] cpu=0 bench=cjpeg_transupp cycles=7203005 instructions=5738354 cache-misses=105
+[sample=4] cpu=0 bench=cjpeg_transupp cycles=7196754 instructions=5738371 cache-misses=105
+[sample=5] cpu=0 bench=cjpeg_transupp cycles=7201537 instructions=5738365 cache-misses=114
+[sample=6] cpu=0 bench=cjpeg_transupp cycles=7209107 instructions=5738371 cache-misses=146
+[sample=7] cpu=0 bench=cjpeg_transupp cycles=7192299 instructions=5738363 cache-misses=101
+
+# Statistics over 8 samples on cpu0 bench=cjpeg_transupp (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                     7192299              7228333           7206882.75           7206056.00
+  instructions               5738347              5738462           5738374.38           5738364.00
+  cache-misses                    97                  146               112.25               105.00

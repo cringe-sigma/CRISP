@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=jfdctint (measured)  cpu1=PR_CACHE  cpu2=PR_TLB  cpu3=PR_MEMBUS
+[sample=0] cpu=0 bench=jfdctint cycles=27949 instructions=6386 cache-misses=16
+[sample=1] cpu=0 bench=jfdctint cycles=16997 instructions=6382 cache-misses=10
+[sample=2] cpu=0 bench=jfdctint cycles=9726 instructions=6382 cache-misses=3
+[sample=3] cpu=0 bench=jfdctint cycles=8612 instructions=6381 cache-misses=3
+[sample=4] cpu=0 bench=jfdctint cycles=8599 instructions=6381 cache-misses=4
+[sample=5] cpu=0 bench=jfdctint cycles=8558 instructions=6381 cache-misses=5
+[sample=6] cpu=0 bench=jfdctint cycles=8531 instructions=6381 cache-misses=2
+[sample=7] cpu=0 bench=jfdctint cycles=8499 instructions=6381 cache-misses=1
+[sample=8] cpu=0 bench=jfdctint cycles=8560 instructions=6381 cache-misses=0
+[sample=9] cpu=0 bench=jfdctint cycles=8557 instructions=6381 cache-misses=1
+[sample=10] cpu=0 bench=jfdctint cycles=8529 instructions=6381 cache-misses=2
+[sample=11] cpu=0 bench=jfdctint cycles=8552 instructions=6381 cache-misses=1
+
+# Statistics over 12 samples on cpu0 bench=jfdctint (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        8499                27949             10972.42              8559.00
+  instructions                  6381                 6386              6381.58              6381.00
+  cache-misses                     0                   16                 4.00                 2.50

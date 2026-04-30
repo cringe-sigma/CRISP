@@ -1,0 +1,22 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=1, lock_freq_khz=1600000
+# cpu0=statemate (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=statemate cycles=139193 instructions=84928 cache-misses=71
+[sample=1] cpu=0 bench=statemate cycles=108388 instructions=84920 cache-misses=57
+[sample=2] cpu=0 bench=statemate cycles=106789 instructions=84920 cache-misses=56
+[sample=3] cpu=0 bench=statemate cycles=106469 instructions=84920 cache-misses=57
+[sample=4] cpu=0 bench=statemate cycles=106418 instructions=84920 cache-misses=54
+[sample=5] cpu=0 bench=statemate cycles=106404 instructions=84920 cache-misses=52
+[sample=6] cpu=0 bench=statemate cycles=106955 instructions=84921 cache-misses=81
+[sample=7] cpu=0 bench=statemate cycles=106588 instructions=84920 cache-misses=57
+[sample=8] cpu=0 bench=statemate cycles=106408 instructions=84920 cache-misses=53
+[sample=9] cpu=0 bench=statemate cycles=106418 instructions=84920 cache-misses=57
+[sample=10] cpu=0 bench=statemate cycles=106327 instructions=84920 cache-misses=53
+[sample=11] cpu=0 bench=statemate cycles=106384 instructions=84920 cache-misses=53
+
+# Statistics over 12 samples on cpu0 bench=statemate (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                      106327               139193            109395.08            106443.50
+  instructions                 84920                84928             84920.75             84920.00
+  cache-misses                    52                   81                58.42                56.50

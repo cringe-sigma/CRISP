@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=fir2dim (measured)  cpu1=CACHE  cpu2=PR_CACHE  cpu3=PR_TLB
+[sample=0] cpu=0 bench=fir2dim cycles=25980 instructions=10133 cache-misses=14
+[sample=1] cpu=0 bench=fir2dim cycles=15984 instructions=10112 cache-misses=7
+[sample=2] cpu=0 bench=fir2dim cycles=13223 instructions=10106 cache-misses=4
+[sample=3] cpu=0 bench=fir2dim cycles=13754 instructions=10104 cache-misses=7
+[sample=4] cpu=0 bench=fir2dim cycles=13889 instructions=10104 cache-misses=3
+[sample=5] cpu=0 bench=fir2dim cycles=12909 instructions=10104 cache-misses=2
+[sample=6] cpu=0 bench=fir2dim cycles=12906 instructions=10105 cache-misses=1
+[sample=7] cpu=0 bench=fir2dim cycles=12916 instructions=10104 cache-misses=2
+[sample=8] cpu=0 bench=fir2dim cycles=12936 instructions=10106 cache-misses=2
+[sample=9] cpu=0 bench=fir2dim cycles=12939 instructions=10108 cache-misses=1
+[sample=10] cpu=0 bench=fir2dim cycles=12926 instructions=10107 cache-misses=1
+[sample=11] cpu=0 bench=fir2dim cycles=12897 instructions=10102 cache-misses=1
+
+# Statistics over 12 samples on cpu0 bench=fir2dim (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       12897                25980             14438.25             12937.50
+  instructions                 10102                10133             10107.92             10105.50
+  cache-misses                     1                   14                 3.75                 2.00

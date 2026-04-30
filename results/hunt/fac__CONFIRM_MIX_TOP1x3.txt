@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=fac (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=POINTER
+[sample=0] cpu=0 bench=fac cycles=4605 instructions=457 cache-misses=15
+[sample=1] cpu=0 bench=fac cycles=4278 instructions=454 cache-misses=10
+[sample=2] cpu=0 bench=fac cycles=2435 instructions=453 cache-misses=7
+[sample=3] cpu=0 bench=fac cycles=779 instructions=453 cache-misses=7
+[sample=4] cpu=0 bench=fac cycles=814 instructions=453 cache-misses=5
+[sample=5] cpu=0 bench=fac cycles=840 instructions=453 cache-misses=5
+[sample=6] cpu=0 bench=fac cycles=800 instructions=454 cache-misses=5
+[sample=7] cpu=0 bench=fac cycles=1511 instructions=453 cache-misses=5
+[sample=8] cpu=0 bench=fac cycles=827 instructions=453 cache-misses=9
+[sample=9] cpu=0 bench=fac cycles=786 instructions=453 cache-misses=5
+[sample=10] cpu=0 bench=fac cycles=780 instructions=454 cache-misses=6
+[sample=11] cpu=0 bench=fac cycles=829 instructions=453 cache-misses=6
+[sample=12] cpu=0 bench=fac cycles=826 instructions=453 cache-misses=6
+[sample=13] cpu=0 bench=fac cycles=1429 instructions=453 cache-misses=6
+[sample=14] cpu=0 bench=fac cycles=879 instructions=453 cache-misses=6
+[sample=15] cpu=0 bench=fac cycles=791 instructions=453 cache-misses=6
+[sample=16] cpu=0 bench=fac cycles=867 instructions=453 cache-misses=9
+[sample=17] cpu=0 bench=fac cycles=840 instructions=453 cache-misses=4
+[sample=18] cpu=0 bench=fac cycles=831 instructions=453 cache-misses=5
+[sample=19] cpu=0 bench=fac cycles=802 instructions=453 cache-misses=4
+
+# Statistics over 20 samples on cpu0 bench=fac (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                         779                 4605              1327.45               830.00
+  instructions                   453                  457               453.35               453.00
+  cache-misses                     4                   15                 6.55                 6.00

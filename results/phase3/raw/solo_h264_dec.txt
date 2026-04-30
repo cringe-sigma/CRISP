@@ -1,0 +1,22 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=1, lock_freq_khz=1600000
+# cpu0=h264_dec (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=h264_dec cycles=542475 instructions=400152 cache-misses=77
+[sample=1] cpu=0 bench=h264_dec cycles=540441 instructions=400119 cache-misses=56
+[sample=2] cpu=0 bench=h264_dec cycles=522569 instructions=400118 cache-misses=38
+[sample=3] cpu=0 bench=h264_dec cycles=522274 instructions=400119 cache-misses=51
+[sample=4] cpu=0 bench=h264_dec cycles=522532 instructions=400119 cache-misses=73
+[sample=5] cpu=0 bench=h264_dec cycles=522820 instructions=400118 cache-misses=94
+[sample=6] cpu=0 bench=h264_dec cycles=522391 instructions=400118 cache-misses=57
+[sample=7] cpu=0 bench=h264_dec cycles=522537 instructions=400118 cache-misses=74
+[sample=8] cpu=0 bench=h264_dec cycles=522295 instructions=400119 cache-misses=54
+[sample=9] cpu=0 bench=h264_dec cycles=522110 instructions=400119 cache-misses=37
+[sample=10] cpu=0 bench=h264_dec cycles=522217 instructions=400119 cache-misses=45
+[sample=11] cpu=0 bench=h264_dec cycles=545343 instructions=400123 cache-misses=78
+
+# Statistics over 12 samples on cpu0 bench=h264_dec (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                      522110               545343            527500.33            522534.50
+  instructions                400118               400152            400121.75            400119.00
+  cache-misses                    37                   94                61.17                56.50

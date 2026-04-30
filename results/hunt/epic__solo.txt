@@ -1,0 +1,18 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=1, lock_freq_khz=1600000
+# cpu0=epic (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=epic cycles=5579799 instructions=4328541 cache-misses=586
+[sample=1] cpu=0 bench=epic cycles=5543715 instructions=4328409 cache-misses=496
+[sample=2] cpu=0 bench=epic cycles=5540400 instructions=4328380 cache-misses=436
+[sample=3] cpu=0 bench=epic cycles=5562231 instructions=4328488 cache-misses=539
+[sample=4] cpu=0 bench=epic cycles=5564011 instructions=4328386 cache-misses=609
+[sample=5] cpu=0 bench=epic cycles=5570872 instructions=4328450 cache-misses=581
+[sample=6] cpu=0 bench=epic cycles=5562095 instructions=4328426 cache-misses=478
+[sample=7] cpu=0 bench=epic cycles=5561351 instructions=4328509 cache-misses=675
+
+# Statistics over 8 samples on cpu0 bench=epic (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                     5540400              5579799           5560559.25           5562163.00
+  instructions               4328380              4328541           4328448.62           4328438.00
+  cache-misses                   436                  675               550.00               560.00

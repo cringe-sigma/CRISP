@@ -1,0 +1,117 @@
+[warn] cannot read /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor (errno=2: No such file or directory); cpufreq pinning skipped for cpu4
+[warn] cannot read /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor (errno=2: No such file or directory); cpufreq pinning skipped for cpu5
+[warn] cannot pin /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq = 1600000 (errno=2: No such file or directory)
+[info] cpu0..cpu5 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=100, active_cores=6, lock_freq_khz=1600000
+# cpu0=insertsort (measured)  cpu1=MEM  cpu2=MEM  cpu3=MEM  cpu4=MEM  cpu5=MEM
+sched_setaffinity: Invalid argument
+sched_setaffinity: Invalid argument
+[sample=0] cpu=0 bench=insertsort cycles=42070 instructions=2953 cache-misses=22
+[sample=1] cpu=0 bench=insertsort cycles=32929 instructions=2946 cache-misses=17
+[sample=2] cpu=0 bench=insertsort cycles=10948 instructions=2946 cache-misses=14
+[sample=3] cpu=0 bench=insertsort cycles=33721 instructions=2946 cache-misses=18
+[sample=4] cpu=0 bench=insertsort cycles=13817 instructions=2946 cache-misses=18
+[sample=5] cpu=0 bench=insertsort cycles=17639 instructions=2947 cache-misses=15
+[sample=6] cpu=0 bench=insertsort cycles=20254 instructions=2947 cache-misses=13
+[sample=7] cpu=0 bench=insertsort cycles=6619 instructions=2946 cache-misses=12
+[sample=8] cpu=0 bench=insertsort cycles=12452 instructions=2946 cache-misses=17
+[sample=9] cpu=0 bench=insertsort cycles=6370 instructions=2946 cache-misses=15
+[sample=10] cpu=0 bench=insertsort cycles=6830 instructions=2946 cache-misses=11
+[sample=11] cpu=0 bench=insertsort cycles=8106 instructions=2946 cache-misses=15
+[sample=12] cpu=0 bench=insertsort cycles=10340 instructions=2947 cache-misses=11
+[sample=13] cpu=0 bench=insertsort cycles=20309 instructions=2946 cache-misses=16
+[sample=14] cpu=0 bench=insertsort cycles=11985 instructions=2946 cache-misses=14
+[sample=15] cpu=0 bench=insertsort cycles=6882 instructions=2946 cache-misses=15
+[sample=16] cpu=0 bench=insertsort cycles=5910 instructions=2946 cache-misses=13
+[sample=17] cpu=0 bench=insertsort cycles=6924 instructions=2946 cache-misses=12
+[sample=18] cpu=0 bench=insertsort cycles=7903 instructions=2946 cache-misses=14
+[sample=19] cpu=0 bench=insertsort cycles=5955 instructions=2946 cache-misses=13
+[sample=20] cpu=0 bench=insertsort cycles=23502 instructions=2946 cache-misses=13
+[sample=21] cpu=0 bench=insertsort cycles=9732 instructions=2946 cache-misses=15
+[sample=22] cpu=0 bench=insertsort cycles=11892 instructions=2947 cache-misses=13
+[sample=23] cpu=0 bench=insertsort cycles=16640 instructions=2947 cache-misses=14
+[sample=24] cpu=0 bench=insertsort cycles=35786 instructions=2946 cache-misses=17
+[sample=25] cpu=0 bench=insertsort cycles=26444 instructions=2947 cache-misses=18
+[sample=26] cpu=0 bench=insertsort cycles=6415 instructions=2947 cache-misses=14
+[sample=27] cpu=0 bench=insertsort cycles=16066 instructions=2946 cache-misses=16
+[sample=28] cpu=0 bench=insertsort cycles=13107 instructions=2946 cache-misses=14
+[sample=29] cpu=0 bench=insertsort cycles=38824 instructions=2946 cache-misses=17
+[sample=30] cpu=0 bench=insertsort cycles=22686 instructions=2946 cache-misses=13
+[sample=31] cpu=0 bench=insertsort cycles=19378 instructions=2946 cache-misses=14
+[sample=32] cpu=0 bench=insertsort cycles=27937 instructions=2946 cache-misses=14
+[sample=33] cpu=0 bench=insertsort cycles=8463 instructions=2946 cache-misses=14
+[sample=34] cpu=0 bench=insertsort cycles=8178 instructions=2946 cache-misses=16
+[sample=35] cpu=0 bench=insertsort cycles=8259 instructions=2946 cache-misses=12
+[sample=36] cpu=0 bench=insertsort cycles=21014 instructions=2946 cache-misses=17
+[sample=37] cpu=0 bench=insertsort cycles=15857 instructions=2946 cache-misses=15
+[sample=38] cpu=0 bench=insertsort cycles=8369 instructions=2946 cache-misses=14
+[sample=39] cpu=0 bench=insertsort cycles=16144 instructions=2946 cache-misses=14
+[sample=40] cpu=0 bench=insertsort cycles=8468 instructions=2946 cache-misses=12
+[sample=41] cpu=0 bench=insertsort cycles=6602 instructions=2946 cache-misses=11
+[sample=42] cpu=0 bench=insertsort cycles=8796 instructions=2946 cache-misses=16
+[sample=43] cpu=0 bench=insertsort cycles=7208 instructions=2946 cache-misses=17
+[sample=44] cpu=0 bench=insertsort cycles=7831 instructions=2946 cache-misses=11
+[sample=45] cpu=0 bench=insertsort cycles=15405 instructions=2946 cache-misses=13
+[sample=46] cpu=0 bench=insertsort cycles=12617 instructions=2946 cache-misses=15
+[sample=47] cpu=0 bench=insertsort cycles=11182 instructions=2946 cache-misses=11
+[sample=48] cpu=0 bench=insertsort cycles=12054 instructions=2946 cache-misses=15
+[sample=49] cpu=0 bench=insertsort cycles=7060 instructions=2946 cache-misses=14
+[sample=50] cpu=0 bench=insertsort cycles=8368 instructions=2946 cache-misses=15
+[sample=51] cpu=0 bench=insertsort cycles=6448 instructions=2946 cache-misses=16
+[sample=52] cpu=0 bench=insertsort cycles=7220 instructions=2946 cache-misses=12
+[sample=53] cpu=0 bench=insertsort cycles=6851 instructions=2947 cache-misses=12
+[sample=54] cpu=0 bench=insertsort cycles=21647 instructions=2946 cache-misses=11
+[sample=55] cpu=0 bench=insertsort cycles=13644 instructions=2946 cache-misses=10
+[sample=56] cpu=0 bench=insertsort cycles=18731 instructions=2946 cache-misses=13
+[sample=57] cpu=0 bench=insertsort cycles=5954 instructions=2946 cache-misses=14
+[sample=58] cpu=0 bench=insertsort cycles=13785 instructions=2946 cache-misses=13
+[sample=59] cpu=0 bench=insertsort cycles=6227 instructions=2946 cache-misses=12
+[sample=60] cpu=0 bench=insertsort cycles=6272 instructions=2946 cache-misses=13
+[sample=61] cpu=0 bench=insertsort cycles=18236 instructions=2946 cache-misses=11
+[sample=62] cpu=0 bench=insertsort cycles=19575 instructions=2946 cache-misses=15
+[sample=63] cpu=0 bench=insertsort cycles=9636 instructions=2946 cache-misses=15
+[sample=64] cpu=0 bench=insertsort cycles=10625 instructions=2946 cache-misses=13
+[sample=65] cpu=0 bench=insertsort cycles=8363 instructions=2946 cache-misses=14
+[sample=66] cpu=0 bench=insertsort cycles=9477 instructions=2946 cache-misses=11
+[sample=67] cpu=0 bench=insertsort cycles=6220 instructions=2946 cache-misses=11
+[sample=68] cpu=0 bench=insertsort cycles=10661 instructions=2947 cache-misses=14
+[sample=69] cpu=0 bench=insertsort cycles=18477 instructions=2946 cache-misses=14
+[sample=70] cpu=0 bench=insertsort cycles=7809 instructions=2946 cache-misses=14
+[sample=71] cpu=0 bench=insertsort cycles=10520 instructions=2947 cache-misses=15
+[sample=72] cpu=0 bench=insertsort cycles=7635 instructions=2946 cache-misses=13
+[sample=73] cpu=0 bench=insertsort cycles=6429 instructions=2946 cache-misses=11
+[sample=74] cpu=0 bench=insertsort cycles=7783 instructions=2946 cache-misses=15
+[sample=75] cpu=0 bench=insertsort cycles=18791 instructions=2946 cache-misses=12
+[sample=76] cpu=0 bench=insertsort cycles=9656 instructions=2946 cache-misses=12
+[sample=77] cpu=0 bench=insertsort cycles=6875 instructions=2946 cache-misses=12
+[sample=78] cpu=0 bench=insertsort cycles=7728 instructions=2946 cache-misses=14
+[sample=79] cpu=0 bench=insertsort cycles=7876 instructions=2946 cache-misses=14
+[sample=80] cpu=0 bench=insertsort cycles=7784 instructions=2946 cache-misses=15
+[sample=81] cpu=0 bench=insertsort cycles=6473 instructions=2946 cache-misses=9
+[sample=82] cpu=0 bench=insertsort cycles=7865 instructions=2947 cache-misses=14
+[sample=83] cpu=0 bench=insertsort cycles=25692 instructions=2946 cache-misses=13
+[sample=84] cpu=0 bench=insertsort cycles=13712 instructions=2946 cache-misses=15
+[sample=85] cpu=0 bench=insertsort cycles=12303 instructions=2946 cache-misses=13
+[sample=86] cpu=0 bench=insertsort cycles=6738 instructions=2947 cache-misses=14
+[sample=87] cpu=0 bench=insertsort cycles=7366 instructions=2946 cache-misses=13
+[sample=88] cpu=0 bench=insertsort cycles=7313 instructions=2947 cache-misses=15
+[sample=89] cpu=0 bench=insertsort cycles=4682 instructions=2947 cache-misses=13
+[sample=90] cpu=0 bench=insertsort cycles=16767 instructions=2946 cache-misses=14
+[sample=91] cpu=0 bench=insertsort cycles=7746 instructions=2946 cache-misses=15
+[sample=92] cpu=0 bench=insertsort cycles=6048 instructions=2946 cache-misses=16
+[sample=93] cpu=0 bench=insertsort cycles=7132 instructions=2946 cache-misses=13
+[sample=94] cpu=0 bench=insertsort cycles=8249 instructions=2946 cache-misses=13
+[sample=95] cpu=0 bench=insertsort cycles=7478 instructions=2946 cache-misses=14
+[sample=96] cpu=0 bench=insertsort cycles=6888 instructions=2946 cache-misses=13
+[sample=97] cpu=0 bench=insertsort cycles=6204 instructions=2946 cache-misses=11
+[sample=98] cpu=0 bench=insertsort cycles=27556 instructions=2946 cache-misses=13
+[sample=99] cpu=0 bench=insertsort cycles=15245 instructions=2946 cache-misses=14
+
+# Statistics over 100 samples on cpu0 bench=insertsort (background load on cpu1..cpu5)
+# event                          min                  max                  avg               median
+  cycles                        4682                42070             12666.39              9136.50
+  instructions                  2946                 2953              2946.21              2946.00
+  cache-misses                     9                   22                13.85                14.00

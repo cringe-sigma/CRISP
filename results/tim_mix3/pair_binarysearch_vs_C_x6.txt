@@ -1,0 +1,121 @@
+[warn] cannot read /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor (errno=2: No such file or directory); cpufreq pinning skipped for cpu4
+[warn] cannot read /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor (errno=2: No such file or directory); cpufreq pinning skipped for cpu5
+[warn] cannot read /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor (errno=2: No such file or directory); cpufreq pinning skipped for cpu6
+[warn] cannot pin /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq = 1600000 (errno=2: No such file or directory)
+[info] cpu0..cpu6 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=100, active_cores=7, lock_freq_khz=1600000
+# cpu0=binarysearch (measured)  cpu1=MEM  cpu2=MEM  cpu3=MEM  cpu4=MEM  cpu5=MEM  cpu6=MEM
+sched_setaffinity: Invalid argument
+sched_setaffinity: Invalid argument
+sched_setaffinity: Invalid argument
+[sample=0] cpu=0 bench=binarysearch cycles=26915 instructions=1262 cache-misses=15
+[sample=1] cpu=0 bench=binarysearch cycles=28024 instructions=1258 cache-misses=11
+[sample=2] cpu=0 bench=binarysearch cycles=2721 instructions=1259 cache-misses=6
+[sample=3] cpu=0 bench=binarysearch cycles=2357 instructions=1258 cache-misses=3
+[sample=4] cpu=0 bench=binarysearch cycles=2192 instructions=1258 cache-misses=1
+[sample=5] cpu=0 bench=binarysearch cycles=2438 instructions=1258 cache-misses=0
+[sample=6] cpu=0 bench=binarysearch cycles=2095 instructions=1258 cache-misses=1
+[sample=7] cpu=0 bench=binarysearch cycles=2193 instructions=1258 cache-misses=1
+[sample=8] cpu=0 bench=binarysearch cycles=2055 instructions=1257 cache-misses=0
+[sample=9] cpu=0 bench=binarysearch cycles=2364 instructions=1258 cache-misses=0
+[sample=10] cpu=0 bench=binarysearch cycles=1862 instructions=1257 cache-misses=0
+[sample=11] cpu=0 bench=binarysearch cycles=2057 instructions=1257 cache-misses=0
+[sample=12] cpu=0 bench=binarysearch cycles=1921 instructions=1257 cache-misses=0
+[sample=13] cpu=0 bench=binarysearch cycles=2181 instructions=1257 cache-misses=0
+[sample=14] cpu=0 bench=binarysearch cycles=2019 instructions=1257 cache-misses=0
+[sample=15] cpu=0 bench=binarysearch cycles=1947 instructions=1257 cache-misses=0
+[sample=16] cpu=0 bench=binarysearch cycles=1994 instructions=1257 cache-misses=0
+[sample=17] cpu=0 bench=binarysearch cycles=1781 instructions=1258 cache-misses=0
+[sample=18] cpu=0 bench=binarysearch cycles=1944 instructions=1258 cache-misses=0
+[sample=19] cpu=0 bench=binarysearch cycles=2191 instructions=1258 cache-misses=0
+[sample=20] cpu=0 bench=binarysearch cycles=3714 instructions=1257 cache-misses=5
+[sample=21] cpu=0 bench=binarysearch cycles=2223 instructions=1257 cache-misses=2
+[sample=22] cpu=0 bench=binarysearch cycles=1946 instructions=1258 cache-misses=0
+[sample=23] cpu=0 bench=binarysearch cycles=2169 instructions=1258 cache-misses=0
+[sample=24] cpu=0 bench=binarysearch cycles=2427 instructions=1258 cache-misses=0
+[sample=25] cpu=0 bench=binarysearch cycles=2069 instructions=1258 cache-misses=0
+[sample=26] cpu=0 bench=binarysearch cycles=2204 instructions=1258 cache-misses=0
+[sample=27] cpu=0 bench=binarysearch cycles=2318 instructions=1258 cache-misses=0
+[sample=28] cpu=0 bench=binarysearch cycles=2578 instructions=1258 cache-misses=0
+[sample=29] cpu=0 bench=binarysearch cycles=1863 instructions=1258 cache-misses=0
+[sample=30] cpu=0 bench=binarysearch cycles=2194 instructions=1258 cache-misses=0
+[sample=31] cpu=0 bench=binarysearch cycles=6637 instructions=1258 cache-misses=1
+[sample=32] cpu=0 bench=binarysearch cycles=2811 instructions=1258 cache-misses=2
+[sample=33] cpu=0 bench=binarysearch cycles=2142 instructions=1258 cache-misses=1
+[sample=34] cpu=0 bench=binarysearch cycles=2090 instructions=1257 cache-misses=0
+[sample=35] cpu=0 bench=binarysearch cycles=2491 instructions=1257 cache-misses=0
+[sample=36] cpu=0 bench=binarysearch cycles=2684 instructions=1257 cache-misses=0
+[sample=37] cpu=0 bench=binarysearch cycles=1989 instructions=1257 cache-misses=0
+[sample=38] cpu=0 bench=binarysearch cycles=2075 instructions=1257 cache-misses=0
+[sample=39] cpu=0 bench=binarysearch cycles=1905 instructions=1257 cache-misses=0
+[sample=40] cpu=0 bench=binarysearch cycles=2048 instructions=1257 cache-misses=0
+[sample=41] cpu=0 bench=binarysearch cycles=2085 instructions=1258 cache-misses=0
+[sample=42] cpu=0 bench=binarysearch cycles=2001 instructions=1258 cache-misses=0
+[sample=43] cpu=0 bench=binarysearch cycles=1911 instructions=1258 cache-misses=0
+[sample=44] cpu=0 bench=binarysearch cycles=2157 instructions=1258 cache-misses=0
+[sample=45] cpu=0 bench=binarysearch cycles=2303 instructions=1258 cache-misses=0
+[sample=46] cpu=0 bench=binarysearch cycles=1896 instructions=1258 cache-misses=0
+[sample=47] cpu=0 bench=binarysearch cycles=2414 instructions=1258 cache-misses=0
+[sample=48] cpu=0 bench=binarysearch cycles=2147 instructions=1258 cache-misses=0
+[sample=49] cpu=0 bench=binarysearch cycles=1926 instructions=1258 cache-misses=1
+[sample=50] cpu=0 bench=binarysearch cycles=2094 instructions=1258 cache-misses=0
+[sample=51] cpu=0 bench=binarysearch cycles=1973 instructions=1258 cache-misses=0
+[sample=52] cpu=0 bench=binarysearch cycles=2214 instructions=1258 cache-misses=0
+[sample=53] cpu=0 bench=binarysearch cycles=1996 instructions=1258 cache-misses=0
+[sample=54] cpu=0 bench=binarysearch cycles=2103 instructions=1258 cache-misses=0
+[sample=55] cpu=0 bench=binarysearch cycles=2293 instructions=1258 cache-misses=0
+[sample=56] cpu=0 bench=binarysearch cycles=2088 instructions=1258 cache-misses=0
+[sample=57] cpu=0 bench=binarysearch cycles=1881 instructions=1258 cache-misses=0
+[sample=58] cpu=0 bench=binarysearch cycles=2120 instructions=1258 cache-misses=0
+[sample=59] cpu=0 bench=binarysearch cycles=2199 instructions=1259 cache-misses=0
+[sample=60] cpu=0 bench=binarysearch cycles=2079 instructions=1258 cache-misses=0
+[sample=61] cpu=0 bench=binarysearch cycles=2314 instructions=1258 cache-misses=0
+[sample=62] cpu=0 bench=binarysearch cycles=1982 instructions=1258 cache-misses=0
+[sample=63] cpu=0 bench=binarysearch cycles=2079 instructions=1258 cache-misses=0
+[sample=64] cpu=0 bench=binarysearch cycles=1958 instructions=1258 cache-misses=0
+[sample=65] cpu=0 bench=binarysearch cycles=2300 instructions=1258 cache-misses=0
+[sample=66] cpu=0 bench=binarysearch cycles=1961 instructions=1258 cache-misses=0
+[sample=67] cpu=0 bench=binarysearch cycles=2429 instructions=1258 cache-misses=0
+[sample=68] cpu=0 bench=binarysearch cycles=2041 instructions=1258 cache-misses=0
+[sample=69] cpu=0 bench=binarysearch cycles=2240 instructions=1258 cache-misses=0
+[sample=70] cpu=0 bench=binarysearch cycles=10816 instructions=1258 cache-misses=16
+[sample=71] cpu=0 bench=binarysearch cycles=3247 instructions=1260 cache-misses=10
+[sample=72] cpu=0 bench=binarysearch cycles=7853 instructions=1258 cache-misses=8
+[sample=73] cpu=0 bench=binarysearch cycles=2881 instructions=1258 cache-misses=8
+[sample=74] cpu=0 bench=binarysearch cycles=3849 instructions=1258 cache-misses=9
+[sample=75] cpu=0 bench=binarysearch cycles=4139 instructions=1258 cache-misses=8
+[sample=76] cpu=0 bench=binarysearch cycles=3044 instructions=1259 cache-misses=7
+[sample=77] cpu=0 bench=binarysearch cycles=2966 instructions=1258 cache-misses=11
+[sample=78] cpu=0 bench=binarysearch cycles=2169 instructions=1257 cache-misses=9
+[sample=79] cpu=0 bench=binarysearch cycles=2737 instructions=1258 cache-misses=8
+[sample=80] cpu=0 bench=binarysearch cycles=2495 instructions=1259 cache-misses=9
+[sample=81] cpu=0 bench=binarysearch cycles=2749 instructions=1259 cache-misses=7
+[sample=82] cpu=0 bench=binarysearch cycles=2707 instructions=1259 cache-misses=10
+[sample=83] cpu=0 bench=binarysearch cycles=2646 instructions=1258 cache-misses=9
+[sample=84] cpu=0 bench=binarysearch cycles=3196 instructions=1259 cache-misses=10
+[sample=85] cpu=0 bench=binarysearch cycles=2833 instructions=1259 cache-misses=9
+[sample=86] cpu=0 bench=binarysearch cycles=2792 instructions=1258 cache-misses=8
+[sample=87] cpu=0 bench=binarysearch cycles=2570 instructions=1259 cache-misses=8
+[sample=88] cpu=0 bench=binarysearch cycles=2790 instructions=1258 cache-misses=9
+[sample=89] cpu=0 bench=binarysearch cycles=3020 instructions=1258 cache-misses=8
+[sample=90] cpu=0 bench=binarysearch cycles=3176 instructions=1258 cache-misses=9
+[sample=91] cpu=0 bench=binarysearch cycles=2287 instructions=1258 cache-misses=8
+[sample=92] cpu=0 bench=binarysearch cycles=2591 instructions=1257 cache-misses=9
+[sample=93] cpu=0 bench=binarysearch cycles=2761 instructions=1259 cache-misses=9
+[sample=94] cpu=0 bench=binarysearch cycles=2687 instructions=1259 cache-misses=8
+[sample=95] cpu=0 bench=binarysearch cycles=2327 instructions=1258 cache-misses=10
+[sample=96] cpu=0 bench=binarysearch cycles=2301 instructions=1258 cache-misses=8
+[sample=97] cpu=0 bench=binarysearch cycles=3168 instructions=1258 cache-misses=8
+[sample=98] cpu=0 bench=binarysearch cycles=2422 instructions=1258 cache-misses=9
+[sample=99] cpu=0 bench=binarysearch cycles=6529 instructions=1258 cache-misses=10
+
+# Statistics over 100 samples on cpu0 bench=binarysearch (background load on cpu1..cpu6)
+# event                          min                  max                  avg               median
+  cycles                        1781                28024              3087.60              2231.50
+  instructions                  1257                 1262              1257.98              1258.00
+  cache-misses                     0                   16                 3.19                 0.00

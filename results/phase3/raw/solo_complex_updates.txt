@@ -1,0 +1,22 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=1, lock_freq_khz=1600000
+# cpu0=complex_updates (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=complex_updates cycles=9177 instructions=2557 cache-misses=22
+[sample=1] cpu=0 bench=complex_updates cycles=3936 instructions=2554 cache-misses=18
+[sample=2] cpu=0 bench=complex_updates cycles=3696 instructions=2553 cache-misses=18
+[sample=3] cpu=0 bench=complex_updates cycles=3694 instructions=2554 cache-misses=18
+[sample=4] cpu=0 bench=complex_updates cycles=3753 instructions=2553 cache-misses=23
+[sample=5] cpu=0 bench=complex_updates cycles=3727 instructions=2553 cache-misses=22
+[sample=6] cpu=0 bench=complex_updates cycles=4073 instructions=2553 cache-misses=22
+[sample=7] cpu=0 bench=complex_updates cycles=3582 instructions=2553 cache-misses=7
+[sample=8] cpu=0 bench=complex_updates cycles=3566 instructions=2553 cache-misses=4
+[sample=9] cpu=0 bench=complex_updates cycles=3647 instructions=2553 cache-misses=18
+[sample=10] cpu=0 bench=complex_updates cycles=4041 instructions=2553 cache-misses=20
+[sample=11] cpu=0 bench=complex_updates cycles=3671 instructions=2553 cache-misses=17
+
+# Statistics over 12 samples on cpu0 bench=complex_updates (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                        3566                 9177              4213.58              3711.50
+  instructions                  2553                 2557              2553.50              2553.00
+  cache-misses                     4                   23                17.42                18.00

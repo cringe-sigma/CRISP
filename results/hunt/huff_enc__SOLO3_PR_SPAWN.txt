@@ -1,0 +1,17 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
+# cpu0=huff_enc (measured)  cpu1=PR_SPAWN  cpu2=PR_SPAWN  cpu3=PR_SPAWN
+[sample=0] cpu=0 bench=huff_enc cycles=1532241 instructions=1109056 cache-misses=219
+[sample=1] cpu=0 bench=huff_enc cycles=1515086 instructions=1102338 cache-misses=195
+[sample=2] cpu=0 bench=huff_enc cycles=1520500 instructions=1102340 cache-misses=132
+[sample=3] cpu=0 bench=huff_enc cycles=1544328 instructions=1102334 cache-misses=219
+[sample=4] cpu=0 bench=huff_enc cycles=1513463 instructions=1109035 cache-misses=138
+[sample=5] cpu=0 bench=huff_enc cycles=1510983 instructions=1102347 cache-misses=120
+[sample=6] cpu=0 bench=huff_enc cycles=1511478 instructions=1102336 cache-misses=163
+[sample=7] cpu=0 bench=huff_enc cycles=1508382 instructions=1102325 cache-misses=172
+
+# Statistics over 8 samples on cpu0 bench=huff_enc (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     1508382              1544328           1519557.62           1514274.50
+  instructions               1102325              1109056           1104013.88           1102339.00
+  cache-misses                   120                  219               169.75               167.50

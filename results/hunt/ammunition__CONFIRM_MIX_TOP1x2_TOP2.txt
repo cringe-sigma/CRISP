@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=ammunition (measured)  cpu1=MTH_MEM  cpu2=MTH_MEM  cpu3=MEM
+[sample=0] cpu=0 bench=ammunition cycles=232173368 instructions=183613736 cache-misses=679
+[sample=1] cpu=0 bench=ammunition cycles=230681847 instructions=183613699 cache-misses=268
+[sample=2] cpu=0 bench=ammunition cycles=232118102 instructions=183613787 cache-misses=601
+[sample=3] cpu=0 bench=ammunition cycles=231472598 instructions=183613765 cache-misses=469
+[sample=4] cpu=0 bench=ammunition cycles=231338796 instructions=183613648 cache-misses=354
+[sample=5] cpu=0 bench=ammunition cycles=231332239 instructions=183613694 cache-misses=544
+[sample=6] cpu=0 bench=ammunition cycles=230550156 instructions=183613887 cache-misses=368
+[sample=7] cpu=0 bench=ammunition cycles=232552541 instructions=183614025 cache-misses=570
+[sample=8] cpu=0 bench=ammunition cycles=230702360 instructions=183613808 cache-misses=447
+[sample=9] cpu=0 bench=ammunition cycles=231576682 instructions=183613747 cache-misses=581
+[sample=10] cpu=0 bench=ammunition cycles=232295437 instructions=183613707 cache-misses=707
+[sample=11] cpu=0 bench=ammunition cycles=230421271 instructions=183614009 cache-misses=331
+[sample=12] cpu=0 bench=ammunition cycles=230724707 instructions=183613712 cache-misses=440
+[sample=13] cpu=0 bench=ammunition cycles=231001805 instructions=183614477 cache-misses=587
+[sample=14] cpu=0 bench=ammunition cycles=231711709 instructions=183613644 cache-misses=686
+[sample=15] cpu=0 bench=ammunition cycles=230452822 instructions=183614094 cache-misses=274
+[sample=16] cpu=0 bench=ammunition cycles=231533070 instructions=183613603 cache-misses=388
+[sample=17] cpu=0 bench=ammunition cycles=232013383 instructions=183613711 cache-misses=681
+[sample=18] cpu=0 bench=ammunition cycles=231457317 instructions=183613855 cache-misses=642
+[sample=19] cpu=0 bench=ammunition cycles=233065570 instructions=183613711 cache-misses=707
+
+# Statistics over 20 samples on cpu0 bench=ammunition (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                   230421271            233065570         231458789.00         231464957.50
+  instructions             183613603            183614477         183613815.95         183613741.50
+  cache-misses                   268                  707               516.20               557.00

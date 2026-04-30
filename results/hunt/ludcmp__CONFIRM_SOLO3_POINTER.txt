@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=ludcmp (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=POINTER
+[sample=0] cpu=0 bench=ludcmp cycles=39042 instructions=7028 cache-misses=51
+[sample=1] cpu=0 bench=ludcmp cycles=12904 instructions=7015 cache-misses=28
+[sample=2] cpu=0 bench=ludcmp cycles=10862 instructions=7014 cache-misses=10
+[sample=3] cpu=0 bench=ludcmp cycles=10715 instructions=7012 cache-misses=8
+[sample=4] cpu=0 bench=ludcmp cycles=10802 instructions=7012 cache-misses=6
+[sample=5] cpu=0 bench=ludcmp cycles=10715 instructions=7012 cache-misses=5
+[sample=6] cpu=0 bench=ludcmp cycles=10724 instructions=7012 cache-misses=6
+[sample=7] cpu=0 bench=ludcmp cycles=10820 instructions=7012 cache-misses=5
+[sample=8] cpu=0 bench=ludcmp cycles=10849 instructions=7013 cache-misses=4
+[sample=9] cpu=0 bench=ludcmp cycles=10692 instructions=7012 cache-misses=2
+[sample=10] cpu=0 bench=ludcmp cycles=10652 instructions=7010 cache-misses=3
+[sample=11] cpu=0 bench=ludcmp cycles=10683 instructions=7011 cache-misses=4
+[sample=12] cpu=0 bench=ludcmp cycles=10634 instructions=7010 cache-misses=4
+[sample=13] cpu=0 bench=ludcmp cycles=10611 instructions=7011 cache-misses=2
+[sample=14] cpu=0 bench=ludcmp cycles=10694 instructions=7010 cache-misses=2
+[sample=15] cpu=0 bench=ludcmp cycles=10664 instructions=7012 cache-misses=2
+[sample=16] cpu=0 bench=ludcmp cycles=10654 instructions=7012 cache-misses=4
+[sample=17] cpu=0 bench=ludcmp cycles=10635 instructions=7014 cache-misses=4
+[sample=18] cpu=0 bench=ludcmp cycles=10682 instructions=7011 cache-misses=1
+[sample=19] cpu=0 bench=ludcmp cycles=10781 instructions=7011 cache-misses=4
+
+# Statistics over 20 samples on cpu0 bench=ludcmp (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       10611                39042             12240.75             10704.50
+  instructions                  7010                 7028              7012.70              7012.00
+  cache-misses                     1                   51                 7.75                 4.00

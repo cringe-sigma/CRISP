@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=fft (measured)  cpu1=CACHE  cpu2=BUS  cpu3=MEM
+[sample=0] cpu=0 bench=fft cycles=993818 instructions=771119 cache-misses=238
+[sample=1] cpu=0 bench=fft cycles=1015973 instructions=771091 cache-misses=177
+[sample=2] cpu=0 bench=fft cycles=988540 instructions=771101 cache-misses=161
+[sample=3] cpu=0 bench=fft cycles=1002724 instructions=771095 cache-misses=177
+[sample=4] cpu=0 bench=fft cycles=1174594 instructions=771105 cache-misses=398
+[sample=5] cpu=0 bench=fft cycles=1048249 instructions=771439 cache-misses=147
+[sample=6] cpu=0 bench=fft cycles=1070209 instructions=771105 cache-misses=165
+[sample=7] cpu=0 bench=fft cycles=1056910 instructions=771387 cache-misses=172
+[sample=8] cpu=0 bench=fft cycles=1067304 instructions=771122 cache-misses=137
+[sample=9] cpu=0 bench=fft cycles=1014169 instructions=771415 cache-misses=149
+[sample=10] cpu=0 bench=fft cycles=1076502 instructions=771083 cache-misses=213
+[sample=11] cpu=0 bench=fft cycles=1419140 instructions=771108 cache-misses=306
+
+# Statistics over 12 samples on cpu0 bench=fft (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      988540              1419140           1077344.33           1052579.50
+  instructions                771083               771439            771180.83            771106.50
+  cache-misses                   137                  398               203.33               174.50

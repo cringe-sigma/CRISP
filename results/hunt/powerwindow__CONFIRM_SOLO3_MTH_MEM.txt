@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=powerwindow (measured)  cpu1=MTH_MEM  cpu2=MTH_MEM  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=powerwindow cycles=3291705 instructions=2297681 cache-misses=675
+[sample=1] cpu=0 bench=powerwindow cycles=3344465 instructions=2297625 cache-misses=568
+[sample=2] cpu=0 bench=powerwindow cycles=3099010 instructions=2297634 cache-misses=543
+[sample=3] cpu=0 bench=powerwindow cycles=2955462 instructions=2297633 cache-misses=426
+[sample=4] cpu=0 bench=powerwindow cycles=3631326 instructions=2297625 cache-misses=663
+[sample=5] cpu=0 bench=powerwindow cycles=3674399 instructions=2297646 cache-misses=642
+[sample=6] cpu=0 bench=powerwindow cycles=3130493 instructions=2297629 cache-misses=556
+[sample=7] cpu=0 bench=powerwindow cycles=2943659 instructions=2297622 cache-misses=432
+[sample=8] cpu=0 bench=powerwindow cycles=3261443 instructions=2297647 cache-misses=545
+[sample=9] cpu=0 bench=powerwindow cycles=3145056 instructions=2297636 cache-misses=515
+[sample=10] cpu=0 bench=powerwindow cycles=3684742 instructions=2297636 cache-misses=716
+[sample=11] cpu=0 bench=powerwindow cycles=3107303 instructions=2297632 cache-misses=527
+[sample=12] cpu=0 bench=powerwindow cycles=3006811 instructions=2297618 cache-misses=445
+[sample=13] cpu=0 bench=powerwindow cycles=3649341 instructions=2297637 cache-misses=676
+[sample=14] cpu=0 bench=powerwindow cycles=3138270 instructions=2297620 cache-misses=563
+[sample=15] cpu=0 bench=powerwindow cycles=3017481 instructions=2297619 cache-misses=492
+[sample=16] cpu=0 bench=powerwindow cycles=3620741 instructions=2297639 cache-misses=736
+[sample=17] cpu=0 bench=powerwindow cycles=3134739 instructions=2297635 cache-misses=510
+[sample=18] cpu=0 bench=powerwindow cycles=3038495 instructions=2297614 cache-misses=431
+[sample=19] cpu=0 bench=powerwindow cycles=3536009 instructions=2297625 cache-misses=625
+
+# Statistics over 20 samples on cpu0 bench=powerwindow (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     2943659              3684742           3270547.50           3141663.00
+  instructions               2297614              2297681           2297632.65           2297632.50
+  cache-misses                   426                  736               564.30               550.50

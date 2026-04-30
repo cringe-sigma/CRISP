@@ -1,0 +1,22 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=1, lock_freq_khz=1600000
+# cpu0=bitcount (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=bitcount cycles=44896 instructions=24594 cache-misses=36
+[sample=1] cpu=0 bench=bitcount cycles=41636 instructions=24587 cache-misses=27
+[sample=2] cpu=0 bench=bitcount cycles=33198 instructions=24586 cache-misses=25
+[sample=3] cpu=0 bench=bitcount cycles=31063 instructions=24587 cache-misses=28
+[sample=4] cpu=0 bench=bitcount cycles=30616 instructions=24584 cache-misses=27
+[sample=5] cpu=0 bench=bitcount cycles=45217 instructions=24586 cache-misses=29
+[sample=6] cpu=0 bench=bitcount cycles=30731 instructions=24585 cache-misses=14
+[sample=7] cpu=0 bench=bitcount cycles=30316 instructions=24584 cache-misses=9
+[sample=8] cpu=0 bench=bitcount cycles=30208 instructions=24583 cache-misses=6
+[sample=9] cpu=0 bench=bitcount cycles=30235 instructions=24584 cache-misses=5
+[sample=10] cpu=0 bench=bitcount cycles=30215 instructions=24583 cache-misses=5
+[sample=11] cpu=0 bench=bitcount cycles=30173 instructions=24584 cache-misses=3
+
+# Statistics over 12 samples on cpu0 bench=bitcount (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                       30173                45217             34042.00             30673.50
+  instructions                 24583                24594             24585.58             24584.50
+  cache-misses                     3                   36                17.83                19.50

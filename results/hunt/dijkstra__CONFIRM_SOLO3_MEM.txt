@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=dijkstra (measured)  cpu1=MEM  cpu2=MEM  cpu3=MEM
+[sample=0] cpu=0 bench=dijkstra cycles=112692053 instructions=82753843 cache-misses=6534
+[sample=1] cpu=0 bench=dijkstra cycles=112726981 instructions=82753891 cache-misses=8722
+[sample=2] cpu=0 bench=dijkstra cycles=113649213 instructions=82753840 cache-misses=7060
+[sample=3] cpu=0 bench=dijkstra cycles=114042409 instructions=82753878 cache-misses=8649
+[sample=4] cpu=0 bench=dijkstra cycles=110895942 instructions=82753885 cache-misses=7820
+[sample=5] cpu=0 bench=dijkstra cycles=111354289 instructions=82753896 cache-misses=8358
+[sample=6] cpu=0 bench=dijkstra cycles=111525975 instructions=82753934 cache-misses=9909
+[sample=7] cpu=0 bench=dijkstra cycles=111797220 instructions=82753897 cache-misses=9092
+[sample=8] cpu=0 bench=dijkstra cycles=111412601 instructions=82753914 cache-misses=9527
+[sample=9] cpu=0 bench=dijkstra cycles=111393994 instructions=82753884 cache-misses=8318
+[sample=10] cpu=0 bench=dijkstra cycles=111184163 instructions=82753873 cache-misses=6711
+[sample=11] cpu=0 bench=dijkstra cycles=110395905 instructions=82753803 cache-misses=5888
+[sample=12] cpu=0 bench=dijkstra cycles=111474923 instructions=82753816 cache-misses=6181
+[sample=13] cpu=0 bench=dijkstra cycles=112562878 instructions=82753832 cache-misses=6700
+[sample=14] cpu=0 bench=dijkstra cycles=110202114 instructions=82753809 cache-misses=5788
+[sample=15] cpu=0 bench=dijkstra cycles=109915541 instructions=82753824 cache-misses=6252
+[sample=16] cpu=0 bench=dijkstra cycles=111166260 instructions=82753847 cache-misses=6688
+[sample=17] cpu=0 bench=dijkstra cycles=112678819 instructions=82753822 cache-misses=6646
+[sample=18] cpu=0 bench=dijkstra cycles=111287079 instructions=82753778 cache-misses=4841
+[sample=19] cpu=0 bench=dijkstra cycles=111494802 instructions=82753799 cache-misses=5743
+
+# Statistics over 20 samples on cpu0 bench=dijkstra (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                   109915541            114042409         111692658.05         111443762.00
+  instructions              82753778             82753934          82753853.25          82753845.00
+  cache-misses                  4841                 9909              7271.35              6705.50

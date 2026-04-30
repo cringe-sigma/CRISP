@@ -1,0 +1,17 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
+# cpu0=g723_enc (measured)  cpu1=MTH_BUS  cpu2=MTH_BUS  cpu3=MTH_BUS
+[sample=0] cpu=0 bench=g723_enc cycles=1058378 instructions=847665 cache-misses=46
+[sample=1] cpu=0 bench=g723_enc cycles=1061923 instructions=847643 cache-misses=27
+[sample=2] cpu=0 bench=g723_enc cycles=1043877 instructions=847234 cache-misses=21
+[sample=3] cpu=0 bench=g723_enc cycles=1039143 instructions=847636 cache-misses=29
+[sample=4] cpu=0 bench=g723_enc cycles=1034957 instructions=847641 cache-misses=36
+[sample=5] cpu=0 bench=g723_enc cycles=1035095 instructions=847638 cache-misses=28
+[sample=6] cpu=0 bench=g723_enc cycles=1034494 instructions=847640 cache-misses=26
+[sample=7] cpu=0 bench=g723_enc cycles=1036811 instructions=847640 cache-misses=40
+
+# Statistics over 8 samples on cpu0 bench=g723_enc (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     1034494              1061923           1043084.75           1037977.00
+  instructions                847234               847665            847592.12            847640.00
+  cache-misses                    21                   46                31.62                28.50

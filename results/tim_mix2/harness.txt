@@ -1,0 +1,8 @@
+harness binary       : ./multi_proc_pmu
+harness flags (typ.) : -n 100 -f 1600000 (locked CPU freq 1.6 GHz)
+DEFAULT_CFLAGS       : -O0 -g -Wall -Wno-unused-result -Wno-unknown-pragmas -std=gnu11
+victim cpu           : cpu0
+attacker cpus        : cpu1..cpuN (one per positional bg bench)
+Each row in summary.csv gives ratio = pair_median / solo_median
+for cycles. configs.tsv adds the exact -D defines used to BUILD
+the harness for that row, and the bg worker list.

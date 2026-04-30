@@ -1,0 +1,22 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=1, lock_freq_khz=1600000
+# cpu0=fir2dim (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=fir2dim cycles=21665 instructions=10138 cache-misses=20
+[sample=1] cpu=0 bench=fir2dim cycles=19536 instructions=10129 cache-misses=11
+[sample=2] cpu=0 bench=fir2dim cycles=13823 instructions=10110 cache-misses=5
+[sample=3] cpu=0 bench=fir2dim cycles=13270 instructions=10111 cache-misses=1
+[sample=4] cpu=0 bench=fir2dim cycles=12873 instructions=10101 cache-misses=0
+[sample=5] cpu=0 bench=fir2dim cycles=13248 instructions=10105 cache-misses=0
+[sample=6] cpu=0 bench=fir2dim cycles=12938 instructions=10104 cache-misses=0
+[sample=7] cpu=0 bench=fir2dim cycles=12876 instructions=10102 cache-misses=0
+[sample=8] cpu=0 bench=fir2dim cycles=12878 instructions=10102 cache-misses=0
+[sample=9] cpu=0 bench=fir2dim cycles=12893 instructions=10105 cache-misses=0
+[sample=10] cpu=0 bench=fir2dim cycles=12915 instructions=10105 cache-misses=0
+[sample=11] cpu=0 bench=fir2dim cycles=12831 instructions=10104 cache-misses=0
+
+# Statistics over 12 samples on cpu0 bench=fir2dim (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                       12831                21665             14312.17             12926.50
+  instructions                 10101                10138             10109.67             10105.00
+  cache-misses                     0                   20                 3.08                 0.00

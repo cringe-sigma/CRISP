@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=cjpeg_transupp (measured)  cpu1=MTH_MEM  cpu2=MTH_MEM  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=cjpeg_transupp cycles=7353184 instructions=5738351 cache-misses=82
+[sample=1] cpu=0 bench=cjpeg_transupp cycles=7243577 instructions=5738325 cache-misses=54
+[sample=2] cpu=0 bench=cjpeg_transupp cycles=7217114 instructions=5738383 cache-misses=50
+[sample=3] cpu=0 bench=cjpeg_transupp cycles=7266221 instructions=5738412 cache-misses=47
+[sample=4] cpu=0 bench=cjpeg_transupp cycles=7238005 instructions=5738326 cache-misses=53
+[sample=5] cpu=0 bench=cjpeg_transupp cycles=7364495 instructions=5738349 cache-misses=102
+[sample=6] cpu=0 bench=cjpeg_transupp cycles=7321888 instructions=5738360 cache-misses=63
+[sample=7] cpu=0 bench=cjpeg_transupp cycles=7302534 instructions=5738412 cache-misses=63
+[sample=8] cpu=0 bench=cjpeg_transupp cycles=7230191 instructions=5738466 cache-misses=62
+[sample=9] cpu=0 bench=cjpeg_transupp cycles=7261651 instructions=5738400 cache-misses=54
+[sample=10] cpu=0 bench=cjpeg_transupp cycles=7433626 instructions=5738321 cache-misses=64
+[sample=11] cpu=0 bench=cjpeg_transupp cycles=7312048 instructions=5738354 cache-misses=77
+[sample=12] cpu=0 bench=cjpeg_transupp cycles=7278023 instructions=5738340 cache-misses=52
+[sample=13] cpu=0 bench=cjpeg_transupp cycles=7396491 instructions=5738357 cache-misses=134
+[sample=14] cpu=0 bench=cjpeg_transupp cycles=7348660 instructions=5738345 cache-misses=81
+[sample=15] cpu=0 bench=cjpeg_transupp cycles=7670903 instructions=5738359 cache-misses=118
+[sample=16] cpu=0 bench=cjpeg_transupp cycles=7466556 instructions=5738422 cache-misses=128
+[sample=17] cpu=0 bench=cjpeg_transupp cycles=7348061 instructions=5738502 cache-misses=86
+[sample=18] cpu=0 bench=cjpeg_transupp cycles=7343905 instructions=5738349 cache-misses=93
+[sample=19] cpu=0 bench=cjpeg_transupp cycles=7672650 instructions=5738334 cache-misses=76
+
+# Statistics over 20 samples on cpu0 bench=cjpeg_transupp (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     7217114              7672650           7353489.15           7332896.50
+  instructions               5738321              5738502           5738373.35           5738355.50
+  cache-misses                    47                  134                76.95                70.00

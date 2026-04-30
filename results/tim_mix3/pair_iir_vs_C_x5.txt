@@ -1,0 +1,117 @@
+[warn] cannot read /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor (errno=2: No such file or directory); cpufreq pinning skipped for cpu4
+[warn] cannot read /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor (errno=2: No such file or directory); cpufreq pinning skipped for cpu5
+[warn] cannot pin /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq = 1600000 (errno=2: No such file or directory)
+[warn] cannot pin /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq = 1600000 (errno=2: No such file or directory)
+[info] cpu0..cpu5 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=100, active_cores=6, lock_freq_khz=1600000
+# cpu0=iir (measured)  cpu1=MEM  cpu2=MEM  cpu3=MEM  cpu4=MEM  cpu5=MEM
+sched_setaffinity: Invalid argument
+sched_setaffinity: Invalid argument
+[sample=0] cpu=0 bench=iir cycles=30820 instructions=2593 cache-misses=14
+[sample=1] cpu=0 bench=iir cycles=6805 instructions=2588 cache-misses=14
+[sample=2] cpu=0 bench=iir cycles=5186 instructions=2589 cache-misses=13
+[sample=3] cpu=0 bench=iir cycles=5052 instructions=2589 cache-misses=12
+[sample=4] cpu=0 bench=iir cycles=5029 instructions=2589 cache-misses=10
+[sample=5] cpu=0 bench=iir cycles=6128 instructions=2589 cache-misses=14
+[sample=6] cpu=0 bench=iir cycles=4859 instructions=2589 cache-misses=10
+[sample=7] cpu=0 bench=iir cycles=5395 instructions=2589 cache-misses=8
+[sample=8] cpu=0 bench=iir cycles=4710 instructions=2588 cache-misses=10
+[sample=9] cpu=0 bench=iir cycles=6133 instructions=2588 cache-misses=12
+[sample=10] cpu=0 bench=iir cycles=5383 instructions=2589 cache-misses=10
+[sample=11] cpu=0 bench=iir cycles=5165 instructions=2589 cache-misses=9
+[sample=12] cpu=0 bench=iir cycles=5907 instructions=2589 cache-misses=12
+[sample=13] cpu=0 bench=iir cycles=6665 instructions=2588 cache-misses=15
+[sample=14] cpu=0 bench=iir cycles=4647 instructions=2588 cache-misses=11
+[sample=15] cpu=0 bench=iir cycles=5468 instructions=2589 cache-misses=11
+[sample=16] cpu=0 bench=iir cycles=4896 instructions=2589 cache-misses=10
+[sample=17] cpu=0 bench=iir cycles=5370 instructions=2589 cache-misses=13
+[sample=18] cpu=0 bench=iir cycles=6501 instructions=2589 cache-misses=13
+[sample=19] cpu=0 bench=iir cycles=5270 instructions=2589 cache-misses=13
+[sample=20] cpu=0 bench=iir cycles=4741 instructions=2589 cache-misses=9
+[sample=21] cpu=0 bench=iir cycles=6284 instructions=2589 cache-misses=14
+[sample=22] cpu=0 bench=iir cycles=5201 instructions=2588 cache-misses=12
+[sample=23] cpu=0 bench=iir cycles=5757 instructions=2589 cache-misses=10
+[sample=24] cpu=0 bench=iir cycles=5001 instructions=2589 cache-misses=12
+[sample=25] cpu=0 bench=iir cycles=5983 instructions=2589 cache-misses=11
+[sample=26] cpu=0 bench=iir cycles=4524 instructions=2589 cache-misses=10
+[sample=27] cpu=0 bench=iir cycles=5519 instructions=2588 cache-misses=11
+[sample=28] cpu=0 bench=iir cycles=4822 instructions=2588 cache-misses=10
+[sample=29] cpu=0 bench=iir cycles=4600 instructions=2588 cache-misses=11
+[sample=30] cpu=0 bench=iir cycles=5469 instructions=2589 cache-misses=10
+[sample=31] cpu=0 bench=iir cycles=4483 instructions=2589 cache-misses=11
+[sample=32] cpu=0 bench=iir cycles=5645 instructions=2589 cache-misses=10
+[sample=33] cpu=0 bench=iir cycles=5709 instructions=2589 cache-misses=10
+[sample=34] cpu=0 bench=iir cycles=5926 instructions=2589 cache-misses=15
+[sample=35] cpu=0 bench=iir cycles=4713 instructions=2589 cache-misses=12
+[sample=36] cpu=0 bench=iir cycles=5269 instructions=2589 cache-misses=11
+[sample=37] cpu=0 bench=iir cycles=6044 instructions=2589 cache-misses=9
+[sample=38] cpu=0 bench=iir cycles=4367 instructions=2589 cache-misses=10
+[sample=39] cpu=0 bench=iir cycles=6573 instructions=2589 cache-misses=12
+[sample=40] cpu=0 bench=iir cycles=4794 instructions=2589 cache-misses=10
+[sample=41] cpu=0 bench=iir cycles=4830 instructions=2589 cache-misses=10
+[sample=42] cpu=0 bench=iir cycles=4959 instructions=2589 cache-misses=13
+[sample=43] cpu=0 bench=iir cycles=11295 instructions=2589 cache-misses=14
+[sample=44] cpu=0 bench=iir cycles=12872 instructions=2589 cache-misses=16
+[sample=45] cpu=0 bench=iir cycles=7479 instructions=2589 cache-misses=17
+[sample=46] cpu=0 bench=iir cycles=5435 instructions=2589 cache-misses=13
+[sample=47] cpu=0 bench=iir cycles=5295 instructions=2589 cache-misses=10
+[sample=48] cpu=0 bench=iir cycles=5612 instructions=2589 cache-misses=11
+[sample=49] cpu=0 bench=iir cycles=6311 instructions=2589 cache-misses=16
+[sample=50] cpu=0 bench=iir cycles=5176 instructions=2589 cache-misses=12
+[sample=51] cpu=0 bench=iir cycles=6031 instructions=2589 cache-misses=10
+[sample=52] cpu=0 bench=iir cycles=5007 instructions=2589 cache-misses=13
+[sample=53] cpu=0 bench=iir cycles=5574 instructions=2589 cache-misses=8
+[sample=54] cpu=0 bench=iir cycles=5154 instructions=2589 cache-misses=11
+[sample=55] cpu=0 bench=iir cycles=6392 instructions=2589 cache-misses=16
+[sample=56] cpu=0 bench=iir cycles=5128 instructions=2589 cache-misses=9
+[sample=57] cpu=0 bench=iir cycles=5345 instructions=2589 cache-misses=13
+[sample=58] cpu=0 bench=iir cycles=6933 instructions=2589 cache-misses=12
+[sample=59] cpu=0 bench=iir cycles=5881 instructions=2589 cache-misses=14
+[sample=60] cpu=0 bench=iir cycles=5902 instructions=2589 cache-misses=12
+[sample=61] cpu=0 bench=iir cycles=4614 instructions=2589 cache-misses=10
+[sample=62] cpu=0 bench=iir cycles=5134 instructions=2589 cache-misses=11
+[sample=63] cpu=0 bench=iir cycles=4967 instructions=2589 cache-misses=8
+[sample=64] cpu=0 bench=iir cycles=6276 instructions=2589 cache-misses=13
+[sample=65] cpu=0 bench=iir cycles=4732 instructions=2589 cache-misses=10
+[sample=66] cpu=0 bench=iir cycles=4617 instructions=2589 cache-misses=10
+[sample=67] cpu=0 bench=iir cycles=5907 instructions=2589 cache-misses=10
+[sample=68] cpu=0 bench=iir cycles=4939 instructions=2589 cache-misses=9
+[sample=69] cpu=0 bench=iir cycles=5183 instructions=2589 cache-misses=12
+[sample=70] cpu=0 bench=iir cycles=6174 instructions=2589 cache-misses=12
+[sample=71] cpu=0 bench=iir cycles=5914 instructions=2589 cache-misses=11
+[sample=72] cpu=0 bench=iir cycles=5068 instructions=2589 cache-misses=10
+[sample=73] cpu=0 bench=iir cycles=8225 instructions=2589 cache-misses=11
+[sample=74] cpu=0 bench=iir cycles=4961 instructions=2589 cache-misses=12
+[sample=75] cpu=0 bench=iir cycles=5097 instructions=2589 cache-misses=9
+[sample=76] cpu=0 bench=iir cycles=5158 instructions=2589 cache-misses=10
+[sample=77] cpu=0 bench=iir cycles=5455 instructions=2589 cache-misses=12
+[sample=78] cpu=0 bench=iir cycles=4770 instructions=2589 cache-misses=14
+[sample=79] cpu=0 bench=iir cycles=5005 instructions=2589 cache-misses=10
+[sample=80] cpu=0 bench=iir cycles=5126 instructions=2589 cache-misses=13
+[sample=81] cpu=0 bench=iir cycles=4801 instructions=2589 cache-misses=9
+[sample=82] cpu=0 bench=iir cycles=5182 instructions=2589 cache-misses=9
+[sample=83] cpu=0 bench=iir cycles=5669 instructions=2589 cache-misses=13
+[sample=84] cpu=0 bench=iir cycles=4916 instructions=2589 cache-misses=11
+[sample=85] cpu=0 bench=iir cycles=5701 instructions=2589 cache-misses=14
+[sample=86] cpu=0 bench=iir cycles=5411 instructions=2589 cache-misses=14
+[sample=87] cpu=0 bench=iir cycles=5984 instructions=2589 cache-misses=16
+[sample=88] cpu=0 bench=iir cycles=4781 instructions=2589 cache-misses=9
+[sample=89] cpu=0 bench=iir cycles=5667 instructions=2589 cache-misses=14
+[sample=90] cpu=0 bench=iir cycles=4271 instructions=2589 cache-misses=13
+[sample=91] cpu=0 bench=iir cycles=3933 instructions=2589 cache-misses=12
+[sample=92] cpu=0 bench=iir cycles=5542 instructions=2589 cache-misses=13
+[sample=93] cpu=0 bench=iir cycles=5431 instructions=2589 cache-misses=10
+[sample=94] cpu=0 bench=iir cycles=5771 instructions=2589 cache-misses=11
+[sample=95] cpu=0 bench=iir cycles=5057 instructions=2589 cache-misses=11
+[sample=96] cpu=0 bench=iir cycles=5677 instructions=2589 cache-misses=12
+[sample=97] cpu=0 bench=iir cycles=5061 instructions=2589 cache-misses=10
+[sample=98] cpu=0 bench=iir cycles=5021 instructions=2589 cache-misses=11
+[sample=99] cpu=0 bench=iir cycles=5280 instructions=2589 cache-misses=10
+
+# Statistics over 100 samples on cpu0 bench=iir (background load on cpu1..cpu5)
+# event                          min                  max                  avg               median
+  cycles                        3933                30820              5799.02              5287.50
+  instructions                  2588                 2593              2588.95              2589.00
+  cache-misses                     8                   17                11.53                11.00

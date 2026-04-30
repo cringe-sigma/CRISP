@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=h264_dec (measured)  cpu1=PR_TLB  cpu2=PR_TLB  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=h264_dec cycles=601479 instructions=400153 cache-misses=90
+[sample=1] cpu=0 bench=h264_dec cycles=605236 instructions=400118 cache-misses=140
+[sample=2] cpu=0 bench=h264_dec cycles=575415 instructions=400118 cache-misses=123
+[sample=3] cpu=0 bench=h264_dec cycles=552413 instructions=400118 cache-misses=113
+[sample=4] cpu=0 bench=h264_dec cycles=545805 instructions=400117 cache-misses=114
+[sample=5] cpu=0 bench=h264_dec cycles=538602 instructions=400118 cache-misses=88
+[sample=6] cpu=0 bench=h264_dec cycles=532364 instructions=400117 cache-misses=95
+[sample=7] cpu=0 bench=h264_dec cycles=563580 instructions=400119 cache-misses=103
+[sample=8] cpu=0 bench=h264_dec cycles=560201 instructions=400117 cache-misses=29
+[sample=9] cpu=0 bench=h264_dec cycles=527847 instructions=400118 cache-misses=54
+[sample=10] cpu=0 bench=h264_dec cycles=535845 instructions=400118 cache-misses=93
+[sample=11] cpu=0 bench=h264_dec cycles=523496 instructions=400118 cache-misses=71
+[sample=12] cpu=0 bench=h264_dec cycles=525034 instructions=400117 cache-misses=87
+[sample=13] cpu=0 bench=h264_dec cycles=529341 instructions=400119 cache-misses=103
+[sample=14] cpu=0 bench=h264_dec cycles=529382 instructions=400117 cache-misses=105
+[sample=15] cpu=0 bench=h264_dec cycles=530500 instructions=400118 cache-misses=98
+[sample=16] cpu=0 bench=h264_dec cycles=573865 instructions=400119 cache-misses=122
+[sample=17] cpu=0 bench=h264_dec cycles=607494 instructions=400121 cache-misses=126
+[sample=18] cpu=0 bench=h264_dec cycles=539845 instructions=400118 cache-misses=33
+[sample=19] cpu=0 bench=h264_dec cycles=535461 instructions=400118 cache-misses=97
+
+# Statistics over 20 samples on cpu0 bench=h264_dec (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      523496               607494            551660.25            539223.50
+  instructions                400117               400153            400119.80            400118.00
+  cache-misses                    29                  140                94.20                97.50

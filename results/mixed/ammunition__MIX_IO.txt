@@ -1,0 +1,19 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=10, active_cores=4, lock_freq_khz=1600000
+# cpu0=ammunition (measured)  cpu1=PR_DISKIO  cpu2=PR_FILESYS  cpu3=MTH_SYSCALLS
+[sample=0] cpu=0 bench=ammunition cycles=229567901 instructions=183613722 cache-misses=469
+[sample=1] cpu=0 bench=ammunition cycles=229429377 instructions=183613663 cache-misses=475
+[sample=2] cpu=0 bench=ammunition cycles=229046239 instructions=183613598 cache-misses=224
+[sample=3] cpu=0 bench=ammunition cycles=229647754 instructions=183613791 cache-misses=748
+[sample=4] cpu=0 bench=ammunition cycles=229323231 instructions=183614629 cache-misses=603
+[sample=5] cpu=0 bench=ammunition cycles=229416497 instructions=183613561 cache-misses=113
+[sample=6] cpu=0 bench=ammunition cycles=229261493 instructions=183613706 cache-misses=226
+[sample=7] cpu=0 bench=ammunition cycles=229268115 instructions=183613668 cache-misses=435
+[sample=8] cpu=0 bench=ammunition cycles=229260137 instructions=183613990 cache-misses=575
+[sample=9] cpu=0 bench=ammunition cycles=229115077 instructions=183613692 cache-misses=568
+
+# Statistics over 10 samples on cpu0 bench=ammunition (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                   229046239            229647754         229333582.10         229295673.00
+  instructions             183613561            183614629         183613802.00         183613699.00
+  cache-misses                   113                  748               443.60               472.00

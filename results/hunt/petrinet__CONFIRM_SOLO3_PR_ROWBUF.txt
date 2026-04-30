@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=petrinet (measured)  cpu1=PR_ROWBUF  cpu2=PR_ROWBUF  cpu3=PR_ROWBUF
+[sample=0] cpu=0 bench=petrinet cycles=34378 instructions=2180 cache-misses=17
+[sample=1] cpu=0 bench=petrinet cycles=9894 instructions=2174 cache-misses=12
+[sample=2] cpu=0 bench=petrinet cycles=4104 instructions=2173 cache-misses=7
+[sample=3] cpu=0 bench=petrinet cycles=3390 instructions=2173 cache-misses=4
+[sample=4] cpu=0 bench=petrinet cycles=3374 instructions=2173 cache-misses=3
+[sample=5] cpu=0 bench=petrinet cycles=3378 instructions=2175 cache-misses=4
+[sample=6] cpu=0 bench=petrinet cycles=3372 instructions=2173 cache-misses=4
+[sample=7] cpu=0 bench=petrinet cycles=3354 instructions=2173 cache-misses=1
+[sample=8] cpu=0 bench=petrinet cycles=3350 instructions=2173 cache-misses=3
+[sample=9] cpu=0 bench=petrinet cycles=3349 instructions=2173 cache-misses=2
+[sample=10] cpu=0 bench=petrinet cycles=3376 instructions=2173 cache-misses=3
+[sample=11] cpu=0 bench=petrinet cycles=3228 instructions=2173 cache-misses=4
+[sample=12] cpu=0 bench=petrinet cycles=3316 instructions=2173 cache-misses=3
+[sample=13] cpu=0 bench=petrinet cycles=3364 instructions=2173 cache-misses=4
+[sample=14] cpu=0 bench=petrinet cycles=3303 instructions=2173 cache-misses=4
+[sample=15] cpu=0 bench=petrinet cycles=3318 instructions=2173 cache-misses=2
+[sample=16] cpu=0 bench=petrinet cycles=3299 instructions=2173 cache-misses=3
+[sample=17] cpu=0 bench=petrinet cycles=3338 instructions=2173 cache-misses=4
+[sample=18] cpu=0 bench=petrinet cycles=3333 instructions=2174 cache-misses=2
+[sample=19] cpu=0 bench=petrinet cycles=3284 instructions=2173 cache-misses=3
+
+# Statistics over 20 samples on cpu0 bench=petrinet (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        3228                34378              5255.10              3352.00
+  instructions                  2173                 2180              2173.55              2173.00
+  cache-misses                     1                   17                 4.45                 3.50

@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=filterbank (measured)  cpu1=MTH_MEM  cpu2=PR_TLB  cpu3=PR_TLB
+[sample=0] cpu=0 bench=filterbank cycles=15701749 instructions=10351986 cache-misses=128
+[sample=1] cpu=0 bench=filterbank cycles=15765391 instructions=10351979 cache-misses=251
+[sample=2] cpu=0 bench=filterbank cycles=16370574 instructions=10351976 cache-misses=199
+[sample=3] cpu=0 bench=filterbank cycles=15670431 instructions=10351973 cache-misses=128
+[sample=4] cpu=0 bench=filterbank cycles=15841234 instructions=10351976 cache-misses=139
+[sample=5] cpu=0 bench=filterbank cycles=15672853 instructions=10351976 cache-misses=110
+[sample=6] cpu=0 bench=filterbank cycles=15869936 instructions=10351980 cache-misses=281
+[sample=7] cpu=0 bench=filterbank cycles=15672016 instructions=10351980 cache-misses=163
+[sample=8] cpu=0 bench=filterbank cycles=15778095 instructions=10351980 cache-misses=289
+[sample=9] cpu=0 bench=filterbank cycles=15751316 instructions=10351987 cache-misses=390
+[sample=10] cpu=0 bench=filterbank cycles=15845469 instructions=10351997 cache-misses=494
+[sample=11] cpu=0 bench=filterbank cycles=15715268 instructions=10351980 cache-misses=177
+[sample=12] cpu=0 bench=filterbank cycles=15823340 instructions=10351983 cache-misses=259
+[sample=13] cpu=0 bench=filterbank cycles=15952418 instructions=10351982 cache-misses=219
+[sample=14] cpu=0 bench=filterbank cycles=15700294 instructions=10351973 cache-misses=146
+[sample=15] cpu=0 bench=filterbank cycles=15697137 instructions=10351975 cache-misses=138
+[sample=16] cpu=0 bench=filterbank cycles=15735365 instructions=10351975 cache-misses=228
+[sample=17] cpu=0 bench=filterbank cycles=15700805 instructions=10351975 cache-misses=134
+[sample=18] cpu=0 bench=filterbank cycles=15699555 instructions=10351973 cache-misses=151
+[sample=19] cpu=0 bench=filterbank cycles=15832284 instructions=10351973 cache-misses=114
+
+# Statistics over 20 samples on cpu0 bench=filterbank (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                    15670431             16370574          15789776.50          15743340.50
+  instructions              10351973             10351997          10351978.95          10351977.50
+  cache-misses                   110                  494               206.90               170.00

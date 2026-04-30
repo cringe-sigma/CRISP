@@ -1,0 +1,20 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=10, active_cores=1, lock_freq_khz=1600000
+# cpu0=recursion (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=recursion cycles=8789 instructions=3152 cache-misses=11
+[sample=1] cpu=0 bench=recursion cycles=8244 instructions=3147 cache-misses=9
+[sample=2] cpu=0 bench=recursion cycles=4311 instructions=3148 cache-misses=6
+[sample=3] cpu=0 bench=recursion cycles=4279 instructions=3148 cache-misses=5
+[sample=4] cpu=0 bench=recursion cycles=4270 instructions=3148 cache-misses=1
+[sample=5] cpu=0 bench=recursion cycles=4347 instructions=3147 cache-misses=2
+[sample=6] cpu=0 bench=recursion cycles=4351 instructions=3147 cache-misses=2
+[sample=7] cpu=0 bench=recursion cycles=4308 instructions=3147 cache-misses=2
+[sample=8] cpu=0 bench=recursion cycles=4244 instructions=3147 cache-misses=3
+[sample=9] cpu=0 bench=recursion cycles=4247 instructions=3147 cache-misses=2
+
+# Statistics over 10 samples on cpu0 bench=recursion (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                        4244                 8789              5139.00              4309.50
+  instructions                  3147                 3152              3147.80              3147.00
+  cache-misses                     1                   11                 4.30                 2.50

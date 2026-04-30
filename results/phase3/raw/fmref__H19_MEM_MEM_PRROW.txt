@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=fmref (measured)  cpu1=MEM  cpu2=MEM  cpu3=PR_ROWBUF
+[sample=0] cpu=0 bench=fmref cycles=868132 instructions=454813 cache-misses=122
+[sample=1] cpu=0 bench=fmref cycles=769807 instructions=417299 cache-misses=82
+[sample=2] cpu=0 bench=fmref cycles=704540 instructions=417300 cache-misses=47
+[sample=3] cpu=0 bench=fmref cycles=682139 instructions=417294 cache-misses=38
+[sample=4] cpu=0 bench=fmref cycles=690974 instructions=417295 cache-misses=20
+[sample=5] cpu=0 bench=fmref cycles=691546 instructions=417297 cache-misses=24
+[sample=6] cpu=0 bench=fmref cycles=676452 instructions=417294 cache-misses=24
+[sample=7] cpu=0 bench=fmref cycles=668952 instructions=417298 cache-misses=22
+[sample=8] cpu=0 bench=fmref cycles=721428 instructions=417301 cache-misses=67
+[sample=9] cpu=0 bench=fmref cycles=721920 instructions=417303 cache-misses=62
+[sample=10] cpu=0 bench=fmref cycles=790164 instructions=417302 cache-misses=102
+[sample=11] cpu=0 bench=fmref cycles=806332 instructions=417306 cache-misses=78
+
+# Statistics over 12 samples on cpu0 bench=fmref (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      668952               868132            732698.83            712984.00
+  instructions                417294               454813            420425.17            417299.50
+  cache-misses                    20                  122                57.33                54.50

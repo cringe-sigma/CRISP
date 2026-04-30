@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=recursion (measured)  cpu1=MTH_MEM  cpu2=MTH_MEM  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=recursion cycles=25758 instructions=3153 cache-misses=13
+[sample=1] cpu=0 bench=recursion cycles=8949 instructions=3148 cache-misses=12
+[sample=2] cpu=0 bench=recursion cycles=4593 instructions=3147 cache-misses=2
+[sample=3] cpu=0 bench=recursion cycles=4360 instructions=3147 cache-misses=2
+[sample=4] cpu=0 bench=recursion cycles=6128 instructions=3147 cache-misses=2
+[sample=5] cpu=0 bench=recursion cycles=4672 instructions=3147 cache-misses=3
+[sample=6] cpu=0 bench=recursion cycles=4778 instructions=3147 cache-misses=2
+[sample=7] cpu=0 bench=recursion cycles=4500 instructions=3147 cache-misses=2
+[sample=8] cpu=0 bench=recursion cycles=5237 instructions=3147 cache-misses=2
+[sample=9] cpu=0 bench=recursion cycles=5430 instructions=3147 cache-misses=1
+[sample=10] cpu=0 bench=recursion cycles=5066 instructions=3147 cache-misses=1
+[sample=11] cpu=0 bench=recursion cycles=5135 instructions=3147 cache-misses=2
+[sample=12] cpu=0 bench=recursion cycles=5383 instructions=3147 cache-misses=2
+[sample=13] cpu=0 bench=recursion cycles=5229 instructions=3147 cache-misses=2
+[sample=14] cpu=0 bench=recursion cycles=18326 instructions=3148 cache-misses=12
+[sample=15] cpu=0 bench=recursion cycles=4487 instructions=3148 cache-misses=2
+[sample=16] cpu=0 bench=recursion cycles=4440 instructions=3147 cache-misses=1
+[sample=17] cpu=0 bench=recursion cycles=4508 instructions=3147 cache-misses=3
+[sample=18] cpu=0 bench=recursion cycles=4456 instructions=3147 cache-misses=1
+[sample=19] cpu=0 bench=recursion cycles=5019 instructions=3147 cache-misses=2
+
+# Statistics over 20 samples on cpu0 bench=recursion (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        4360                25758              6822.70              5042.50
+  instructions                  3147                 3153              3147.45              3147.00
+  cache-misses                     1                   13                 3.45                 2.00

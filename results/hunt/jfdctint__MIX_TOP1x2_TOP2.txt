@@ -1,0 +1,17 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
+# cpu0=jfdctint (measured)  cpu1=PR_SPAWN  cpu2=PR_SPAWN  cpu3=PR_FILESYS
+[sample=0] cpu=0 bench=jfdctint cycles=23025 instructions=6385 cache-misses=15
+[sample=1] cpu=0 bench=jfdctint cycles=20479 instructions=6381 cache-misses=12
+[sample=2] cpu=0 bench=jfdctint cycles=16169 instructions=6381 cache-misses=7
+[sample=3] cpu=0 bench=jfdctint cycles=14352 instructions=6381 cache-misses=4
+[sample=4] cpu=0 bench=jfdctint cycles=15992 instructions=6381 cache-misses=4
+[sample=5] cpu=0 bench=jfdctint cycles=12989 instructions=6381 cache-misses=5
+[sample=6] cpu=0 bench=jfdctint cycles=14463 instructions=6381 cache-misses=5
+[sample=7] cpu=0 bench=jfdctint cycles=15932 instructions=6381 cache-misses=6
+
+# Statistics over 8 samples on cpu0 bench=jfdctint (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       12989                23025             16675.12             15962.00
+  instructions                  6381                 6385              6381.50              6381.00
+  cache-misses                     4                   15                 7.25                 5.50

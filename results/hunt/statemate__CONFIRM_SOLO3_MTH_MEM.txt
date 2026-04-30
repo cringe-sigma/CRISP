@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=statemate (measured)  cpu1=MTH_MEM  cpu2=MTH_MEM  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=statemate cycles=267467 instructions=84929 cache-misses=75
+[sample=1] cpu=0 bench=statemate cycles=250753 instructions=84919 cache-misses=65
+[sample=2] cpu=0 bench=statemate cycles=112234 instructions=84919 cache-misses=20
+[sample=3] cpu=0 bench=statemate cycles=109747 instructions=84919 cache-misses=12
+[sample=4] cpu=0 bench=statemate cycles=109275 instructions=84919 cache-misses=5
+[sample=5] cpu=0 bench=statemate cycles=111170 instructions=84919 cache-misses=4
+[sample=6] cpu=0 bench=statemate cycles=108542 instructions=84920 cache-misses=15
+[sample=7] cpu=0 bench=statemate cycles=111935 instructions=84919 cache-misses=9
+[sample=8] cpu=0 bench=statemate cycles=110846 instructions=84919 cache-misses=3
+[sample=9] cpu=0 bench=statemate cycles=111037 instructions=84919 cache-misses=3
+[sample=10] cpu=0 bench=statemate cycles=112853 instructions=84919 cache-misses=3
+[sample=11] cpu=0 bench=statemate cycles=115513 instructions=84919 cache-misses=6
+[sample=12] cpu=0 bench=statemate cycles=111757 instructions=84919 cache-misses=3
+[sample=13] cpu=0 bench=statemate cycles=116055 instructions=84919 cache-misses=4
+[sample=14] cpu=0 bench=statemate cycles=108339 instructions=84919 cache-misses=2
+[sample=15] cpu=0 bench=statemate cycles=113115 instructions=84919 cache-misses=1
+[sample=16] cpu=0 bench=statemate cycles=110442 instructions=84919 cache-misses=2
+[sample=17] cpu=0 bench=statemate cycles=108881 instructions=84919 cache-misses=2
+[sample=18] cpu=0 bench=statemate cycles=118677 instructions=84919 cache-misses=1
+[sample=19] cpu=0 bench=statemate cycles=109838 instructions=84919 cache-misses=3
+
+# Statistics over 20 samples on cpu0 bench=statemate (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      108339               267467            126423.80            111463.50
+  instructions                 84919                84929             84919.55             84919.00
+  cache-misses                     1                   75                11.90                 3.50

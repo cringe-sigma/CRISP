@@ -1,0 +1,19 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=10, active_cores=4, lock_freq_khz=1600000
+# cpu0=minver (measured)  cpu1=PR_TLB  cpu2=MTH_MEM  cpu3=PR_ROWBUF
+[sample=0] cpu=0 bench=minver cycles=102809 instructions=4346 cache-misses=40
+[sample=1] cpu=0 bench=minver cycles=18766 instructions=4444 cache-misses=22
+[sample=2] cpu=0 bench=minver cycles=7744 instructions=4435 cache-misses=10
+[sample=3] cpu=0 bench=minver cycles=7028 instructions=4116 cache-misses=3
+[sample=4] cpu=0 bench=minver cycles=7257 instructions=4435 cache-misses=3
+[sample=5] cpu=0 bench=minver cycles=7569 instructions=4444 cache-misses=2
+[sample=6] cpu=0 bench=minver cycles=7096 instructions=4122 cache-misses=3
+[sample=7] cpu=0 bench=minver cycles=6607 instructions=4126 cache-misses=10
+[sample=8] cpu=0 bench=minver cycles=6320 instructions=4114 cache-misses=5
+[sample=9] cpu=0 bench=minver cycles=6377 instructions=4116 cache-misses=4
+
+# Statistics over 10 samples on cpu0 bench=minver (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        6320               102809             17757.30              7176.50
+  instructions                  4114                 4444              4269.80              4236.00
+  cache-misses                     2                   40                10.20                 4.50

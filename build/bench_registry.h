@@ -5,8 +5,23 @@
     X(BUS) \
     X(CACHE) \
     X(MEM) \
+    X(MTH_BUS) \
+    X(MTH_CACHE) \
+    X(MTH_MEM) \
+    X(MTH_PIPELINE) \
+    X(MTH_POINTER) \
+    X(MTH_SYSCALLS) \
     X(PIPELINE) \
     X(POINTER) \
+    X(PR_CACHE) \
+    X(PR_DISKIO) \
+    X(PR_FILESYS) \
+    X(PR_MEMBUS) \
+    X(PR_NET) \
+    X(PR_POINTER) \
+    X(PR_ROWBUF) \
+    X(PR_SPAWN) \
+    X(PR_TLB) \
     X(adpcm_dec) \
     X(adpcm_enc) \
     X(ammunition) \

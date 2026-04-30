@@ -1,0 +1,19 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=10, active_cores=4, lock_freq_khz=1600000
+# cpu0=binarysearch (measured)  cpu1=PR_ROWBUF  cpu2=MTH_BUS  cpu3=PR_MEMBUS
+[sample=0] cpu=0 bench=binarysearch cycles=6927 instructions=1263 cache-misses=13
+[sample=1] cpu=0 bench=binarysearch cycles=2863 instructions=1259 cache-misses=9
+[sample=2] cpu=0 bench=binarysearch cycles=1848 instructions=1258 cache-misses=1
+[sample=3] cpu=0 bench=binarysearch cycles=1841 instructions=1258 cache-misses=1
+[sample=4] cpu=0 bench=binarysearch cycles=1849 instructions=1258 cache-misses=2
+[sample=5] cpu=0 bench=binarysearch cycles=1852 instructions=1258 cache-misses=1
+[sample=6] cpu=0 bench=binarysearch cycles=1859 instructions=1258 cache-misses=2
+[sample=7] cpu=0 bench=binarysearch cycles=1823 instructions=1258 cache-misses=0
+[sample=8] cpu=0 bench=binarysearch cycles=1850 instructions=1258 cache-misses=0
+[sample=9] cpu=0 bench=binarysearch cycles=1843 instructions=1258 cache-misses=1
+
+# Statistics over 10 samples on cpu0 bench=binarysearch (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        1823                 6927              2455.50              1849.50
+  instructions                  1258                 1263              1258.60              1258.00
+  cache-misses                     0                   13                 3.00                 1.00

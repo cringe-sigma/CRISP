@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=prime (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=POINTER
+[sample=0] cpu=0 bench=prime cycles=13376 instructions=681 cache-misses=14
+[sample=1] cpu=0 bench=prime cycles=7220 instructions=674 cache-misses=7
+[sample=2] cpu=0 bench=prime cycles=1521 instructions=674 cache-misses=6
+[sample=3] cpu=0 bench=prime cycles=1170 instructions=673 cache-misses=7
+[sample=4] cpu=0 bench=prime cycles=1143 instructions=673 cache-misses=5
+[sample=5] cpu=0 bench=prime cycles=1112 instructions=672 cache-misses=6
+[sample=6] cpu=0 bench=prime cycles=1110 instructions=671 cache-misses=6
+[sample=7] cpu=0 bench=prime cycles=2354 instructions=672 cache-misses=6
+[sample=8] cpu=0 bench=prime cycles=1090 instructions=672 cache-misses=6
+[sample=9] cpu=0 bench=prime cycles=1850 instructions=671 cache-misses=6
+[sample=10] cpu=0 bench=prime cycles=1202 instructions=672 cache-misses=13
+[sample=11] cpu=0 bench=prime cycles=1090 instructions=671 cache-misses=6
+[sample=12] cpu=0 bench=prime cycles=1045 instructions=673 cache-misses=6
+[sample=13] cpu=0 bench=prime cycles=1089 instructions=673 cache-misses=6
+[sample=14] cpu=0 bench=prime cycles=1058 instructions=671 cache-misses=6
+[sample=15] cpu=0 bench=prime cycles=1089 instructions=671 cache-misses=6
+[sample=16] cpu=0 bench=prime cycles=1079 instructions=671 cache-misses=6
+[sample=17] cpu=0 bench=prime cycles=1068 instructions=671 cache-misses=5
+[sample=18] cpu=0 bench=prime cycles=1064 instructions=671 cache-misses=6
+[sample=19] cpu=0 bench=prime cycles=1078 instructions=671 cache-misses=5
+
+# Statistics over 20 samples on cpu0 bench=prime (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        1045                13376              2140.40              1100.00
+  instructions                   671                  681               672.40               672.00
+  cache-misses                     5                   14                 6.70                 6.00

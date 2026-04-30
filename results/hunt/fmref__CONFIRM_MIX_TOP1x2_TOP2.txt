@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=fmref (measured)  cpu1=PR_CACHE  cpu2=PR_CACHE  cpu3=POINTER
+[sample=0] cpu=0 bench=fmref cycles=779939 instructions=454808 cache-misses=148
+[sample=1] cpu=0 bench=fmref cycles=707326 instructions=417299 cache-misses=102
+[sample=2] cpu=0 bench=fmref cycles=707254 instructions=417301 cache-misses=83
+[sample=3] cpu=0 bench=fmref cycles=693349 instructions=417299 cache-misses=100
+[sample=4] cpu=0 bench=fmref cycles=729951 instructions=417303 cache-misses=84
+[sample=5] cpu=0 bench=fmref cycles=712135 instructions=417298 cache-misses=91
+[sample=6] cpu=0 bench=fmref cycles=710299 instructions=417298 cache-misses=86
+[sample=7] cpu=0 bench=fmref cycles=713803 instructions=417300 cache-misses=73
+[sample=8] cpu=0 bench=fmref cycles=700697 instructions=417297 cache-misses=79
+[sample=9] cpu=0 bench=fmref cycles=704119 instructions=417302 cache-misses=74
+[sample=10] cpu=0 bench=fmref cycles=700726 instructions=417297 cache-misses=78
+[sample=11] cpu=0 bench=fmref cycles=695264 instructions=417295 cache-misses=89
+[sample=12] cpu=0 bench=fmref cycles=696817 instructions=417297 cache-misses=79
+[sample=13] cpu=0 bench=fmref cycles=686644 instructions=417300 cache-misses=91
+[sample=14] cpu=0 bench=fmref cycles=710671 instructions=417296 cache-misses=74
+[sample=15] cpu=0 bench=fmref cycles=707938 instructions=417302 cache-misses=63
+[sample=16] cpu=0 bench=fmref cycles=708193 instructions=417305 cache-misses=83
+[sample=17] cpu=0 bench=fmref cycles=719157 instructions=417301 cache-misses=71
+[sample=18] cpu=0 bench=fmref cycles=697099 instructions=417297 cache-misses=78
+[sample=19] cpu=0 bench=fmref cycles=695927 instructions=417297 cache-misses=82
+
+# Statistics over 20 samples on cpu0 bench=fmref (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      686644               779939            708865.40            707290.00
+  instructions                417295               454808            419174.60            417299.00
+  cache-misses                    63                  148                85.40                82.50

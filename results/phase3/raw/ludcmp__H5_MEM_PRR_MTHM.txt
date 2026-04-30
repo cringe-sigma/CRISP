@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=ludcmp (measured)  cpu1=MEM  cpu2=PR_ROWBUF  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=ludcmp cycles=71209 instructions=7026 cache-misses=37
+[sample=1] cpu=0 bench=ludcmp cycles=21437 instructions=7013 cache-misses=23
+[sample=2] cpu=0 bench=ludcmp cycles=12136 instructions=7013 cache-misses=7
+[sample=3] cpu=0 bench=ludcmp cycles=13080 instructions=7011 cache-misses=3
+[sample=4] cpu=0 bench=ludcmp cycles=14963 instructions=7010 cache-misses=6
+[sample=5] cpu=0 bench=ludcmp cycles=13723 instructions=7011 cache-misses=4
+[sample=6] cpu=0 bench=ludcmp cycles=12794 instructions=7010 cache-misses=2
+[sample=7] cpu=0 bench=ludcmp cycles=12364 instructions=7012 cache-misses=4
+[sample=8] cpu=0 bench=ludcmp cycles=13600 instructions=7014 cache-misses=5
+[sample=9] cpu=0 bench=ludcmp cycles=12896 instructions=7011 cache-misses=5
+[sample=10] cpu=0 bench=ludcmp cycles=12398 instructions=7010 cache-misses=5
+[sample=11] cpu=0 bench=ludcmp cycles=12335 instructions=7011 cache-misses=4
+
+# Statistics over 12 samples on cpu0 bench=ludcmp (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       12136                71209             18577.92             12988.00
+  instructions                  7010                 7026              7012.67              7011.00
+  cache-misses                     2                   37                 8.75                 5.00

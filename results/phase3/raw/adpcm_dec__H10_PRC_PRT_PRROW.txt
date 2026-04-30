@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=adpcm_dec (measured)  cpu1=PR_CACHE  cpu2=PR_TLB  cpu3=PR_ROWBUF
+[sample=0] cpu=0 bench=adpcm_dec cycles=383237 instructions=228475 cache-misses=67
+[sample=1] cpu=0 bench=adpcm_dec cycles=361957 instructions=228471 cache-misses=53
+[sample=2] cpu=0 bench=adpcm_dec cycles=321656 instructions=228471 cache-misses=27
+[sample=3] cpu=0 bench=adpcm_dec cycles=330365 instructions=228469 cache-misses=54
+[sample=4] cpu=0 bench=adpcm_dec cycles=332966 instructions=228472 cache-misses=77
+[sample=5] cpu=0 bench=adpcm_dec cycles=332469 instructions=228470 cache-misses=51
+[sample=6] cpu=0 bench=adpcm_dec cycles=332062 instructions=228470 cache-misses=50
+[sample=7] cpu=0 bench=adpcm_dec cycles=330034 instructions=228471 cache-misses=46
+[sample=8] cpu=0 bench=adpcm_dec cycles=329339 instructions=228470 cache-misses=43
+[sample=9] cpu=0 bench=adpcm_dec cycles=326001 instructions=228469 cache-misses=50
+[sample=10] cpu=0 bench=adpcm_dec cycles=323263 instructions=228471 cache-misses=43
+[sample=11] cpu=0 bench=adpcm_dec cycles=324185 instructions=228472 cache-misses=44
+
+# Statistics over 12 samples on cpu0 bench=adpcm_dec (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      321656               383237            335627.83            330199.50
+  instructions                228469               228475            228470.92            228471.00
+  cache-misses                    27                   77                50.42                50.00

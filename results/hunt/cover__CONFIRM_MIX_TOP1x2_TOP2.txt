@@ -1,0 +1,29 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=20, active_cores=4, lock_freq_khz=1600000
+# cpu0=cover (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=MEM
+[sample=0] cpu=0 bench=cover cycles=82732 instructions=3739 cache-misses=22
+[sample=1] cpu=0 bench=cover cycles=25483 instructions=3732 cache-misses=12
+[sample=2] cpu=0 bench=cover cycles=11195 instructions=3732 cache-misses=6
+[sample=3] cpu=0 bench=cover cycles=6148 instructions=3732 cache-misses=2
+[sample=4] cpu=0 bench=cover cycles=6768 instructions=3732 cache-misses=2
+[sample=5] cpu=0 bench=cover cycles=7269 instructions=3732 cache-misses=2
+[sample=6] cpu=0 bench=cover cycles=6700 instructions=3732 cache-misses=2
+[sample=7] cpu=0 bench=cover cycles=7571 instructions=3732 cache-misses=3
+[sample=8] cpu=0 bench=cover cycles=6742 instructions=3732 cache-misses=2
+[sample=9] cpu=0 bench=cover cycles=6257 instructions=3732 cache-misses=3
+[sample=10] cpu=0 bench=cover cycles=6751 instructions=3732 cache-misses=3
+[sample=11] cpu=0 bench=cover cycles=6521 instructions=3732 cache-misses=4
+[sample=12] cpu=0 bench=cover cycles=7158 instructions=3732 cache-misses=3
+[sample=13] cpu=0 bench=cover cycles=12972 instructions=3732 cache-misses=3
+[sample=14] cpu=0 bench=cover cycles=6742 instructions=3732 cache-misses=2
+[sample=15] cpu=0 bench=cover cycles=6763 instructions=3732 cache-misses=3
+[sample=16] cpu=0 bench=cover cycles=6660 instructions=3732 cache-misses=2
+[sample=17] cpu=0 bench=cover cycles=6522 instructions=3732 cache-misses=3
+[sample=18] cpu=0 bench=cover cycles=7074 instructions=3732 cache-misses=2
+[sample=19] cpu=0 bench=cover cycles=6817 instructions=3732 cache-misses=3
+
+# Statistics over 20 samples on cpu0 bench=cover (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        6148                82732             12042.25              6765.50
+  instructions                  3732                 3739              3732.35              3732.00
+  cache-misses                     2                   22                 4.20                 3.00
