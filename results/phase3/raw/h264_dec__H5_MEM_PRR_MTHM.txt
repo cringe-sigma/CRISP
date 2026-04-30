@@ -1,0 +1,21 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=12, active_cores=4, lock_freq_khz=1600000
+# cpu0=h264_dec (measured)  cpu1=MEM  cpu2=PR_ROWBUF  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=h264_dec cycles=600624 instructions=400159 cache-misses=94
+[sample=1] cpu=0 bench=h264_dec cycles=614599 instructions=400123 cache-misses=54
+[sample=2] cpu=0 bench=h264_dec cycles=553175 instructions=400128 cache-misses=71
+[sample=3] cpu=0 bench=h264_dec cycles=625890 instructions=400122 cache-misses=57
+[sample=4] cpu=0 bench=h264_dec cycles=536475 instructions=400119 cache-misses=55
+[sample=5] cpu=0 bench=h264_dec cycles=543785 instructions=400120 cache-misses=43
+[sample=6] cpu=0 bench=h264_dec cycles=537044 instructions=400119 cache-misses=67
+[sample=7] cpu=0 bench=h264_dec cycles=547207 instructions=400119 cache-misses=46
+[sample=8] cpu=0 bench=h264_dec cycles=536378 instructions=400121 cache-misses=93
+[sample=9] cpu=0 bench=h264_dec cycles=633919 instructions=400121 cache-misses=58
+[sample=10] cpu=0 bench=h264_dec cycles=579006 instructions=400117 cache-misses=30
+[sample=11] cpu=0 bench=h264_dec cycles=538876 instructions=400118 cache-misses=42
+
+# Statistics over 12 samples on cpu0 bench=h264_dec (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      536378               633919            570581.50            550191.00
+  instructions                400117               400159            400123.83            400120.50
+  cache-misses                    30                   94                59.17                56.00
