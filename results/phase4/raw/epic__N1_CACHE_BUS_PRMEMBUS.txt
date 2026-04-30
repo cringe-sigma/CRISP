@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=epic (measured)  cpu1=CACHE  cpu2=BUS  cpu3=PR_MEMBUS
+[sample=0] cpu=0 bench=epic cycles=5591363 instructions=4328386 cache-misses=590
+[sample=1] cpu=0 bench=epic cycles=5612855 instructions=4328402 cache-misses=522
+[sample=2] cpu=0 bench=epic cycles=5624062 instructions=4328308 cache-misses=570
+[sample=3] cpu=0 bench=epic cycles=5598997 instructions=4328368 cache-misses=616
+[sample=4] cpu=0 bench=epic cycles=5590606 instructions=4328361 cache-misses=572
+[sample=5] cpu=0 bench=epic cycles=5600534 instructions=4328352 cache-misses=579
+[sample=6] cpu=0 bench=epic cycles=5613924 instructions=4328391 cache-misses=617
+[sample=7] cpu=0 bench=epic cycles=5611869 instructions=4328414 cache-misses=586
+[sample=8] cpu=0 bench=epic cycles=5694708 instructions=4328464 cache-misses=670
+[sample=9] cpu=0 bench=epic cycles=5609437 instructions=4328386 cache-misses=526
+[sample=10] cpu=0 bench=epic cycles=5646950 instructions=4328327 cache-misses=644
+[sample=11] cpu=0 bench=epic cycles=5577982 instructions=4328306 cache-misses=632
+[sample=12] cpu=0 bench=epic cycles=5599820 instructions=4328379 cache-misses=635
+[sample=13] cpu=0 bench=epic cycles=5573843 instructions=4328340 cache-misses=568
+[sample=14] cpu=0 bench=epic cycles=5612805 instructions=4328390 cache-misses=614
+[sample=15] cpu=0 bench=epic cycles=5595793 instructions=4328371 cache-misses=526
+[sample=16] cpu=0 bench=epic cycles=5580940 instructions=4328359 cache-misses=485
+[sample=17] cpu=0 bench=epic cycles=5654175 instructions=4328344 cache-misses=544
+[sample=18] cpu=0 bench=epic cycles=5586233 instructions=4328344 cache-misses=570
+[sample=19] cpu=0 bench=epic cycles=5579005 instructions=4328362 cache-misses=549
+[sample=20] cpu=0 bench=epic cycles=5588881 instructions=4328351 cache-misses=616
+[sample=21] cpu=0 bench=epic cycles=5583999 instructions=4328348 cache-misses=519
+[sample=22] cpu=0 bench=epic cycles=5583936 instructions=4328344 cache-misses=608
+[sample=23] cpu=0 bench=epic cycles=5637824 instructions=4328370 cache-misses=649
+[sample=24] cpu=0 bench=epic cycles=5599407 instructions=4328349 cache-misses=552
+[sample=25] cpu=0 bench=epic cycles=5601937 instructions=4328411 cache-misses=517
+[sample=26] cpu=0 bench=epic cycles=5580596 instructions=4328363 cache-misses=515
+[sample=27] cpu=0 bench=epic cycles=5619068 instructions=4328352 cache-misses=551
+[sample=28] cpu=0 bench=epic cycles=5589627 instructions=4328404 cache-misses=489
+[sample=29] cpu=0 bench=epic cycles=5603160 instructions=4328361 cache-misses=512
+
+# Statistics over 30 samples on cpu0 bench=epic (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     5573843              5694708           5604811.20           5599613.50
+  instructions               4328306              4328464           4328366.90           4328361.50
+  cache-misses                   485                  670               571.43               570.00

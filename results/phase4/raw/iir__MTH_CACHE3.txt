@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=iir (measured)  cpu1=MTH_CACHE  cpu2=MTH_CACHE  cpu3=MTH_CACHE
+[sample=0] cpu=0 bench=iir cycles=9761 instructions=2595 cache-misses=14
+[sample=1] cpu=0 bench=iir cycles=6354 instructions=2589 cache-misses=14
+[sample=2] cpu=0 bench=iir cycles=7049 instructions=2589 cache-misses=12
+[sample=3] cpu=0 bench=iir cycles=4284 instructions=2588 cache-misses=13
+[sample=4] cpu=0 bench=iir cycles=3735 instructions=2588 cache-misses=13
+[sample=5] cpu=0 bench=iir cycles=3683 instructions=2588 cache-misses=10
+[sample=6] cpu=0 bench=iir cycles=3674 instructions=2588 cache-misses=12
+[sample=7] cpu=0 bench=iir cycles=3709 instructions=2588 cache-misses=13
+[sample=8] cpu=0 bench=iir cycles=3761 instructions=2588 cache-misses=19
+[sample=9] cpu=0 bench=iir cycles=3656 instructions=2588 cache-misses=10
+[sample=10] cpu=0 bench=iir cycles=3669 instructions=2588 cache-misses=11
+[sample=11] cpu=0 bench=iir cycles=6354 instructions=2588 cache-misses=13
+[sample=12] cpu=0 bench=iir cycles=9230 instructions=2588 cache-misses=12
+[sample=13] cpu=0 bench=iir cycles=7462 instructions=2588 cache-misses=14
+[sample=14] cpu=0 bench=iir cycles=12068 instructions=2588 cache-misses=12
+[sample=15] cpu=0 bench=iir cycles=8038 instructions=2588 cache-misses=12
+[sample=16] cpu=0 bench=iir cycles=8800 instructions=2588 cache-misses=14
+[sample=17] cpu=0 bench=iir cycles=6054 instructions=2588 cache-misses=16
+[sample=18] cpu=0 bench=iir cycles=3675 instructions=2588 cache-misses=14
+[sample=19] cpu=0 bench=iir cycles=3649 instructions=2588 cache-misses=13
+[sample=20] cpu=0 bench=iir cycles=3687 instructions=2588 cache-misses=12
+[sample=21] cpu=0 bench=iir cycles=3667 instructions=2588 cache-misses=12
+[sample=22] cpu=0 bench=iir cycles=3667 instructions=2588 cache-misses=12
+[sample=23] cpu=0 bench=iir cycles=3656 instructions=2588 cache-misses=12
+[sample=24] cpu=0 bench=iir cycles=3677 instructions=2588 cache-misses=10
+[sample=25] cpu=0 bench=iir cycles=3675 instructions=2588 cache-misses=12
+[sample=26] cpu=0 bench=iir cycles=3754 instructions=2588 cache-misses=14
+[sample=27] cpu=0 bench=iir cycles=3718 instructions=2588 cache-misses=15
+[sample=28] cpu=0 bench=iir cycles=3573 instructions=2588 cache-misses=8
+[sample=29] cpu=0 bench=iir cycles=3713 instructions=2588 cache-misses=12
+
+# Statistics over 30 samples on cpu0 bench=iir (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        3573                12068              5181.73              3715.50
+  instructions                  2588                 2595              2588.30              2588.00
+  cache-misses                     8                   19                12.67                12.00

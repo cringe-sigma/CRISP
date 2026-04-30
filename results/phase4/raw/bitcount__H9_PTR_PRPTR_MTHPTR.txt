@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=bitcount (measured)  cpu1=POINTER  cpu2=PR_POINTER  cpu3=MTH_POINTER
+[sample=0] cpu=0 bench=bitcount cycles=52741 instructions=24592 cache-misses=40
+[sample=1] cpu=0 bench=bitcount cycles=36749 instructions=24584 cache-misses=31
+[sample=2] cpu=0 bench=bitcount cycles=30531 instructions=24584 cache-misses=20
+[sample=3] cpu=0 bench=bitcount cycles=37632 instructions=24590 cache-misses=51
+[sample=4] cpu=0 bench=bitcount cycles=36632 instructions=24586 cache-misses=46
+[sample=5] cpu=0 bench=bitcount cycles=34452 instructions=24585 cache-misses=27
+[sample=6] cpu=0 bench=bitcount cycles=40019 instructions=24586 cache-misses=44
+[sample=7] cpu=0 bench=bitcount cycles=40505 instructions=24586 cache-misses=63
+[sample=8] cpu=0 bench=bitcount cycles=35750 instructions=24584 cache-misses=43
+[sample=9] cpu=0 bench=bitcount cycles=47910 instructions=24583 cache-misses=42
+[sample=10] cpu=0 bench=bitcount cycles=55811 instructions=24585 cache-misses=38
+[sample=11] cpu=0 bench=bitcount cycles=43450 instructions=24585 cache-misses=34
+[sample=12] cpu=0 bench=bitcount cycles=39043 instructions=24586 cache-misses=36
+[sample=13] cpu=0 bench=bitcount cycles=35648 instructions=24585 cache-misses=25
+[sample=14] cpu=0 bench=bitcount cycles=32905 instructions=24584 cache-misses=28
+[sample=15] cpu=0 bench=bitcount cycles=34878 instructions=24586 cache-misses=22
+[sample=16] cpu=0 bench=bitcount cycles=33647 instructions=24582 cache-misses=24
+[sample=17] cpu=0 bench=bitcount cycles=33524 instructions=24585 cache-misses=25
+[sample=18] cpu=0 bench=bitcount cycles=35276 instructions=24584 cache-misses=26
+[sample=19] cpu=0 bench=bitcount cycles=33289 instructions=24585 cache-misses=26
+[sample=20] cpu=0 bench=bitcount cycles=33756 instructions=24587 cache-misses=28
+[sample=21] cpu=0 bench=bitcount cycles=33354 instructions=24585 cache-misses=31
+[sample=22] cpu=0 bench=bitcount cycles=35339 instructions=24583 cache-misses=29
+[sample=23] cpu=0 bench=bitcount cycles=33179 instructions=24583 cache-misses=26
+[sample=24] cpu=0 bench=bitcount cycles=31601 instructions=24583 cache-misses=29
+[sample=25] cpu=0 bench=bitcount cycles=32532 instructions=24582 cache-misses=23
+[sample=26] cpu=0 bench=bitcount cycles=33098 instructions=24582 cache-misses=24
+[sample=27] cpu=0 bench=bitcount cycles=33019 instructions=24585 cache-misses=22
+[sample=28] cpu=0 bench=bitcount cycles=35369 instructions=24586 cache-misses=36
+[sample=29] cpu=0 bench=bitcount cycles=32254 instructions=24584 cache-misses=26
+
+# Statistics over 30 samples on cpu0 bench=bitcount (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       30531                55811             36796.43             35077.00
+  instructions                 24582                24592             24584.90             24585.00
+  cache-misses                    20                   63                32.17                28.50

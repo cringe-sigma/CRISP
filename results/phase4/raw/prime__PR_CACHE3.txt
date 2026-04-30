@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=prime (measured)  cpu1=PR_CACHE  cpu2=PR_CACHE  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=prime cycles=19274 instructions=680 cache-misses=19
+[sample=1] cpu=0 bench=prime cycles=20840 instructions=672 cache-misses=13
+[sample=2] cpu=0 bench=prime cycles=2253 instructions=672 cache-misses=5
+[sample=3] cpu=0 bench=prime cycles=1074 instructions=672 cache-misses=3
+[sample=4] cpu=0 bench=prime cycles=1056 instructions=673 cache-misses=2
+[sample=5] cpu=0 bench=prime cycles=1040 instructions=672 cache-misses=2
+[sample=6] cpu=0 bench=prime cycles=1033 instructions=671 cache-misses=1
+[sample=7] cpu=0 bench=prime cycles=1007 instructions=671 cache-misses=1
+[sample=8] cpu=0 bench=prime cycles=1061 instructions=672 cache-misses=2
+[sample=9] cpu=0 bench=prime cycles=1013 instructions=670 cache-misses=2
+[sample=10] cpu=0 bench=prime cycles=1020 instructions=671 cache-misses=4
+[sample=11] cpu=0 bench=prime cycles=1014 instructions=671 cache-misses=2
+[sample=12] cpu=0 bench=prime cycles=1004 instructions=671 cache-misses=2
+[sample=13] cpu=0 bench=prime cycles=1033 instructions=671 cache-misses=2
+[sample=14] cpu=0 bench=prime cycles=1014 instructions=671 cache-misses=2
+[sample=15] cpu=0 bench=prime cycles=1023 instructions=671 cache-misses=2
+[sample=16] cpu=0 bench=prime cycles=1063 instructions=671 cache-misses=3
+[sample=17] cpu=0 bench=prime cycles=1010 instructions=671 cache-misses=2
+[sample=18] cpu=0 bench=prime cycles=1016 instructions=671 cache-misses=1
+[sample=19] cpu=0 bench=prime cycles=1001 instructions=671 cache-misses=4
+[sample=20] cpu=0 bench=prime cycles=1030 instructions=671 cache-misses=3
+[sample=21] cpu=0 bench=prime cycles=1028 instructions=670 cache-misses=3
+[sample=22] cpu=0 bench=prime cycles=1030 instructions=670 cache-misses=2
+[sample=23] cpu=0 bench=prime cycles=1036 instructions=670 cache-misses=2
+[sample=24] cpu=0 bench=prime cycles=1029 instructions=670 cache-misses=3
+[sample=25] cpu=0 bench=prime cycles=1025 instructions=672 cache-misses=3
+[sample=26] cpu=0 bench=prime cycles=1017 instructions=670 cache-misses=2
+[sample=27] cpu=0 bench=prime cycles=999 instructions=670 cache-misses=3
+[sample=28] cpu=0 bench=prime cycles=1013 instructions=670 cache-misses=2
+[sample=29] cpu=0 bench=prime cycles=1015 instructions=670 cache-misses=2
+
+# Statistics over 30 samples on cpu0 bench=prime (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                         999                20840              2335.70              1026.50
+  instructions                   670                  680               671.27               671.00
+  cache-misses                     1                   19                 3.30                 2.00

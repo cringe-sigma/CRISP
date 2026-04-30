@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=minver (measured)  cpu1=CACHE  cpu2=MEM  cpu3=BUS
+[sample=0] cpu=0 bench=minver cycles=57344 instructions=4344 cache-misses=37
+[sample=1] cpu=0 bench=minver cycles=69246 instructions=4441 cache-misses=19
+[sample=2] cpu=0 bench=minver cycles=18978 instructions=4436 cache-misses=9
+[sample=3] cpu=0 bench=minver cycles=6943 instructions=4119 cache-misses=2
+[sample=4] cpu=0 bench=minver cycles=7671 instructions=4439 cache-misses=2
+[sample=5] cpu=0 bench=minver cycles=8156 instructions=4437 cache-misses=2
+[sample=6] cpu=0 bench=minver cycles=7257 instructions=4121 cache-misses=1
+[sample=7] cpu=0 bench=minver cycles=11959 instructions=4117 cache-misses=2
+[sample=8] cpu=0 bench=minver cycles=7226 instructions=4116 cache-misses=1
+[sample=9] cpu=0 bench=minver cycles=7169 instructions=4118 cache-misses=1
+[sample=10] cpu=0 bench=minver cycles=7392 instructions=4113 cache-misses=1
+[sample=11] cpu=0 bench=minver cycles=7080 instructions=4114 cache-misses=3
+[sample=12] cpu=0 bench=minver cycles=7634 instructions=4115 cache-misses=1
+[sample=13] cpu=0 bench=minver cycles=7285 instructions=4114 cache-misses=2
+[sample=14] cpu=0 bench=minver cycles=10902 instructions=4114 cache-misses=1
+[sample=15] cpu=0 bench=minver cycles=7199 instructions=4114 cache-misses=1
+[sample=16] cpu=0 bench=minver cycles=6797 instructions=4116 cache-misses=1
+[sample=17] cpu=0 bench=minver cycles=7250 instructions=4117 cache-misses=2
+[sample=18] cpu=0 bench=minver cycles=7074 instructions=4114 cache-misses=1
+[sample=19] cpu=0 bench=minver cycles=7118 instructions=4116 cache-misses=2
+[sample=20] cpu=0 bench=minver cycles=7023 instructions=4114 cache-misses=2
+[sample=21] cpu=0 bench=minver cycles=6771 instructions=4113 cache-misses=1
+[sample=22] cpu=0 bench=minver cycles=6909 instructions=4112 cache-misses=1
+[sample=23] cpu=0 bench=minver cycles=7121 instructions=4113 cache-misses=2
+[sample=24] cpu=0 bench=minver cycles=7080 instructions=4114 cache-misses=2
+[sample=25] cpu=0 bench=minver cycles=7425 instructions=4114 cache-misses=3
+[sample=26] cpu=0 bench=minver cycles=7053 instructions=4115 cache-misses=1
+[sample=27] cpu=0 bench=minver cycles=6499 instructions=4116 cache-misses=1
+[sample=28] cpu=0 bench=minver cycles=6468 instructions=4115 cache-misses=1
+[sample=29] cpu=0 bench=minver cycles=6901 instructions=4118 cache-misses=0
+
+# Statistics over 30 samples on cpu0 bench=minver (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        6468                69246             11564.33              7184.00
+  instructions                  4112                 4441              4165.97              4115.50
+  cache-misses                     0                   37                 3.50                 1.50

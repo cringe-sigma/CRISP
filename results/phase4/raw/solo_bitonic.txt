@@ -1,0 +1,40 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=1, lock_freq_khz=1600000
+# cpu0=bitonic (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=bitonic cycles=26796 instructions=18398 cache-misses=14
+[sample=1] cpu=0 bench=bitonic cycles=22442 instructions=18391 cache-misses=8
+[sample=2] cpu=0 bench=bitonic cycles=21851 instructions=18391 cache-misses=3
+[sample=3] cpu=0 bench=bitonic cycles=21896 instructions=18391 cache-misses=0
+[sample=4] cpu=0 bench=bitonic cycles=21713 instructions=18391 cache-misses=1
+[sample=5] cpu=0 bench=bitonic cycles=21740 instructions=18391 cache-misses=0
+[sample=6] cpu=0 bench=bitonic cycles=21729 instructions=18391 cache-misses=0
+[sample=7] cpu=0 bench=bitonic cycles=21775 instructions=18392 cache-misses=2
+[sample=8] cpu=0 bench=bitonic cycles=21670 instructions=18391 cache-misses=1
+[sample=9] cpu=0 bench=bitonic cycles=21672 instructions=18391 cache-misses=0
+[sample=10] cpu=0 bench=bitonic cycles=21652 instructions=18391 cache-misses=0
+[sample=11] cpu=0 bench=bitonic cycles=21740 instructions=18391 cache-misses=2
+[sample=12] cpu=0 bench=bitonic cycles=21802 instructions=18391 cache-misses=1
+[sample=13] cpu=0 bench=bitonic cycles=21718 instructions=18391 cache-misses=2
+[sample=14] cpu=0 bench=bitonic cycles=21777 instructions=18392 cache-misses=0
+[sample=15] cpu=0 bench=bitonic cycles=21751 instructions=18391 cache-misses=1
+[sample=16] cpu=0 bench=bitonic cycles=21732 instructions=18391 cache-misses=0
+[sample=17] cpu=0 bench=bitonic cycles=21819 instructions=18391 cache-misses=1
+[sample=18] cpu=0 bench=bitonic cycles=21723 instructions=18391 cache-misses=2
+[sample=19] cpu=0 bench=bitonic cycles=21825 instructions=18391 cache-misses=3
+[sample=20] cpu=0 bench=bitonic cycles=21767 instructions=18391 cache-misses=2
+[sample=21] cpu=0 bench=bitonic cycles=21832 instructions=18391 cache-misses=0
+[sample=22] cpu=0 bench=bitonic cycles=21738 instructions=18391 cache-misses=2
+[sample=23] cpu=0 bench=bitonic cycles=21760 instructions=18391 cache-misses=1
+[sample=24] cpu=0 bench=bitonic cycles=21756 instructions=18391 cache-misses=1
+[sample=25] cpu=0 bench=bitonic cycles=21703 instructions=18391 cache-misses=0
+[sample=26] cpu=0 bench=bitonic cycles=21809 instructions=18391 cache-misses=1
+[sample=27] cpu=0 bench=bitonic cycles=21772 instructions=18391 cache-misses=2
+[sample=28] cpu=0 bench=bitonic cycles=21759 instructions=18391 cache-misses=1
+[sample=29] cpu=0 bench=bitonic cycles=25937 instructions=18394 cache-misses=20
+
+# Statistics over 30 samples on cpu0 bench=bitonic (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                       21652                26796             22088.53             21759.50
+  instructions                 18391                18398             18391.40             18391.00
+  cache-misses                     0                   20                 2.37                 1.00

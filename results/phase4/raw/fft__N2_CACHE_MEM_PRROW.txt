@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=fft (measured)  cpu1=CACHE  cpu2=MEM  cpu3=PR_ROWBUF
+[sample=0] cpu=0 bench=fft cycles=1056033 instructions=771115 cache-misses=224
+[sample=1] cpu=0 bench=fft cycles=1094664 instructions=771372 cache-misses=226
+[sample=2] cpu=0 bench=fft cycles=1042947 instructions=771116 cache-misses=157
+[sample=3] cpu=0 bench=fft cycles=1078524 instructions=771437 cache-misses=174
+[sample=4] cpu=0 bench=fft cycles=1060053 instructions=771134 cache-misses=100
+[sample=5] cpu=0 bench=fft cycles=1066154 instructions=771424 cache-misses=158
+[sample=6] cpu=0 bench=fft cycles=1080611 instructions=771129 cache-misses=152
+[sample=7] cpu=0 bench=fft cycles=1108543 instructions=771087 cache-misses=140
+[sample=8] cpu=0 bench=fft cycles=1091841 instructions=771089 cache-misses=168
+[sample=9] cpu=0 bench=fft cycles=1001532 instructions=771433 cache-misses=129
+[sample=10] cpu=0 bench=fft cycles=1055507 instructions=771447 cache-misses=175
+[sample=11] cpu=0 bench=fft cycles=1116023 instructions=771120 cache-misses=187
+[sample=12] cpu=0 bench=fft cycles=1107743 instructions=771108 cache-misses=175
+[sample=13] cpu=0 bench=fft cycles=1097502 instructions=771422 cache-misses=160
+[sample=14] cpu=0 bench=fft cycles=1044474 instructions=771353 cache-misses=191
+[sample=15] cpu=0 bench=fft cycles=1069024 instructions=771379 cache-misses=127
+[sample=16] cpu=0 bench=fft cycles=1044718 instructions=771125 cache-misses=160
+[sample=17] cpu=0 bench=fft cycles=1079519 instructions=771422 cache-misses=198
+[sample=18] cpu=0 bench=fft cycles=1013622 instructions=771089 cache-misses=123
+[sample=19] cpu=0 bench=fft cycles=1006614 instructions=771098 cache-misses=144
+[sample=20] cpu=0 bench=fft cycles=1024630 instructions=771099 cache-misses=156
+[sample=21] cpu=0 bench=fft cycles=995644 instructions=771090 cache-misses=161
+[sample=22] cpu=0 bench=fft cycles=1068792 instructions=771111 cache-misses=198
+[sample=23] cpu=0 bench=fft cycles=1036729 instructions=771429 cache-misses=142
+[sample=24] cpu=0 bench=fft cycles=1092037 instructions=771417 cache-misses=163
+[sample=25] cpu=0 bench=fft cycles=1180637 instructions=771423 cache-misses=169
+[sample=26] cpu=0 bench=fft cycles=1060452 instructions=771390 cache-misses=122
+[sample=27] cpu=0 bench=fft cycles=1096454 instructions=771129 cache-misses=148
+[sample=28] cpu=0 bench=fft cycles=1095412 instructions=771414 cache-misses=170
+[sample=29] cpu=0 bench=fft cycles=1066358 instructions=771124 cache-misses=178
+
+# Statistics over 30 samples on cpu0 bench=fft (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      995644              1180637           1067759.77           1067575.00
+  instructions                771087               771447            771250.83            771131.50
+  cache-misses                   100                  226               162.50               160.50

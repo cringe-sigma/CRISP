@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=filterbank (measured)  cpu1=CACHE  cpu2=MEM  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=filterbank cycles=15669794 instructions=10351977 cache-misses=158
+[sample=1] cpu=0 bench=filterbank cycles=15845156 instructions=10351975 cache-misses=189
+[sample=2] cpu=0 bench=filterbank cycles=15799028 instructions=10351976 cache-misses=191
+[sample=3] cpu=0 bench=filterbank cycles=15767620 instructions=10351971 cache-misses=125
+[sample=4] cpu=0 bench=filterbank cycles=15721435 instructions=10351971 cache-misses=162
+[sample=5] cpu=0 bench=filterbank cycles=15736573 instructions=10351977 cache-misses=189
+[sample=6] cpu=0 bench=filterbank cycles=15758747 instructions=10351977 cache-misses=193
+[sample=7] cpu=0 bench=filterbank cycles=15740329 instructions=10351970 cache-misses=163
+[sample=8] cpu=0 bench=filterbank cycles=15726761 instructions=10351972 cache-misses=176
+[sample=9] cpu=0 bench=filterbank cycles=15662041 instructions=10351975 cache-misses=163
+[sample=10] cpu=0 bench=filterbank cycles=15670681 instructions=10351975 cache-misses=126
+[sample=11] cpu=0 bench=filterbank cycles=15776852 instructions=10351971 cache-misses=179
+[sample=12] cpu=0 bench=filterbank cycles=15760709 instructions=10351975 cache-misses=163
+[sample=13] cpu=0 bench=filterbank cycles=15775255 instructions=10351972 cache-misses=182
+[sample=14] cpu=0 bench=filterbank cycles=15827274 instructions=10351979 cache-misses=222
+[sample=15] cpu=0 bench=filterbank cycles=15783308 instructions=10351975 cache-misses=199
+[sample=16] cpu=0 bench=filterbank cycles=15791257 instructions=10351978 cache-misses=181
+[sample=17] cpu=0 bench=filterbank cycles=15741657 instructions=10351970 cache-misses=209
+[sample=18] cpu=0 bench=filterbank cycles=15801779 instructions=10351976 cache-misses=233
+[sample=19] cpu=0 bench=filterbank cycles=15788102 instructions=10351977 cache-misses=229
+[sample=20] cpu=0 bench=filterbank cycles=15832313 instructions=10351976 cache-misses=259
+[sample=21] cpu=0 bench=filterbank cycles=15747598 instructions=10351978 cache-misses=241
+[sample=22] cpu=0 bench=filterbank cycles=16202743 instructions=10351983 cache-misses=224
+[sample=23] cpu=0 bench=filterbank cycles=15766020 instructions=10351979 cache-misses=197
+[sample=24] cpu=0 bench=filterbank cycles=15793523 instructions=10351976 cache-misses=170
+[sample=25] cpu=0 bench=filterbank cycles=15779857 instructions=10351973 cache-misses=221
+[sample=26] cpu=0 bench=filterbank cycles=15739022 instructions=10351976 cache-misses=195
+[sample=27] cpu=0 bench=filterbank cycles=15673193 instructions=10351972 cache-misses=139
+[sample=28] cpu=0 bench=filterbank cycles=15797483 instructions=10351984 cache-misses=277
+[sample=29] cpu=0 bench=filterbank cycles=15775967 instructions=10351980 cache-misses=261
+
+# Statistics over 30 samples on cpu0 bench=filterbank (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                    15662041             16202743          15775069.23          15771437.50
+  instructions              10351970             10351984          10351975.53          10351976.00
+  cache-misses                   125                  277               193.87               190.00

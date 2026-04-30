@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=ammunition (measured)  cpu1=CACHE  cpu2=BUS  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=ammunition cycles=231001799 instructions=183614607 cache-misses=1050
+[sample=1] cpu=0 bench=ammunition cycles=230655487 instructions=183614527 cache-misses=918
+[sample=2] cpu=0 bench=ammunition cycles=230421324 instructions=183613952 cache-misses=775
+[sample=3] cpu=0 bench=ammunition cycles=229604197 instructions=183613659 cache-misses=365
+[sample=4] cpu=0 bench=ammunition cycles=229638429 instructions=183613976 cache-misses=481
+[sample=5] cpu=0 bench=ammunition cycles=229705226 instructions=183613910 cache-misses=483
+[sample=6] cpu=0 bench=ammunition cycles=229911428 instructions=183613815 cache-misses=538
+[sample=7] cpu=0 bench=ammunition cycles=229657945 instructions=183613765 cache-misses=529
+[sample=8] cpu=0 bench=ammunition cycles=230016895 instructions=183613766 cache-misses=491
+[sample=9] cpu=0 bench=ammunition cycles=230308548 instructions=183613831 cache-misses=732
+[sample=10] cpu=0 bench=ammunition cycles=229686636 instructions=183613754 cache-misses=463
+[sample=11] cpu=0 bench=ammunition cycles=229783034 instructions=183613640 cache-misses=400
+[sample=12] cpu=0 bench=ammunition cycles=230022022 instructions=183613793 cache-misses=593
+[sample=13] cpu=0 bench=ammunition cycles=229602238 instructions=183613823 cache-misses=377
+[sample=14] cpu=0 bench=ammunition cycles=229923872 instructions=183613768 cache-misses=644
+[sample=15] cpu=0 bench=ammunition cycles=229985846 instructions=183613971 cache-misses=400
+[sample=16] cpu=0 bench=ammunition cycles=229933766 instructions=183613708 cache-misses=541
+[sample=17] cpu=0 bench=ammunition cycles=230345211 instructions=183614083 cache-misses=703
+[sample=18] cpu=0 bench=ammunition cycles=231298158 instructions=183614908 cache-misses=1502
+[sample=19] cpu=0 bench=ammunition cycles=230115008 instructions=183613755 cache-misses=563
+[sample=20] cpu=0 bench=ammunition cycles=230296440 instructions=183614067 cache-misses=987
+[sample=21] cpu=0 bench=ammunition cycles=229582332 instructions=183614317 cache-misses=287
+[sample=22] cpu=0 bench=ammunition cycles=230038125 instructions=183614014 cache-misses=756
+[sample=23] cpu=0 bench=ammunition cycles=229706562 instructions=183613761 cache-misses=578
+[sample=24] cpu=0 bench=ammunition cycles=229841935 instructions=183613969 cache-misses=640
+[sample=25] cpu=0 bench=ammunition cycles=229807483 instructions=183613868 cache-misses=762
+[sample=26] cpu=0 bench=ammunition cycles=229816470 instructions=183613713 cache-misses=525
+[sample=27] cpu=0 bench=ammunition cycles=230105755 instructions=183613730 cache-misses=571
+[sample=28] cpu=0 bench=ammunition cycles=229969685 instructions=183613767 cache-misses=579
+[sample=29] cpu=0 bench=ammunition cycles=230117289 instructions=183614258 cache-misses=676
+
+# Statistics over 30 samples on cpu0 bench=ammunition (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                   229582332            231298158         230029971.50         229951725.50
+  instructions             183613640            183614908         183613949.17         183613827.00
+  cache-misses                   287                 1502               630.30               574.50

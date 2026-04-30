@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=cjpeg_transupp (measured)  cpu1=CACHE  cpu2=MEM  cpu3=PR_ROWBUF
+[sample=0] cpu=0 bench=cjpeg_transupp cycles=7284885 instructions=5738332 cache-misses=77
+[sample=1] cpu=0 bench=cjpeg_transupp cycles=7304112 instructions=5738313 cache-misses=63
+[sample=2] cpu=0 bench=cjpeg_transupp cycles=7272595 instructions=5738347 cache-misses=90
+[sample=3] cpu=0 bench=cjpeg_transupp cycles=7276407 instructions=5738333 cache-misses=68
+[sample=4] cpu=0 bench=cjpeg_transupp cycles=7314115 instructions=5738368 cache-misses=129
+[sample=5] cpu=0 bench=cjpeg_transupp cycles=7280136 instructions=5738307 cache-misses=72
+[sample=6] cpu=0 bench=cjpeg_transupp cycles=7288918 instructions=5738311 cache-misses=59
+[sample=7] cpu=0 bench=cjpeg_transupp cycles=7325596 instructions=5738314 cache-misses=63
+[sample=8] cpu=0 bench=cjpeg_transupp cycles=7307356 instructions=5738330 cache-misses=68
+[sample=9] cpu=0 bench=cjpeg_transupp cycles=7308108 instructions=5738326 cache-misses=88
+[sample=10] cpu=0 bench=cjpeg_transupp cycles=7317548 instructions=5738327 cache-misses=73
+[sample=11] cpu=0 bench=cjpeg_transupp cycles=7301086 instructions=5738337 cache-misses=61
+[sample=12] cpu=0 bench=cjpeg_transupp cycles=7326845 instructions=5738332 cache-misses=65
+[sample=13] cpu=0 bench=cjpeg_transupp cycles=7287539 instructions=5738320 cache-misses=64
+[sample=14] cpu=0 bench=cjpeg_transupp cycles=7310778 instructions=5738316 cache-misses=74
+[sample=15] cpu=0 bench=cjpeg_transupp cycles=7316183 instructions=5738311 cache-misses=70
+[sample=16] cpu=0 bench=cjpeg_transupp cycles=7414682 instructions=5738340 cache-misses=122
+[sample=17] cpu=0 bench=cjpeg_transupp cycles=7296394 instructions=5738336 cache-misses=55
+[sample=18] cpu=0 bench=cjpeg_transupp cycles=7330321 instructions=5738332 cache-misses=89
+[sample=19] cpu=0 bench=cjpeg_transupp cycles=7347036 instructions=5738354 cache-misses=80
+[sample=20] cpu=0 bench=cjpeg_transupp cycles=7319305 instructions=5738335 cache-misses=91
+[sample=21] cpu=0 bench=cjpeg_transupp cycles=7306021 instructions=5738319 cache-misses=76
+[sample=22] cpu=0 bench=cjpeg_transupp cycles=7334091 instructions=5738309 cache-misses=67
+[sample=23] cpu=0 bench=cjpeg_transupp cycles=7320077 instructions=5738326 cache-misses=71
+[sample=24] cpu=0 bench=cjpeg_transupp cycles=7455668 instructions=5738319 cache-misses=59
+[sample=25] cpu=0 bench=cjpeg_transupp cycles=7353462 instructions=5738345 cache-misses=96
+[sample=26] cpu=0 bench=cjpeg_transupp cycles=7311051 instructions=5738325 cache-misses=75
+[sample=27] cpu=0 bench=cjpeg_transupp cycles=7449406 instructions=5738333 cache-misses=68
+[sample=28] cpu=0 bench=cjpeg_transupp cycles=7266423 instructions=5738311 cache-misses=75
+[sample=29] cpu=0 bench=cjpeg_transupp cycles=7280459 instructions=5738324 cache-misses=81
+
+# Statistics over 30 samples on cpu0 bench=cjpeg_transupp (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     7266423              7455668           7320220.10           7310914.50
+  instructions               5738307              5738368           5738327.73           5738326.50
+  cache-misses                    55                  129                76.30                72.50

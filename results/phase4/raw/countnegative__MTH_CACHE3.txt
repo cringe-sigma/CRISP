@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=countnegative (measured)  cpu1=MTH_CACHE  cpu2=MTH_CACHE  cpu3=MTH_CACHE
+[sample=0] cpu=0 bench=countnegative cycles=43227 instructions=28415 cache-misses=22
+[sample=1] cpu=0 bench=countnegative cycles=40812 instructions=28409 cache-misses=19
+[sample=2] cpu=0 bench=countnegative cycles=33875 instructions=28409 cache-misses=8
+[sample=3] cpu=0 bench=countnegative cycles=33854 instructions=28408 cache-misses=5
+[sample=4] cpu=0 bench=countnegative cycles=33914 instructions=28408 cache-misses=6
+[sample=5] cpu=0 bench=countnegative cycles=33874 instructions=28409 cache-misses=6
+[sample=6] cpu=0 bench=countnegative cycles=33834 instructions=28408 cache-misses=3
+[sample=7] cpu=0 bench=countnegative cycles=33799 instructions=28408 cache-misses=2
+[sample=8] cpu=0 bench=countnegative cycles=33838 instructions=28408 cache-misses=4
+[sample=9] cpu=0 bench=countnegative cycles=33859 instructions=28408 cache-misses=5
+[sample=10] cpu=0 bench=countnegative cycles=33840 instructions=28408 cache-misses=4
+[sample=11] cpu=0 bench=countnegative cycles=34627 instructions=28408 cache-misses=10
+[sample=12] cpu=0 bench=countnegative cycles=33884 instructions=28408 cache-misses=7
+[sample=13] cpu=0 bench=countnegative cycles=33877 instructions=28408 cache-misses=2
+[sample=14] cpu=0 bench=countnegative cycles=33904 instructions=28408 cache-misses=8
+[sample=15] cpu=0 bench=countnegative cycles=33852 instructions=28408 cache-misses=5
+[sample=16] cpu=0 bench=countnegative cycles=33893 instructions=28408 cache-misses=5
+[sample=17] cpu=0 bench=countnegative cycles=33859 instructions=28408 cache-misses=7
+[sample=18] cpu=0 bench=countnegative cycles=44218 instructions=28408 cache-misses=29
+[sample=19] cpu=0 bench=countnegative cycles=35199 instructions=28408 cache-misses=12
+[sample=20] cpu=0 bench=countnegative cycles=34099 instructions=28408 cache-misses=8
+[sample=21] cpu=0 bench=countnegative cycles=33867 instructions=28408 cache-misses=5
+[sample=22] cpu=0 bench=countnegative cycles=33896 instructions=28408 cache-misses=7
+[sample=23] cpu=0 bench=countnegative cycles=33832 instructions=28408 cache-misses=3
+[sample=24] cpu=0 bench=countnegative cycles=33852 instructions=28408 cache-misses=3
+[sample=25] cpu=0 bench=countnegative cycles=33826 instructions=28408 cache-misses=2
+[sample=26] cpu=0 bench=countnegative cycles=33837 instructions=28408 cache-misses=2
+[sample=27] cpu=0 bench=countnegative cycles=33882 instructions=28408 cache-misses=5
+[sample=28] cpu=0 bench=countnegative cycles=33836 instructions=28408 cache-misses=5
+[sample=29] cpu=0 bench=countnegative cycles=33813 instructions=28408 cache-misses=5
+
+# Statistics over 30 samples on cpu0 bench=countnegative (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       33799                44218             34825.97             33870.50
+  instructions                 28408                28415             28408.33             28408.00
+  cache-misses                     2                   29                 7.13                 5.00

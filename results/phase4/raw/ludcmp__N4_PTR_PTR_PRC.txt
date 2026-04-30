@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=ludcmp (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=ludcmp cycles=45340 instructions=7028 cache-misses=35
+[sample=1] cpu=0 bench=ludcmp cycles=17580 instructions=7015 cache-misses=23
+[sample=2] cpu=0 bench=ludcmp cycles=14668 instructions=7014 cache-misses=9
+[sample=3] cpu=0 bench=ludcmp cycles=11141 instructions=7014 cache-misses=4
+[sample=4] cpu=0 bench=ludcmp cycles=10689 instructions=7012 cache-misses=3
+[sample=5] cpu=0 bench=ludcmp cycles=10681 instructions=7014 cache-misses=3
+[sample=6] cpu=0 bench=ludcmp cycles=10654 instructions=7013 cache-misses=3
+[sample=7] cpu=0 bench=ludcmp cycles=10666 instructions=7013 cache-misses=4
+[sample=8] cpu=0 bench=ludcmp cycles=10654 instructions=7013 cache-misses=3
+[sample=9] cpu=0 bench=ludcmp cycles=10663 instructions=7015 cache-misses=5
+[sample=10] cpu=0 bench=ludcmp cycles=10661 instructions=7011 cache-misses=2
+[sample=11] cpu=0 bench=ludcmp cycles=10684 instructions=7011 cache-misses=3
+[sample=12] cpu=0 bench=ludcmp cycles=10703 instructions=7013 cache-misses=3
+[sample=13] cpu=0 bench=ludcmp cycles=10647 instructions=7013 cache-misses=3
+[sample=14] cpu=0 bench=ludcmp cycles=10568 instructions=7012 cache-misses=2
+[sample=15] cpu=0 bench=ludcmp cycles=10681 instructions=7013 cache-misses=3
+[sample=16] cpu=0 bench=ludcmp cycles=10655 instructions=7011 cache-misses=5
+[sample=17] cpu=0 bench=ludcmp cycles=10573 instructions=7012 cache-misses=2
+[sample=18] cpu=0 bench=ludcmp cycles=10574 instructions=7012 cache-misses=5
+[sample=19] cpu=0 bench=ludcmp cycles=10563 instructions=7012 cache-misses=5
+[sample=20] cpu=0 bench=ludcmp cycles=10645 instructions=7011 cache-misses=2
+[sample=21] cpu=0 bench=ludcmp cycles=10558 instructions=7011 cache-misses=2
+[sample=22] cpu=0 bench=ludcmp cycles=10698 instructions=7012 cache-misses=4
+[sample=23] cpu=0 bench=ludcmp cycles=10598 instructions=7012 cache-misses=3
+[sample=24] cpu=0 bench=ludcmp cycles=10616 instructions=7012 cache-misses=5
+[sample=25] cpu=0 bench=ludcmp cycles=10609 instructions=7012 cache-misses=3
+[sample=26] cpu=0 bench=ludcmp cycles=10558 instructions=7011 cache-misses=3
+[sample=27] cpu=0 bench=ludcmp cycles=10555 instructions=7012 cache-misses=7
+[sample=28] cpu=0 bench=ludcmp cycles=10569 instructions=7013 cache-misses=2
+[sample=29] cpu=0 bench=ludcmp cycles=10661 instructions=7014 cache-misses=4
+
+# Statistics over 30 samples on cpu0 bench=ludcmp (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       10555                45340             12170.40             10654.50
+  instructions                  7011                 7028              7013.03              7012.00
+  cache-misses                     2                   35                 5.33                 3.00

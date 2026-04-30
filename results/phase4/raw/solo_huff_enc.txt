@@ -1,0 +1,40 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=1, lock_freq_khz=1600000
+# cpu0=huff_enc (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=huff_enc cycles=1532360 instructions=1109057 cache-misses=297
+[sample=1] cpu=0 bench=huff_enc cycles=1481997 instructions=1102335 cache-misses=88
+[sample=2] cpu=0 bench=huff_enc cycles=1479016 instructions=1102331 cache-misses=130
+[sample=3] cpu=0 bench=huff_enc cycles=1519127 instructions=1102318 cache-misses=218
+[sample=4] cpu=0 bench=huff_enc cycles=1499149 instructions=1109032 cache-misses=179
+[sample=5] cpu=0 bench=huff_enc cycles=1479337 instructions=1102330 cache-misses=135
+[sample=6] cpu=0 bench=huff_enc cycles=1479162 instructions=1102334 cache-misses=105
+[sample=7] cpu=0 bench=huff_enc cycles=1504096 instructions=1102320 cache-misses=204
+[sample=8] cpu=0 bench=huff_enc cycles=1490386 instructions=1109029 cache-misses=133
+[sample=9] cpu=0 bench=huff_enc cycles=1479780 instructions=1102338 cache-misses=138
+[sample=10] cpu=0 bench=huff_enc cycles=1479031 instructions=1102340 cache-misses=103
+[sample=11] cpu=0 bench=huff_enc cycles=1516963 instructions=1102335 cache-misses=220
+[sample=12] cpu=0 bench=huff_enc cycles=1491579 instructions=1109031 cache-misses=130
+[sample=13] cpu=0 bench=huff_enc cycles=1478547 instructions=1102333 cache-misses=148
+[sample=14] cpu=0 bench=huff_enc cycles=1479672 instructions=1102336 cache-misses=149
+[sample=15] cpu=0 bench=huff_enc cycles=1499356 instructions=1102340 cache-misses=189
+[sample=16] cpu=0 bench=huff_enc cycles=1493149 instructions=1109031 cache-misses=128
+[sample=17] cpu=0 bench=huff_enc cycles=1479341 instructions=1102332 cache-misses=122
+[sample=18] cpu=0 bench=huff_enc cycles=1480036 instructions=1102337 cache-misses=127
+[sample=19] cpu=0 bench=huff_enc cycles=1535611 instructions=1102330 cache-misses=251
+[sample=20] cpu=0 bench=huff_enc cycles=1492404 instructions=1109032 cache-misses=212
+[sample=21] cpu=0 bench=huff_enc cycles=1479103 instructions=1102335 cache-misses=174
+[sample=22] cpu=0 bench=huff_enc cycles=1480810 instructions=1102331 cache-misses=135
+[sample=23] cpu=0 bench=huff_enc cycles=1479457 instructions=1102318 cache-misses=102
+[sample=24] cpu=0 bench=huff_enc cycles=1540189 instructions=1109033 cache-misses=223
+[sample=25] cpu=0 bench=huff_enc cycles=1482438 instructions=1102333 cache-misses=108
+[sample=26] cpu=0 bench=huff_enc cycles=1479028 instructions=1102340 cache-misses=142
+[sample=27] cpu=0 bench=huff_enc cycles=1480073 instructions=1102336 cache-misses=154
+[sample=28] cpu=0 bench=huff_enc cycles=1526928 instructions=1109037 cache-misses=276
+[sample=29] cpu=0 bench=huff_enc cycles=1481042 instructions=1102331 cache-misses=152
+
+# Statistics over 30 samples on cpu0 bench=huff_enc (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                     1478547              1540189           1493305.57           1481519.50
+  instructions               1102318              1109057           1104119.83           1102335.50
+  cache-misses                    88                  297               162.40               145.00

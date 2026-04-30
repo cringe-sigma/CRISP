@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=adpcm_enc (measured)  cpu1=PR_CACHE  cpu2=PR_CACHE  cpu3=PR_TLB
+[sample=0] cpu=0 bench=adpcm_enc cycles=343819 instructions=223679 cache-misses=64
+[sample=1] cpu=0 bench=adpcm_enc cycles=369412 instructions=223673 cache-misses=61
+[sample=2] cpu=0 bench=adpcm_enc cycles=328635 instructions=223671 cache-misses=33
+[sample=3] cpu=0 bench=adpcm_enc cycles=316219 instructions=223672 cache-misses=25
+[sample=4] cpu=0 bench=adpcm_enc cycles=314116 instructions=223673 cache-misses=24
+[sample=5] cpu=0 bench=adpcm_enc cycles=312779 instructions=223673 cache-misses=17
+[sample=6] cpu=0 bench=adpcm_enc cycles=308598 instructions=223673 cache-misses=14
+[sample=7] cpu=0 bench=adpcm_enc cycles=308023 instructions=223674 cache-misses=22
+[sample=8] cpu=0 bench=adpcm_enc cycles=308384 instructions=223674 cache-misses=21
+[sample=9] cpu=0 bench=adpcm_enc cycles=343744 instructions=223678 cache-misses=73
+[sample=10] cpu=0 bench=adpcm_enc cycles=322360 instructions=223675 cache-misses=28
+[sample=11] cpu=0 bench=adpcm_enc cycles=308449 instructions=223673 cache-misses=30
+[sample=12] cpu=0 bench=adpcm_enc cycles=307197 instructions=223672 cache-misses=16
+[sample=13] cpu=0 bench=adpcm_enc cycles=307367 instructions=223672 cache-misses=14
+[sample=14] cpu=0 bench=adpcm_enc cycles=307528 instructions=223672 cache-misses=14
+[sample=15] cpu=0 bench=adpcm_enc cycles=307139 instructions=223673 cache-misses=17
+[sample=16] cpu=0 bench=adpcm_enc cycles=307263 instructions=223672 cache-misses=12
+[sample=17] cpu=0 bench=adpcm_enc cycles=307010 instructions=223672 cache-misses=10
+[sample=18] cpu=0 bench=adpcm_enc cycles=307438 instructions=223672 cache-misses=17
+[sample=19] cpu=0 bench=adpcm_enc cycles=306779 instructions=223673 cache-misses=14
+[sample=20] cpu=0 bench=adpcm_enc cycles=307716 instructions=223672 cache-misses=15
+[sample=21] cpu=0 bench=adpcm_enc cycles=360087 instructions=223682 cache-misses=69
+[sample=22] cpu=0 bench=adpcm_enc cycles=334690 instructions=223674 cache-misses=30
+[sample=23] cpu=0 bench=adpcm_enc cycles=315889 instructions=223673 cache-misses=24
+[sample=24] cpu=0 bench=adpcm_enc cycles=308207 instructions=223672 cache-misses=17
+[sample=25] cpu=0 bench=adpcm_enc cycles=307445 instructions=223673 cache-misses=21
+[sample=26] cpu=0 bench=adpcm_enc cycles=308568 instructions=223672 cache-misses=15
+[sample=27] cpu=0 bench=adpcm_enc cycles=306823 instructions=223672 cache-misses=16
+[sample=28] cpu=0 bench=adpcm_enc cycles=307028 instructions=223673 cache-misses=28
+[sample=29] cpu=0 bench=adpcm_enc cycles=306773 instructions=223674 cache-misses=15
+
+# Statistics over 30 samples on cpu0 bench=adpcm_enc (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      306773               369412            316849.50            308295.50
+  instructions                223671               223682            223673.43            223673.00
+  cache-misses                    10                   73                25.87                19.00

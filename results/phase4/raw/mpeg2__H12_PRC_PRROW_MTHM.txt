@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=mpeg2 (measured)  cpu1=PR_CACHE  cpu2=PR_ROWBUF  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=mpeg2 cycles=583375713 instructions=394402958 cache-misses=4590
+[sample=1] cpu=0 bench=mpeg2 cycles=578389552 instructions=394402824 cache-misses=4757
+[sample=2] cpu=0 bench=mpeg2 cycles=582926944 instructions=394402975 cache-misses=5464
+[sample=3] cpu=0 bench=mpeg2 cycles=582880692 instructions=394402948 cache-misses=4846
+[sample=4] cpu=0 bench=mpeg2 cycles=584351513 instructions=394402825 cache-misses=4450
+[sample=5] cpu=0 bench=mpeg2 cycles=585320078 instructions=394402843 cache-misses=5156
+[sample=6] cpu=0 bench=mpeg2 cycles=589984648 instructions=394403027 cache-misses=6033
+[sample=7] cpu=0 bench=mpeg2 cycles=587481309 instructions=394403053 cache-misses=5546
+[sample=8] cpu=0 bench=mpeg2 cycles=578741137 instructions=394402914 cache-misses=4706
+[sample=9] cpu=0 bench=mpeg2 cycles=585415173 instructions=394402916 cache-misses=4850
+[sample=10] cpu=0 bench=mpeg2 cycles=584415268 instructions=394402912 cache-misses=5133
+[sample=11] cpu=0 bench=mpeg2 cycles=582650821 instructions=394402973 cache-misses=4591
+[sample=12] cpu=0 bench=mpeg2 cycles=575647027 instructions=394402888 cache-misses=5322
+[sample=13] cpu=0 bench=mpeg2 cycles=585872173 instructions=394403093 cache-misses=5439
+[sample=14] cpu=0 bench=mpeg2 cycles=590726269 instructions=394402956 cache-misses=5705
+[sample=15] cpu=0 bench=mpeg2 cycles=580432521 instructions=394402911 cache-misses=4444
+[sample=16] cpu=0 bench=mpeg2 cycles=583002379 instructions=394403042 cache-misses=5005
+[sample=17] cpu=0 bench=mpeg2 cycles=589348095 instructions=394404127 cache-misses=9996
+[sample=18] cpu=0 bench=mpeg2 cycles=577172959 instructions=394403100 cache-misses=5425
+[sample=19] cpu=0 bench=mpeg2 cycles=580409085 instructions=394402813 cache-misses=4357
+[sample=20] cpu=0 bench=mpeg2 cycles=582559110 instructions=394403598 cache-misses=6172
+[sample=21] cpu=0 bench=mpeg2 cycles=583696631 instructions=394404092 cache-misses=7071
+[sample=22] cpu=0 bench=mpeg2 cycles=583635688 instructions=394405554 cache-misses=11753
+[sample=23] cpu=0 bench=mpeg2 cycles=585047910 instructions=394403694 cache-misses=6711
+[sample=24] cpu=0 bench=mpeg2 cycles=584219508 instructions=394404108 cache-misses=8742
+[sample=25] cpu=0 bench=mpeg2 cycles=590541843 instructions=394403945 cache-misses=9599
+[sample=26] cpu=0 bench=mpeg2 cycles=580329412 instructions=394403098 cache-misses=5432
+[sample=27] cpu=0 bench=mpeg2 cycles=585962152 instructions=394402823 cache-misses=5046
+[sample=28] cpu=0 bench=mpeg2 cycles=581199337 instructions=394402977 cache-misses=5995
+[sample=29] cpu=0 bench=mpeg2 cycles=581915260 instructions=394403066 cache-misses=5328
+
+# Statistics over 30 samples on cpu0 bench=mpeg2 (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                   575647027            590726269         583588340.23         583505700.50
+  instructions             394402813            394405554         394403235.10         394402976.00
+  cache-misses                  4357                11753              5922.13              5376.50

@@ -1,0 +1,40 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=1, lock_freq_khz=1600000
+# cpu0=lms (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=lms cycles=469733 instructions=299118 cache-misses=32
+[sample=1] cpu=0 bench=lms cycles=461465 instructions=299103 cache-misses=16
+[sample=2] cpu=0 bench=lms cycles=473879 instructions=299106 cache-misses=52
+[sample=3] cpu=0 bench=lms cycles=470688 instructions=299110 cache-misses=56
+[sample=4] cpu=0 bench=lms cycles=464895 instructions=299114 cache-misses=25
+[sample=5] cpu=0 bench=lms cycles=460887 instructions=299105 cache-misses=19
+[sample=6] cpu=0 bench=lms cycles=460913 instructions=299106 cache-misses=19
+[sample=7] cpu=0 bench=lms cycles=460911 instructions=299108 cache-misses=14
+[sample=8] cpu=0 bench=lms cycles=460919 instructions=299106 cache-misses=15
+[sample=9] cpu=0 bench=lms cycles=460848 instructions=299110 cache-misses=16
+[sample=10] cpu=0 bench=lms cycles=461173 instructions=299107 cache-misses=15
+[sample=11] cpu=0 bench=lms cycles=461210 instructions=299109 cache-misses=22
+[sample=12] cpu=0 bench=lms cycles=460841 instructions=299105 cache-misses=18
+[sample=13] cpu=0 bench=lms cycles=460845 instructions=299106 cache-misses=13
+[sample=14] cpu=0 bench=lms cycles=460912 instructions=299103 cache-misses=16
+[sample=15] cpu=0 bench=lms cycles=460861 instructions=299103 cache-misses=15
+[sample=16] cpu=0 bench=lms cycles=460934 instructions=299104 cache-misses=21
+[sample=17] cpu=0 bench=lms cycles=460952 instructions=299112 cache-misses=19
+[sample=18] cpu=0 bench=lms cycles=460867 instructions=299107 cache-misses=16
+[sample=19] cpu=0 bench=lms cycles=460914 instructions=299105 cache-misses=20
+[sample=20] cpu=0 bench=lms cycles=460923 instructions=299104 cache-misses=16
+[sample=21] cpu=0 bench=lms cycles=461293 instructions=299110 cache-misses=30
+[sample=22] cpu=0 bench=lms cycles=460963 instructions=299105 cache-misses=20
+[sample=23] cpu=0 bench=lms cycles=460960 instructions=299103 cache-misses=19
+[sample=24] cpu=0 bench=lms cycles=460983 instructions=299104 cache-misses=17
+[sample=25] cpu=0 bench=lms cycles=460949 instructions=299106 cache-misses=17
+[sample=26] cpu=0 bench=lms cycles=460995 instructions=299106 cache-misses=22
+[sample=27] cpu=0 bench=lms cycles=461061 instructions=299110 cache-misses=22
+[sample=28] cpu=0 bench=lms cycles=460903 instructions=299104 cache-misses=18
+[sample=29] cpu=0 bench=lms cycles=461012 instructions=299106 cache-misses=20
+
+# Statistics over 30 samples on cpu0 bench=lms (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                      460841               473879            462156.30            460950.50
+  instructions                299103               299118            299106.83            299106.00
+  cache-misses                    13                   56                21.33                19.00

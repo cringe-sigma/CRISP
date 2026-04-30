@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=sha (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=sha cycles=5547323 instructions=4188174 cache-misses=205
+[sample=1] cpu=0 bench=sha cycles=5539943 instructions=4188167 cache-misses=240
+[sample=2] cpu=0 bench=sha cycles=5527326 instructions=4188163 cache-misses=136
+[sample=3] cpu=0 bench=sha cycles=5489925 instructions=4188157 cache-misses=122
+[sample=4] cpu=0 bench=sha cycles=5566028 instructions=4188161 cache-misses=246
+[sample=5] cpu=0 bench=sha cycles=5607455 instructions=4188163 cache-misses=180
+[sample=6] cpu=0 bench=sha cycles=5554931 instructions=4188160 cache-misses=233
+[sample=7] cpu=0 bench=sha cycles=5554619 instructions=4188162 cache-misses=201
+[sample=8] cpu=0 bench=sha cycles=5588974 instructions=4188160 cache-misses=244
+[sample=9] cpu=0 bench=sha cycles=5567944 instructions=4188160 cache-misses=259
+[sample=10] cpu=0 bench=sha cycles=5554993 instructions=4188159 cache-misses=191
+[sample=11] cpu=0 bench=sha cycles=5524552 instructions=4188161 cache-misses=195
+[sample=12] cpu=0 bench=sha cycles=5543783 instructions=4188162 cache-misses=260
+[sample=13] cpu=0 bench=sha cycles=5518529 instructions=4188159 cache-misses=160
+[sample=14] cpu=0 bench=sha cycles=5509726 instructions=4188162 cache-misses=204
+[sample=15] cpu=0 bench=sha cycles=5463511 instructions=4188160 cache-misses=176
+[sample=16] cpu=0 bench=sha cycles=5558201 instructions=4188168 cache-misses=257
+[sample=17] cpu=0 bench=sha cycles=5557665 instructions=4188167 cache-misses=253
+[sample=18] cpu=0 bench=sha cycles=5536051 instructions=4188159 cache-misses=246
+[sample=19] cpu=0 bench=sha cycles=5528095 instructions=4188164 cache-misses=196
+[sample=20] cpu=0 bench=sha cycles=5593974 instructions=4188166 cache-misses=276
+[sample=21] cpu=0 bench=sha cycles=5561790 instructions=4188186 cache-misses=323
+[sample=22] cpu=0 bench=sha cycles=5525445 instructions=4188189 cache-misses=326
+[sample=23] cpu=0 bench=sha cycles=5501650 instructions=4188162 cache-misses=215
+[sample=24] cpu=0 bench=sha cycles=5479794 instructions=4188160 cache-misses=193
+[sample=25] cpu=0 bench=sha cycles=5556377 instructions=4188162 cache-misses=190
+[sample=26] cpu=0 bench=sha cycles=5546638 instructions=4188166 cache-misses=242
+[sample=27] cpu=0 bench=sha cycles=5505195 instructions=4188161 cache-misses=144
+[sample=28] cpu=0 bench=sha cycles=5557564 instructions=4188162 cache-misses=233
+[sample=29] cpu=0 bench=sha cycles=5518387 instructions=4188166 cache-misses=150
+
+# Statistics over 30 samples on cpu0 bench=sha (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     5463511              5607455           5539546.27           5545210.50
+  instructions               4188157              4188189           4188164.27           4188162.00
+  cache-misses                   122                  326               216.53               210.00

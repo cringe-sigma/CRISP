@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=recursion (measured)  cpu1=MEM  cpu2=PR_ROWBUF  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=recursion cycles=33272 instructions=3152 cache-misses=15
+[sample=1] cpu=0 bench=recursion cycles=20313 instructions=3148 cache-misses=11
+[sample=2] cpu=0 bench=recursion cycles=7724 instructions=3147 cache-misses=7
+[sample=3] cpu=0 bench=recursion cycles=5405 instructions=3147 cache-misses=5
+[sample=4] cpu=0 bench=recursion cycles=4238 instructions=3147 cache-misses=2
+[sample=5] cpu=0 bench=recursion cycles=4204 instructions=3147 cache-misses=2
+[sample=6] cpu=0 bench=recursion cycles=4298 instructions=3147 cache-misses=2
+[sample=7] cpu=0 bench=recursion cycles=4284 instructions=3147 cache-misses=2
+[sample=8] cpu=0 bench=recursion cycles=4256 instructions=3147 cache-misses=2
+[sample=9] cpu=0 bench=recursion cycles=4184 instructions=3147 cache-misses=2
+[sample=10] cpu=0 bench=recursion cycles=4547 instructions=3147 cache-misses=2
+[sample=11] cpu=0 bench=recursion cycles=4303 instructions=3147 cache-misses=1
+[sample=12] cpu=0 bench=recursion cycles=4498 instructions=3147 cache-misses=4
+[sample=13] cpu=0 bench=recursion cycles=4262 instructions=3147 cache-misses=3
+[sample=14] cpu=0 bench=recursion cycles=4438 instructions=3147 cache-misses=2
+[sample=15] cpu=0 bench=recursion cycles=4192 instructions=3147 cache-misses=4
+[sample=16] cpu=0 bench=recursion cycles=4611 instructions=3147 cache-misses=5
+[sample=17] cpu=0 bench=recursion cycles=8382 instructions=3147 cache-misses=4
+[sample=18] cpu=0 bench=recursion cycles=4486 instructions=3147 cache-misses=3
+[sample=19] cpu=0 bench=recursion cycles=4115 instructions=3147 cache-misses=5
+[sample=20] cpu=0 bench=recursion cycles=7775 instructions=3147 cache-misses=6
+[sample=21] cpu=0 bench=recursion cycles=4492 instructions=3147 cache-misses=3
+[sample=22] cpu=0 bench=recursion cycles=4498 instructions=3147 cache-misses=5
+[sample=23] cpu=0 bench=recursion cycles=4150 instructions=3147 cache-misses=2
+[sample=24] cpu=0 bench=recursion cycles=4504 instructions=3147 cache-misses=4
+[sample=25] cpu=0 bench=recursion cycles=4445 instructions=3147 cache-misses=3
+[sample=26] cpu=0 bench=recursion cycles=4314 instructions=3147 cache-misses=1
+[sample=27] cpu=0 bench=recursion cycles=4426 instructions=3147 cache-misses=3
+[sample=28] cpu=0 bench=recursion cycles=4358 instructions=3147 cache-misses=3
+[sample=29] cpu=0 bench=recursion cycles=4370 instructions=3147 cache-misses=3
+
+# Statistics over 30 samples on cpu0 bench=recursion (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        4115                33272              6244.80              4432.00
+  instructions                  3147                 3152              3147.20              3147.00
+  cache-misses                     1                   15                 3.87                 3.00

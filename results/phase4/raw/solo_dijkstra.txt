@@ -1,0 +1,40 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=1, lock_freq_khz=1600000
+# cpu0=dijkstra (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=dijkstra cycles=109071322 instructions=82753853 cache-misses=7161
+[sample=1] cpu=0 bench=dijkstra cycles=108475835 instructions=82753795 cache-misses=5686
+[sample=2] cpu=0 bench=dijkstra cycles=109073146 instructions=82753832 cache-misses=7483
+[sample=3] cpu=0 bench=dijkstra cycles=109059269 instructions=82753830 cache-misses=7029
+[sample=4] cpu=0 bench=dijkstra cycles=108990329 instructions=82753824 cache-misses=7408
+[sample=5] cpu=0 bench=dijkstra cycles=108868920 instructions=82753846 cache-misses=6766
+[sample=6] cpu=0 bench=dijkstra cycles=108433339 instructions=82753796 cache-misses=6414
+[sample=7] cpu=0 bench=dijkstra cycles=108378170 instructions=82753831 cache-misses=6921
+[sample=8] cpu=0 bench=dijkstra cycles=108306608 instructions=82753842 cache-misses=6994
+[sample=9] cpu=0 bench=dijkstra cycles=108277195 instructions=82753827 cache-misses=6312
+[sample=10] cpu=0 bench=dijkstra cycles=108640713 instructions=82753850 cache-misses=7421
+[sample=11] cpu=0 bench=dijkstra cycles=108113730 instructions=82753790 cache-misses=5267
+[sample=12] cpu=0 bench=dijkstra cycles=108343841 instructions=82753826 cache-misses=6492
+[sample=13] cpu=0 bench=dijkstra cycles=108099241 instructions=82753787 cache-misses=5491
+[sample=14] cpu=0 bench=dijkstra cycles=108320775 instructions=82753831 cache-misses=6838
+[sample=15] cpu=0 bench=dijkstra cycles=108097410 instructions=82753786 cache-misses=5353
+[sample=16] cpu=0 bench=dijkstra cycles=108305777 instructions=82753817 cache-misses=6519
+[sample=17] cpu=0 bench=dijkstra cycles=108142828 instructions=82753785 cache-misses=5629
+[sample=18] cpu=0 bench=dijkstra cycles=108294847 instructions=82753815 cache-misses=6563
+[sample=19] cpu=0 bench=dijkstra cycles=108186079 instructions=82753800 cache-misses=5700
+[sample=20] cpu=0 bench=dijkstra cycles=108308603 instructions=82753828 cache-misses=6588
+[sample=21] cpu=0 bench=dijkstra cycles=108093303 instructions=82753782 cache-misses=5050
+[sample=22] cpu=0 bench=dijkstra cycles=108279584 instructions=82753803 cache-misses=6044
+[sample=23] cpu=0 bench=dijkstra cycles=108125657 instructions=82753806 cache-misses=5798
+[sample=24] cpu=0 bench=dijkstra cycles=108312775 instructions=82753801 cache-misses=5492
+[sample=25] cpu=0 bench=dijkstra cycles=108711338 instructions=82753834 cache-misses=6712
+[sample=26] cpu=0 bench=dijkstra cycles=108146121 instructions=82753803 cache-misses=5885
+[sample=27] cpu=0 bench=dijkstra cycles=108354980 instructions=82753829 cache-misses=6585
+[sample=28] cpu=0 bench=dijkstra cycles=108257740 instructions=82753815 cache-misses=6458
+[sample=29] cpu=0 bench=dijkstra cycles=108269312 instructions=82753831 cache-misses=6929
+
+# Statistics over 30 samples on cpu0 bench=dijkstra (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                   108093303            109073146         108411292.90         108307605.50
+  instructions              82753782             82753853          82753816.50          82753820.50
+  cache-misses                  5050                 7483              6366.27              6505.50

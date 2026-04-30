@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=deg2rad (measured)  cpu1=CACHE  cpu2=MEM  cpu3=BUS
+[sample=0] cpu=0 bench=deg2rad cycles=21393 instructions=11628 cache-misses=10
+[sample=1] cpu=0 bench=deg2rad cycles=18730 instructions=11623 cache-misses=4
+[sample=2] cpu=0 bench=deg2rad cycles=17201 instructions=11623 cache-misses=3
+[sample=3] cpu=0 bench=deg2rad cycles=17186 instructions=11623 cache-misses=2
+[sample=4] cpu=0 bench=deg2rad cycles=17157 instructions=11623 cache-misses=1
+[sample=5] cpu=0 bench=deg2rad cycles=17189 instructions=11623 cache-misses=0
+[sample=6] cpu=0 bench=deg2rad cycles=17162 instructions=11623 cache-misses=0
+[sample=7] cpu=0 bench=deg2rad cycles=17629 instructions=11623 cache-misses=0
+[sample=8] cpu=0 bench=deg2rad cycles=17192 instructions=11623 cache-misses=0
+[sample=9] cpu=0 bench=deg2rad cycles=17197 instructions=11625 cache-misses=0
+[sample=10] cpu=0 bench=deg2rad cycles=17177 instructions=11623 cache-misses=0
+[sample=11] cpu=0 bench=deg2rad cycles=17186 instructions=11623 cache-misses=0
+[sample=12] cpu=0 bench=deg2rad cycles=17216 instructions=11623 cache-misses=0
+[sample=13] cpu=0 bench=deg2rad cycles=17220 instructions=11623 cache-misses=0
+[sample=14] cpu=0 bench=deg2rad cycles=17177 instructions=11623 cache-misses=0
+[sample=15] cpu=0 bench=deg2rad cycles=17177 instructions=11623 cache-misses=0
+[sample=16] cpu=0 bench=deg2rad cycles=17217 instructions=11623 cache-misses=1
+[sample=17] cpu=0 bench=deg2rad cycles=17204 instructions=11624 cache-misses=1
+[sample=18] cpu=0 bench=deg2rad cycles=17181 instructions=11623 cache-misses=0
+[sample=19] cpu=0 bench=deg2rad cycles=17192 instructions=11623 cache-misses=0
+[sample=20] cpu=0 bench=deg2rad cycles=17197 instructions=11623 cache-misses=0
+[sample=21] cpu=0 bench=deg2rad cycles=17217 instructions=11623 cache-misses=0
+[sample=22] cpu=0 bench=deg2rad cycles=20469 instructions=11625 cache-misses=17
+[sample=23] cpu=0 bench=deg2rad cycles=17253 instructions=11623 cache-misses=2
+[sample=24] cpu=0 bench=deg2rad cycles=17231 instructions=11623 cache-misses=2
+[sample=25] cpu=0 bench=deg2rad cycles=17193 instructions=11623 cache-misses=0
+[sample=26] cpu=0 bench=deg2rad cycles=17231 instructions=11623 cache-misses=0
+[sample=27] cpu=0 bench=deg2rad cycles=17185 instructions=11623 cache-misses=1
+[sample=28] cpu=0 bench=deg2rad cycles=17182 instructions=11623 cache-misses=1
+[sample=29] cpu=0 bench=deg2rad cycles=17181 instructions=11623 cache-misses=0
+
+# Statistics over 30 samples on cpu0 bench=deg2rad (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       17157                21393             17510.73             17195.00
+  instructions                 11623                11628             11623.33             11623.00
+  cache-misses                     0                   17                 1.50                 0.00

@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=statemate (measured)  cpu1=MEM  cpu2=PR_ROWBUF  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=statemate cycles=136381 instructions=84929 cache-misses=70
+[sample=1] cpu=0 bench=statemate cycles=123490 instructions=84920 cache-misses=55
+[sample=2] cpu=0 bench=statemate cycles=106036 instructions=84920 cache-misses=22
+[sample=3] cpu=0 bench=statemate cycles=106285 instructions=84920 cache-misses=28
+[sample=4] cpu=0 bench=statemate cycles=105834 instructions=84920 cache-misses=8
+[sample=5] cpu=0 bench=statemate cycles=106271 instructions=84922 cache-misses=19
+[sample=6] cpu=0 bench=statemate cycles=107302 instructions=84920 cache-misses=11
+[sample=7] cpu=0 bench=statemate cycles=105836 instructions=84920 cache-misses=8
+[sample=8] cpu=0 bench=statemate cycles=105871 instructions=84920 cache-misses=10
+[sample=9] cpu=0 bench=statemate cycles=106347 instructions=84920 cache-misses=6
+[sample=10] cpu=0 bench=statemate cycles=106947 instructions=84919 cache-misses=5
+[sample=11] cpu=0 bench=statemate cycles=107379 instructions=84919 cache-misses=9
+[sample=12] cpu=0 bench=statemate cycles=106611 instructions=84919 cache-misses=5
+[sample=13] cpu=0 bench=statemate cycles=105907 instructions=84919 cache-misses=7
+[sample=14] cpu=0 bench=statemate cycles=109442 instructions=84919 cache-misses=5
+[sample=15] cpu=0 bench=statemate cycles=109215 instructions=84919 cache-misses=5
+[sample=16] cpu=0 bench=statemate cycles=112188 instructions=84919 cache-misses=5
+[sample=17] cpu=0 bench=statemate cycles=106248 instructions=84919 cache-misses=8
+[sample=18] cpu=0 bench=statemate cycles=105770 instructions=84919 cache-misses=9
+[sample=19] cpu=0 bench=statemate cycles=106595 instructions=84919 cache-misses=9
+[sample=20] cpu=0 bench=statemate cycles=106819 instructions=84919 cache-misses=4
+[sample=21] cpu=0 bench=statemate cycles=106378 instructions=84919 cache-misses=4
+[sample=22] cpu=0 bench=statemate cycles=106780 instructions=84919 cache-misses=5
+[sample=23] cpu=0 bench=statemate cycles=110412 instructions=84919 cache-misses=4
+[sample=24] cpu=0 bench=statemate cycles=106807 instructions=84919 cache-misses=5
+[sample=25] cpu=0 bench=statemate cycles=107353 instructions=84919 cache-misses=4
+[sample=26] cpu=0 bench=statemate cycles=271464 instructions=84922 cache-misses=72
+[sample=27] cpu=0 bench=statemate cycles=135630 instructions=84920 cache-misses=39
+[sample=28] cpu=0 bench=statemate cycles=107843 instructions=84920 cache-misses=19
+[sample=29] cpu=0 bench=statemate cycles=107294 instructions=84920 cache-misses=9
+
+# Statistics over 30 samples on cpu0 bench=statemate (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      105770               271464            115091.17            106813.00
+  instructions                 84919                84929             84919.90             84919.00
+  cache-misses                     4                   72                15.63                 8.00

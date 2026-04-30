@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=jfdctint (measured)  cpu1=BUS  cpu2=MEM  cpu3=PR_MEMBUS
+[sample=0] cpu=0 bench=jfdctint cycles=41607 instructions=6385 cache-misses=18
+[sample=1] cpu=0 bench=jfdctint cycles=42292 instructions=6382 cache-misses=8
+[sample=2] cpu=0 bench=jfdctint cycles=11126 instructions=6382 cache-misses=3
+[sample=3] cpu=0 bench=jfdctint cycles=9305 instructions=6382 cache-misses=4
+[sample=4] cpu=0 bench=jfdctint cycles=9042 instructions=6382 cache-misses=2
+[sample=5] cpu=0 bench=jfdctint cycles=9148 instructions=6381 cache-misses=2
+[sample=6] cpu=0 bench=jfdctint cycles=8482 instructions=6381 cache-misses=0
+[sample=7] cpu=0 bench=jfdctint cycles=8495 instructions=6381 cache-misses=2
+[sample=8] cpu=0 bench=jfdctint cycles=8477 instructions=6381 cache-misses=1
+[sample=9] cpu=0 bench=jfdctint cycles=8452 instructions=6381 cache-misses=1
+[sample=10] cpu=0 bench=jfdctint cycles=8471 instructions=6381 cache-misses=1
+[sample=11] cpu=0 bench=jfdctint cycles=8491 instructions=6381 cache-misses=2
+[sample=12] cpu=0 bench=jfdctint cycles=8492 instructions=6381 cache-misses=2
+[sample=13] cpu=0 bench=jfdctint cycles=8433 instructions=6381 cache-misses=2
+[sample=14] cpu=0 bench=jfdctint cycles=8488 instructions=6381 cache-misses=2
+[sample=15] cpu=0 bench=jfdctint cycles=8514 instructions=6381 cache-misses=1
+[sample=16] cpu=0 bench=jfdctint cycles=8470 instructions=6381 cache-misses=1
+[sample=17] cpu=0 bench=jfdctint cycles=8476 instructions=6381 cache-misses=0
+[sample=18] cpu=0 bench=jfdctint cycles=8458 instructions=6381 cache-misses=1
+[sample=19] cpu=0 bench=jfdctint cycles=8424 instructions=6381 cache-misses=0
+[sample=20] cpu=0 bench=jfdctint cycles=8484 instructions=6382 cache-misses=0
+[sample=21] cpu=0 bench=jfdctint cycles=8517 instructions=6381 cache-misses=2
+[sample=22] cpu=0 bench=jfdctint cycles=8488 instructions=6381 cache-misses=1
+[sample=23] cpu=0 bench=jfdctint cycles=8517 instructions=6381 cache-misses=1
+[sample=24] cpu=0 bench=jfdctint cycles=8672 instructions=6381 cache-misses=0
+[sample=25] cpu=0 bench=jfdctint cycles=8453 instructions=6382 cache-misses=1
+[sample=26] cpu=0 bench=jfdctint cycles=8446 instructions=6382 cache-misses=2
+[sample=27] cpu=0 bench=jfdctint cycles=8452 instructions=6382 cache-misses=0
+[sample=28] cpu=0 bench=jfdctint cycles=8580 instructions=6382 cache-misses=2
+[sample=29] cpu=0 bench=jfdctint cycles=8506 instructions=6382 cache-misses=1
+
+# Statistics over 30 samples on cpu0 bench=jfdctint (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        8424                42292             10875.27              8489.50
+  instructions                  6381                 6385              6381.47              6381.00
+  cache-misses                     0                   18                 2.10                 1.00

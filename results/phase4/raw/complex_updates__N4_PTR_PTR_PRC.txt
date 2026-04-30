@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=complex_updates (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=complex_updates cycles=16106 instructions=2557 cache-misses=18
+[sample=1] cpu=0 bench=complex_updates cycles=5272 instructions=2554 cache-misses=16
+[sample=2] cpu=0 bench=complex_updates cycles=3570 instructions=2553 cache-misses=7
+[sample=3] cpu=0 bench=complex_updates cycles=3590 instructions=2553 cache-misses=8
+[sample=4] cpu=0 bench=complex_updates cycles=3594 instructions=2553 cache-misses=5
+[sample=5] cpu=0 bench=complex_updates cycles=3568 instructions=2553 cache-misses=6
+[sample=6] cpu=0 bench=complex_updates cycles=3553 instructions=2553 cache-misses=9
+[sample=7] cpu=0 bench=complex_updates cycles=3561 instructions=2553 cache-misses=7
+[sample=8] cpu=0 bench=complex_updates cycles=3564 instructions=2553 cache-misses=6
+[sample=9] cpu=0 bench=complex_updates cycles=3533 instructions=2553 cache-misses=9
+[sample=10] cpu=0 bench=complex_updates cycles=3538 instructions=2553 cache-misses=5
+[sample=11] cpu=0 bench=complex_updates cycles=3554 instructions=2553 cache-misses=6
+[sample=12] cpu=0 bench=complex_updates cycles=3546 instructions=2553 cache-misses=7
+[sample=13] cpu=0 bench=complex_updates cycles=3577 instructions=2553 cache-misses=8
+[sample=14] cpu=0 bench=complex_updates cycles=3551 instructions=2553 cache-misses=5
+[sample=15] cpu=0 bench=complex_updates cycles=3567 instructions=2553 cache-misses=4
+[sample=16] cpu=0 bench=complex_updates cycles=3524 instructions=2553 cache-misses=7
+[sample=17] cpu=0 bench=complex_updates cycles=3580 instructions=2553 cache-misses=7
+[sample=18] cpu=0 bench=complex_updates cycles=3573 instructions=2553 cache-misses=8
+[sample=19] cpu=0 bench=complex_updates cycles=3529 instructions=2553 cache-misses=6
+[sample=20] cpu=0 bench=complex_updates cycles=3507 instructions=2553 cache-misses=3
+[sample=21] cpu=0 bench=complex_updates cycles=3578 instructions=2553 cache-misses=7
+[sample=22] cpu=0 bench=complex_updates cycles=3525 instructions=2553 cache-misses=7
+[sample=23] cpu=0 bench=complex_updates cycles=3543 instructions=2553 cache-misses=7
+[sample=24] cpu=0 bench=complex_updates cycles=3589 instructions=2553 cache-misses=8
+[sample=25] cpu=0 bench=complex_updates cycles=3571 instructions=2553 cache-misses=7
+[sample=26] cpu=0 bench=complex_updates cycles=3552 instructions=2553 cache-misses=7
+[sample=27] cpu=0 bench=complex_updates cycles=3548 instructions=2553 cache-misses=5
+[sample=28] cpu=0 bench=complex_updates cycles=3567 instructions=2553 cache-misses=8
+[sample=29] cpu=0 bench=complex_updates cycles=3556 instructions=2553 cache-misses=7
+
+# Statistics over 30 samples on cpu0 bench=complex_updates (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        3507                16106              4032.87              3562.50
+  instructions                  2553                 2557              2553.17              2553.00
+  cache-misses                     3                   18                 7.33                 7.00

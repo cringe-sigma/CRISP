@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=cover (measured)  cpu1=PR_CACHE  cpu2=PR_CACHE  cpu3=PR_TLB
+[sample=0] cpu=0 bench=cover cycles=47057 instructions=3739 cache-misses=19
+[sample=1] cpu=0 bench=cover cycles=45922 instructions=3732 cache-misses=13
+[sample=2] cpu=0 bench=cover cycles=63584 instructions=3732 cache-misses=18
+[sample=3] cpu=0 bench=cover cycles=28548 instructions=3732 cache-misses=12
+[sample=4] cpu=0 bench=cover cycles=7107 instructions=3732 cache-misses=6
+[sample=5] cpu=0 bench=cover cycles=7215 instructions=3732 cache-misses=5
+[sample=6] cpu=0 bench=cover cycles=5943 instructions=3732 cache-misses=1
+[sample=7] cpu=0 bench=cover cycles=5955 instructions=3732 cache-misses=4
+[sample=8] cpu=0 bench=cover cycles=5952 instructions=3732 cache-misses=4
+[sample=9] cpu=0 bench=cover cycles=5972 instructions=3732 cache-misses=2
+[sample=10] cpu=0 bench=cover cycles=5964 instructions=3732 cache-misses=1
+[sample=11] cpu=0 bench=cover cycles=5898 instructions=3732 cache-misses=2
+[sample=12] cpu=0 bench=cover cycles=6991 instructions=3732 cache-misses=2
+[sample=13] cpu=0 bench=cover cycles=5952 instructions=3732 cache-misses=4
+[sample=14] cpu=0 bench=cover cycles=5887 instructions=3732 cache-misses=1
+[sample=15] cpu=0 bench=cover cycles=5956 instructions=3732 cache-misses=4
+[sample=16] cpu=0 bench=cover cycles=5898 instructions=3732 cache-misses=2
+[sample=17] cpu=0 bench=cover cycles=6003 instructions=3732 cache-misses=2
+[sample=18] cpu=0 bench=cover cycles=5882 instructions=3732 cache-misses=1
+[sample=19] cpu=0 bench=cover cycles=6045 instructions=3732 cache-misses=1
+[sample=20] cpu=0 bench=cover cycles=5903 instructions=3732 cache-misses=2
+[sample=21] cpu=0 bench=cover cycles=5896 instructions=3732 cache-misses=1
+[sample=22] cpu=0 bench=cover cycles=5931 instructions=3732 cache-misses=1
+[sample=23] cpu=0 bench=cover cycles=6026 instructions=3732 cache-misses=1
+[sample=24] cpu=0 bench=cover cycles=5969 instructions=3732 cache-misses=1
+[sample=25] cpu=0 bench=cover cycles=5873 instructions=3732 cache-misses=2
+[sample=26] cpu=0 bench=cover cycles=5929 instructions=3732 cache-misses=1
+[sample=27] cpu=0 bench=cover cycles=5941 instructions=3732 cache-misses=2
+[sample=28] cpu=0 bench=cover cycles=5921 instructions=3732 cache-misses=1
+[sample=29] cpu=0 bench=cover cycles=5849 instructions=3732 cache-misses=0
+
+# Statistics over 30 samples on cpu0 bench=cover (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        5849                63584             11432.30              5953.50
+  instructions                  3732                 3739              3732.23              3732.00
+  cache-misses                     0                   19                 3.87                 2.00

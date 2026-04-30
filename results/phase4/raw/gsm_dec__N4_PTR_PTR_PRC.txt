@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=gsm_dec (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=gsm_dec cycles=3870065 instructions=2782784 cache-misses=79
+[sample=1] cpu=0 bench=gsm_dec cycles=3799295 instructions=2782783 cache-misses=82
+[sample=2] cpu=0 bench=gsm_dec cycles=3834380 instructions=2782829 cache-misses=63
+[sample=3] cpu=0 bench=gsm_dec cycles=3950907 instructions=2782919 cache-misses=104
+[sample=4] cpu=0 bench=gsm_dec cycles=3854746 instructions=2782977 cache-misses=102
+[sample=5] cpu=0 bench=gsm_dec cycles=3848178 instructions=2783048 cache-misses=76
+[sample=6] cpu=0 bench=gsm_dec cycles=3883531 instructions=2783091 cache-misses=71
+[sample=7] cpu=0 bench=gsm_dec cycles=3861498 instructions=2783135 cache-misses=74
+[sample=8] cpu=0 bench=gsm_dec cycles=3887501 instructions=2783173 cache-misses=60
+[sample=9] cpu=0 bench=gsm_dec cycles=3943627 instructions=2783193 cache-misses=68
+[sample=10] cpu=0 bench=gsm_dec cycles=3897593 instructions=2783203 cache-misses=75
+[sample=11] cpu=0 bench=gsm_dec cycles=3859477 instructions=2783205 cache-misses=67
+[sample=12] cpu=0 bench=gsm_dec cycles=3868994 instructions=2783205 cache-misses=92
+[sample=13] cpu=0 bench=gsm_dec cycles=3918330 instructions=2783216 cache-misses=84
+[sample=14] cpu=0 bench=gsm_dec cycles=3890701 instructions=2783210 cache-misses=80
+[sample=15] cpu=0 bench=gsm_dec cycles=4025694 instructions=2783225 cache-misses=122
+[sample=16] cpu=0 bench=gsm_dec cycles=3814342 instructions=2783203 cache-misses=71
+[sample=17] cpu=0 bench=gsm_dec cycles=3996818 instructions=2783245 cache-misses=197
+[sample=18] cpu=0 bench=gsm_dec cycles=3858356 instructions=2783208 cache-misses=72
+[sample=19] cpu=0 bench=gsm_dec cycles=3876162 instructions=2783203 cache-misses=52
+[sample=20] cpu=0 bench=gsm_dec cycles=3840418 instructions=2783203 cache-misses=53
+[sample=21] cpu=0 bench=gsm_dec cycles=3842576 instructions=2783204 cache-misses=66
+[sample=22] cpu=0 bench=gsm_dec cycles=3882342 instructions=2783221 cache-misses=80
+[sample=23] cpu=0 bench=gsm_dec cycles=3825800 instructions=2783204 cache-misses=49
+[sample=24] cpu=0 bench=gsm_dec cycles=3831701 instructions=2783198 cache-misses=46
+[sample=25] cpu=0 bench=gsm_dec cycles=3887721 instructions=2783206 cache-misses=73
+[sample=26] cpu=0 bench=gsm_dec cycles=3845651 instructions=2783206 cache-misses=60
+[sample=27] cpu=0 bench=gsm_dec cycles=3883305 instructions=2783210 cache-misses=67
+[sample=28] cpu=0 bench=gsm_dec cycles=3928249 instructions=2783209 cache-misses=116
+[sample=29] cpu=0 bench=gsm_dec cycles=3863034 instructions=2783205 cache-misses=59
+
+# Statistics over 30 samples on cpu0 bench=gsm_dec (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     3799295              4025694           3879033.07           3869529.50
+  instructions               2782783              2783245           2783137.37           2783203.50
+  cache-misses                    46                  197                78.67                72.50

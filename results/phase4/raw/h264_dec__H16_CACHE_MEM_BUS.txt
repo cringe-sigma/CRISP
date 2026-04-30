@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=h264_dec (measured)  cpu1=CACHE  cpu2=MEM  cpu3=BUS
+[sample=0] cpu=0 bench=h264_dec cycles=554132 instructions=400152 cache-misses=73
+[sample=1] cpu=0 bench=h264_dec cycles=623701 instructions=400120 cache-misses=54
+[sample=2] cpu=0 bench=h264_dec cycles=550735 instructions=400119 cache-misses=39
+[sample=3] cpu=0 bench=h264_dec cycles=622938 instructions=400119 cache-misses=39
+[sample=4] cpu=0 bench=h264_dec cycles=599826 instructions=400119 cache-misses=49
+[sample=5] cpu=0 bench=h264_dec cycles=612147 instructions=400119 cache-misses=49
+[sample=6] cpu=0 bench=h264_dec cycles=560843 instructions=400117 cache-misses=33
+[sample=7] cpu=0 bench=h264_dec cycles=567230 instructions=400117 cache-misses=86
+[sample=8] cpu=0 bench=h264_dec cycles=530073 instructions=400118 cache-misses=63
+[sample=9] cpu=0 bench=h264_dec cycles=555951 instructions=400118 cache-misses=67
+[sample=10] cpu=0 bench=h264_dec cycles=525828 instructions=400118 cache-misses=29
+[sample=11] cpu=0 bench=h264_dec cycles=644517 instructions=400120 cache-misses=74
+[sample=12] cpu=0 bench=h264_dec cycles=634672 instructions=400119 cache-misses=56
+[sample=13] cpu=0 bench=h264_dec cycles=636984 instructions=400118 cache-misses=51
+[sample=14] cpu=0 bench=h264_dec cycles=595031 instructions=400119 cache-misses=46
+[sample=15] cpu=0 bench=h264_dec cycles=617293 instructions=400119 cache-misses=41
+[sample=16] cpu=0 bench=h264_dec cycles=563830 instructions=400119 cache-misses=36
+[sample=17] cpu=0 bench=h264_dec cycles=614282 instructions=400118 cache-misses=36
+[sample=18] cpu=0 bench=h264_dec cycles=606660 instructions=400120 cache-misses=39
+[sample=19] cpu=0 bench=h264_dec cycles=576866 instructions=400121 cache-misses=47
+[sample=20] cpu=0 bench=h264_dec cycles=610529 instructions=400119 cache-misses=36
+[sample=21] cpu=0 bench=h264_dec cycles=548403 instructions=400117 cache-misses=41
+[sample=22] cpu=0 bench=h264_dec cycles=542339 instructions=400118 cache-misses=51
+[sample=23] cpu=0 bench=h264_dec cycles=527830 instructions=400118 cache-misses=59
+[sample=24] cpu=0 bench=h264_dec cycles=537077 instructions=400117 cache-misses=69
+[sample=25] cpu=0 bench=h264_dec cycles=553041 instructions=400121 cache-misses=85
+[sample=26] cpu=0 bench=h264_dec cycles=548624 instructions=400117 cache-misses=45
+[sample=27] cpu=0 bench=h264_dec cycles=530638 instructions=400118 cache-misses=66
+[sample=28] cpu=0 bench=h264_dec cycles=528162 instructions=400118 cache-misses=73
+[sample=29] cpu=0 bench=h264_dec cycles=522986 instructions=400117 cache-misses=53
+
+# Statistics over 30 samples on cpu0 bench=h264_dec (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      522986               644517            574772.27            562336.50
+  instructions                400117               400152            400119.63            400118.50
+  cache-misses                    29                   86                52.83                50.00

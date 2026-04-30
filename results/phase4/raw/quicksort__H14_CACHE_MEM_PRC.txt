@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=quicksort (measured)  cpu1=CACHE  cpu2=MEM  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=quicksort cycles=6625473 instructions=4619486 cache-misses=633
+[sample=1] cpu=0 bench=quicksort cycles=6542238 instructions=4619418 cache-misses=564
+[sample=2] cpu=0 bench=quicksort cycles=6597227 instructions=4619441 cache-misses=381
+[sample=3] cpu=0 bench=quicksort cycles=6358707 instructions=4619387 cache-misses=465
+[sample=4] cpu=0 bench=quicksort cycles=7591542 instructions=4619456 cache-misses=689
+[sample=5] cpu=0 bench=quicksort cycles=6442667 instructions=4619422 cache-misses=439
+[sample=6] cpu=0 bench=quicksort cycles=6363096 instructions=4619422 cache-misses=444
+[sample=7] cpu=0 bench=quicksort cycles=6304978 instructions=4619388 cache-misses=477
+[sample=8] cpu=0 bench=quicksort cycles=6450033 instructions=4619466 cache-misses=601
+[sample=9] cpu=0 bench=quicksort cycles=6346885 instructions=4619440 cache-misses=405
+[sample=10] cpu=0 bench=quicksort cycles=6487580 instructions=4619389 cache-misses=511
+[sample=11] cpu=0 bench=quicksort cycles=6849610 instructions=4619375 cache-misses=546
+[sample=12] cpu=0 bench=quicksort cycles=6616541 instructions=4619517 cache-misses=549
+[sample=13] cpu=0 bench=quicksort cycles=6486474 instructions=4619367 cache-misses=464
+[sample=14] cpu=0 bench=quicksort cycles=6447429 instructions=4619477 cache-misses=523
+[sample=15] cpu=0 bench=quicksort cycles=6504607 instructions=4619425 cache-misses=522
+[sample=16] cpu=0 bench=quicksort cycles=6503908 instructions=4619454 cache-misses=486
+[sample=17] cpu=0 bench=quicksort cycles=6492258 instructions=4619430 cache-misses=489
+[sample=18] cpu=0 bench=quicksort cycles=6435958 instructions=4619397 cache-misses=510
+[sample=19] cpu=0 bench=quicksort cycles=6386797 instructions=4619376 cache-misses=631
+[sample=20] cpu=0 bench=quicksort cycles=6395816 instructions=4619357 cache-misses=456
+[sample=21] cpu=0 bench=quicksort cycles=7072386 instructions=4619390 cache-misses=481
+[sample=22] cpu=0 bench=quicksort cycles=6372195 instructions=4619362 cache-misses=539
+[sample=23] cpu=0 bench=quicksort cycles=6338643 instructions=4619514 cache-misses=678
+[sample=24] cpu=0 bench=quicksort cycles=6244296 instructions=4619478 cache-misses=500
+[sample=25] cpu=0 bench=quicksort cycles=6424371 instructions=4619467 cache-misses=605
+[sample=26] cpu=0 bench=quicksort cycles=7203149 instructions=4619383 cache-misses=584
+[sample=27] cpu=0 bench=quicksort cycles=6293088 instructions=4619416 cache-misses=376
+[sample=28] cpu=0 bench=quicksort cycles=6315524 instructions=4619426 cache-misses=359
+[sample=29] cpu=0 bench=quicksort cycles=7002389 instructions=4619426 cache-misses=417
+
+# Statistics over 30 samples on cpu0 bench=quicksort (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     6244296              7591542           6549862.17           6448731.00
+  instructions               4619357              4619517           4619425.07           4619423.50
+  cache-misses                   359                  689               510.80               505.00

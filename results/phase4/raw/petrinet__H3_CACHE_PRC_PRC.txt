@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=petrinet (measured)  cpu1=CACHE  cpu2=PR_CACHE  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=petrinet cycles=54313 instructions=2178 cache-misses=19
+[sample=1] cpu=0 bench=petrinet cycles=75588 instructions=2173 cache-misses=14
+[sample=2] cpu=0 bench=petrinet cycles=82742 instructions=2173 cache-misses=15
+[sample=3] cpu=0 bench=petrinet cycles=61406 instructions=2173 cache-misses=12
+[sample=4] cpu=0 bench=petrinet cycles=31036 instructions=2173 cache-misses=12
+[sample=5] cpu=0 bench=petrinet cycles=7169 instructions=2173 cache-misses=17
+[sample=6] cpu=0 bench=petrinet cycles=4044 instructions=2174 cache-misses=15
+[sample=7] cpu=0 bench=petrinet cycles=4037 instructions=2173 cache-misses=13
+[sample=8] cpu=0 bench=petrinet cycles=4033 instructions=2173 cache-misses=14
+[sample=9] cpu=0 bench=petrinet cycles=4027 instructions=2174 cache-misses=15
+[sample=10] cpu=0 bench=petrinet cycles=4459 instructions=2173 cache-misses=14
+[sample=11] cpu=0 bench=petrinet cycles=4047 instructions=2173 cache-misses=14
+[sample=12] cpu=0 bench=petrinet cycles=3973 instructions=2173 cache-misses=16
+[sample=13] cpu=0 bench=petrinet cycles=4049 instructions=2173 cache-misses=12
+[sample=14] cpu=0 bench=petrinet cycles=4050 instructions=2173 cache-misses=13
+[sample=15] cpu=0 bench=petrinet cycles=3987 instructions=2173 cache-misses=15
+[sample=16] cpu=0 bench=petrinet cycles=4028 instructions=2173 cache-misses=14
+[sample=17] cpu=0 bench=petrinet cycles=4024 instructions=2173 cache-misses=13
+[sample=18] cpu=0 bench=petrinet cycles=4036 instructions=2173 cache-misses=14
+[sample=19] cpu=0 bench=petrinet cycles=3987 instructions=2173 cache-misses=12
+[sample=20] cpu=0 bench=petrinet cycles=4043 instructions=2173 cache-misses=13
+[sample=21] cpu=0 bench=petrinet cycles=4078 instructions=2173 cache-misses=14
+[sample=22] cpu=0 bench=petrinet cycles=4038 instructions=2174 cache-misses=15
+[sample=23] cpu=0 bench=petrinet cycles=4082 instructions=2173 cache-misses=14
+[sample=24] cpu=0 bench=petrinet cycles=4004 instructions=2173 cache-misses=14
+[sample=25] cpu=0 bench=petrinet cycles=3979 instructions=2173 cache-misses=14
+[sample=26] cpu=0 bench=petrinet cycles=4053 instructions=2173 cache-misses=14
+[sample=27] cpu=0 bench=petrinet cycles=4038 instructions=2173 cache-misses=14
+[sample=28] cpu=0 bench=petrinet cycles=5930 instructions=2173 cache-misses=12
+[sample=29] cpu=0 bench=petrinet cycles=3974 instructions=2173 cache-misses=15
+
+# Statistics over 30 samples on cpu0 bench=petrinet (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        3973                82742             13708.47              4043.50
+  instructions                  2173                 2178              2173.27              2173.00
+  cache-misses                    12                   19                14.07                14.00

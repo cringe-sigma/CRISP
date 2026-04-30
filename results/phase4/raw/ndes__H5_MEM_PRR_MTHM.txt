@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=ndes (measured)  cpu1=MEM  cpu2=PR_ROWBUF  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=ndes cycles=241481 instructions=83515 cache-misses=96
+[sample=1] cpu=0 bench=ndes cycles=193372 instructions=83051 cache-misses=54
+[sample=2] cpu=0 bench=ndes cycles=106473 instructions=83051 cache-misses=21
+[sample=3] cpu=0 bench=ndes cycles=110518 instructions=83050 cache-misses=14
+[sample=4] cpu=0 bench=ndes cycles=109359 instructions=83050 cache-misses=11
+[sample=5] cpu=0 bench=ndes cycles=109030 instructions=83050 cache-misses=6
+[sample=6] cpu=0 bench=ndes cycles=105964 instructions=83050 cache-misses=8
+[sample=7] cpu=0 bench=ndes cycles=110421 instructions=83050 cache-misses=7
+[sample=8] cpu=0 bench=ndes cycles=106033 instructions=83050 cache-misses=5
+[sample=9] cpu=0 bench=ndes cycles=105524 instructions=83049 cache-misses=8
+[sample=10] cpu=0 bench=ndes cycles=105445 instructions=83049 cache-misses=6
+[sample=11] cpu=0 bench=ndes cycles=106163 instructions=83050 cache-misses=5
+[sample=12] cpu=0 bench=ndes cycles=105863 instructions=83049 cache-misses=6
+[sample=13] cpu=0 bench=ndes cycles=105660 instructions=83050 cache-misses=7
+[sample=14] cpu=0 bench=ndes cycles=105408 instructions=83049 cache-misses=7
+[sample=15] cpu=0 bench=ndes cycles=107046 instructions=83048 cache-misses=3
+[sample=16] cpu=0 bench=ndes cycles=105803 instructions=83050 cache-misses=4
+[sample=17] cpu=0 bench=ndes cycles=105634 instructions=83050 cache-misses=4
+[sample=18] cpu=0 bench=ndes cycles=105658 instructions=83051 cache-misses=6
+[sample=19] cpu=0 bench=ndes cycles=105760 instructions=83049 cache-misses=7
+[sample=20] cpu=0 bench=ndes cycles=105820 instructions=83049 cache-misses=8
+[sample=21] cpu=0 bench=ndes cycles=105889 instructions=83050 cache-misses=6
+[sample=22] cpu=0 bench=ndes cycles=105425 instructions=83050 cache-misses=4
+[sample=23] cpu=0 bench=ndes cycles=105838 instructions=83050 cache-misses=4
+[sample=24] cpu=0 bench=ndes cycles=110792 instructions=83050 cache-misses=9
+[sample=25] cpu=0 bench=ndes cycles=106411 instructions=83049 cache-misses=9
+[sample=26] cpu=0 bench=ndes cycles=105616 instructions=83049 cache-misses=4
+[sample=27] cpu=0 bench=ndes cycles=186921 instructions=83052 cache-misses=60
+[sample=28] cpu=0 bench=ndes cycles=114961 instructions=83054 cache-misses=45
+[sample=29] cpu=0 bench=ndes cycles=111547 instructions=83052 cache-misses=45
+
+# Statistics over 30 samples on cpu0 bench=ndes (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      105408               241481            117194.50            105998.50
+  instructions                 83048                83515             83065.53             83050.00
+  cache-misses                     3                   96                15.97                 7.00

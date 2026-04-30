@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=fac (measured)  cpu1=BUS  cpu2=PR_MEMBUS  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=fac cycles=10529 instructions=458 cache-misses=13
+[sample=1] cpu=0 bench=fac cycles=2603 instructions=453 cache-misses=8
+[sample=2] cpu=0 bench=fac cycles=782 instructions=454 cache-misses=4
+[sample=3] cpu=0 bench=fac cycles=778 instructions=454 cache-misses=2
+[sample=4] cpu=0 bench=fac cycles=730 instructions=454 cache-misses=0
+[sample=5] cpu=0 bench=fac cycles=699 instructions=454 cache-misses=2
+[sample=6] cpu=0 bench=fac cycles=774 instructions=453 cache-misses=1
+[sample=7] cpu=0 bench=fac cycles=748 instructions=453 cache-misses=0
+[sample=8] cpu=0 bench=fac cycles=780 instructions=453 cache-misses=1
+[sample=9] cpu=0 bench=fac cycles=685 instructions=453 cache-misses=1
+[sample=10] cpu=0 bench=fac cycles=732 instructions=453 cache-misses=1
+[sample=11] cpu=0 bench=fac cycles=1339 instructions=453 cache-misses=1
+[sample=12] cpu=0 bench=fac cycles=693 instructions=453 cache-misses=1
+[sample=13] cpu=0 bench=fac cycles=694 instructions=453 cache-misses=0
+[sample=14] cpu=0 bench=fac cycles=707 instructions=453 cache-misses=0
+[sample=15] cpu=0 bench=fac cycles=680 instructions=453 cache-misses=0
+[sample=16] cpu=0 bench=fac cycles=690 instructions=453 cache-misses=0
+[sample=17] cpu=0 bench=fac cycles=681 instructions=453 cache-misses=1
+[sample=18] cpu=0 bench=fac cycles=677 instructions=453 cache-misses=0
+[sample=19] cpu=0 bench=fac cycles=702 instructions=453 cache-misses=0
+[sample=20] cpu=0 bench=fac cycles=709 instructions=453 cache-misses=0
+[sample=21] cpu=0 bench=fac cycles=704 instructions=453 cache-misses=1
+[sample=22] cpu=0 bench=fac cycles=745 instructions=453 cache-misses=0
+[sample=23] cpu=0 bench=fac cycles=751 instructions=453 cache-misses=0
+[sample=24] cpu=0 bench=fac cycles=727 instructions=453 cache-misses=0
+[sample=25] cpu=0 bench=fac cycles=677 instructions=453 cache-misses=1
+[sample=26] cpu=0 bench=fac cycles=692 instructions=453 cache-misses=0
+[sample=27] cpu=0 bench=fac cycles=691 instructions=453 cache-misses=0
+[sample=28] cpu=0 bench=fac cycles=703 instructions=453 cache-misses=1
+[sample=29] cpu=0 bench=fac cycles=704 instructions=453 cache-misses=1
+
+# Statistics over 30 samples on cpu0 bench=fac (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                         677                10529              1126.87               705.50
+  instructions                   453                  458               453.30               453.00
+  cache-misses                     0                   13                 1.33                 1.00

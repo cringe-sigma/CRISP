@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=insertsort (measured)  cpu1=CACHE  cpu2=BUS  cpu3=PR_MEMBUS
+[sample=0] cpu=0 bench=insertsort cycles=15105 instructions=2954 cache-misses=22
+[sample=1] cpu=0 bench=insertsort cycles=5766 instructions=2947 cache-misses=11
+[sample=2] cpu=0 bench=insertsort cycles=4251 instructions=2946 cache-misses=5
+[sample=3] cpu=0 bench=insertsort cycles=4196 instructions=2946 cache-misses=3
+[sample=4] cpu=0 bench=insertsort cycles=4242 instructions=2946 cache-misses=2
+[sample=5] cpu=0 bench=insertsort cycles=4830 instructions=2946 cache-misses=2
+[sample=6] cpu=0 bench=insertsort cycles=4233 instructions=2947 cache-misses=2
+[sample=7] cpu=0 bench=insertsort cycles=4163 instructions=2946 cache-misses=2
+[sample=8] cpu=0 bench=insertsort cycles=4203 instructions=2946 cache-misses=3
+[sample=9] cpu=0 bench=insertsort cycles=4227 instructions=2946 cache-misses=2
+[sample=10] cpu=0 bench=insertsort cycles=4197 instructions=2946 cache-misses=3
+[sample=11] cpu=0 bench=insertsort cycles=4209 instructions=2946 cache-misses=2
+[sample=12] cpu=0 bench=insertsort cycles=4238 instructions=2946 cache-misses=2
+[sample=13] cpu=0 bench=insertsort cycles=4195 instructions=2946 cache-misses=1
+[sample=14] cpu=0 bench=insertsort cycles=4206 instructions=2946 cache-misses=1
+[sample=15] cpu=0 bench=insertsort cycles=4200 instructions=2946 cache-misses=0
+[sample=16] cpu=0 bench=insertsort cycles=4173 instructions=2946 cache-misses=1
+[sample=17] cpu=0 bench=insertsort cycles=4183 instructions=2946 cache-misses=3
+[sample=18] cpu=0 bench=insertsort cycles=4199 instructions=2946 cache-misses=1
+[sample=19] cpu=0 bench=insertsort cycles=4178 instructions=2946 cache-misses=3
+[sample=20] cpu=0 bench=insertsort cycles=4216 instructions=2946 cache-misses=2
+[sample=21] cpu=0 bench=insertsort cycles=4244 instructions=2946 cache-misses=4
+[sample=22] cpu=0 bench=insertsort cycles=4247 instructions=2946 cache-misses=2
+[sample=23] cpu=0 bench=insertsort cycles=4209 instructions=2946 cache-misses=3
+[sample=24] cpu=0 bench=insertsort cycles=4169 instructions=2946 cache-misses=2
+[sample=25] cpu=0 bench=insertsort cycles=4172 instructions=2946 cache-misses=3
+[sample=26] cpu=0 bench=insertsort cycles=4199 instructions=2946 cache-misses=1
+[sample=27] cpu=0 bench=insertsort cycles=4190 instructions=2946 cache-misses=1
+[sample=28] cpu=0 bench=insertsort cycles=4141 instructions=2946 cache-misses=2
+[sample=29] cpu=0 bench=insertsort cycles=4199 instructions=2946 cache-misses=1
+
+# Statistics over 30 samples on cpu0 bench=insertsort (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        4141                15105              4639.33              4201.50
+  instructions                  2946                 2954              2946.33              2946.00
+  cache-misses                     0                   22                 3.07                 2.00

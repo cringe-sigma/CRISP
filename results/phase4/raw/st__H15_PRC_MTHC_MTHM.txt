@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=st (measured)  cpu1=PR_CACHE  cpu2=MTH_CACHE  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=st cycles=417696 instructions=215285 cache-misses=83
+[sample=1] cpu=0 bench=st cycles=333640 instructions=215274 cache-misses=34
+[sample=2] cpu=0 bench=st cycles=324681 instructions=215266 cache-misses=43
+[sample=3] cpu=0 bench=st cycles=327177 instructions=215269 cache-misses=56
+[sample=4] cpu=0 bench=st cycles=326920 instructions=215268 cache-misses=43
+[sample=5] cpu=0 bench=st cycles=323420 instructions=215267 cache-misses=40
+[sample=6] cpu=0 bench=st cycles=323553 instructions=215268 cache-misses=37
+[sample=7] cpu=0 bench=st cycles=322349 instructions=215269 cache-misses=44
+[sample=8] cpu=0 bench=st cycles=330160 instructions=215275 cache-misses=62
+[sample=9] cpu=0 bench=st cycles=330159 instructions=215268 cache-misses=48
+[sample=10] cpu=0 bench=st cycles=325324 instructions=215267 cache-misses=41
+[sample=11] cpu=0 bench=st cycles=333452 instructions=215265 cache-misses=63
+[sample=12] cpu=0 bench=st cycles=323474 instructions=215265 cache-misses=46
+[sample=13] cpu=0 bench=st cycles=324660 instructions=215265 cache-misses=37
+[sample=14] cpu=0 bench=st cycles=326420 instructions=215268 cache-misses=38
+[sample=15] cpu=0 bench=st cycles=322559 instructions=215272 cache-misses=25
+[sample=16] cpu=0 bench=st cycles=322491 instructions=215267 cache-misses=33
+[sample=17] cpu=0 bench=st cycles=322757 instructions=215268 cache-misses=22
+[sample=18] cpu=0 bench=st cycles=324840 instructions=215267 cache-misses=36
+[sample=19] cpu=0 bench=st cycles=390043 instructions=215267 cache-misses=62
+[sample=20] cpu=0 bench=st cycles=333524 instructions=215271 cache-misses=89
+[sample=21] cpu=0 bench=st cycles=325979 instructions=215268 cache-misses=62
+[sample=22] cpu=0 bench=st cycles=325617 instructions=215268 cache-misses=64
+[sample=23] cpu=0 bench=st cycles=328347 instructions=215269 cache-misses=42
+[sample=24] cpu=0 bench=st cycles=323831 instructions=215267 cache-misses=35
+[sample=25] cpu=0 bench=st cycles=329862 instructions=215267 cache-misses=31
+[sample=26] cpu=0 bench=st cycles=321764 instructions=215266 cache-misses=24
+[sample=27] cpu=0 bench=st cycles=323603 instructions=215264 cache-misses=42
+[sample=28] cpu=0 bench=st cycles=322776 instructions=215264 cache-misses=26
+[sample=29] cpu=0 bench=st cycles=324928 instructions=215269 cache-misses=58
+
+# Statistics over 30 samples on cpu0 bench=st (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      321764               417696            331200.20            325126.00
+  instructions                215264               215285            215268.43            215268.00
+  cache-misses                    22                   89                45.53                42.00

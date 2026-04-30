@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=cosf (measured)  cpu1=PR_CACHE  cpu2=PR_CACHE  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=cosf cycles=68667 instructions=23699 cache-misses=22
+[sample=1] cpu=0 bench=cosf cycles=53784 instructions=23694 cache-misses=7
+[sample=2] cpu=0 bench=cosf cycles=44984 instructions=23689 cache-misses=8
+[sample=3] cpu=0 bench=cosf cycles=31620 instructions=23690 cache-misses=2
+[sample=4] cpu=0 bench=cosf cycles=31078 instructions=23690 cache-misses=3
+[sample=5] cpu=0 bench=cosf cycles=31086 instructions=23690 cache-misses=2
+[sample=6] cpu=0 bench=cosf cycles=31035 instructions=23690 cache-misses=2
+[sample=7] cpu=0 bench=cosf cycles=31082 instructions=23691 cache-misses=2
+[sample=8] cpu=0 bench=cosf cycles=31055 instructions=23691 cache-misses=3
+[sample=9] cpu=0 bench=cosf cycles=31019 instructions=23690 cache-misses=1
+[sample=10] cpu=0 bench=cosf cycles=31027 instructions=23691 cache-misses=2
+[sample=11] cpu=0 bench=cosf cycles=31045 instructions=23691 cache-misses=3
+[sample=12] cpu=0 bench=cosf cycles=31091 instructions=23692 cache-misses=2
+[sample=13] cpu=0 bench=cosf cycles=31051 instructions=23690 cache-misses=2
+[sample=14] cpu=0 bench=cosf cycles=31086 instructions=23692 cache-misses=1
+[sample=15] cpu=0 bench=cosf cycles=31131 instructions=23691 cache-misses=2
+[sample=16] cpu=0 bench=cosf cycles=31076 instructions=23692 cache-misses=1
+[sample=17] cpu=0 bench=cosf cycles=31070 instructions=23692 cache-misses=2
+[sample=18] cpu=0 bench=cosf cycles=31068 instructions=23691 cache-misses=4
+[sample=19] cpu=0 bench=cosf cycles=31056 instructions=23691 cache-misses=2
+[sample=20] cpu=0 bench=cosf cycles=31072 instructions=23692 cache-misses=2
+[sample=21] cpu=0 bench=cosf cycles=31051 instructions=23691 cache-misses=2
+[sample=22] cpu=0 bench=cosf cycles=31044 instructions=23692 cache-misses=1
+[sample=23] cpu=0 bench=cosf cycles=31036 instructions=23692 cache-misses=2
+[sample=24] cpu=0 bench=cosf cycles=31026 instructions=23691 cache-misses=2
+[sample=25] cpu=0 bench=cosf cycles=30979 instructions=23692 cache-misses=2
+[sample=26] cpu=0 bench=cosf cycles=31018 instructions=23691 cache-misses=2
+[sample=27] cpu=0 bench=cosf cycles=31033 instructions=23691 cache-misses=3
+[sample=28] cpu=0 bench=cosf cycles=31010 instructions=23691 cache-misses=1
+[sample=29] cpu=0 bench=cosf cycles=31115 instructions=23691 cache-misses=2
+
+# Statistics over 30 samples on cpu0 bench=cosf (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       30979                68667             33549.83             31062.00
+  instructions                 23689                23699             23691.37             23691.00
+  cache-misses                     1                   22                 3.07                 2.00

@@ -1,0 +1,40 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=1, lock_freq_khz=1600000
+# cpu0=duff (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=duff cycles=9555 instructions=3912 cache-misses=15
+[sample=1] cpu=0 bench=duff cycles=10233 instructions=3908 cache-misses=10
+[sample=2] cpu=0 bench=duff cycles=5107 instructions=3909 cache-misses=5
+[sample=3] cpu=0 bench=duff cycles=4734 instructions=3908 cache-misses=0
+[sample=4] cpu=0 bench=duff cycles=4769 instructions=3908 cache-misses=2
+[sample=5] cpu=0 bench=duff cycles=4747 instructions=3908 cache-misses=1
+[sample=6] cpu=0 bench=duff cycles=4729 instructions=3908 cache-misses=1
+[sample=7] cpu=0 bench=duff cycles=4759 instructions=3908 cache-misses=1
+[sample=8] cpu=0 bench=duff cycles=4752 instructions=3908 cache-misses=1
+[sample=9] cpu=0 bench=duff cycles=4743 instructions=3908 cache-misses=1
+[sample=10] cpu=0 bench=duff cycles=4750 instructions=3908 cache-misses=1
+[sample=11] cpu=0 bench=duff cycles=4761 instructions=3908 cache-misses=2
+[sample=12] cpu=0 bench=duff cycles=4739 instructions=3908 cache-misses=1
+[sample=13] cpu=0 bench=duff cycles=4718 instructions=3908 cache-misses=1
+[sample=14] cpu=0 bench=duff cycles=4730 instructions=3908 cache-misses=0
+[sample=15] cpu=0 bench=duff cycles=4721 instructions=3908 cache-misses=1
+[sample=16] cpu=0 bench=duff cycles=4736 instructions=3908 cache-misses=1
+[sample=17] cpu=0 bench=duff cycles=4728 instructions=3908 cache-misses=0
+[sample=18] cpu=0 bench=duff cycles=4751 instructions=3908 cache-misses=1
+[sample=19] cpu=0 bench=duff cycles=4731 instructions=3908 cache-misses=0
+[sample=20] cpu=0 bench=duff cycles=4696 instructions=3908 cache-misses=0
+[sample=21] cpu=0 bench=duff cycles=4727 instructions=3908 cache-misses=1
+[sample=22] cpu=0 bench=duff cycles=4718 instructions=3908 cache-misses=0
+[sample=23] cpu=0 bench=duff cycles=4702 instructions=3908 cache-misses=0
+[sample=24] cpu=0 bench=duff cycles=4698 instructions=3908 cache-misses=0
+[sample=25] cpu=0 bench=duff cycles=4728 instructions=3908 cache-misses=0
+[sample=26] cpu=0 bench=duff cycles=4744 instructions=3908 cache-misses=0
+[sample=27] cpu=0 bench=duff cycles=4720 instructions=3908 cache-misses=0
+[sample=28] cpu=0 bench=duff cycles=4736 instructions=3908 cache-misses=0
+[sample=29] cpu=0 bench=duff cycles=4738 instructions=3908 cache-misses=0
+
+# Statistics over 30 samples on cpu0 bench=duff (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                        4696                10233              5090.00              4736.00
+  instructions                  3908                 3912              3908.17              3908.00
+  cache-misses                     0                   15                 1.53                 1.00

@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=fmref (measured)  cpu1=BUS  cpu2=PR_MEMBUS  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=fmref cycles=762400 instructions=454819 cache-misses=122
+[sample=1] cpu=0 bench=fmref cycles=683748 instructions=417303 cache-misses=86
+[sample=2] cpu=0 bench=fmref cycles=670045 instructions=417302 cache-misses=48
+[sample=3] cpu=0 bench=fmref cycles=659335 instructions=417300 cache-misses=46
+[sample=4] cpu=0 bench=fmref cycles=666406 instructions=417299 cache-misses=32
+[sample=5] cpu=0 bench=fmref cycles=662166 instructions=417300 cache-misses=34
+[sample=6] cpu=0 bench=fmref cycles=661973 instructions=417302 cache-misses=27
+[sample=7] cpu=0 bench=fmref cycles=664586 instructions=417299 cache-misses=23
+[sample=8] cpu=0 bench=fmref cycles=670424 instructions=417298 cache-misses=23
+[sample=9] cpu=0 bench=fmref cycles=670446 instructions=417298 cache-misses=36
+[sample=10] cpu=0 bench=fmref cycles=666632 instructions=417297 cache-misses=31
+[sample=11] cpu=0 bench=fmref cycles=681270 instructions=417296 cache-misses=33
+[sample=12] cpu=0 bench=fmref cycles=670191 instructions=417297 cache-misses=23
+[sample=13] cpu=0 bench=fmref cycles=664385 instructions=417301 cache-misses=24
+[sample=14] cpu=0 bench=fmref cycles=670076 instructions=417297 cache-misses=30
+[sample=15] cpu=0 bench=fmref cycles=663763 instructions=417298 cache-misses=27
+[sample=16] cpu=0 bench=fmref cycles=664151 instructions=417300 cache-misses=28
+[sample=17] cpu=0 bench=fmref cycles=671273 instructions=417302 cache-misses=29
+[sample=18] cpu=0 bench=fmref cycles=673836 instructions=417297 cache-misses=44
+[sample=19] cpu=0 bench=fmref cycles=675225 instructions=417293 cache-misses=36
+[sample=20] cpu=0 bench=fmref cycles=681462 instructions=417300 cache-misses=36
+[sample=21] cpu=0 bench=fmref cycles=676157 instructions=417294 cache-misses=28
+[sample=22] cpu=0 bench=fmref cycles=664480 instructions=417297 cache-misses=36
+[sample=23] cpu=0 bench=fmref cycles=666694 instructions=417299 cache-misses=31
+[sample=24] cpu=0 bench=fmref cycles=672552 instructions=417300 cache-misses=21
+[sample=25] cpu=0 bench=fmref cycles=673598 instructions=417301 cache-misses=41
+[sample=26] cpu=0 bench=fmref cycles=667116 instructions=417299 cache-misses=35
+[sample=27] cpu=0 bench=fmref cycles=672460 instructions=417293 cache-misses=24
+[sample=28] cpu=0 bench=fmref cycles=670952 instructions=417299 cache-misses=32
+[sample=29] cpu=0 bench=fmref cycles=668677 instructions=417297 cache-misses=32
+
+# Statistics over 30 samples on cpu0 bench=fmref (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                      659335               762400            672882.63            670133.50
+  instructions                417293               454819            418549.23            417299.00
+  cache-misses                    21                  122                36.60                32.00

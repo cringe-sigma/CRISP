@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=binarysearch (measured)  cpu1=MEM  cpu2=PR_ROWBUF  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=binarysearch cycles=26319 instructions=1262 cache-misses=18
+[sample=1] cpu=0 bench=binarysearch cycles=13345 instructions=1257 cache-misses=9
+[sample=2] cpu=0 bench=binarysearch cycles=1969 instructions=1257 cache-misses=5
+[sample=3] cpu=0 bench=binarysearch cycles=2170 instructions=1257 cache-misses=3
+[sample=4] cpu=0 bench=binarysearch cycles=1908 instructions=1257 cache-misses=5
+[sample=5] cpu=0 bench=binarysearch cycles=2252 instructions=1257 cache-misses=4
+[sample=6] cpu=0 bench=binarysearch cycles=1990 instructions=1257 cache-misses=3
+[sample=7] cpu=0 bench=binarysearch cycles=1915 instructions=1257 cache-misses=5
+[sample=8] cpu=0 bench=binarysearch cycles=57674 instructions=1257 cache-misses=23
+[sample=9] cpu=0 bench=binarysearch cycles=11774 instructions=1258 cache-misses=7
+[sample=10] cpu=0 bench=binarysearch cycles=2056 instructions=1257 cache-misses=1
+[sample=11] cpu=0 bench=binarysearch cycles=2152 instructions=1257 cache-misses=6
+[sample=12] cpu=0 bench=binarysearch cycles=6314 instructions=1257 cache-misses=6
+[sample=13] cpu=0 bench=binarysearch cycles=2064 instructions=1257 cache-misses=6
+[sample=14] cpu=0 bench=binarysearch cycles=1920 instructions=1257 cache-misses=3
+[sample=15] cpu=0 bench=binarysearch cycles=2008 instructions=1257 cache-misses=5
+[sample=16] cpu=0 bench=binarysearch cycles=2091 instructions=1257 cache-misses=1
+[sample=17] cpu=0 bench=binarysearch cycles=1895 instructions=1257 cache-misses=4
+[sample=18] cpu=0 bench=binarysearch cycles=2118 instructions=1257 cache-misses=5
+[sample=19] cpu=0 bench=binarysearch cycles=1940 instructions=1257 cache-misses=3
+[sample=20] cpu=0 bench=binarysearch cycles=1910 instructions=1257 cache-misses=4
+[sample=21] cpu=0 bench=binarysearch cycles=1864 instructions=1257 cache-misses=4
+[sample=22] cpu=0 bench=binarysearch cycles=1885 instructions=1257 cache-misses=3
+[sample=23] cpu=0 bench=binarysearch cycles=1875 instructions=1257 cache-misses=5
+[sample=24] cpu=0 bench=binarysearch cycles=1909 instructions=1257 cache-misses=5
+[sample=25] cpu=0 bench=binarysearch cycles=1909 instructions=1257 cache-misses=2
+[sample=26] cpu=0 bench=binarysearch cycles=1927 instructions=1257 cache-misses=3
+[sample=27] cpu=0 bench=binarysearch cycles=6319 instructions=1257 cache-misses=3
+[sample=28] cpu=0 bench=binarysearch cycles=1915 instructions=1257 cache-misses=2
+[sample=29] cpu=0 bench=binarysearch cycles=2079 instructions=1257 cache-misses=3
+
+# Statistics over 30 samples on cpu0 bench=binarysearch (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                        1864                57674              5648.87              1999.00
+  instructions                  1257                 1262              1257.20              1257.00
+  cache-misses                     1                   23                 5.20                 4.00

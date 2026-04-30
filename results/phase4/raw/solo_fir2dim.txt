@@ -1,0 +1,40 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=1, lock_freq_khz=1600000
+# cpu0=fir2dim (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=fir2dim cycles=32809 instructions=10140 cache-misses=37
+[sample=1] cpu=0 bench=fir2dim cycles=13695 instructions=10112 cache-misses=8
+[sample=2] cpu=0 bench=fir2dim cycles=13129 instructions=10109 cache-misses=5
+[sample=3] cpu=0 bench=fir2dim cycles=13140 instructions=10116 cache-misses=4
+[sample=4] cpu=0 bench=fir2dim cycles=13123 instructions=10106 cache-misses=4
+[sample=5] cpu=0 bench=fir2dim cycles=13000 instructions=10106 cache-misses=5
+[sample=6] cpu=0 bench=fir2dim cycles=13026 instructions=10106 cache-misses=5
+[sample=7] cpu=0 bench=fir2dim cycles=13046 instructions=10108 cache-misses=7
+[sample=8] cpu=0 bench=fir2dim cycles=13042 instructions=10108 cache-misses=7
+[sample=9] cpu=0 bench=fir2dim cycles=13000 instructions=10106 cache-misses=6
+[sample=10] cpu=0 bench=fir2dim cycles=13007 instructions=10106 cache-misses=4
+[sample=11] cpu=0 bench=fir2dim cycles=13013 instructions=10104 cache-misses=4
+[sample=12] cpu=0 bench=fir2dim cycles=12956 instructions=10102 cache-misses=4
+[sample=13] cpu=0 bench=fir2dim cycles=13018 instructions=10104 cache-misses=4
+[sample=14] cpu=0 bench=fir2dim cycles=12885 instructions=10103 cache-misses=3
+[sample=15] cpu=0 bench=fir2dim cycles=12977 instructions=10103 cache-misses=3
+[sample=16] cpu=0 bench=fir2dim cycles=12913 instructions=10101 cache-misses=3
+[sample=17] cpu=0 bench=fir2dim cycles=12926 instructions=10100 cache-misses=4
+[sample=18] cpu=0 bench=fir2dim cycles=13012 instructions=10102 cache-misses=7
+[sample=19] cpu=0 bench=fir2dim cycles=12991 instructions=10103 cache-misses=4
+[sample=20] cpu=0 bench=fir2dim cycles=13032 instructions=10108 cache-misses=6
+[sample=21] cpu=0 bench=fir2dim cycles=12930 instructions=10103 cache-misses=1
+[sample=22] cpu=0 bench=fir2dim cycles=13030 instructions=10104 cache-misses=4
+[sample=23] cpu=0 bench=fir2dim cycles=12947 instructions=10103 cache-misses=3
+[sample=24] cpu=0 bench=fir2dim cycles=12996 instructions=10103 cache-misses=7
+[sample=25] cpu=0 bench=fir2dim cycles=12981 instructions=10105 cache-misses=3
+[sample=26] cpu=0 bench=fir2dim cycles=13058 instructions=10106 cache-misses=3
+[sample=27] cpu=0 bench=fir2dim cycles=12991 instructions=10107 cache-misses=4
+[sample=28] cpu=0 bench=fir2dim cycles=12973 instructions=10103 cache-misses=3
+[sample=29] cpu=0 bench=fir2dim cycles=12942 instructions=10104 cache-misses=3
+
+# Statistics over 30 samples on cpu0 bench=fir2dim (background load on cpu1..cpu0)
+# event                          min                  max                  avg               median
+  cycles                       12885                32809             13686.27             13003.50
+  instructions                 10100                10140             10106.37             10104.50
+  cache-misses                     1                   37                 5.50                 4.00

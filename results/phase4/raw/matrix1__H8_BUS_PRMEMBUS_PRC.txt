@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=matrix1 (measured)  cpu1=BUS  cpu2=PR_MEMBUS  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=matrix1 cycles=26768 instructions=19921 cache-misses=32
+[sample=1] cpu=0 bench=matrix1 cycles=28802 instructions=19918 cache-misses=19
+[sample=2] cpu=0 bench=matrix1 cycles=29507 instructions=19921 cache-misses=33
+[sample=3] cpu=0 bench=matrix1 cycles=25493 instructions=19919 cache-misses=26
+[sample=4] cpu=0 bench=matrix1 cycles=21258 instructions=19919 cache-misses=16
+[sample=5] cpu=0 bench=matrix1 cycles=20659 instructions=19921 cache-misses=8
+[sample=6] cpu=0 bench=matrix1 cycles=20699 instructions=19919 cache-misses=4
+[sample=7] cpu=0 bench=matrix1 cycles=20613 instructions=19921 cache-misses=4
+[sample=8] cpu=0 bench=matrix1 cycles=20864 instructions=19923 cache-misses=14
+[sample=9] cpu=0 bench=matrix1 cycles=20666 instructions=19922 cache-misses=7
+[sample=10] cpu=0 bench=matrix1 cycles=20644 instructions=19918 cache-misses=6
+[sample=11] cpu=0 bench=matrix1 cycles=20627 instructions=19921 cache-misses=5
+[sample=12] cpu=0 bench=matrix1 cycles=20602 instructions=19918 cache-misses=3
+[sample=13] cpu=0 bench=matrix1 cycles=20579 instructions=19919 cache-misses=5
+[sample=14] cpu=0 bench=matrix1 cycles=20667 instructions=19920 cache-misses=5
+[sample=15] cpu=0 bench=matrix1 cycles=20592 instructions=19917 cache-misses=5
+[sample=16] cpu=0 bench=matrix1 cycles=20607 instructions=19917 cache-misses=3
+[sample=17] cpu=0 bench=matrix1 cycles=20629 instructions=19920 cache-misses=3
+[sample=18] cpu=0 bench=matrix1 cycles=20591 instructions=19918 cache-misses=4
+[sample=19] cpu=0 bench=matrix1 cycles=20625 instructions=19919 cache-misses=4
+[sample=20] cpu=0 bench=matrix1 cycles=20612 instructions=19920 cache-misses=6
+[sample=21] cpu=0 bench=matrix1 cycles=20620 instructions=19920 cache-misses=3
+[sample=22] cpu=0 bench=matrix1 cycles=20648 instructions=19919 cache-misses=3
+[sample=23] cpu=0 bench=matrix1 cycles=20665 instructions=19918 cache-misses=7
+[sample=24] cpu=0 bench=matrix1 cycles=20622 instructions=19921 cache-misses=4
+[sample=25] cpu=0 bench=matrix1 cycles=20623 instructions=19920 cache-misses=5
+[sample=26] cpu=0 bench=matrix1 cycles=20694 instructions=19921 cache-misses=5
+[sample=27] cpu=0 bench=matrix1 cycles=20634 instructions=19921 cache-misses=7
+[sample=28] cpu=0 bench=matrix1 cycles=20945 instructions=19920 cache-misses=10
+[sample=29] cpu=0 bench=matrix1 cycles=20638 instructions=19921 cache-misses=4
+
+# Statistics over 30 samples on cpu0 bench=matrix1 (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                       20579                29507             21606.43             20641.00
+  instructions                 19917                19923             19919.73             19920.00
+  cache-misses                     3                   33                 8.67                 5.00

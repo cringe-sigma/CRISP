@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=powerwindow (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=powerwindow cycles=3092510 instructions=2297669 cache-misses=879
+[sample=1] cpu=0 bench=powerwindow cycles=3102574 instructions=2297659 cache-misses=850
+[sample=2] cpu=0 bench=powerwindow cycles=3116166 instructions=2297638 cache-misses=782
+[sample=3] cpu=0 bench=powerwindow cycles=3038680 instructions=2297641 cache-misses=714
+[sample=4] cpu=0 bench=powerwindow cycles=3315881 instructions=2297639 cache-misses=929
+[sample=5] cpu=0 bench=powerwindow cycles=3048250 instructions=2297636 cache-misses=689
+[sample=6] cpu=0 bench=powerwindow cycles=3150606 instructions=2297648 cache-misses=745
+[sample=7] cpu=0 bench=powerwindow cycles=3352089 instructions=2297647 cache-misses=895
+[sample=8] cpu=0 bench=powerwindow cycles=3173925 instructions=2297637 cache-misses=770
+[sample=9] cpu=0 bench=powerwindow cycles=3129427 instructions=2297633 cache-misses=731
+[sample=10] cpu=0 bench=powerwindow cycles=3354280 instructions=2297646 cache-misses=870
+[sample=11] cpu=0 bench=powerwindow cycles=3112244 instructions=2297641 cache-misses=809
+[sample=12] cpu=0 bench=powerwindow cycles=3040324 instructions=2297629 cache-misses=684
+[sample=13] cpu=0 bench=powerwindow cycles=3334477 instructions=2297643 cache-misses=905
+[sample=14] cpu=0 bench=powerwindow cycles=3229545 instructions=2297627 cache-misses=771
+[sample=15] cpu=0 bench=powerwindow cycles=3090981 instructions=2297644 cache-misses=819
+[sample=16] cpu=0 bench=powerwindow cycles=3104477 instructions=2297627 cache-misses=778
+[sample=17] cpu=0 bench=powerwindow cycles=3034619 instructions=2297641 cache-misses=688
+[sample=18] cpu=0 bench=powerwindow cycles=3208074 instructions=2297636 cache-misses=901
+[sample=19] cpu=0 bench=powerwindow cycles=3104501 instructions=2297641 cache-misses=854
+[sample=20] cpu=0 bench=powerwindow cycles=3187305 instructions=2297633 cache-misses=797
+[sample=21] cpu=0 bench=powerwindow cycles=3111868 instructions=2297631 cache-misses=783
+[sample=22] cpu=0 bench=powerwindow cycles=3033571 instructions=2297635 cache-misses=734
+[sample=23] cpu=0 bench=powerwindow cycles=3338140 instructions=2297640 cache-misses=1000
+[sample=24] cpu=0 bench=powerwindow cycles=3158968 instructions=2297639 cache-misses=853
+[sample=25] cpu=0 bench=powerwindow cycles=3022623 instructions=2297624 cache-misses=660
+[sample=26] cpu=0 bench=powerwindow cycles=3312152 instructions=2297635 cache-misses=912
+[sample=27] cpu=0 bench=powerwindow cycles=3224105 instructions=2297630 cache-misses=881
+[sample=28] cpu=0 bench=powerwindow cycles=3039632 instructions=2297638 cache-misses=751
+[sample=29] cpu=0 bench=powerwindow cycles=3153618 instructions=2297644 cache-misses=923
+
+# Statistics over 30 samples on cpu0 bench=powerwindow (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     3022623              3354280           3157187.07           3122796.50
+  instructions               2297624              2297669           2297639.03           2297638.50
+  cache-misses                   660                 1000               811.90               803.00

@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=g723_enc (measured)  cpu1=CACHE  cpu2=BUS  cpu3=MTH_MEM
+[sample=0] cpu=0 bench=g723_enc cycles=1193526 instructions=847658 cache-misses=34
+[sample=1] cpu=0 bench=g723_enc cycles=1168239 instructions=847643 cache-misses=23
+[sample=2] cpu=0 bench=g723_enc cycles=1168800 instructions=847240 cache-misses=27
+[sample=3] cpu=0 bench=g723_enc cycles=1166866 instructions=847642 cache-misses=24
+[sample=4] cpu=0 bench=g723_enc cycles=1162962 instructions=847642 cache-misses=16
+[sample=5] cpu=0 bench=g723_enc cycles=1157252 instructions=847641 cache-misses=19
+[sample=6] cpu=0 bench=g723_enc cycles=1166702 instructions=847639 cache-misses=19
+[sample=7] cpu=0 bench=g723_enc cycles=1175941 instructions=847644 cache-misses=29
+[sample=8] cpu=0 bench=g723_enc cycles=1143118 instructions=847640 cache-misses=24
+[sample=9] cpu=0 bench=g723_enc cycles=1135540 instructions=847641 cache-misses=19
+[sample=10] cpu=0 bench=g723_enc cycles=1155919 instructions=847639 cache-misses=29
+[sample=11] cpu=0 bench=g723_enc cycles=1145111 instructions=847641 cache-misses=17
+[sample=12] cpu=0 bench=g723_enc cycles=1137428 instructions=847639 cache-misses=18
+[sample=13] cpu=0 bench=g723_enc cycles=1146058 instructions=847635 cache-misses=28
+[sample=14] cpu=0 bench=g723_enc cycles=1134789 instructions=847639 cache-misses=24
+[sample=15] cpu=0 bench=g723_enc cycles=1121869 instructions=847643 cache-misses=18
+[sample=16] cpu=0 bench=g723_enc cycles=1099142 instructions=847640 cache-misses=29
+[sample=17] cpu=0 bench=g723_enc cycles=1054332 instructions=847643 cache-misses=17
+[sample=18] cpu=0 bench=g723_enc cycles=1074373 instructions=847641 cache-misses=28
+[sample=19] cpu=0 bench=g723_enc cycles=1076527 instructions=847643 cache-misses=23
+[sample=20] cpu=0 bench=g723_enc cycles=1049525 instructions=847637 cache-misses=29
+[sample=21] cpu=0 bench=g723_enc cycles=1036987 instructions=847638 cache-misses=19
+[sample=22] cpu=0 bench=g723_enc cycles=1042745 instructions=847644 cache-misses=30
+[sample=23] cpu=0 bench=g723_enc cycles=1069768 instructions=847639 cache-misses=23
+[sample=24] cpu=0 bench=g723_enc cycles=1035657 instructions=847639 cache-misses=23
+[sample=25] cpu=0 bench=g723_enc cycles=1041729 instructions=847641 cache-misses=29
+[sample=26] cpu=0 bench=g723_enc cycles=1036683 instructions=847639 cache-misses=20
+[sample=27] cpu=0 bench=g723_enc cycles=1053559 instructions=847639 cache-misses=18
+[sample=28] cpu=0 bench=g723_enc cycles=1069085 instructions=847646 cache-misses=27
+[sample=29] cpu=0 bench=g723_enc cycles=1046116 instructions=847642 cache-misses=29
+
+# Statistics over 30 samples on cpu0 bench=g723_enc (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                     1035657              1193526           1108878.27           1128329.00
+  instructions                847240               847658            847627.90            847641.00
+  cache-misses                    16                   34                23.73                23.50

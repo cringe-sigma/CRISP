@@ -1,0 +1,39 @@
+[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=30, active_cores=4, lock_freq_khz=1600000
+# cpu0=susan (measured)  cpu1=POINTER  cpu2=POINTER  cpu3=PR_CACHE
+[sample=0] cpu=0 bench=susan cycles=79253484 instructions=64456350 cache-misses=975
+[sample=1] cpu=0 bench=susan cycles=79120019 instructions=64456304 cache-misses=720
+[sample=2] cpu=0 bench=susan cycles=79109182 instructions=64456278 cache-misses=625
+[sample=3] cpu=0 bench=susan cycles=79125476 instructions=64456310 cache-misses=901
+[sample=4] cpu=0 bench=susan cycles=79094465 instructions=64456348 cache-misses=835
+[sample=5] cpu=0 bench=susan cycles=79236020 instructions=64456341 cache-misses=1005
+[sample=6] cpu=0 bench=susan cycles=79126489 instructions=64456329 cache-misses=730
+[sample=7] cpu=0 bench=susan cycles=79229306 instructions=64456389 cache-misses=1076
+[sample=8] cpu=0 bench=susan cycles=79065288 instructions=64456294 cache-misses=666
+[sample=9] cpu=0 bench=susan cycles=79317538 instructions=64456355 cache-misses=991
+[sample=10] cpu=0 bench=susan cycles=79109075 instructions=64456304 cache-misses=716
+[sample=11] cpu=0 bench=susan cycles=79325335 instructions=64456330 cache-misses=899
+[sample=12] cpu=0 bench=susan cycles=79085289 instructions=64456351 cache-misses=763
+[sample=13] cpu=0 bench=susan cycles=79072919 instructions=64456290 cache-misses=597
+[sample=14] cpu=0 bench=susan cycles=79106106 instructions=64456352 cache-misses=858
+[sample=15] cpu=0 bench=susan cycles=79073799 instructions=64456282 cache-misses=514
+[sample=16] cpu=0 bench=susan cycles=79294483 instructions=64456346 cache-misses=1060
+[sample=17] cpu=0 bench=susan cycles=79147154 instructions=64456360 cache-misses=932
+[sample=18] cpu=0 bench=susan cycles=79215553 instructions=64456369 cache-misses=983
+[sample=19] cpu=0 bench=susan cycles=79081539 instructions=64456281 cache-misses=694
+[sample=20] cpu=0 bench=susan cycles=79201238 instructions=64456341 cache-misses=811
+[sample=21] cpu=0 bench=susan cycles=79053082 instructions=64456328 cache-misses=753
+[sample=22] cpu=0 bench=susan cycles=79142663 instructions=64456318 cache-misses=745
+[sample=23] cpu=0 bench=susan cycles=79126338 instructions=64456355 cache-misses=812
+[sample=24] cpu=0 bench=susan cycles=79306903 instructions=64456390 cache-misses=960
+[sample=25] cpu=0 bench=susan cycles=79145048 instructions=64456305 cache-misses=697
+[sample=26] cpu=0 bench=susan cycles=79133418 instructions=64456359 cache-misses=877
+[sample=27] cpu=0 bench=susan cycles=79172288 instructions=64456334 cache-misses=927
+[sample=28] cpu=0 bench=susan cycles=79258067 instructions=64456315 cache-misses=971
+[sample=29] cpu=0 bench=susan cycles=79321579 instructions=64456336 cache-misses=986
+
+# Statistics over 30 samples on cpu0 bench=susan (background load on cpu1..cpu3)
+# event                          min                  max                  avg               median
+  cycles                    79053082             79325335          79168304.77          79138040.50
+  instructions              64456278             64456390          64456331.47          64456335.00
+  cache-misses                   514                 1076               835.97               846.50
