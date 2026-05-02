@@ -23,6 +23,8 @@
 | K | Phase-3/4 **hybrid hunt** | 20 种混合三元组 → worst-case N=30 复测 | `results/phase3/`, `results/phase4/` | 568 |
 | L | Solo **基线** | 8 victim 独占基线（用于历史 ratio 计算） | `results/solo_*.txt` | 8 |
 | M | E1–E9 **论文框架** | 静态预筛 / 对手搜索 / 上界对比 / 24h 安全 / 消融 / 调度 / 案例 / RTC / Zephyr | [`experiments/`](experiments) | 16 脚本 |
+| N | E6 **10000-set UUniFast** | 6×6 网格 (n∈{10,20,30,40,60,80} × U∈{1.0,1.5,2.0,2.5,3.0,3.5})，每格 10000 任务集，比较 ILP / heur / WFD / FFD 可调度率 | [`experiments/data/processed/e6_scheduling.csv`](experiments/data/processed/e6_scheduling.csv) + [`figs/`](experiments/figs) | 36 行（=360k 任务集） |
+| O | E4 **~10? hyperperiod 24h** | 6 victim × triple `MAX_LLC/MAX_BUS/MAX_MEM`，连续 24h 滚动测量 C_obs / C?_RAMPART | [`experiments/data/processed/e4_safety_histogram.csv`](experiments/data/processed/e4_safety_histogram.csv) | 累积写入中（~23 iter/min, 24h≈33k） |
 
 合计：~5500 个 PMC raw dump + 摘要 CSV/MD。
 
@@ -136,6 +138,34 @@
 | E9 | [09\_zephyr/e9\_zephyr.py](experiments/09_zephyr/e9_zephyr.py) | Zephyr 端口 |
 
 入口：[experiments/run\_all.py](experiments/run_all.py)；复现说明：[experiments/REPRO.md](experiments/REPRO.md)；日志：`experiments/run_log/`。
+
+---
+
+## N. E6 10000-set UUniFast 调度（已完成）
+
+- **测什么**：用 UUniFast 在 6×6 网格 (n∈{10,20,30,40,60,80} × U∈{1.0,1.5,2.0,2.5,3.0,3.5}) 上各生成 **10000** 任务集，对每个集运行 4 个调度器并统计可调度率。
+- **总样本**：36 × 10000 = **360 000** 任务集。
+- **驱动**：`python3 experiments/06_scheduling/e6_schedule.py --n-sets 10000`。
+- **结果**（[`e6_scheduling.csv`](experiments/data/processed/e6_scheduling.csv)，36 行）：
+  - 平均可调度率：ILP 0.9751，**heur 0.9802**（含 5% slack 折扣），WFD 0.9751，FFD 0.9752。
+  - 紧场景：`n=10, U=3.5` 全部跌到 0.53–0.61，heur 仍领先 8pp。
+  - 4-core 容量饱和点：U≥2.5 时 n=10 子集已显著难调度，n≥20 因任务粒度细而稳定 ≥0.96。
+- **图**：[`figs/e6_schedulability.svg`](experiments/figs/e6_schedulability.svg), [`figs/e6_ilp_runtime.svg`](experiments/figs/e6_ilp_runtime.svg)。
+
+## O. E4 ~10? hyperperiod 24h 安全直方图（运行中）
+
+- **测什么**：6 个 case-study victim (`fir2dim, fmref, cosf, test3, jfdctint, fac`) 轮流在 cpu1-3 三攻击者 `MAX_LLC MAX_BUS MAX_MEM` 下连续测 24 h，记录每次 R=20 的 cycles 中位数与 RAMPART 上界 (γ=1.02) 的比值，形成安全直方图与违例计数。
+- **驱动**：`python3 experiments/04_24h/e4_safety_histogram.py --duration-s 86400 --R 20 --attackers MAX_LLC MAX_BUS MAX_MEM`（已 nohup 后台启动）。
+- **依赖**：[`experiments/data/processed/e3_bounds.csv`](experiments/data/processed/e3_bounds.csv) — 由本次实测 §B 的 mix cycles × γ=1.02 生成。
+- **进度**：CSV 持续追加（前 4 分钟已写入 70 行）；预计 24 h ≈ 33000 iterations。
+- **复盘命令**：
+  ```bash
+  wc -l experiments/data/processed/e4_safety_histogram.csv      # 当前迭代数
+  awk -F, 'NR>1{n++; if($6=="True") v++} END{print n,v,v/n}' \
+      experiments/data/processed/e4_safety_histogram.csv         # 总数 / 违例 / 违例率
+  pgrep -af e4_safety_histogram                                  # 是否仍在跑
+  ```
+- **完成标志**：进程退出 + `figs/e4_safety_histogram.svg` 生成。
 
 ---
 
