@@ -1,0 +1,105 @@
+# TACLeBench / EEMBC / DNN benchmark roster used by every E* script.
+# Each name must be either a directory under bench/ (locally compiled to
+# build/<name>) or a benchmark token recognised by multi_proc_pmu.
+# Source mappings come from extract_configs.py (see top of repo).
+taclebench_full:   # 53 victims (paper roster)
+  - adpcm_dec
+  - adpcm_enc
+  - ammunition
+  - anagram
+  - audiobeam
+  - binarysearch
+  - bitcount
+  - bitonic
+  - bsort
+  - cjpeg_transupp
+  - cjpeg_wrbmp
+  - complex_updates
+  - cosf
+  - countnegative
+  - cover
+  - cubic
+  - deg2rad
+  - dijkstra
+  - duff
+  - epic
+  - fac
+  - fft
+  - filterbank
+  - fir2dim
+  - fmref
+  - g723_enc
+  - gsm_dec
+  - gsm_enc
+  - h264_dec
+  - huff_dec
+  - huff_enc
+  - iir
+  - insertsort
+  - isqrt
+  - jfdctint
+  - lift
+  - lms
+  - ludcmp
+  - matrix1
+  - md5
+  - minver
+  - mpeg2
+  - ndes
+  - petrinet
+  - pm
+  - powerwindow
+  - prime
+  - quicksort
+  - rad2deg
+  - recursion
+  - rijndael_dec
+  - rijndael_enc
+  - sha
+  - st
+  - statemate
+  - susan
+  - test3
+# Local registry (intersect with bench/ on this machine).
+local_only_attackers:
+  - CACHE
+  - BUS
+  - MEM
+  - POINTER
+  - PIPELINE
+  - MTH_CACHE
+  - MTH_BUS
+  - MTH_MEM
+  - MTH_POINTER
+  - MTH_PIPELINE
+  - MTH_SYSCALLS
+  - PR_CACHE
+  - PR_MEMBUS
+  - PR_ROWBUF
+  - PR_POINTER
+  - PR_TLB
+  - PR_DISKIO
+  - PR_FILESYS
+  - PR_NET
+  - PR_SPAWN
+# EEMBC and DNN roster Â¡Âª placeholders (require external sources to compile).
+eembc_full:
+  - a2time
+  - aifftr
+  - aiifft
+  - basefp
+  - bitmnp
+  - cacheb
+  - canrdr
+  - iirflt
+dnn_full:
+  - person_detect
+  - kws_micro
+  - magic_wand
+  - mnist_cnn
+# Channel-to-attacker mapping used by E2.2/E2.3.  Picks were validated by
+# E2.1 stress-validation on this iMX board (highest miss/cycle per channel).
+channel_attackers:
+  LLC: CACHE
+  BUS: MTH_BUS
+  MEM: PR_ROWBUF

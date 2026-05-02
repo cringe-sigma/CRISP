@@ -1,0 +1,5 @@
+# step=E8_rtc
+# started_utc=20260501T135630Z
+# argv=/home/gjh/CRISP/experiments/08_rtc/e8_rtc.py
+# params={"out_dir": "/home/gjh/CRISP/experiments/data/processed", "raw_dir": "/home/gjh/CRISP/experiments/data/raw", "reps": null, "dry_run": false, "bounds": "/home/gjh/CRISP/experiments/data/processed/e3_bounds.csv", "n_spot": 10}
+# ---- begin step ----

@@ -1,0 +1,37 @@
+# Platform descriptor for i.MX 8M Mini EVK (the board this workspace targets).
+# Consumed by every experiment script via experiments.lib.platform.
+name: imx8mm
+arch: aarch64
+isa: armv8.0-a
+cores: 4
+core_model: cortex-a53
+core_freq_khz: 1600000           # measurement frequency (also passed to multi_proc_pmu -f)
+core_max_khz: 1800000
+inorder: true
+l1d_kb: 32
+l1d_assoc: 4
+l2_kb: 512
+l2_assoc: 16
+llc_shared: true
+dram: lpddr4
+dram_freq_mt_s: 3000
+gamma_pmu: 1.02                  # A53 PMUv3 errata factor used in Theorem 1
+victim_core: 1                   # measurement runs on this core
+attacker_cores: [2, 3]           # background co-runners
+isol_core: 0                     # interrupts / kthreads pinned here
+# ARMv8 PMUv3 raw event codes used in E2.3 R1/R2 perf groups.
+pmu_events:
+  cycles:               r0011    # CPU_CYCLES
+  inst_retired:         r0008    # INST_RETIRED
+  l1d_cache_refill:     r0003    # L1D_CACHE_REFILL
+  l1d_tlb_refill:       r0005    # L1D_TLB_REFILL
+  l2d_cache_refill:     r0017    # L2D_CACHE_REFILL
+  bus_access:           r0019    # BUS_ACCESS
+  br_mis_pred:          r0010    # BR_MIS_PRED
+# 3-channel taxonomy used by Algorithm 1.
+channels: [LLC, BUS, MEM]
+# Lipschitz upper bound expected by Proposition 1 (paper, i.MX entry).
+lipschitz_alpha_max: 0.42
+# Static C_solo source.  When `aiT` and `otawa` are unavailable we fall back
+# to measured solo cycles at K=200 reps (Phase-2 R1, Solo config).
+csolo_source: measured-K200

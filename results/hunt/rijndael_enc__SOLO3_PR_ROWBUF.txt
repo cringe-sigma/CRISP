@@ -1,4 +1,0 @@
-[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
-# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
-# cpu0=rijndael_enc (measured)  cpu1=PR_ROWBUF  cpu2=PR_ROWBUF  cpu3=PR_ROWBUF
-*** stack smashing detected ***: terminated

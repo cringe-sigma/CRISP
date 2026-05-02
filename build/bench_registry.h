@@ -4,6 +4,9 @@
 #define BENCH_LIST(X) \
     X(BUS) \
     X(CACHE) \
+    X(MAX_BUS) \
+    X(MAX_LLC) \
+    X(MAX_MEM) \
     X(MEM) \
     X(MTH_BUS) \
     X(MTH_CACHE) \

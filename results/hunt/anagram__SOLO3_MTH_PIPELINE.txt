@@ -1,4 +1,0 @@
-[info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
-# multi_proc_pmu: samples=8, active_cores=4, lock_freq_khz=1600000
-# cpu0=anagram (measured)  cpu1=MTH_PIPELINE  cpu2=MTH_PIPELINE  cpu3=MTH_PIPELINE
-[sample=0] cpu=0 bench=anagram cycles=6093151 instructions=5014129 cache-misses=499

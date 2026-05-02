@@ -1,0 +1,11 @@
+# step=E1b_static_estimates
+# started_utc=20260501T134616Z
+# argv=experiments/01_phase1/static_estimates.py
+# params={"loopbounds": "/home/gjh/CRISP/experiments/data/processed/loopbounds.json", "out": "/home/gjh/CRISP/experiments/data/processed/static_estimates.csv"}
+# input  8151b33490c8300ef7eb8fafb88a06ba383367d8fbd9c3608675deb194704ee1  /home/gjh/CRISP/experiments/data/processed/loopbounds.json
+# input    /home/gjh/CRISP/build
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /home/gjh/CRISP/experiments/data/processed/static_estimates.csv
+# finished_utc=20260501T134616Z
