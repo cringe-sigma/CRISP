@@ -153,11 +153,23 @@ def main() -> int:
             "a_max": round(a_max, 6),
         })
     with pmc_csv.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(pmc_rows[0].keys())); w.writeheader(); w.writerows(pmc_rows)
+        if pmc_rows:
+            w = csv.DictWriter(f, fieldnames=list(pmc_rows[0].keys()))
+            w.writeheader(); w.writerows(pmc_rows)
+        else:
+            f.write("bench,config,n,theta_LLC,theta_BUS,theta_MEM,cycles_med,cycles_max,inst_med,miss_med,miss_max\n")
     with fv_csv.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(feat_rows[0].keys())); w.writeheader(); w.writerows(feat_rows)
+        if feat_rows:
+            w = csv.DictWriter(f, fieldnames=list(feat_rows[0].keys()))
+            w.writeheader(); w.writerows(feat_rows)
+        else:
+            f.write("bench,alpha_l2,alpha_bus,ipc,alpha_tlb,alpha_br,cv_l2\n")
     with amp_csv.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(amp_rows[0].keys())); w.writeheader(); w.writerows(amp_rows)
+        if amp_rows:
+            w = csv.DictWriter(f, fieldnames=list(amp_rows[0].keys()))
+            w.writeheader(); w.writerows(amp_rows)
+        else:
+            f.write("bench,c_solo_med,delta_llc,delta_bus,delta_mem,delta_sum,delta_mix,a_max\n")
     end_step(outputs=[str(pmc_csv), str(fv_csv), str(amp_csv)])
     return 0
 
