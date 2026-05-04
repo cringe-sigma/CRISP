@@ -173,7 +173,21 @@ if [[ $DRY -eq 0 ]]; then
 fi
 
 # ---------- 6. run experiments ----------
-mkdir -p experiments/data/processed experiments/run_log
+mkdir -p experiments/data/processed experiments/data/raw experiments/run_log
+
+# Fix permissions if any output files/dirs were left root-owned by a previous
+# 'sudo ./crisp_run_all.sh' run. Without this, a subsequent non-sudo run hits
+# PermissionError when python tries to overwrite the CSVs.
+INVOKER="${SUDO_USER:-$USER}"
+if [[ -n "$INVOKER" && "$INVOKER" != "root" ]]; then
+  if find experiments/data experiments/run_log build -maxdepth 4 \
+       \( ! -user "$INVOKER" -o ! -group "$INVOKER" \) -print -quit 2>/dev/null \
+       | grep -q .; then
+    log "Fixing ownership of experiments/data, experiments/run_log, build -> $INVOKER"
+    [[ $DRY -eq 0 ]] && sudo chown -R "$INVOKER:$INVOKER" \
+       experiments/data experiments/run_log build 2>/dev/null || true
+  fi
+fi
 
 EXTRA=()
 if [[ $MODE_PAPER -eq 1 ]]; then
@@ -184,14 +198,20 @@ else
 fi
 
 # Resolve sudo password into env so each python step can use it.
-if [[ -z "${SUDO_PW:-}" ]]; then
-  printf "[crisp] enter sudo password (leave blank to fail-fast): "
-  read -rs SUDO_PW; echo
-  export SUDO_PW
+# If we are already root (script invoked via 'sudo ./crisp_run_all.sh'), skip
+# password handling entirely and unset SUDO_PW so child scripts call
+# multi_proc_pmu directly (they're already root).
+if [[ $EUID -eq 0 ]]; then
+  log "Running as root; sub-steps will not need a sudo password."
+  unset SUDO_PW
+else
+  if [[ -z "${SUDO_PW:-}" ]]; then
+    printf "[crisp] enter sudo password (leave blank to fail-fast): "
+    read -rs SUDO_PW; echo
+    export SUDO_PW
+  fi
+  [[ -n "${SUDO_PW:-}" ]] && sudo -k && echo "$SUDO_PW" | sudo -S -v 2>/dev/null || true
 fi
-[[ -n "$SUDO_PW" ]] && sudo -k && echo "$SUDO_PW" | sudo -S -v
-
-EXTRA+=(--sudo-pw "$SUDO_PW")
 
 if [[ ${#STEPS[@]} -gt 0 ]]; then
   EXTRA+=(--steps "${STEPS[@]}")

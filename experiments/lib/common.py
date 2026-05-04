@@ -56,7 +56,7 @@ def run_pmu(victim: str, attackers: list[str], *, n: int = 8,
     """Invoke multi_proc_pmu and return parsed metrics + raw stdout."""
     cmd = [str(MULTI_PROC_PMU), "-n", str(n), "-f", str(freq_khz),
            victim] + list(attackers)
-    if sudo_pw is not None:
+    if sudo_pw:
         cmd = ["sudo", "-S", "--"] + cmd
     cp = subprocess.run(cmd,
                         input=(sudo_pw + "\n").encode() if sudo_pw else None,

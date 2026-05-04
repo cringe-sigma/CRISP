@@ -29,7 +29,7 @@ def run_perf_stat(events: list[str], cmd: list[str], *, cpu: int,
     pinned += ["chrt", "-f", str(rt_prio)]
     pinned += list(cmd)
     full = ["perf", "stat", "-x", ",", "-e", ev, "--"] + pinned
-    if sudo_pw is not None:
+    if sudo_pw:
         full = ["sudo", "-S", "--"] + full
     cp = run_logged(full, check=False,
                     input_data=(sudo_pw + "\n").encode() if sudo_pw else None)
