@@ -145,4 +145,8 @@ def parse_args(description: str = "") -> argparse.ArgumentParser:
                    help="override repetition count (R)")
     p.add_argument("--dry-run", action="store_true",
                    help="print plan only, do not invoke board")
+    # Accepted by all scripts so run_all.py can safely forward it to every
+    # step; scripts that don't need hardware access simply ignore it.
+    p.add_argument("--sudo-pw", default=None,
+                   help="sudo password forwarded from crisp_run_all.sh")
     return p

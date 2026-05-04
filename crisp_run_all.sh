@@ -95,8 +95,9 @@ have gcc  || need_pkgs+=(build-essential)
 have make || need_pkgs+=(build-essential)
 have python3 || need_pkgs+=(python3)
 have python3-pip || need_pkgs+=(python3-pip)
-# bzip2 + libbz2 needed by cpufrequtils on some distros; install explicitly first
-need_pkgs+=(bzip2 libbz2-dev)
+# Note: do NOT add bzip2/libbz2-dev here; on Ubuntu 24.04 the installed
+# libbz2-1.0 (1.0.8-5.1build0.1) has a build-revision suffix that conflicts
+# with bzip2's strict '= 1.0.8-5.1' dependency declaration.
 [[ -f /usr/include/linux/perf_event.h ]] || need_pkgs+=(linux-libc-dev)
 
 # cpupower: package name depends on distro version and board.
@@ -124,12 +125,8 @@ if [[ ${#need_pkgs[@]} -gt 0 ]]; then
   log "== Installing prereqs: ${need_pkgs[*]} =="
   if [[ $DRY -eq 0 ]]; then
     sudo apt-get update -qq
-    # Install bzip2/libbz2 first to avoid mid-install dep failures
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      bzip2 libbz2-dev 2>/dev/null || true
-    # Install remaining packages; tolerate individual failures
+    # Install packages one-by-one so a single failure doesn't abort the rest
     for pkg in "${need_pkgs[@]}"; do
-      [[ "$pkg" == bzip2 || "$pkg" == libbz2-dev ]] && continue
       sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "$pkg" \
         || warn "Package '$pkg' failed to install; continuing."
     done
