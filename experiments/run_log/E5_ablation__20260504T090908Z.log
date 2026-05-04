@@ -1,0 +1,9 @@
+# step=E5_ablation
+# started_utc=20260504T090908Z
+# argv=experiments/05_ablation/e5_ablation.py --bounds experiments/data/processed/e3_bounds.csv --out-dir /tmp
+# params={"out_dir": "/tmp", "raw_dir": "/home/gjh/CRISP/experiments/data/raw", "reps": null, "dry_run": false, "bounds": "experiments/data/processed/e3_bounds.csv"}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output a4fbccb8eca9741775bb3dc5ec419e5dc0476d77c382ee782a60d7c51434ac98  /tmp/e5_ablation.csv
+# finished_utc=20260504T090908Z
