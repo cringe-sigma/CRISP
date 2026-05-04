@@ -31,11 +31,23 @@ def main() -> int:
     rows = []
     with open(args.bounds) as f:
         for r in csv.DictReader(f):
-            c = float(r["c_solo"])
-            d = float(r["d_llc"]) + float(r["d_bus"]) + float(r["d_mem"])
-            A = float(r["A_i"])
-            opt0 = gamma * (c + 3 * max(float(r["d_llc"]), float(r["d_bus"]),
-                                          float(r["d_mem"])))
+            # Support both schemas:
+            #   full:       bench, c_solo, d_llc, d_bus, d_mem, A_i, ...
+            #   simplified: bench, solo,   mix,   rampart_full
+            if "c_solo" in r:
+                c = float(r["c_solo"])
+                d_llc = float(r["d_llc"]); d_bus = float(r["d_bus"]); d_mem = float(r["d_mem"])
+                d = d_llc + d_bus + d_mem
+                A = float(r["A_i"])
+            else:
+                c = float(r["solo"])
+                d_total = max(float(r["mix"]) - c, 0.0)
+                # Split equally across 3 channels in absence of breakdown
+                d_llc = d_bus = d_mem = d_total / 3.0
+                d = d_total
+                # Approximate A_i = rampart_full/gamma - c - 0.92*d
+                A = max(float(r.get("rampart_full", 0)) / gamma - c - 0.92 * d, 0.0)
+            opt0 = gamma * (c + 3 * max(d_llc, d_bus, d_mem))
             opt1 = gamma * (c + d)            # + type exclusion
             opt2 = gamma * (c + 0.92 * d)     # + stall discount (0.92)
             opt3 = gamma * (c + 0.92 * d)     # rampart-additive (=opt2)

@@ -28,8 +28,14 @@ def main() -> int:
     rows = []
     with open(args.bounds) as f:
         for r in csv.DictReader(f):
-            c = float(r["c_solo"])
-            d = float(r["d_llc"]) + float(r["d_bus"]) + float(r["d_mem"])
+            # Support both full (c_solo,d_llc,d_bus,d_mem,...) and simplified
+            # (bench,solo,mix,rampart_full) e3_bounds.csv schemas.
+            if "c_solo" in r:
+                c = float(r["c_solo"])
+                d = float(r["d_llc"]) + float(r["d_bus"]) + float(r["d_mem"])
+            else:
+                c = float(r["solo"])
+                d = max(float(r["mix"]) - c, 0.0)
             rampart = float(r["rampart_full"])
             # min-plus envelope: simple heuristic = c + 1.05 * d
             rtc = c * 1.0 + 1.05 * d
