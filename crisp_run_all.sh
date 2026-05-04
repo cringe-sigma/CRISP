@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # crisp_run_all.sh ¡ª One-shot reproducer for CRISP / RAMPART experiments.
 #
-# Tested on  : i.MX 8M Mini EVK (Ubuntu 20.04, aarch64, 4xCortex-A53)
-# Should run : Raspberry Pi 4/5, any aarch64/x86_64 Linux box with cpufreq
+# Tested on  : i.MX 8M Mini EVK (Ubuntu 20.04), Raspberry Pi 4/5 (Ubuntu 24.04 LTS)
+# Should run : any aarch64/x86_64 Linux box with cpufreq
 #              + perf_event_open + ARMv8 PMU (or x86 perf) + sudo.
 #
 # Usage:
@@ -72,21 +72,79 @@ fi
   || warn "perf_event_paranoid not readable."
 
 # ---------- 2. install prereqs ----------
-need_pkgs=()
 have() { command -v "$1" >/dev/null 2>&1; }
-have gcc          || need_pkgs+=(build-essential)
-have make         || need_pkgs+=(build-essential)
-have python3      || need_pkgs+=(python3)
-have cpupower     || need_pkgs+=(linux-tools-common linux-tools-generic cpufrequtils)
+
+# Detect Ubuntu / Debian release to pick correct packages.
+_UBUNTU_VER=0
+if [[ -f /etc/os-release ]]; then
+  _ID=$(. /etc/os-release && echo "${ID:-}")
+  _VER=$(. /etc/os-release && echo "${VERSION_ID:-0}")
+  [[ "$_ID" == "ubuntu" ]] && _UBUNTU_VER=$(echo "$_VER" | cut -d. -f1)
+fi
+
+# Detect Raspberry Pi kernel (Ubuntu 24.04 on Pi uses linux-raspi, not linux-generic).
+_IS_RPI=0
+if grep -qi raspberry /proc/device-tree/model 2>/dev/null; then
+  _IS_RPI=1
+elif uname -r | grep -qi raspi; then
+  _IS_RPI=1
+fi
+
+need_pkgs=()
+have gcc  || need_pkgs+=(build-essential)
+have make || need_pkgs+=(build-essential)
+have python3 || need_pkgs+=(python3)
+have python3-pip || need_pkgs+=(python3-pip)
+# bzip2 + libbz2 needed by cpufrequtils on some distros; install explicitly first
+need_pkgs+=(bzip2 libbz2-dev)
 [[ -f /usr/include/linux/perf_event.h ]] || need_pkgs+=(linux-libc-dev)
+
+# cpupower: package name depends on distro version and board.
+if ! have cpupower; then
+  need_pkgs+=(linux-tools-common)
+  if [[ $_IS_RPI -eq 1 ]]; then
+    # Ubuntu on Raspberry Pi ships cpupower in linux-tools-raspi
+    need_pkgs+=(linux-tools-raspi)
+  elif [[ $_UBUNTU_VER -ge 24 ]]; then
+    # On Ubuntu 24.04 generic aarch64/x86_64 we need the versioned package;
+    # linux-tools-generic is a meta that may not resolve cleanly on arm;
+    # fall back to linux-tools-common which provides the cpupower binary.
+    KTOOLS="linux-tools-$(uname -r 2>/dev/null || echo generic)"
+    if apt-cache show "$KTOOLS" >/dev/null 2>&1; then
+      need_pkgs+=("$KTOOLS")
+    else
+      need_pkgs+=(linux-tools-generic)
+    fi
+  else
+    need_pkgs+=(linux-tools-common linux-tools-generic cpufrequtils)
+  fi
+fi
 
 if [[ ${#need_pkgs[@]} -gt 0 ]]; then
   log "== Installing prereqs: ${need_pkgs[*]} =="
   if [[ $DRY -eq 0 ]]; then
     sudo apt-get update -qq
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "${need_pkgs[@]}" \
-      || warn "Some packages failed to install; build may still succeed."
+    # Install bzip2/libbz2 first to avoid mid-install dep failures
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+      bzip2 libbz2-dev 2>/dev/null || true
+    # Install remaining packages; tolerate individual failures
+    for pkg in "${need_pkgs[@]}"; do
+      [[ "$pkg" == bzip2 || "$pkg" == libbz2-dev ]] && continue
+      sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "$pkg" \
+        || warn "Package '$pkg' failed to install; continuing."
+    done
   fi
+fi
+
+# Ensure 'cc' symlink exists (Ubuntu 24.04 minimal may only have gcc)
+if ! have cc && have gcc; then
+  log "Creating cc -> gcc symlink"
+  [[ $DRY -eq 0 ]] && sudo update-alternatives --install /usr/bin/cc cc "$(command -v gcc)" 50
+fi
+
+# Ensure ld is available (binutils)
+if ! have ld; then
+  [[ $DRY -eq 0 ]] && sudo apt-get install -y --no-install-recommends binutils
 fi
 
 # ---------- 3. perf_event paranoia ----------
@@ -102,7 +160,8 @@ fi
 if [[ $SKIP_BUILD -eq 0 ]]; then
   log "== Build multi_proc_pmu + benches =="
   if [[ $DRY -eq 0 ]]; then
-    sudo make -j"$NCPU" multi_proc_pmu || die "make failed"
+    # Use CC=gcc explicitly so make doesn't search for a missing 'cc' alias
+    sudo make -j"$NCPU" CC=gcc LD=ld multi_proc_pmu || die "make failed"
   fi
 fi
 [[ -x ./multi_proc_pmu ]] || die "multi_proc_pmu not built"
