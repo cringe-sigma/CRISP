@@ -62,8 +62,9 @@ def main() -> int:
     if args.paper:
         extra += ["--R", "1000"]
     if args.sudo_pw:
+        # Export to env only; sub-scripts read os.environ["SUDO_PW"].
+        # (Forwarding as CLI breaks scripts whose argparse doesn't declare it.)
         os.environ["SUDO_PW"] = args.sudo_pw
-        extra += ["--sudo-pw", args.sudo_pw]
 
     rc = 0
     for label, cmds in STEPS:
