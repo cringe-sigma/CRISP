@@ -166,8 +166,21 @@ fi
 
 # ---------- 5. PMU sanity check ----------
 log "== PMU sanity check (one-shot fac SOLO, n=5) =="
+# Detect a usable cpufreq value: prefer cpuinfo_max_freq, else any available.
+# 0 means "skip pinning" in the patched binary.
+DETECTED_KHZ=0
+if [[ -r /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq ]]; then
+  DETECTED_KHZ=$(cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq 2>/dev/null || echo 0)
+fi
+log "detected cpufreq max = ${DETECTED_KHZ} kHz (0 = no pin)"
+# Patch experiments/config/platform_imx8mm.yaml so python sub-steps use the
+# right frequency for THIS host (the file is shipped with imx8mm's 1.6GHz).
+if [[ "$DETECTED_KHZ" -gt 0 ]]; then
+  sed -i -E "s/^core_freq_khz:.*$/core_freq_khz: ${DETECTED_KHZ}/" \
+        experiments/config/platform_imx8mm.yaml || true
+fi
 if [[ $DRY -eq 0 ]]; then
-  if ! sudo ./multi_proc_pmu -n 5 -f 0 fac 2>&1 | tee /tmp/crisp_smoke.txt | grep -q '^  cycles '; then
+  if ! sudo ./multi_proc_pmu -n 5 -f "$DETECTED_KHZ" fac 2>&1 | tee /tmp/crisp_smoke.txt | grep -q '^  cycles '; then
     warn "Smoke test did not produce a 'cycles' line. Check perf_event support / sudo."
   fi
 fi

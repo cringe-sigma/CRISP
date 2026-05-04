@@ -173,6 +173,12 @@ static void pin_cpu_frequency(unsigned long long requested_khz)
 {
     char path[256];
 
+    if (requested_khz == 0) {
+        /* Caller asked us not to touch cpufreq (e.g. unsupported host or
+         * smoke test on a board without cpufreq sysfs). */
+        return;
+    }
+
     for (int cpu = 0; cpu < g_nproc; cpu++) {
         snprintf(path, sizeof(path),
                  "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", cpu);
@@ -924,13 +930,13 @@ int main(int argc, char **argv)
             case 'f': {
                 char *end = NULL;
                 unsigned long long v = strtoull(optarg, &end, 10);
-                if (!end || *end != '\0' || v == 0) {
+                if (!end || *end != '\0') {
                     fprintf(stderr,
-                            "Invalid -f value (expected positive integer in kHz): %s\n",
+                            "Invalid -f value (expected non-negative integer in kHz, 0 = no pin): %s\n",
                             optarg);
                     return EXIT_FAILURE;
                 }
-                lock_freq_khz = v;
+                lock_freq_khz = v;  /* 0 == skip cpufreq pinning */
                 break;
             }
             case 'l':
