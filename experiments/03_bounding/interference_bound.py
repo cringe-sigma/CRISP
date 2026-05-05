@@ -47,9 +47,13 @@ def main() -> int:
                                          / "data/processed/e23_pmc_aggregated.csv"))
     p.add_argument("--amp", default=str(Path(__file__).resolve().parents[1]
                                          / "data/processed/e23_amplification_scalars.csv"))
+    p.add_argument("--safety-rho", type=float, default=1.0,
+                   help="global multiplicative safety factor on rampart_full "
+                        "(use apply_safety_factor.py for per-bench tail-aware rho)")
     args = p.parse_args()
     plat = load_platform()
     gamma = float(plat.get("gamma_pmu", 1.02))
+    rho_safe = float(args.safety_rho)
 
     pmc = read_csv(args.pmc)
     amp = {r["bench"]: r for r in read_csv(args.amp)}
@@ -79,7 +83,7 @@ def main() -> int:
             "hassan18":       gamma * (c_solo + 1.15 * d_mem),
             "sullivan24":     gamma * (c_solo + d_llc + d_bus),
             "rampart_add":    gamma * (c_solo + d_sum),
-            "rampart_full":   gamma * (c_solo + d_sum + A_i),
+            "rampart_full":   rho_safe * gamma * (c_solo + d_sum + A_i),
             "empirical_max":  c_mix,
         }
         row = {"bench": bench, "c_solo": c_solo,
