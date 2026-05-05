@@ -1,0 +1,7 @@
+# multi_proc_pmu: samples=100, active_cores=1, lock_freq_khz=2400000
+# cpu0=anagram (measured)  (solo: all other cpus offlined)
+[sample=0] cpu=0 bench=anagram cycles=2519347 instructions=5031768 cache-misses=684
+
+--STDERR--
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 2400000 kHz via 'performance' governor (user-specified)

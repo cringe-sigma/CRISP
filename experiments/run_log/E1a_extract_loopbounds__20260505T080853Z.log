@@ -1,0 +1,10 @@
+# step=E1a_extract_loopbounds
+# started_utc=20260505T080853Z
+# argv=/home/gjh/CRISP/experiments/01_phase1/extract_loopbounds.py
+# params={"bench": null, "out": "/home/gjh/CRISP/experiments/data/processed/loopbounds.json"}
+# input    /home/gjh/CRISP/bench/bench
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output 3bfb72759f44d0ea6b8d89b9ff4949912106db918601b5430640994ecf56d6cc  /home/gjh/CRISP/experiments/data/processed/loopbounds.json
+# finished_utc=20260505T080853Z

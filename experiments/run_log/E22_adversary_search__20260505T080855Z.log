@@ -1,0 +1,9 @@
+# step=E22_adversary_search
+# started_utc=20260505T080855Z
+# argv=/home/gjh/CRISP/experiments/02_phase2/e22_adversary_search.py
+# params={"benches": ["adpcm_dec", "adpcm_enc", "ammunition", "anagram", "audiobeam", "binarysearch", "bitcount", "bitonic", "bsort", "cjpeg_transupp", "cjpeg_wrbmp", "complex_updates", "cosf", "countnegative", "cover", "cubic", "deg2rad", "dijkstra", "duff", "epic", "fac", "fft", "filterbank", "fir2dim", "fmref", "g723_enc", "gsm_dec", "gsm_enc", "h264_dec", "huff_dec", "huff_enc", "iir", "insertsort", "isqrt", "jfdctint", "lift", "lms", "ludcmp", "matrix1", "md5", "minver", "mpeg2", "ndes", "petrinet", "pm", "powerwindow", "prime", "quicksort", "rad2deg", "recursion", "rijndael_dec", "rijndael_enc", "sha", "st", "statemate", "susan", "test3"], "channels": ["LLC", "BUS", "MEM"], "R": 100, "epsilon": 0.02, "max_rounds": 2, "freq_khz": 2400000}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output a5a78428c856aef61ec14d0c6e672dbc57497252d63dda15147e924f600fbe68  /home/gjh/CRISP/experiments/data/processed/e22_adversary_optimal_theta.csv
+# finished_utc=20260505T082131Z

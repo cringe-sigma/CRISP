@@ -5,7 +5,7 @@ arch: aarch64
 isa: armv8.0-a
 cores: 4
 core_model: cortex-a53
-core_freq_khz: 1600000           # measurement frequency (also passed to multi_proc_pmu -f)
+core_freq_khz: 2400000
 core_max_khz: 1800000
 inorder: true
 l1d_kb: 32

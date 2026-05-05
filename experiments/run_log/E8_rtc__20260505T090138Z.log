@@ -1,0 +1,9 @@
+# step=E8_rtc
+# started_utc=20260505T090138Z
+# argv=/home/gjh/CRISP/experiments/08_rtc/e8_rtc.py
+# params={"out_dir": "/home/gjh/CRISP/experiments/data/processed", "raw_dir": "/home/gjh/CRISP/experiments/data/raw", "reps": null, "dry_run": false, "bounds": "/home/gjh/CRISP/experiments/data/processed/e3_bounds.csv", "n_spot": 10}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output 777ca7db463e9e35c59e65dfd0e943b3aead84f4f258ce66205a3beb9678e7fb  /home/gjh/CRISP/experiments/data/processed/e8_rtc.csv
+# finished_utc=20260505T090138Z

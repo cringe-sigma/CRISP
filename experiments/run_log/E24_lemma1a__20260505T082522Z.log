@@ -1,0 +1,9 @@
+# step=E24_lemma1a
+# started_utc=20260505T082522Z
+# argv=/home/gjh/CRISP/experiments/02_phase2/e24_lemma1a.py
+# params={"out_dir": "/home/gjh/CRISP/experiments/data/processed", "raw_dir": "/home/gjh/CRISP/experiments/data/raw", "reps": null, "dry_run": false, "theta": "/home/gjh/CRISP/experiments/data/processed/e22_adversary_optimal_theta.csv", "R": 100, "seed": 42, "n_pairs": 159, "sudo_pw": null}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output 8851262b93ca9f351db123bc8d94d29873281f6279ca104e50660b57e5dd4134  /home/gjh/CRISP/experiments/data/processed/e24_lemma1a.csv
+# finished_utc=20260505T082952Z

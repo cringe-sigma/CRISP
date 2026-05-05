@@ -1,0 +1,648 @@
+======== E1 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/01_phase1/extract_loopbounds.py
+[ok] 8 benchmarks, 1145 annotated loops -> /home/gjh/CRISP/experiments/data/processed/loopbounds.json
+======== E1 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/01_phase1/static_estimates.py
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/BUS/BUS.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/CACHE/CACHE.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MAX_BUS/MAX_BUS.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MAX_LLC/MAX_LLC.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MAX_MEM/MAX_MEM.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MEM/MEM.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MTH_BUS/MTH_BUS.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MTH_CACHE/MTH_CACHE.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MTH_MEM/MTH_MEM.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MTH_PIPELINE/MTH_PIPELINE.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MTH_POINTER/MTH_POINTER.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/MTH_SYSCALLS/MTH_SYSCALLS.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PIPELINE/PIPELINE.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/POINTER/POINTER.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PR_CACHE/PR_CACHE.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PR_DISKIO/PR_DISKIO.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PR_FILESYS/PR_FILESYS.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PR_MEMBUS/PR_MEMBUS.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PR_NET/PR_NET.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PR_POINTER/PR_POINTER.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PR_ROWBUF/PR_ROWBUF.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PR_SPAWN/PR_SPAWN.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/PR_TLB/PR_TLB.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/adpcm_dec/adpcm_dec.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/adpcm_enc/adpcm_enc.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/ammunition/ammunition.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/anagram/anagram.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/audiobeam/audiobeam.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/binarysearch/binarysearch.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/bitcount/bitcount.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/bitonic/bitonic.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/bsort/bsort.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/cjpeg_transupp/cjpeg_transupp.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/cjpeg_wrbmp/cjpeg_wrbmp.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/complex_updates/complex_updates.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/cosf/cosf.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/countnegative/countnegative.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/cover/cover.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/cubic/cubic.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/deg2rad/deg2rad.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/dijkstra/dijkstra.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/duff/duff.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/epic/epic.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/fac/fac.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/fft/fft.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/filterbank/filterbank.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/fir2dim/fir2dim.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/fmref/fmref.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/g723_enc/g723_enc.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/gsm_dec/gsm_dec.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/gsm_enc/gsm_enc.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/h264_dec/h264_dec.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/huff_dec/huff_dec.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/huff_enc/huff_enc.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/iir/iir.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/insertsort/insertsort.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/isqrt/isqrt.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/jfdctint/jfdctint.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/lift/lift.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/lms/lms.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/ludcmp/ludcmp.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/matrix1/matrix1.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/md5/md5.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/minver/minver.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/mpeg2/mpeg2.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/ndes/ndes.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/petrinet/petrinet.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/pm/pm.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/powerwindow/powerwindow.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/prime/prime.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/quicksort/quicksort.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/rad2deg/rad2deg.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/recursion/recursion.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/rijndael_dec/rijndael_dec.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/rijndael_enc/rijndael_enc.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/sha/sha.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/st/st.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/statemate/statemate.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/susan/susan.o
+[run] /usr/bin/aarch64-linux-gnu-objdump -d --no-show-raw-insn /home/gjh/CRISP/build/test3/test3.o
+[ok] 80 benchmarks -> /home/gjh/CRISP/experiments/data/processed/static_estimates.csv
+======== E2.1 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/02_phase2/e21_stress_validate.py
+  LLC / CACHE  rate=0.01339  rc=0
+  LLC / MTH_CACHE  rate=0.008971  rc=0
+  LLC / PR_CACHE  rate=0.0327  rc=0
+  BUS / BUS  rate=0.004803  rc=0
+  BUS / MTH_BUS  rate=0.01425  rc=0
+  BUS / PR_MEMBUS  rate=0.02781  rc=0
+  MEM / MEM  rate=0.02072  rc=0
+  MEM / MTH_MEM  rate=0.03077  rc=0
+  MEM / PR_ROWBUF  rate=0.01624  rc=0
+[acc] LLC: pick=CACHE  rate=0.0134  peak=0.0327  ratio=40.94%  ok=False
+[acc] BUS: pick=MTH_BUS  rate=0.0143  peak=0.0278  ratio=51.24%  ok=False
+[acc] MEM: pick=PR_ROWBUF  rate=0.0162  peak=0.0308  ratio=52.78%  ok=False
+======== E2.2 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/02_phase2/e22_adversary_search.py
+[adpcm_dec/LLC] -> CACHE alpha=7.233e-05 L=2.197e-05 conv=True
+[adpcm_dec/BUS] -> BUS alpha=7.163e-05 L=2.824e-05 conv=True
+[adpcm_dec/MEM] -> MTH_MEM alpha=7.719e-05 L=1.041e-05 conv=True
+[adpcm_enc/LLC] -> CACHE alpha=6.842e-05 L=4.013e-05 conv=True
+[adpcm_enc/BUS] -> BUS alpha=5.66e-05 L=3.471e-05 conv=True
+[adpcm_enc/MEM] -> MEM alpha=5.731e-05 L=1.441e-05 conv=True
+[ammunition/LLC] -> MTH_CACHE alpha=6.275e-06 L=3.066e-06 conv=True
+[ammunition/BUS] -> BUS alpha=2.906e-06 L=2.197e-06 conv=True
+[ammunition/MEM] -> PR_ROWBUF alpha=5.848e-06 L=5.242e-06 conv=True
+[anagram/LLC] -> CACHE alpha=0 L=0 conv=True
+[anagram/BUS] -> BUS alpha=0 L=0 conv=True
+[anagram/MEM] -> MEM alpha=0 L=0 conv=True
+[audiobeam/LLC] -> CACHE alpha=0 L=0 conv=True
+[audiobeam/BUS] -> BUS alpha=0 L=0 conv=True
+[audiobeam/MEM] -> MEM alpha=0 L=0 conv=True
+[binarysearch/LLC] -> MTH_CACHE alpha=0.001471 L=0.001471 conv=True
+[binarysearch/BUS] -> BUS alpha=0 L=0 conv=True
+[binarysearch/MEM] -> MEM alpha=0 L=0 conv=True
+[bitcount/LLC] -> CACHE alpha=0.0002195 L=1.105e-06 conv=True
+[bitcount/BUS] -> PR_MEMBUS alpha=7.24e-05 L=7.386e-05 conv=True
+[bitcount/MEM] -> PR_ROWBUF alpha=0.0001442 L=0.0001442 conv=True
+[bitonic/LLC] -> CACHE alpha=0 L=0 conv=True
+[bitonic/BUS] -> BUS alpha=0 L=0 conv=True
+[bitonic/MEM] -> MEM alpha=0 L=0 conv=True
+[bsort/LLC] -> MTH_CACHE alpha=2.648e-05 L=1.337e-05 conv=True
+[bsort/BUS] -> BUS alpha=1.329e-05 L=1.333e-05 conv=True
+[bsort/MEM] -> MTH_MEM alpha=1.339e-05 L=1.336e-05 conv=True
+[cjpeg_transupp/LLC] -> PR_CACHE alpha=2.403e-05 L=3.627e-06 conv=True
+[cjpeg_transupp/BUS] -> BUS alpha=2.355e-05 L=5.985e-06 conv=True
+[cjpeg_transupp/MEM] -> PR_ROWBUF alpha=2.277e-05 L=8.537e-06 conv=True
+[cjpeg_wrbmp/LLC] -> CACHE alpha=0.001111 L=0.000484 conv=True
+[cjpeg_wrbmp/BUS] -> BUS alpha=0.0009522 L=0.0007247 conv=True
+[cjpeg_wrbmp/MEM] -> PR_ROWBUF alpha=0.0009733 L=0.0008259 conv=True
+[complex_updates/LLC] -> CACHE alpha=0 L=0 conv=True
+[complex_updates/BUS] -> BUS alpha=0 L=0 conv=True
+[complex_updates/MEM] -> MEM alpha=0 L=0 conv=True
+[cosf/LLC] -> CACHE alpha=0 L=0 conv=True
+[cosf/BUS] -> BUS alpha=0 L=0 conv=True
+[cosf/MEM] -> MEM alpha=0 L=0 conv=True
+[countnegative/LLC] -> CACHE alpha=0 L=0 conv=True
+[countnegative/BUS] -> BUS alpha=0.0001025 L=0 conv=True
+[countnegative/MEM] -> PR_ROWBUF alpha=0.0001024 L=0.0001025 conv=True
+[cover/LLC] -> CACHE alpha=0.0005345 L=0.0005345 conv=True
+[cover/BUS] -> BUS alpha=0.001105 L=0.0008293 conv=True
+[cover/MEM] -> MEM alpha=0 L=0 conv=True
+[cubic/LLC] -> PR_CACHE alpha=8.43e-06 L=2.974e-06 conv=True
+[cubic/BUS] -> BUS alpha=8.61e-06 L=2.952e-06 conv=True
+[cubic/MEM] -> PR_ROWBUF alpha=1.205e-05 L=3.413e-06 conv=True
+[deg2rad/LLC] -> CACHE alpha=0 L=0 conv=True
+[deg2rad/BUS] -> MTH_BUS alpha=0.0002688 L=0.0002688 conv=True
+[deg2rad/MEM] -> MEM alpha=0 L=0 conv=True
+[dijkstra/LLC] -> PR_CACHE alpha=9.212e-05 L=2.983e-05 conv=True
+[dijkstra/BUS] -> MTH_BUS alpha=7.788e-05 L=2.553e-05 conv=True
+[dijkstra/MEM] -> PR_ROWBUF alpha=0.0001464 L=0.0001135 conv=True
+[duff/LLC] -> CACHE alpha=0 L=0 conv=True
+[duff/BUS] -> BUS alpha=0 L=0 conv=True
+[duff/MEM] -> MEM alpha=0 L=0 conv=True
+[epic/LLC] -> PR_CACHE alpha=0.0002563 L=2.256e-05 conv=True
+[epic/BUS] -> BUS alpha=0.0003249 L=9.193e-05 conv=True
+[epic/MEM] -> PR_ROWBUF alpha=0.0003633 L=0.000151 conv=True
+[fac/LLC] -> CACHE alpha=0 L=0 conv=True
+[fac/BUS] -> BUS alpha=0 L=0 conv=True
+[fac/MEM] -> MEM alpha=0 L=0 conv=True
+[fft/LLC] -> MTH_CACHE alpha=0.0005587 L=6.673e-05 conv=True
+[fft/BUS] -> BUS alpha=0.0006069 L=8.025e-05 conv=True
+[fft/MEM] -> PR_ROWBUF alpha=0.0006052 L=5.993e-05 conv=True
+[filterbank/LLC] -> MTH_CACHE alpha=5.89e-05 L=1.578e-05 conv=True
+[filterbank/BUS] -> BUS alpha=5.143e-05 L=2.074e-05 conv=True
+[filterbank/MEM] -> PR_ROWBUF alpha=6.132e-05 L=3.525e-05 conv=True
+[fir2dim/LLC] -> PR_CACHE alpha=0.0004033 L=0.0002176 conv=True
+[fir2dim/BUS] -> BUS alpha=0 L=0 conv=True
+[fir2dim/MEM] -> MEM alpha=0.0001815 L=0.0001815 conv=True
+[fmref/LLC] -> CACHE alpha=0.0002367 L=6.443e-05 conv=True
+[fmref/BUS] -> BUS alpha=0.0003602 L=7.617e-05 conv=True
+[fmref/MEM] -> MEM alpha=0.0003385 L=0.000134 conv=True
+[g723_enc/LLC] -> CACHE alpha=6.539e-05 L=3.267e-06 conv=True
+[g723_enc/BUS] -> BUS alpha=7.341e-05 L=1.078e-05 conv=True
+[g723_enc/MEM] -> PR_ROWBUF alpha=7.709e-05 L=1.825e-05 conv=True
+[gsm_dec/LLC] -> MTH_CACHE alpha=6.469e-05 L=9.772e-06 conv=True
+[gsm_dec/BUS] -> BUS alpha=6.217e-05 L=1.673e-05 conv=True
+[gsm_dec/MEM] -> PR_ROWBUF alpha=8.606e-05 L=5.244e-05 conv=True
+[gsm_enc/LLC] -> MTH_CACHE alpha=4.767e-05 L=7.532e-06 conv=True
+[gsm_enc/BUS] -> BUS alpha=3.696e-05 L=1.07e-05 conv=True
+[gsm_enc/MEM] -> PR_ROWBUF alpha=4.124e-05 L=2.064e-05 conv=True
+[h264_dec/LLC] -> CACHE alpha=0.0006162 L=0.0001965 conv=True
+[h264_dec/BUS] -> PR_MEMBUS alpha=0.0006114 L=0.000134 conv=True
+[h264_dec/MEM] -> PR_ROWBUF alpha=0.000595 L=6.116e-05 conv=True
+[huff_dec/LLC] -> CACHE alpha=0 L=0 conv=True
+[huff_dec/BUS] -> BUS alpha=0 L=0 conv=True
+[huff_dec/MEM] -> MEM alpha=0 L=0 conv=True
+[huff_enc/LLC] -> MTH_CACHE alpha=0.0004309 L=4.555e-05 conv=True
+[huff_enc/BUS] -> BUS alpha=0.0004731 L=5.755e-05 conv=True
+[huff_enc/MEM] -> PR_ROWBUF alpha=0.0004991 L=6.136e-05 conv=True
+[iir/LLC] -> CACHE alpha=0 L=0 conv=True
+[iir/BUS] -> BUS alpha=0 L=0 conv=True
+[iir/MEM] -> MEM alpha=0 L=0 conv=True
+[insertsort/LLC] -> CACHE alpha=0 L=0 conv=True
+[insertsort/BUS] -> BUS alpha=0 L=0 conv=True
+[insertsort/MEM] -> MEM alpha=0 L=0 conv=True
+[isqrt/LLC] -> MTH_CACHE alpha=9.563e-06 L=1.851e-06 conv=True
+[isqrt/BUS] -> BUS alpha=8.75e-06 L=2.568e-06 conv=True
+[isqrt/MEM] -> PR_ROWBUF alpha=1.053e-05 L=3.497e-06 conv=True
+[jfdctint/LLC] -> CACHE alpha=0 L=0 conv=True
+[jfdctint/BUS] -> BUS alpha=0 L=0 conv=True
+[jfdctint/MEM] -> MEM alpha=0 L=0 conv=True
+[lift/LLC] -> MTH_CACHE alpha=1.787e-05 L=4.499e-06 conv=True
+[lift/BUS] -> PR_MEMBUS alpha=1.583e-05 L=1.224e-07 conv=True
+[lift/MEM] -> PR_ROWBUF alpha=1.656e-05 L=2.961e-06 conv=True
+[lms/LLC] -> CACHE alpha=0.0001204 L=4.705e-05 conv=True
+[lms/BUS] -> BUS alpha=0.0001095 L=1.062e-05 conv=True
+[lms/MEM] -> PR_ROWBUF alpha=0.0001184 L=2.282e-05 conv=True
+[ludcmp/LLC] -> CACHE alpha=0 L=0 conv=True
+[ludcmp/BUS] -> BUS alpha=0.0004603 L=0.0004613 conv=True
+[ludcmp/MEM] -> MTH_MEM alpha=0.0004526 L=0.0004526 conv=True
+[matrix1/LLC] -> MTH_CACHE alpha=0.0001145 L=0.0001099 conv=True
+[matrix1/BUS] -> PR_MEMBUS alpha=0.000747 L=0.0005315 conv=True
+[matrix1/MEM] -> MEM alpha=0.0003235 L=0.0001153 conv=True
+[md5/LLC] -> MTH_CACHE alpha=1.255e-05 L=8.073e-06 conv=True
+[md5/BUS] -> BUS alpha=5.696e-06 L=2.417e-06 conv=True
+[md5/MEM] -> PR_ROWBUF alpha=8.961e-06 L=8.014e-06 conv=True
+[minver/LLC] -> MTH_CACHE alpha=0.002956 L=0.001496 conv=True
+[minver/BUS] -> PR_MEMBUS alpha=0.002251 L=5.57e-05 conv=True
+[minver/MEM] -> PR_ROWBUF alpha=0.002189 L=0.0006964 conv=True
+[mpeg2/LLC] -> MTH_CACHE alpha=3.432e-05 L=1.283e-05 conv=True
+[mpeg2/BUS] -> BUS alpha=2.564e-05 L=8.206e-06 conv=True
+[mpeg2/MEM] -> PR_ROWBUF alpha=3.532e-05 L=2.222e-05 conv=True
+[ndes/LLC] -> PR_CACHE alpha=0.0002025 L=6.381e-05 conv=True
+[ndes/BUS] -> MTH_BUS alpha=0.0002365 L=0.0001344 conv=True
+[ndes/MEM] -> PR_ROWBUF alpha=0.0001348 L=3.422e-05 conv=True
+[petrinet/LLC] -> PR_CACHE alpha=0.001315 L=0.001315 conv=True
+[petrinet/BUS] -> MTH_BUS alpha=0.001374 L=0.001374 conv=True
+[petrinet/MEM] -> MTH_MEM alpha=0.001393 L=0.0007042 conv=True
+[pm/LLC] -> MTH_CACHE alpha=4.684e-05 L=1.12e-05 conv=True
+[pm/BUS] -> BUS alpha=3.211e-05 L=8.159e-06 conv=True
+[pm/MEM] -> PR_ROWBUF alpha=3.447e-05 L=1.563e-05 conv=True
+[powerwindow/LLC] -> CACHE alpha=0.0006456 L=7.019e-05 conv=True
+[powerwindow/BUS] -> BUS alpha=0.0006504 L=4.802e-05 conv=True
+[powerwindow/MEM] -> PR_ROWBUF alpha=0.0006907 L=8.934e-05 conv=True
+[prime/LLC] -> CACHE alpha=0.002833 L=0 conv=True
+[prime/BUS] -> BUS alpha=0 L=0 conv=True
+[prime/MEM] -> MEM alpha=0 L=0 conv=True
+[quicksort/LLC] -> MTH_CACHE alpha=0.0002756 L=1.644e-05 conv=True
+[quicksort/BUS] -> BUS alpha=0.0002968 L=4.435e-05 conv=True
+[quicksort/MEM] -> PR_ROWBUF alpha=0.0003294 L=9.203e-05 conv=True
+[rad2deg/LLC] -> CACHE alpha=0 L=0 conv=True
+[rad2deg/BUS] -> BUS alpha=0 L=0 conv=True
+[rad2deg/MEM] -> MEM alpha=0 L=0 conv=True
+[recursion/LLC] -> CACHE alpha=0 L=0 conv=True
+[recursion/BUS] -> BUS alpha=0 L=0 conv=True
+[recursion/MEM] -> MEM alpha=0 L=0 conv=True
+[rijndael_dec/LLC] -> CACHE alpha=0 L=0 conv=True
+[rijndael_dec/BUS] -> BUS alpha=0 L=0 conv=True
+[rijndael_dec/MEM] -> MEM alpha=0 L=0 conv=True
+[rijndael_enc/LLC] -> CACHE alpha=0 L=0 conv=True
+[rijndael_enc/BUS] -> BUS alpha=0 L=0 conv=True
+[rijndael_enc/MEM] -> MEM alpha=0 L=0 conv=True
+[sha/LLC] -> PR_CACHE alpha=0.0002817 L=1.16e-05 conv=True
+[sha/BUS] -> BUS alpha=0.0002984 L=3.296e-05 conv=True
+[sha/MEM] -> PR_ROWBUF alpha=0.0003416 L=9.09e-05 conv=True
+[st/LLC] -> MTH_CACHE alpha=0.0003258 L=5.385e-05 conv=True
+[st/BUS] -> PR_MEMBUS alpha=0.0004541 L=0.0004096 conv=True
+[st/MEM] -> PR_ROWBUF alpha=0.0004083 L=7.4e-05 conv=True
+[statemate/LLC] -> MTH_CACHE alpha=4.058e-05 L=4.058e-05 conv=True
+[statemate/BUS] -> BUS alpha=0 L=0 conv=True
+[statemate/MEM] -> PR_ROWBUF alpha=4.108e-05 L=4.108e-05 conv=True
+[susan/LLC] -> PR_CACHE alpha=4.286e-05 L=5.73e-06 conv=True
+[susan/BUS] -> BUS alpha=3.911e-05 L=1.432e-05 conv=True
+[susan/MEM] -> PR_ROWBUF alpha=4.617e-05 L=2.489e-05 conv=True
+[test3/LLC] -> MTH_CACHE alpha=9.336e-05 L=3.658e-05 conv=True
+[test3/BUS] -> BUS alpha=4.563e-05 L=2.374e-05 conv=True
+[test3/MEM] -> PR_ROWBUF alpha=8.829e-05 L=7.046e-05 conv=True
+======== E2.3 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/02_phase2/e23_five_config_sweep.py
+[adpcm_dec/Solo] cyc_med=178541 miss_med=0
+[adpcm_dec/LLC] cyc_med=179396 miss_med=0
+[adpcm_dec/BUS] cyc_med=178499 miss_med=2
+[adpcm_dec/MEM] cyc_med=178899 miss_med=1
+[adpcm_dec/Mix] cyc_med=182721 miss_med=13
+[adpcm_enc/Solo] cyc_med=173596 miss_med=0
+[adpcm_enc/LLC] cyc_med=173189 miss_med=0
+[adpcm_enc/BUS] cyc_med=172988 miss_med=0
+[adpcm_enc/MEM] cyc_med=173532 miss_med=0
+[adpcm_enc/Mix] cyc_med=176441 miss_med=6
+[ammunition/Solo] cyc_med=80687384 miss_med=4
+[ammunition/LLC] cyc_med=80691735 miss_med=3
+[ammunition/BUS] cyc_med=80681985 miss_med=16
+[ammunition/MEM] cyc_med=80692032 miss_med=4
+[ammunition/Mix] cyc_med=81059156 miss_med=352
+[anagram/Solo] cyc_med=0 miss_med=0
+[anagram/LLC] cyc_med=0 miss_med=0
+[anagram/BUS] cyc_med=0 miss_med=0
+[anagram/MEM] cyc_med=0 miss_med=0
+[anagram/Mix] cyc_med=0 miss_med=0
+[audiobeam/Solo] cyc_med=0 miss_med=0
+[audiobeam/LLC] cyc_med=0 miss_med=0
+[audiobeam/BUS] cyc_med=0 miss_med=0
+[audiobeam/MEM] cyc_med=0 miss_med=0
+[audiobeam/Mix] cyc_med=0 miss_med=0
+[binarysearch/Solo] cyc_med=664 miss_med=0
+[binarysearch/LLC] cyc_med=671 miss_med=0
+[binarysearch/BUS] cyc_med=672 miss_med=0
+[binarysearch/MEM] cyc_med=677 miss_med=0
+[binarysearch/Mix] cyc_med=693 miss_med=0
+[bitcount/Solo] cyc_med=13450 miss_med=4
+[bitcount/LLC] cyc_med=13678 miss_med=1
+[bitcount/BUS] cyc_med=13720 miss_med=1
+[bitcount/MEM] cyc_med=13540 miss_med=3
+[bitcount/Mix] cyc_med=12438 miss_med=1
+[bitonic/Solo] cyc_med=6972 miss_med=0
+[bitonic/LLC] cyc_med=6875 miss_med=0
+[bitonic/BUS] cyc_med=7055 miss_med=0
+[bitonic/MEM] cyc_med=7038 miss_med=0
+[bitonic/Mix] cyc_med=7319 miss_med=0
+[bsort/Solo] cyc_med=75039 miss_med=0
+[bsort/LLC] cyc_med=74462 miss_med=0
+[bsort/BUS] cyc_med=74435 miss_med=0
+[bsort/MEM] cyc_med=74886 miss_med=0
+[bsort/Mix] cyc_med=75294 miss_med=0
+[cjpeg_transupp/Solo] cyc_med=2158442 miss_med=11
+[cjpeg_transupp/LLC] cyc_med=2158478 miss_med=9
+[cjpeg_transupp/BUS] cyc_med=2171880 miss_med=9
+[cjpeg_transupp/MEM] cyc_med=2155681 miss_med=12
+[cjpeg_transupp/Mix] cyc_med=2195314 miss_med=47
+[cjpeg_wrbmp/Solo] cyc_med=74932 miss_med=15
+[cjpeg_wrbmp/LLC] cyc_med=74934 miss_med=10
+[cjpeg_wrbmp/BUS] cyc_med=73468 miss_med=17
+[cjpeg_wrbmp/MEM] cyc_med=76446 miss_med=14
+[cjpeg_wrbmp/Mix] cyc_med=76774 miss_med=22
+[complex_updates/Solo] cyc_med=986 miss_med=0
+[complex_updates/LLC] cyc_med=992 miss_med=0
+[complex_updates/BUS] cyc_med=988 miss_med=0
+[complex_updates/MEM] cyc_med=996 miss_med=0
+[complex_updates/Mix] cyc_med=1082 miss_med=0
+[cosf/Solo] cyc_med=14047 miss_med=1
+[cosf/LLC] cyc_med=13982 miss_med=0
+[cosf/BUS] cyc_med=13952 miss_med=0
+[cosf/MEM] cyc_med=13942 miss_med=0
+[cosf/Mix] cyc_med=14016 miss_med=0
+[countnegative/Solo] cyc_med=9672 miss_med=0
+[countnegative/LLC] cyc_med=9711 miss_med=0
+[countnegative/BUS] cyc_med=9714 miss_med=0
+[countnegative/MEM] cyc_med=9714 miss_med=0
+[countnegative/Mix] cyc_med=9730 miss_med=1
+[cover/Solo] cyc_med=3752 miss_med=2
+[cover/LLC] cyc_med=3682 miss_med=4
+[cover/BUS] cyc_med=3634 miss_med=0
+[cover/MEM] cyc_med=3756 miss_med=0
+[cover/Mix] cyc_med=3691 miss_med=0
+[cubic/Solo] cyc_med=1146691 miss_med=0
+[cubic/LLC] cyc_med=1141478 miss_med=1
+[cubic/BUS] cyc_med=1145904 miss_med=0
+[cubic/MEM] cyc_med=1139234 miss_med=1
+[cubic/Mix] cyc_med=1160878 miss_med=11
+[deg2rad/Solo] cyc_med=3734 miss_med=1
+[deg2rad/LLC] cyc_med=3720 miss_med=1
+[deg2rad/BUS] cyc_med=3706 miss_med=0
+[deg2rad/MEM] cyc_med=3714 miss_med=0
+[deg2rad/Mix] cyc_med=3725 miss_med=0
+[dijkstra/Solo] cyc_med=42009725 miss_med=978
+[dijkstra/LLC] cyc_med=42007626 miss_med=848
+[dijkstra/BUS] cyc_med=42042918 miss_med=764
+[dijkstra/MEM] cyc_med=41982876 miss_med=909
+[dijkstra/Mix] cyc_med=44574644 miss_med=5573
+[duff/Solo] cyc_med=2236 miss_med=0
+[duff/LLC] cyc_med=2244 miss_med=0
+[duff/BUS] cyc_med=2216 miss_med=0
+[duff/MEM] cyc_med=2264 miss_med=0
+[duff/Mix] cyc_med=2196 miss_med=0
+[epic/Solo] cyc_med=1500867 miss_med=113
+[epic/LLC] cyc_med=1496742 miss_med=123
+[epic/BUS] cyc_med=1497172 miss_med=130
+[epic/MEM] cyc_med=1496036 miss_med=111
+[epic/Mix] cyc_med=1542998 miss_med=520
+[fac/Solo] cyc_med=248 miss_med=0
+[fac/LLC] cyc_med=250 miss_med=0
+[fac/BUS] cyc_med=241 miss_med=0
+[fac/MEM] cyc_med=256 miss_med=0
+[fac/Mix] cyc_med=260 miss_med=0
+[fft/Solo] cyc_med=346162 miss_med=32
+[fft/LLC] cyc_med=346809 miss_med=38
+[fft/BUS] cyc_med=346304 miss_med=24
+[fft/MEM] cyc_med=346165 miss_med=29
+[fft/Mix] cyc_med=349932 miss_med=214
+[filterbank/Solo] cyc_med=3075814 miss_med=3
+[filterbank/LLC] cyc_med=3105701 miss_med=1
+[filterbank/BUS] cyc_med=3083090 miss_med=30
+[filterbank/MEM] cyc_med=3082110 miss_med=4
+[filterbank/Mix] cyc_med=3165026 miss_med=166
+[fir2dim/Solo] cyc_med=5103 miss_med=0
+[fir2dim/LLC] cyc_med=5215 miss_med=0
+[fir2dim/BUS] cyc_med=5356 miss_med=1
+[fir2dim/MEM] cyc_med=5104 miss_med=0
+[fir2dim/Mix] cyc_med=5322 miss_med=2
+[fmref/Solo] cyc_med=214034 miss_med=28
+[fmref/LLC] cyc_med=213398 miss_med=12
+[fmref/BUS] cyc_med=213514 miss_med=9
+[fmref/MEM] cyc_med=213914 miss_med=9
+[fmref/Mix] cyc_med=220200 miss_med=47
+[g723_enc/Solo] cyc_med=319058 miss_med=3
+[g723_enc/LLC] cyc_med=321368 miss_med=2
+[g723_enc/BUS] cyc_med=319395 miss_med=3
+[g723_enc/MEM] cyc_med=319585 miss_med=2
+[g723_enc/Mix] cyc_med=324061 miss_med=20
+[gsm_dec/Solo] cyc_med=1831782 miss_med=11
+[gsm_dec/LLC] cyc_med=1838750 miss_med=11
+[gsm_dec/BUS] cyc_med=1832017 miss_med=13
+[gsm_dec/MEM] cyc_med=1831751 miss_med=8
+[gsm_dec/Mix] cyc_med=1859878 miss_med=117
+[gsm_enc/Solo] cyc_med=3527162 miss_med=30
+[gsm_enc/LLC] cyc_med=3523872 miss_med=20
+[gsm_enc/BUS] cyc_med=3522161 miss_med=24
+[gsm_enc/MEM] cyc_med=3522226 miss_med=29
+[gsm_enc/Mix] cyc_med=3584004 miss_med=153
+[h264_dec/Solo] cyc_med=226028 miss_med=26
+[h264_dec/LLC] cyc_med=202652 miss_med=29
+[h264_dec/BUS] cyc_med=209584 miss_med=33
+[h264_dec/MEM] cyc_med=203303 miss_med=44
+[h264_dec/Mix] cyc_med=210384 miss_med=126
+[huff_dec/Solo] cyc_med=0 miss_med=0
+[huff_dec/LLC] cyc_med=0 miss_med=0
+[huff_dec/BUS] cyc_med=0 miss_med=0
+[huff_dec/MEM] cyc_med=0 miss_med=0
+[huff_dec/Mix] cyc_med=0 miss_med=0
+[huff_enc/Solo] cyc_med=525918 miss_med=30
+[huff_enc/LLC] cyc_med=521503 miss_med=25
+[huff_enc/BUS] cyc_med=520912 miss_med=38
+[huff_enc/MEM] cyc_med=520936 miss_med=50
+[huff_enc/Mix] cyc_med=536508 miss_med=266
+[iir/Solo] cyc_med=1570 miss_med=0
+[iir/LLC] cyc_med=1570 miss_med=0
+[iir/BUS] cyc_med=1762 miss_med=0
+[iir/MEM] cyc_med=1066 miss_med=0
+[iir/Mix] cyc_med=1331 miss_med=0
+[insertsort/Solo] cyc_med=957 miss_med=0
+[insertsort/LLC] cyc_med=1033 miss_med=0
+[insertsort/BUS] cyc_med=1004 miss_med=0
+[insertsort/MEM] cyc_med=998 miss_med=0
+[insertsort/Mix] cyc_med=974 miss_med=0
+[isqrt/Solo] cyc_med=581086 miss_med=0
+[isqrt/LLC] cyc_med=574111 miss_med=0
+[isqrt/BUS] cyc_med=574830 miss_med=0
+[isqrt/MEM] cyc_med=571262 miss_med=0
+[isqrt/Mix] cyc_med=572938 miss_med=4
+[jfdctint/Solo] cyc_med=2774 miss_med=0
+[jfdctint/LLC] cyc_med=2773 miss_med=0
+[jfdctint/BUS] cyc_med=2786 miss_med=0
+[jfdctint/MEM] cyc_med=2780 miss_med=0
+[jfdctint/Mix] cyc_med=2806 miss_med=0
+[lift/Solo] cyc_med=443951 miss_med=0
+[lift/LLC] cyc_med=468826 miss_med=0
+[lift/BUS] cyc_med=492796 miss_med=0
+[lift/MEM] cyc_med=445080 miss_med=0
+[lift/Mix] cyc_med=446294 miss_med=5
+[lms/Solo] cyc_med=157622 miss_med=0
+[lms/LLC] cyc_med=158694 miss_med=0
+[lms/BUS] cyc_med=155396 miss_med=0
+[lms/MEM] cyc_med=157853 miss_med=2
+[lms/Mix] cyc_med=161192 miss_med=19
+[ludcmp/Solo] cyc_med=2147 miss_med=0
+[ludcmp/LLC] cyc_med=2152 miss_med=1
+[ludcmp/BUS] cyc_med=2158 miss_med=0
+[ludcmp/MEM] cyc_med=2154 miss_med=0
+[ludcmp/Mix] cyc_med=2142 miss_med=0
+[matrix1/Solo] cyc_med=8798 miss_med=2
+[matrix1/LLC] cyc_med=8780 miss_med=1
+[matrix1/BUS] cyc_med=8814 miss_med=1
+[matrix1/MEM] cyc_med=9191 miss_med=1
+[matrix1/Mix] cyc_med=8714 miss_med=1
+[md5/Solo] cyc_med=18959441 miss_med=4
+[md5/LLC] cyc_med=18933666 miss_med=7
+[md5/BUS] cyc_med=18948332 miss_med=3
+[md5/MEM] cyc_med=18964190 miss_med=3
+[md5/Mix] cyc_med=18783774 miss_med=104
+[minver/Solo] cyc_med=1348 miss_med=2
+[minver/LLC] cyc_med=1358 miss_med=2
+[minver/BUS] cyc_med=1334 miss_med=2
+[minver/MEM] cyc_med=1334 miss_med=4
+[minver/Mix] cyc_med=1344 miss_med=2
+[mpeg2/Solo] cyc_med=262904752 miss_med=3224
+[mpeg2/LLC] cyc_med=262845740 miss_med=2932
+[mpeg2/BUS] cyc_med=262866636 miss_med=3060
+[mpeg2/MEM] cyc_med=263070573 miss_med=2954
+[mpeg2/Mix] cyc_med=265130772 miss_med=7626
+[ndes/Solo] cyc_med=28980 miss_med=3
+[ndes/LLC] cyc_med=29194 miss_med=3
+[ndes/BUS] cyc_med=28934 miss_med=4
+[ndes/MEM] cyc_med=29312 miss_med=7
+[ndes/Mix] cyc_med=29514 miss_med=5
+[petrinet/Solo] cyc_med=708 miss_med=0
+[petrinet/LLC] cyc_med=704 miss_med=0
+[petrinet/BUS] cyc_med=724 miss_med=0
+[petrinet/MEM] cyc_med=735 miss_med=0
+[petrinet/Mix] cyc_med=735 miss_med=0
+[pm/Solo] cyc_med=7814785 miss_med=54
+[pm/LLC] cyc_med=7807866 miss_med=48
+[pm/BUS] cyc_med=7837671 miss_med=56
+[pm/MEM] cyc_med=7816502 miss_med=54
+[pm/Mix] cyc_med=7869208 miss_med=270
+[powerwindow/Solo] cyc_med=778012 miss_med=228
+[powerwindow/LLC] cyc_med=775786 miss_med=214
+[powerwindow/BUS] cyc_med=774300 miss_med=208
+[powerwindow/MEM] cyc_med=771630 miss_med=204
+[powerwindow/Mix] cyc_med=787664 miss_med=538
+[prime/Solo] cyc_med=341 miss_med=0
+[prime/LLC] cyc_med=354 miss_med=0
+[prime/BUS] cyc_med=356 miss_med=0
+[prime/MEM] cyc_med=350 miss_med=0
+[prime/Mix] cyc_med=356 miss_med=0
+[quicksort/Solo] cyc_med=2863682 miss_med=574
+[quicksort/LLC] cyc_med=2854574 miss_med=534
+[quicksort/BUS] cyc_med=2867255 miss_med=542
+[quicksort/MEM] cyc_med=2853684 miss_med=550
+[quicksort/Mix] cyc_med=2942036 miss_med=914
+[rad2deg/Solo] cyc_med=3729 miss_med=0
+[rad2deg/LLC] cyc_med=3730 miss_med=0
+[rad2deg/BUS] cyc_med=3731 miss_med=0
+[rad2deg/MEM] cyc_med=3734 miss_med=0
+[rad2deg/Mix] cyc_med=3747 miss_med=0
+[recursion/Solo] cyc_med=1293 miss_med=0
+[recursion/LLC] cyc_med=1293 miss_med=0
+[recursion/BUS] cyc_med=1293 miss_med=0
+[recursion/MEM] cyc_med=1293 miss_med=0
+[recursion/Mix] cyc_med=1293 miss_med=0
+[rijndael_dec/Solo] cyc_med=0 miss_med=0
+[rijndael_dec/LLC] cyc_med=0 miss_med=0
+[rijndael_dec/BUS] cyc_med=0 miss_med=0
+[rijndael_dec/MEM] cyc_med=0 miss_med=0
+[rijndael_dec/Mix] cyc_med=0 miss_med=0
+[rijndael_enc/Solo] cyc_med=0 miss_med=0
+[rijndael_enc/LLC] cyc_med=0 miss_med=0
+[rijndael_enc/BUS] cyc_med=0 miss_med=0
+[rijndael_enc/MEM] cyc_med=0 miss_med=0
+[rijndael_enc/Mix] cyc_med=0 miss_med=0
+[sha/Solo] cyc_med=1468088 miss_med=196
+[sha/LLC] cyc_med=1465838 miss_med=163
+[sha/BUS] cyc_med=1451948 miss_med=188
+[sha/MEM] cyc_med=1473570 miss_med=172
+[sha/Mix] cyc_med=1540253 miss_med=475
+[st/Solo] cyc_med=94319 miss_med=2
+[st/LLC] cyc_med=94361 miss_med=2
+[st/BUS] cyc_med=94396 miss_med=3
+[st/MEM] cyc_med=94422 miss_med=4
+[st/Mix] cyc_med=95400 miss_med=38
+[statemate/Solo] cyc_med=23774 miss_med=0
+[statemate/LLC] cyc_med=23786 miss_med=0
+[statemate/BUS] cyc_med=23781 miss_med=0
+[statemate/MEM] cyc_med=23758 miss_med=0
+[statemate/Mix] cyc_med=23758 miss_med=0
+[susan/Solo] cyc_med=30680684 miss_med=344
+[susan/LLC] cyc_med=30871961 miss_med=314
+[susan/BUS] cyc_med=30709458 miss_med=306
+[susan/MEM] cyc_med=30843523 miss_med=264
+[susan/Mix] cyc_med=31229757 miss_med=1378
+[test3/Solo] cyc_med=217382108 miss_med=964
+[test3/LLC] cyc_med=218788724 miss_med=428
+[test3/BUS] cyc_med=218803350 miss_med=941
+[test3/MEM] cyc_med=217506058 miss_med=605
+[test3/Mix] cyc_med=218704254 miss_med=12280
+======== E2.4 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/02_phase2/e24_lemma1a.py
+[ok] 159 pairs, 44 violations
+======== E2.5 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/02_phase2/e25_lemma2.py
+  i=0 viol=0
+  i=25 viol=5
+  i=50 viol=8
+  i=75 viol=12
+  i=100 viol=12
+  i=125 viol=16
+  i=150 viol=20
+  i=175 viol=24
+  i=200 viol=25
+  i=225 viol=29
+  i=250 viol=31
+  i=275 viol=35
+  i=300 viol=35
+  i=325 viol=39
+  i=350 viol=42
+  i=375 viol=45
+  i=400 viol=48
+  i=425 viol=53
+  i=450 viol=57
+  i=475 viol=60
+======== E3 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/03_bounding/interference_bound.py
+[ok] 57 benches -> /home/gjh/CRISP/experiments/data/processed/e3_bounds.csv, /home/gjh/CRISP/experiments/figs/e3_bounds_cdf.svg
+======== E3.1 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/03_bounding/e31_polyrhythm_compare.py
+======== E3.2 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/03_bounding/e32_mempol_compare.py
+======== E3.3 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/03_bounding/e33_additive_violations.py
+[adpcm_dec] best_obs=180206 bound_add=183349 viol_add=0
+[adpcm_enc] best_obs=176688 bound_add=177067 viol_add=0
+[ammunition] best_obs=80724381 bound_add=82310312 viol_add=0
+[anagram] best_obs=0 bound_add=0 viol_add=0
+[audiobeam] best_obs=0 bound_add=0 viol_add=0
+[binarysearch] best_obs=722 bound_add=706 viol_add=1
+[bitcount] best_obs=13760 bound_add=14318 viol_add=0
+[bitonic] best_obs=7200 bound_add=7263 viol_add=0
+[bsort] best_obs=75300 bound_add=76540 viol_add=0
+[cjpeg_transupp] best_obs=2172025 bound_add=2215354 viol_add=0
+[cjpeg_wrbmp] best_obs=76776 bound_add=77976 viol_add=0
+[complex_updates] best_obs=1088 bound_add=1024 viol_add=1
+[cosf] best_obs=14130 bound_add=14328 viol_add=0
+[countnegative] best_obs=9840 bound_add=9991 viol_add=0
+[cover] best_obs=3935 bound_add=3831 viol_add=1
+[cubic] best_obs=1155596 bound_add=1169625 viol_add=0
+[deg2rad] best_obs=3767 bound_add=3808 viol_add=0
+[dijkstra] best_obs=42102998 bound_add=42883777 viol_add=0
+[duff] best_obs=2268 bound_add=2317 viol_add=0
+[epic] best_obs=1500595 bound_add=1530884 viol_add=0
+[fac] best_obs=265 bound_add=263 viol_add=1
+[fft] best_obs=351330 bound_add=353893 viol_add=0
+[filterbank] best_obs=3265186 bound_add=3181659 viol_add=1
+[fir2dim] best_obs=5624 bound_add=5579 viol_add=1
+[fmref] best_obs=215262 bound_add=218315 viol_add=0
+[g723_enc] best_obs=322962 bound_add=328678 viol_add=0
+[gsm_dec] best_obs=1840932 bound_add=1875765 viol_add=0
+[gsm_enc] best_obs=3533936 bound_add=3597705 viol_add=0
+[h264_dec] best_obs=227474 bound_add=230549 viol_add=0
+[huff_dec] best_obs=0 bound_add=0 viol_add=0
+[huff_enc] best_obs=536488 bound_add=536437 viol_add=1
+[iir] best_obs=1834 bound_add=1797 viol_add=1
+[insertsort] best_obs=1058 bound_add=1143 viol_add=0
+[isqrt] best_obs=577573 bound_add=592708 viol_add=0
+[jfdctint] best_obs=2809 bound_add=2847 viol_add=0
+[lift] best_obs=481934 bound_add=529176 viol_add=0
+[lms] best_obs=161047 bound_add=162104 viol_add=0
+[ludcmp] best_obs=2187 bound_add=2213 viol_add=0
+[matrix1] best_obs=9628 bound_add=9392 viol_add=1
+[md5] best_obs=19031906 bound_add=19343474 viol_add=0
+[minver] best_obs=1384 bound_add=1386 viol_add=0
+[mpeg2] best_obs=262991254 bound_add=268331984 viol_add=0
+[ndes] best_obs=29831 bound_add=30118 viol_add=0
+[petrinet] best_obs=756 bound_add=766 viol_add=0
+[pm] best_obs=7868097 bound_add=7996176 viol_add=0
+[powerwindow] best_obs=775942 bound_add=793572 viol_add=0
+[prime] best_obs=362 bound_add=385 viol_add=0
+[quicksort] best_obs=2865211 bound_add=2924600 viol_add=0
+[rad2deg] best_obs=3778 bound_add=3812 viol_add=0
+[recursion] best_obs=1301 bound_add=1319 viol_add=0
+[rijndael_dec] best_obs=0 bound_add=0 viol_add=0
+[rijndael_enc] best_obs=0 bound_add=0 viol_add=0
+[sha] best_obs=1475916 bound_add=1503041 viol_add=0
+[st] best_obs=95196 bound_add=96432 viol_add=0
+[statemate] best_obs=24594 bound_add=24270 viol_add=1
+[susan] best_obs=30945919 bound_add=31684845 viol_add=0
+[test3] best_obs=219457075 bound_add=224740593 viol_add=0
+======== E4 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/04_24h/e4_safety_histogram.py
+======== E5 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/05_ablation/e5_ablation.py
+[warn] skipped 5 bench(es) with c_solo<=0: anagram,audiobeam,huff_dec,rijndael_dec,rijndael_enc
+medians: {'full_iso': 1.0327, 'opt1': 1.0264, 'opt2': 1.0259, 'rampart_add': 1.0259, 'rampart_full': 1.0327}
+======== E6 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/06_scheduling/e6_schedule.py
+======== E7 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/07_case_study/e7_case_study.py
+======== E8 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/08_rtc/e8_rtc.py
+======== E9 ======== /usr/bin/python3 /home/gjh/CRISP/experiments/09_zephyr/e9_zephyr.py

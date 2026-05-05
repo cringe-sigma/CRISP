@@ -23,55 +23,6 @@
     "max_iter_global": 1001,
     "loops": [
       {
-        "file": "app/powerwindow/wcclib.c",
-        "bounds": [
-          [
-            1,
-            368
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 368
-      },
-      {
-        "file": "app/powerwindow/powerwindow.c",
-        "bounds": [
-          [
-            977,
-            977
-          ],
-          [
-            977,
-            977
-          ],
-          [
-            977,
-            977
-          ]
-        ],
-        "n_loops": 3,
-        "max_iter": 977
-      },
-      {
-        "file": "app/lift/liftlibio.c",
-        "bounds": [
-          [
-            4,
-            4
-          ],
-          [
-            14,
-            14
-          ],
-          [
-            10,
-            10
-          ]
-        ],
-        "n_loops": 3,
-        "max_iter": 14
-      },
-      {
         "file": "app/lift/lift.c",
         "bounds": [
           [
@@ -99,6 +50,25 @@
         "max_iter": 1001
       },
       {
+        "file": "app/lift/liftlibio.c",
+        "bounds": [
+          [
+            4,
+            4
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "n_loops": 3,
+        "max_iter": 14
+      },
+      {
         "file": "app/lift/liftlibcontrol.c",
         "bounds": [
           [
@@ -112,6 +82,36 @@
         ],
         "n_loops": 2,
         "max_iter": 14
+      },
+      {
+        "file": "app/powerwindow/powerwindow.c",
+        "bounds": [
+          [
+            977,
+            977
+          ],
+          [
+            977,
+            977
+          ],
+          [
+            977,
+            977
+          ]
+        ],
+        "n_loops": 3,
+        "max_iter": 977
+      },
+      {
+        "file": "app/powerwindow/wcclib.c",
+        "bounds": [
+          [
+            1,
+            368
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 368
       }
     ]
   },
@@ -120,6 +120,59 @@
     "n_loops_total": 220,
     "max_iter_global": 8192,
     "loops": [
+      {
+        "file": "kernel/insertsort/insertsort.c",
+        "bounds": [
+          [
+            11,
+            11
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            1,
+            9
+          ]
+        ],
+        "n_loops": 4,
+        "max_iter": 11
+      },
+      {
+        "file": "kernel/quicksort/quicksortlibm.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            25,
+            25
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 25
+      },
+      {
+        "file": "kernel/quicksort/quicksortstdlib.c",
+        "bounds": [
+          [
+            0,
+            11
+          ],
+          [
+            20,
+            24
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 24
+      },
       {
         "file": "kernel/quicksort/quicksort.c",
         "bounds": [
@@ -176,22 +229,249 @@
         "max_iter": 3000
       },
       {
-        "file": "kernel/quicksort/quicksortstdlib.c",
+        "file": "kernel/fir2dim/fir2dim.c",
+        "bounds": [
+          [
+            36,
+            36
+          ],
+          [
+            64,
+            64
+          ],
+          [
+            144,
+            144
+          ],
+          [
+            64,
+            64
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "n_loops": 17,
+        "max_iter": 144
+      },
+      {
+        "file": "kernel/matrix1/matrix1.c",
+        "bounds": [
+          [
+            100,
+            100
+          ],
+          [
+            100,
+            100
+          ],
+          [
+            100,
+            100
+          ],
+          [
+            100,
+            100
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "n_loops": 7,
+        "max_iter": 100
+      },
+      {
+        "file": "kernel/fac/fac.c",
+        "bounds": [
+          [
+            6,
+            6
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 6
+      },
+      {
+        "file": "kernel/prime/prime.c",
         "bounds": [
           [
             0,
-            11
-          ],
-          [
-            20,
-            24
+            16
           ]
         ],
-        "n_loops": 2,
-        "max_iter": 24
+        "n_loops": 1,
+        "max_iter": 16
       },
       {
-        "file": "kernel/quicksort/quicksortlibm.c",
+        "file": "kernel/bitonic/bitonic.c",
+        "bounds": [
+          [
+            32,
+            32
+          ],
+          [
+            0,
+            16
+          ],
+          [
+            32,
+            32
+          ]
+        ],
+        "n_loops": 3,
+        "max_iter": 32
+      },
+      {
+        "file": "kernel/minver/minver.c",
+        "bounds": [
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "n_loops": 21,
+        "max_iter": 3
+      },
+      {
+        "file": "kernel/isqrt/wcclibm.c",
         "bounds": [
           [
             0,
@@ -206,39 +486,254 @@
         "max_iter": 25
       },
       {
-        "file": "kernel/lms/lms.c",
+        "file": "kernel/isqrt/basicmath_libc.c",
+        "bounds": [
+          [
+            4,
+            4
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 4
+      },
+      {
+        "file": "kernel/isqrt/isqrt.c",
+        "bounds": [
+          [
+            32,
+            32
+          ],
+          [
+            1000,
+            1000
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 1000
+      },
+      {
+        "file": "kernel/bsort/bsort.c",
         "bounds": [
           [
             100,
             100
           ],
           [
+            99,
+            99
+          ],
+          [
+            99,
+            99
+          ],
+          [
+            3,
+            99
+          ]
+        ],
+        "n_loops": 4,
+        "max_iter": 100
+      },
+      {
+        "file": "kernel/iir/iir.c",
+        "bounds": [
+          [
             20,
             20
           ],
           [
-            21,
-            21
+            8,
+            8
           ],
           [
-            21,
-            21
+            80,
+            80
           ],
           [
-            21,
-            21
+            32,
+            32
           ],
           [
-            201,
-            201
+            8,
+            8
           ],
           [
-            201,
-            201
+            4,
+            4
           ]
         ],
-        "n_loops": 7,
-        "max_iter": 201
+        "n_loops": 6,
+        "max_iter": 80
+      },
+      {
+        "file": "kernel/cubic/wcclibm.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            25,
+            25
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 25
+      },
+      {
+        "file": "kernel/cubic/cubic.c",
+        "bounds": [
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        "n_loops": 4,
+        "max_iter": 7
+      },
+      {
+        "file": "kernel/jfdctint/jfdctint.c",
+        "bounds": [
+          [
+            64,
+            64
+          ],
+          [
+            64,
+            64
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            8,
+            8
+          ]
+        ],
+        "n_loops": 4,
+        "max_iter": 64
+      },
+      {
+        "file": "kernel/md5/md5.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            128,
+            208
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            0,
+            55
+          ],
+          [
+            16,
+            64
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            256,
+            256
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "n_loops": 9,
+        "max_iter": 256
+      },
+      {
+        "file": "kernel/fft/fft.c",
+        "bounds": [
+          [
+            1024,
+            1024
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            1,
+            512
+          ],
+          [
+            1,
+            512
+          ],
+          [
+            2048,
+            2048
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          [
+            2046,
+            2046
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "n_loops": 12,
+        "max_iter": 2048
+      },
+      {
+        "file": "kernel/deg2rad/deg2rad.c",
+        "bounds": [
+          [
+            361,
+            361
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 361
       },
       {
         "file": "kernel/pm/pm_stdlib.c",
@@ -375,156 +870,10 @@
         "max_iter": 64
       },
       {
-        "file": "kernel/cubic/cubic.c",
+        "file": "kernel/complex_updates/complex_updates.c",
         "bounds": [
           [
-            5,
-            5
-          ],
-          [
-            5,
-            5
-          ],
-          [
-            7,
-            7
-          ],
-          [
-            5,
-            5
-          ]
-        ],
-        "n_loops": 4,
-        "max_iter": 7
-      },
-      {
-        "file": "kernel/cubic/wcclibm.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            25,
-            25
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 25
-      },
-      {
-        "file": "kernel/bitonic/bitonic.c",
-        "bounds": [
-          [
-            32,
-            32
-          ],
-          [
-            0,
-            16
-          ],
-          [
-            32,
-            32
-          ]
-        ],
-        "n_loops": 3,
-        "max_iter": 32
-      },
-      {
-        "file": "kernel/countnegative/countnegative.c",
-        "bounds": [
-          [
-            20,
-            20
-          ],
-          [
-            20,
-            20
-          ],
-          [
-            20,
-            20
-          ],
-          [
-            20,
-            20
-          ]
-        ],
-        "n_loops": 4,
-        "max_iter": 20
-      },
-      {
-        "file": "kernel/insertsort/insertsort.c",
-        "bounds": [
-          [
-            11,
-            11
-          ],
-          [
-            11,
-            11
-          ],
-          [
-            9,
-            9
-          ],
-          [
-            1,
-            9
-          ]
-        ],
-        "n_loops": 4,
-        "max_iter": 11
-      },
-      {
-        "file": "kernel/matrix1/matrix1.c",
-        "bounds": [
-          [
-            100,
-            100
-          ],
-          [
-            100,
-            100
-          ],
-          [
-            100,
-            100
-          ],
-          [
-            100,
-            100
-          ],
-          [
-            10,
-            10
-          ],
-          [
-            10,
-            10
-          ],
-          [
-            10,
-            10
-          ]
-        ],
-        "n_loops": 7,
-        "max_iter": 100
-      },
-      {
-        "file": "kernel/md5/md5.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            128,
-            208
-          ],
-          [
-            2,
+            16,
             16
           ],
           [
@@ -532,78 +881,16 @@
             16
           ],
           [
-            0,
-            55
-          ],
-          [
-            16,
-            64
-          ],
-          [
             16,
             16
           ],
           [
-            256,
-            256
-          ],
-          [
-            10,
-            10
-          ]
-        ],
-        "n_loops": 9,
-        "max_iter": 256
-      },
-      {
-        "file": "kernel/jfdctint/jfdctint.c",
-        "bounds": [
-          [
-            64,
-            64
-          ],
-          [
-            64,
-            64
-          ],
-          [
-            8,
-            8
-          ],
-          [
-            8,
-            8
+            16,
+            16
           ]
         ],
         "n_loops": 4,
-        "max_iter": 64
-      },
-      {
-        "file": "kernel/st/st.c",
-        "bounds": [
-          [
-            1000,
-            1000
-          ],
-          [
-            19,
-            19
-          ],
-          [
-            1000,
-            1000
-          ],
-          [
-            1000,
-            1000
-          ],
-          [
-            1000,
-            1000
-          ]
-        ],
-        "n_loops": 5,
-        "max_iter": 1000
+        "max_iter": 16
       },
       {
         "file": "kernel/sha/sha.c",
@@ -664,21 +951,6 @@
         "max_iter": 2
       },
       {
-        "file": "kernel/sha/memcpy.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            7
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 7
-      },
-      {
         "file": "kernel/sha/memset.c",
         "bounds": [
           [
@@ -700,6 +972,220 @@
         ],
         "n_loops": 4,
         "max_iter": 3
+      },
+      {
+        "file": "kernel/sha/memcpy.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 7
+      },
+      {
+        "file": "kernel/bitcount/bitcount.c",
+        "bounds": [
+          [
+            31,
+            31
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "n_loops": 3,
+        "max_iter": 31
+      },
+      {
+        "file": "kernel/bitcount/bitcnt_1.c",
+        "bounds": [
+          [
+            3,
+            8
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 8
+      },
+      {
+        "file": "kernel/lms/lms.c",
+        "bounds": [
+          [
+            100,
+            100
+          ],
+          [
+            20,
+            20
+          ],
+          [
+            21,
+            21
+          ],
+          [
+            21,
+            21
+          ],
+          [
+            21,
+            21
+          ],
+          [
+            201,
+            201
+          ],
+          [
+            201,
+            201
+          ]
+        ],
+        "n_loops": 7,
+        "max_iter": 201
+      },
+      {
+        "file": "kernel/rad2deg/rad2deg.c",
+        "bounds": [
+          [
+            360,
+            360
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 360
+      },
+      {
+        "file": "kernel/binarysearch/binarysearch.c",
+        "bounds": [
+          [
+            15,
+            15
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 15
+      },
+      {
+        "file": "kernel/st/st.c",
+        "bounds": [
+          [
+            1000,
+            1000
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            1000,
+            1000
+          ],
+          [
+            1000,
+            1000
+          ],
+          [
+            1000,
+            1000
+          ]
+        ],
+        "n_loops": 5,
+        "max_iter": 1000
+      },
+      {
+        "file": "kernel/cosf/wcclibm.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            25,
+            25
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 25
+      },
+      {
+        "file": "kernel/cosf/cosf.c",
+        "bounds": [
+          [
+            100,
+            100
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 100
+      },
+      {
+        "file": "kernel/ludcmp/ludcmp.c",
+        "bounds": [
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "n_loops": 12,
+        "max_iter": 6
       },
       {
         "file": "kernel/filterbank/filterbank.c",
@@ -765,513 +1251,27 @@
         "max_iter": 256
       },
       {
-        "file": "kernel/deg2rad/deg2rad.c",
-        "bounds": [
-          [
-            361,
-            361
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 361
-      },
-      {
-        "file": "kernel/prime/prime.c",
-        "bounds": [
-          [
-            0,
-            16
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 16
-      },
-      {
-        "file": "kernel/fac/fac.c",
-        "bounds": [
-          [
-            6,
-            6
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 6
-      },
-      {
-        "file": "kernel/ludcmp/ludcmp.c",
-        "bounds": [
-          [
-            6,
-            6
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            5,
-            5
-          ],
-          [
-            1,
-            5
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            1,
-            5
-          ],
-          [
-            1,
-            5
-          ],
-          [
-            5,
-            5
-          ],
-          [
-            1,
-            5
-          ],
-          [
-            5,
-            5
-          ],
-          [
-            1,
-            5
-          ]
-        ],
-        "n_loops": 12,
-        "max_iter": 6
-      },
-      {
-        "file": "kernel/cosf/cosf.c",
-        "bounds": [
-          [
-            100,
-            100
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 100
-      },
-      {
-        "file": "kernel/cosf/wcclibm.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            25,
-            25
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 25
-      },
-      {
-        "file": "kernel/bsort/bsort.c",
-        "bounds": [
-          [
-            100,
-            100
-          ],
-          [
-            99,
-            99
-          ],
-          [
-            99,
-            99
-          ],
-          [
-            3,
-            99
-          ]
-        ],
-        "n_loops": 4,
-        "max_iter": 100
-      },
-      {
-        "file": "kernel/bitcount/bitcount.c",
-        "bounds": [
-          [
-            31,
-            31
-          ],
-          [
-            8,
-            8
-          ],
-          [
-            10,
-            10
-          ]
-        ],
-        "n_loops": 3,
-        "max_iter": 31
-      },
-      {
-        "file": "kernel/bitcount/bitcnt_1.c",
-        "bounds": [
-          [
-            3,
-            8
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 8
-      },
-      {
-        "file": "kernel/fir2dim/fir2dim.c",
-        "bounds": [
-          [
-            36,
-            36
-          ],
-          [
-            64,
-            64
-          ],
-          [
-            144,
-            144
-          ],
-          [
-            64,
-            64
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            9,
-            9
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ]
-        ],
-        "n_loops": 17,
-        "max_iter": 144
-      },
-      {
-        "file": "kernel/iir/iir.c",
+        "file": "kernel/countnegative/countnegative.c",
         "bounds": [
           [
             20,
             20
           ],
           [
-            8,
-            8
+            20,
+            20
           ],
           [
-            80,
-            80
+            20,
+            20
           ],
           [
-            32,
-            32
-          ],
-          [
-            8,
-            8
-          ],
-          [
-            4,
-            4
-          ]
-        ],
-        "n_loops": 6,
-        "max_iter": 80
-      },
-      {
-        "file": "kernel/binarysearch/binarysearch.c",
-        "bounds": [
-          [
-            15,
-            15
-          ],
-          [
-            1,
-            4
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 15
-      },
-      {
-        "file": "kernel/fft/fft.c",
-        "bounds": [
-          [
-            1024,
-            1024
-          ],
-          [
-            0,
-            10
-          ],
-          [
-            10,
-            10
-          ],
-          [
-            1,
-            512
-          ],
-          [
-            1,
-            512
-          ],
-          [
-            2048,
-            2048
-          ],
-          [
-            13,
-            13
-          ],
-          [
-            1024,
-            1024
-          ],
-          [
-            1024,
-            1024
-          ],
-          [
-            2046,
-            2046
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            2048,
-            2048
-          ]
-        ],
-        "n_loops": 12,
-        "max_iter": 2048
-      },
-      {
-        "file": "kernel/complex_updates/complex_updates.c",
-        "bounds": [
-          [
-            16,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            16,
-            16
+            20,
+            20
           ]
         ],
         "n_loops": 4,
-        "max_iter": 16
-      },
-      {
-        "file": "kernel/rad2deg/rad2deg.c",
-        "bounds": [
-          [
-            360,
-            360
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 360
-      },
-      {
-        "file": "kernel/minver/minver.c",
-        "bounds": [
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            1,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            1,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ]
-        ],
-        "n_loops": 21,
-        "max_iter": 3
-      },
-      {
-        "file": "kernel/isqrt/basicmath_libc.c",
-        "bounds": [
-          [
-            4,
-            4
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 4
-      },
-      {
-        "file": "kernel/isqrt/isqrt.c",
-        "bounds": [
-          [
-            32,
-            32
-          ],
-          [
-            1000,
-            1000
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 1000
-      },
-      {
-        "file": "kernel/isqrt/wcclibm.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            25,
-            25
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 25
+        "max_iter": 20
       }
     ]
   },
@@ -1280,112 +1280,6 @@
     "n_loops_total": 213,
     "max_iter_global": 60000,
     "loops": [
-      {
-        "file": "parallel/rosace/thread5/math_all.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 22,
-        "max_iter": 0
-      },
-      {
-        "file": "parallel/rosace/thread5/ros_th5.c",
-        "bounds": [
-          [
-            60000,
-            60000
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 60000
-      },
       {
         "file": "parallel/rosace/thread2/ros_th2.c",
         "bounds": [
@@ -1599,6 +1493,218 @@
         "max_iter": 0
       },
       {
+        "file": "parallel/rosace/thread5/ros_th5.c",
+        "bounds": [
+          [
+            60000,
+            60000
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 60000
+      },
+      {
+        "file": "parallel/rosace/thread5/math_all.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 22,
+        "max_iter": 0
+      },
+      {
+        "file": "parallel/rosace/thread3/math_all.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 22,
+        "max_iter": 0
+      },
+      {
+        "file": "parallel/rosace/thread3/ros_th3.c",
+        "bounds": [
+          [
+            60000,
+            60000
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 60000
+      },
+      {
         "file": "parallel/rosace/thread4/ros_th4.c",
         "bounds": [
           [
@@ -1705,180 +1811,7 @@
         "max_iter": 0
       },
       {
-        "file": "parallel/rosace/thread3/ros_th3.c",
-        "bounds": [
-          [
-            60000,
-            60000
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 60000
-      },
-      {
-        "file": "parallel/rosace/thread3/math_all.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 22,
-        "max_iter": 0
-      },
-      {
-        "file": "parallel/PapaBench/sw/lib/c/math.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 0
-      },
-      {
-        "file": "parallel/PapaBench/sw/airborne/autopilot/adc.c",
-        "bounds": [
-          [
-            8,
-            8
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 8
-      },
-      {
-        "file": "parallel/PapaBench/sw/airborne/autopilot/nav.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 0
-      },
-      {
-        "file": "parallel/PapaBench/sw/airborne/autopilot/mainloop.c",
-        "bounds": [
-          [
-            31,
-            31
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 31
-      },
-      {
-        "file": "parallel/PapaBench/sw/airborne/autopilot/pid.c",
-        "bounds": [
-          [
-            0,
-            1
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 1
-      },
-      {
-        "file": "parallel/PapaBench/sw/airborne/autopilot/uart.c",
+        "file": "parallel/DEBIE/code/debie.c",
         "bounds": [
           [
             0,
@@ -1887,54 +1820,6 @@
         ],
         "n_loops": 1,
         "max_iter": 0
-      },
-      {
-        "file": "parallel/PapaBench/sw/airborne/fly_by_wire/main.c",
-        "bounds": [
-          [
-            9,
-            9
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 9
-      },
-      {
-        "file": "parallel/PapaBench/sw/airborne/fly_by_wire/adc_fbw.c",
-        "bounds": [
-          [
-            8,
-            8
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 8
-      },
-      {
-        "file": "parallel/PapaBench/sw/airborne/fly_by_wire/servo.c",
-        "bounds": [
-          [
-            10,
-            10
-          ],
-          [
-            10,
-            10
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 10
-      },
-      {
-        "file": "parallel/PapaBench/sw/airborne/fly_by_wire/uart.c",
-        "bounds": [
-          [
-            100,
-            100
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 100
       },
       {
         "file": "parallel/DEBIE/code/measure.c",
@@ -1966,6 +1851,29 @@
         ],
         "n_loops": 6,
         "max_iter": 27
+      },
+      {
+        "file": "parallel/DEBIE/code/tc_hand.c",
+        "bounds": [
+          [
+            128,
+            128
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 4,
+        "max_iter": 128
       },
       {
         "file": "parallel/DEBIE/code/health.c",
@@ -2019,63 +1927,6 @@
         "max_iter": 547
       },
       {
-        "file": "parallel/DEBIE/code/debie.c",
-        "bounds": [
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 1,
-        "max_iter": 0
-      },
-      {
-        "file": "parallel/DEBIE/code/telem.c",
-        "bounds": [
-          [
-            1260,
-            1260
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            10,
-            10
-          ],
-          [
-            10,
-            10
-          ]
-        ],
-        "n_loops": 4,
-        "max_iter": 1260
-      },
-      {
-        "file": "parallel/DEBIE/code/tc_hand.c",
-        "bounds": [
-          [
-            128,
-            128
-          ],
-          [
-            32,
-            32
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 4,
-        "max_iter": 128
-      },
-      {
         "file": "parallel/DEBIE/code/hw_if.c",
         "bounds": [
           [
@@ -2108,6 +1959,29 @@
         ],
         "n_loops": 2,
         "max_iter": 15
+      },
+      {
+        "file": "parallel/DEBIE/code/telem.c",
+        "bounds": [
+          [
+            1260,
+            1260
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "n_loops": 4,
+        "max_iter": 1260
       },
       {
         "file": "parallel/DEBIE/code/harness/harness.c",
@@ -2297,6 +2171,28 @@
         "max_iter": 17676
       },
       {
+        "file": "parallel/DEBIE/code/arch/arm7/wcc_memcpy.c",
+        "bounds": [
+          [
+            1,
+            4
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 4
+      },
+      {
+        "file": "parallel/DEBIE/code/arch/arm7-x1/wcc_memcpy.c",
+        "bounds": [
+          [
+            1,
+            4
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 4
+      },
+      {
         "file": "parallel/DEBIE/code/arch/arm7-x8/wcc_memcpy.c",
         "bounds": [
           [
@@ -2308,7 +2204,29 @@
         "max_iter": 4
       },
       {
-        "file": "parallel/DEBIE/code/arch/arm7/wcc_memcpy.c",
+        "file": "parallel/DEBIE/code/arch/tc1796/wcc_memcpy.c",
+        "bounds": [
+          [
+            1,
+            4
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 4
+      },
+      {
+        "file": "parallel/DEBIE/code/arch/arm7-x2/wcc_memcpy.c",
+        "bounds": [
+          [
+            1,
+            4
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 4
+      },
+      {
+        "file": "parallel/DEBIE/code/arch/arm7-x4/wcc_memcpy.c",
         "bounds": [
           [
             1,
@@ -2341,48 +2259,130 @@
         "max_iter": 4
       },
       {
-        "file": "parallel/DEBIE/code/arch/arm7-x4/wcc_memcpy.c",
+        "file": "parallel/PapaBench/sw/lib/c/math.c",
         "bounds": [
           [
-            1,
-            4
+            0,
+            0
+          ],
+          [
+            0,
+            0
           ]
         ],
-        "n_loops": 1,
-        "max_iter": 4
+        "n_loops": 2,
+        "max_iter": 0
       },
       {
-        "file": "parallel/DEBIE/code/arch/arm7-x1/wcc_memcpy.c",
+        "file": "parallel/PapaBench/sw/airborne/fly_by_wire/adc_fbw.c",
         "bounds": [
           [
-            1,
-            4
+            8,
+            8
           ]
         ],
         "n_loops": 1,
-        "max_iter": 4
+        "max_iter": 8
       },
       {
-        "file": "parallel/DEBIE/code/arch/tc1796/wcc_memcpy.c",
+        "file": "parallel/PapaBench/sw/airborne/fly_by_wire/uart.c",
         "bounds": [
           [
-            1,
-            4
+            100,
+            100
           ]
         ],
         "n_loops": 1,
-        "max_iter": 4
+        "max_iter": 100
       },
       {
-        "file": "parallel/DEBIE/code/arch/arm7-x2/wcc_memcpy.c",
+        "file": "parallel/PapaBench/sw/airborne/fly_by_wire/servo.c",
         "bounds": [
           [
-            1,
-            4
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 10
+      },
+      {
+        "file": "parallel/PapaBench/sw/airborne/fly_by_wire/main.c",
+        "bounds": [
+          [
+            9,
+            9
           ]
         ],
         "n_loops": 1,
-        "max_iter": 4
+        "max_iter": 9
+      },
+      {
+        "file": "parallel/PapaBench/sw/airborne/autopilot/nav.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 0
+      },
+      {
+        "file": "parallel/PapaBench/sw/airborne/autopilot/mainloop.c",
+        "bounds": [
+          [
+            31,
+            31
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 31
+      },
+      {
+        "file": "parallel/PapaBench/sw/airborne/autopilot/uart.c",
+        "bounds": [
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 0
+      },
+      {
+        "file": "parallel/PapaBench/sw/airborne/autopilot/adc.c",
+        "bounds": [
+          [
+            8,
+            8
+          ]
+        ],
+        "n_loops": 1,
+        "max_iter": 8
+      },
+      {
+        "file": "parallel/PapaBench/sw/airborne/autopilot/pid.c",
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 1
       }
     ]
   },
@@ -2392,122 +2392,340 @@
     "max_iter_global": 90112,
     "loops": [
       {
-        "file": "sequential/audiobeam/audiobeam.c",
+        "file": "sequential/h264_dec/h264_dec.c",
         "bounds": [
           [
-            23040,
-            23040
+            8450,
+            8450
           ],
           [
-            180,
-            180
+            4050,
+            4050
           ],
           [
-            12,
-            12
+            256,
+            256
           ],
           [
-            12,
-            12
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            15,
-            15
+            2,
+            2
           ],
           [
             1,
             1
           ],
           [
-            15,
-            15
+            4,
+            4
           ],
           [
-            15,
-            15
+            4,
+            4
           ],
           [
-            15,
-            15
+            4,
+            4
           ],
           [
-            0,
-            0
+            4,
+            4
           ],
           [
-            0,
-            0
+            4,
+            4
           ],
           [
-            0,
-            0
+            4,
+            4
           ],
           [
-            15,
-            15
+            4,
+            4
           ],
           [
-            0,
-            0
+            2,
+            2
           ],
           [
-            15,
-            15
+            2,
+            2
           ],
           [
-            13,
-            13
+            4,
+            4
           ],
           [
-            371,
-            371
-          ],
-          [
-            1,
-            1
-          ],
-          [
-            1,
-            1
+            4,
+            4
           ]
         ],
-        "n_loops": 24,
-        "max_iter": 23040
+        "n_loops": 16,
+        "max_iter": 8450
       },
       {
-        "file": "sequential/audiobeam/audiobeamlibm.c",
+        "file": "sequential/cjpeg_wrbmp/cjpeg_wrbmp.c",
         "bounds": [
           [
-            0,
-            0
+            30,
+            30
           ],
           [
-            25,
-            25
+            256,
+            256
+          ],
+          [
+            256,
+            256
+          ],
+          [
+            256,
+            256
+          ],
+          [
+            512,
+            512
+          ]
+        ],
+        "n_loops": 5,
+        "max_iter": 512
+      },
+      {
+        "file": "sequential/cjpeg_wrbmp/input.c",
+        "bounds": [
+          [
+            3,
+            3
+          ],
+          [
+            256,
+            256
           ]
         ],
         "n_loops": 2,
-        "max_iter": 25
+        "max_iter": 256
+      },
+      {
+        "file": "sequential/rijndael_enc/aes.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 4,
+        "max_iter": 7
+      },
+      {
+        "file": "sequential/rijndael_enc/rijndael_enc.c",
+        "bounds": [
+          [
+            31369,
+            31369
+          ],
+          [
+            64,
+            64
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            1960,
+            1960
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            16,
+            16
+          ]
+        ],
+        "n_loops": 7,
+        "max_iter": 31369
+      },
+      {
+        "file": "sequential/rijndael_enc/rijndael_enc_libc.c",
+        "bounds": [
+          [
+            10,
+            16
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 16
+      },
+      {
+        "file": "sequential/huff_enc/huff_enc.c",
+        "bounds": [
+          [
+            419,
+            419
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            256,
+            256
+          ],
+          [
+            256,
+            256
+          ],
+          [
+            256,
+            256
+          ],
+          [
+            257,
+            257
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            109
+          ],
+          [
+            1,
+            19
+          ],
+          [
+            1,
+            25
+          ],
+          [
+            257,
+            257
+          ],
+          [
+            600,
+            600
+          ],
+          [
+            218,
+            218
+          ],
+          [
+            38,
+            38
+          ],
+          [
+            31,
+            31
+          ],
+          [
+            31,
+            31
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            257,
+            257
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            600,
+            600
+          ]
+        ],
+        "n_loops": 21,
+        "max_iter": 600
+      },
+      {
+        "file": "sequential/huff_dec/huff_dec.c",
+        "bounds": [
+          [
+            600,
+            600
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            257,
+            257
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            256,
+            256
+          ],
+          [
+            1,
+            32
+          ],
+          [
+            257,
+            257
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            257,
+            257
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            601,
+            601
+          ],
+          [
+            3,
+            9
+          ]
+        ],
+        "n_loops": 13,
+        "max_iter": 601
       },
       {
         "file": "sequential/gsm_enc/gsm_enc.c",
@@ -2725,803 +2943,114 @@
         "max_iter": 648
       },
       {
-        "file": "sequential/adpcm_dec/adpcm_dec.c",
+        "file": "sequential/anagram/anagram.c",
         "bounds": [
           [
-            0,
-            0
+            2279,
+            2279
           ],
           [
-            0,
-            1999
-          ],
-          [
-            849,
-            2424
-          ],
-          [
-            10,
-            10
-          ],
-          [
-            10,
-            10
-          ],
-          [
-            5,
+            1,
             5
           ],
           [
-            6,
-            6
+            2279,
+            2279
           ],
           [
-            6,
-            6
+            1,
+            5
           ],
           [
-            6,
-            6
-          ],
-          [
-            6,
-            6
+            12,
+            12
           ],
           [
             11,
             11
+          ],
+          [
+            26,
+            26
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            26,
+            26
+          ],
+          [
+            26,
+            26
+          ],
+          [
+            1967,
+            1967
           ],
           [
             3,
             3
           ],
           [
-            2,
-            2
-          ],
-          [
-            2,
-            2
-          ]
-        ],
-        "n_loops": 14,
-        "max_iter": 2424
-      },
-      {
-        "file": "sequential/dijkstra/dijkstra.c",
-        "bounds": [
-          [
-            100,
-            100
-          ],
-          [
-            100,
-            100
+            3,
+            5
           ],
           [
             0,
-            1000
-          ],
-          [
-            100,
-            100
-          ],
-          [
-            100,
-            1000
-          ],
-          [
-            100,
-            100
-          ],
-          [
-            20,
-            20
-          ]
-        ],
-        "n_loops": 7,
-        "max_iter": 1000
-      },
-      {
-        "file": "sequential/fmref/fmref.c",
-        "bounds": [
-          [
-            64,
-            64
-          ],
-          [
-            2,
-            2
+            6
           ],
           [
             0,
-            60
-          ],
-          [
-            140,
-            200
-          ],
-          [
-            64,
-            64
-          ],
-          [
-            64,
-            64
-          ],
-          [
-            11,
             11
           ],
           [
-            11,
-            11
+            26,
+            26
           ],
           [
-            10,
-            10
-          ],
-          [
-            11,
-            11
-          ],
-          [
-            10,
-            10
+            3,
+            3
           ]
         ],
-        "n_loops": 11,
-        "max_iter": 200
+        "n_loops": 18,
+        "max_iter": 2279
       },
       {
-        "file": "sequential/ndes/ndes.c",
+        "file": "sequential/anagram/anagram_stdlib.c",
         "bounds": [
-          [
-            57,
-            57
-          ],
-          [
-            49,
-            49
-          ],
-          [
-            31,
-            31
-          ],
-          [
-            28,
-            28
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            32,
-            32
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            32,
-            32
-          ],
-          [
-            16,
-            16
-          ],
           [
             4,
             4
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            7
           ],
           [
             8,
-            8
-          ],
-          [
-            32,
-            32
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            16,
-            16
+            800
           ]
         ],
-        "n_loops": 14,
-        "max_iter": 57
-      },
-      {
-        "file": "sequential/rijndael_dec/rijndael_dec_libc.c",
-        "bounds": [
-          [
-            0,
-            16
-          ],
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 16
-      },
-      {
-        "file": "sequential/rijndael_dec/rijndael_dec.c",
-        "bounds": [
-          [
-            32768,
-            32768
-          ],
-          [
-            64,
-            64
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            2046,
-            2046
-          ],
-          [
-            16,
-            16
-          ]
-        ],
-        "n_loops": 5,
-        "max_iter": 32768
-      },
-      {
-        "file": "sequential/rijndael_dec/aes.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            7,
-            7
-          ],
-          [
-            13,
-            13
-          ]
-        ],
-        "n_loops": 4,
-        "max_iter": 13
-      },
-      {
-        "file": "sequential/g723_enc/g723_enc.c",
-        "bounds": [
-          [
-            3,
-            15
-          ],
-          [
-            5,
-            5
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            5,
-            5
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 10,
-        "max_iter": 256
-      },
-      {
-        "file": "sequential/susan/wccmalloc.c",
-        "bounds": [
-          [
-            76,
-            76
-          ],
-          [
-            7220,
-            7220
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 7220
-      },
-      {
-        "file": "sequential/susan/wccfile.c",
-        "bounds": [
-          [
-            7220,
-            7220
-          ],
-          [
-            57,
-            57
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 7220
-      },
-      {
-        "file": "sequential/susan/susan.c",
-        "bounds": [
-          [
-            19,
-            19
-          ],
-          [
-            0,
-            3
-          ],
-          [
-            1,
-            2
-          ],
-          [
-            7220,
-            7220
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            513,
-            513
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            95,
-            95
-          ],
-          [
-            7,
-            7
-          ],
-          [
-            7,
-            7
-          ],
-          [
-            109,
-            109
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            95,
-            95
-          ],
-          [
-            76,
-            76
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            7220,
-            7220
-          ],
-          [
-            7220,
-            7220
-          ],
-          [
-            87,
-            87
-          ],
-          [
-            68,
-            68
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            89,
-            89
-          ],
-          [
-            70,
-            70
-          ],
-          [
-            87,
-            87
-          ],
-          [
-            68,
-            68
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            85,
-            85
-          ],
-          [
-            66,
-            66
-          ],
-          [
-            85,
-            85
-          ],
-          [
-            66,
-            66
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 49,
-        "max_iter": 7220
-      },
-      {
-        "file": "sequential/adpcm_enc/adpcm_enc.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            1999
-          ],
-          [
-            849,
-            2424
-          ],
-          [
-            10,
-            10
-          ],
-          [
-            22,
-            22
-          ],
-          [
-            5,
-            5
-          ],
-          [
-            1,
-            30
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            6,
-            6
-          ],
-          [
-            23,
-            23
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            2,
-            2
-          ]
-        ],
-        "n_loops": 15,
-        "max_iter": 2424
-      },
-      {
-        "file": "sequential/epic/epic.c",
-        "bounds": [
-          [
-            4096,
-            4096
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            14,
-            2399
-          ],
-          [
-            1,
-            2
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            41,
-            46
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            41,
-            97
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            41,
-            97
-          ],
-          [
-            41,
-            46
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            41,
-            97
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            41,
-            46
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            15,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            1,
-            15
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            64,
-            64
-          ]
-        ],
-        "n_loops": 42,
-        "max_iter": 4096
+        "n_loops": 6,
+        "max_iter": 800
       },
       {
         "file": "sequential/cjpeg_transupp/cjpeg_transupp.c",
@@ -3801,6 +3330,971 @@
         ],
         "n_loops": 68,
         "max_iter": 512
+      },
+      {
+        "file": "sequential/fmref/fmref.c",
+        "bounds": [
+          [
+            64,
+            64
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            60
+          ],
+          [
+            140,
+            200
+          ],
+          [
+            64,
+            64
+          ],
+          [
+            64,
+            64
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "n_loops": 11,
+        "max_iter": 200
+      },
+      {
+        "file": "sequential/dijkstra/dijkstra.c",
+        "bounds": [
+          [
+            100,
+            100
+          ],
+          [
+            100,
+            100
+          ],
+          [
+            0,
+            1000
+          ],
+          [
+            100,
+            100
+          ],
+          [
+            100,
+            1000
+          ],
+          [
+            100,
+            100
+          ],
+          [
+            20,
+            20
+          ]
+        ],
+        "n_loops": 7,
+        "max_iter": 1000
+      },
+      {
+        "file": "sequential/petrinet/petrinet.c",
+        "bounds": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "n_loops": 4,
+        "max_iter": 6
+      },
+      {
+        "file": "sequential/gsm_dec/gsm_dec.c",
+        "bounds": [
+          [
+            8,
+            8
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            40,
+            40
+          ],
+          [
+            40,
+            40
+          ],
+          [
+            120,
+            120
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            159,
+            159
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            12,
+            119
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            648,
+            648
+          ],
+          [
+            20,
+            20
+          ]
+        ],
+        "n_loops": 18,
+        "max_iter": 648
+      },
+      {
+        "file": "sequential/mpeg2/mpeg2.c",
+        "bounds": [
+          [
+            90112,
+            90112
+          ],
+          [
+            352,
+            352
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            22,
+            22
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            8,
+            56
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            0,
+            16
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            16,
+            16
+          ]
+        ],
+        "n_loops": 38,
+        "max_iter": 90112
+      },
+      {
+        "file": "sequential/audiobeam/audiobeamlibm.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            25,
+            25
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 25
+      },
+      {
+        "file": "sequential/audiobeam/audiobeam.c",
+        "bounds": [
+          [
+            23040,
+            23040
+          ],
+          [
+            180,
+            180
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            371,
+            371
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "n_loops": 24,
+        "max_iter": 23040
+      },
+      {
+        "file": "sequential/rijndael_dec/rijndael_dec_libc.c",
+        "bounds": [
+          [
+            0,
+            16
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 16
+      },
+      {
+        "file": "sequential/rijndael_dec/aes.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            13,
+            13
+          ]
+        ],
+        "n_loops": 4,
+        "max_iter": 13
+      },
+      {
+        "file": "sequential/rijndael_dec/rijndael_dec.c",
+        "bounds": [
+          [
+            32768,
+            32768
+          ],
+          [
+            64,
+            64
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            2046,
+            2046
+          ],
+          [
+            16,
+            16
+          ]
+        ],
+        "n_loops": 5,
+        "max_iter": 32768
+      },
+      {
+        "file": "sequential/susan/susan.c",
+        "bounds": [
+          [
+            19,
+            19
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            7220,
+            7220
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            513,
+            513
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            95,
+            95
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            109,
+            109
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            95,
+            95
+          ],
+          [
+            76,
+            76
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            7220,
+            7220
+          ],
+          [
+            7220,
+            7220
+          ],
+          [
+            87,
+            87
+          ],
+          [
+            68,
+            68
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            89,
+            89
+          ],
+          [
+            70,
+            70
+          ],
+          [
+            87,
+            87
+          ],
+          [
+            68,
+            68
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            85,
+            85
+          ],
+          [
+            66,
+            66
+          ],
+          [
+            85,
+            85
+          ],
+          [
+            66,
+            66
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 49,
+        "max_iter": 7220
+      },
+      {
+        "file": "sequential/susan/wccmalloc.c",
+        "bounds": [
+          [
+            76,
+            76
+          ],
+          [
+            7220,
+            7220
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 7220
+      },
+      {
+        "file": "sequential/susan/wccfile.c",
+        "bounds": [
+          [
+            7220,
+            7220
+          ],
+          [
+            57,
+            57
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 7220
+      },
+      {
+        "file": "sequential/epic/epic.c",
+        "bounds": [
+          [
+            4096,
+            4096
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            14,
+            2399
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            41,
+            46
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            41,
+            97
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            41,
+            97
+          ],
+          [
+            41,
+            46
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            41,
+            97
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            41,
+            46
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            64,
+            64
+          ]
+        ],
+        "n_loops": 42,
+        "max_iter": 4096
+      },
+      {
+        "file": "sequential/ammunition/bits.c",
+        "bounds": [
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "n_loops": 5,
+        "max_iter": 8
       },
       {
         "file": "sequential/ammunition/arithm.c",
@@ -4112,175 +4606,11 @@
         "max_iter": 4000
       },
       {
-        "file": "sequential/ammunition/bits.c",
-        "bounds": [
-          [
-            0,
-            7
-          ],
-          [
-            0,
-            8
-          ],
-          [
-            0,
-            7
-          ],
-          [
-            0,
-            7
-          ],
-          [
-            0,
-            7
-          ]
-        ],
-        "n_loops": 5,
-        "max_iter": 8
-      },
-      {
-        "file": "sequential/huff_enc/huff_enc.c",
-        "bounds": [
-          [
-            419,
-            419
-          ],
-          [
-            1,
-            9
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            257,
-            257
-          ],
-          [
-            8,
-            8
-          ],
-          [
-            0,
-            7
-          ],
-          [
-            0,
-            109
-          ],
-          [
-            1,
-            19
-          ],
-          [
-            1,
-            25
-          ],
-          [
-            257,
-            257
-          ],
-          [
-            600,
-            600
-          ],
-          [
-            218,
-            218
-          ],
-          [
-            38,
-            38
-          ],
-          [
-            31,
-            31
-          ],
-          [
-            31,
-            31
-          ],
-          [
-            32,
-            32
-          ],
-          [
-            257,
-            257
-          ],
-          [
-            32,
-            32
-          ],
-          [
-            600,
-            600
-          ]
-        ],
-        "n_loops": 21,
-        "max_iter": 600
-      },
-      {
-        "file": "sequential/cjpeg_wrbmp/input.c",
+        "file": "sequential/g723_enc/g723_enc.c",
         "bounds": [
           [
             3,
-            3
-          ],
-          [
-            256,
-            256
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 256
-      },
-      {
-        "file": "sequential/cjpeg_wrbmp/cjpeg_wrbmp.c",
-        "bounds": [
-          [
-            30,
-            30
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            512,
-            512
-          ]
-        ],
-        "n_loops": 5,
-        "max_iter": 512
-      },
-      {
-        "file": "sequential/petrinet/petrinet.c",
-        "bounds": [
-          [
-            2,
-            2
-          ],
-          [
-            3,
-            3
+            15
           ],
           [
             5,
@@ -4289,502 +4619,231 @@
           [
             6,
             6
-          ]
-        ],
-        "n_loops": 4,
-        "max_iter": 6
-      },
-      {
-        "file": "sequential/anagram/anagram_stdlib.c",
-        "bounds": [
-          [
-            4,
-            4
           ],
           [
-            0,
-            3
-          ],
-          [
-            0,
-            10
-          ],
-          [
-            1,
-            6
-          ],
-          [
-            1,
-            7
-          ],
-          [
-            8,
-            800
-          ]
-        ],
-        "n_loops": 6,
-        "max_iter": 800
-      },
-      {
-        "file": "sequential/anagram/anagram.c",
-        "bounds": [
-          [
-            2279,
-            2279
-          ],
-          [
-            1,
+            5,
             5
           ],
           [
-            2279,
-            2279
-          ],
-          [
-            1,
-            5
-          ],
-          [
-            12,
-            12
-          ],
-          [
-            11,
-            11
-          ],
-          [
-            26,
-            26
-          ],
-          [
-            1,
-            2
-          ],
-          [
-            3,
-            5
-          ],
-          [
-            26,
-            26
-          ],
-          [
-            26,
-            26
-          ],
-          [
-            1967,
-            1967
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            6
-          ],
-          [
-            0,
-            11
-          ],
-          [
-            26,
-            26
-          ],
-          [
-            3,
-            3
-          ]
-        ],
-        "n_loops": 18,
-        "max_iter": 2279
-      },
-      {
-        "file": "sequential/mpeg2/mpeg2.c",
-        "bounds": [
-          [
-            90112,
-            90112
-          ],
-          [
-            352,
-            352
-          ],
-          [
             2,
             2
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            22,
-            22
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            7
-          ],
-          [
-            8,
-            56
-          ],
-          [
-            2,
-            3
-          ],
-          [
-            2,
-            3
-          ],
-          [
-            0,
-            16
-          ],
-          [
-            8,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            8,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            8,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            8,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            8,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            8,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            8,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            8,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            8,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            16,
-            16
-          ],
-          [
-            16,
-            16
-          ]
-        ],
-        "n_loops": 38,
-        "max_iter": 90112
-      },
-      {
-        "file": "sequential/gsm_dec/gsm_dec.c",
-        "bounds": [
-          [
-            8,
-            8
-          ],
-          [
-            8,
-            8
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            40,
-            40
-          ],
-          [
-            40,
-            40
-          ],
-          [
-            120,
-            120
-          ],
-          [
-            12,
-            12
-          ],
-          [
-            0,
-            3
-          ],
-          [
-            13,
-            13
-          ],
-          [
-            0,
-            3
-          ],
-          [
-            159,
-            159
-          ],
-          [
-            8,
-            8
-          ],
-          [
-            8,
-            8
-          ],
-          [
-            12,
-            119
-          ],
-          [
-            8,
-            8
-          ],
-          [
-            8,
-            8
-          ],
-          [
-            648,
-            648
-          ],
-          [
-            20,
-            20
-          ]
-        ],
-        "n_loops": 18,
-        "max_iter": 648
-      },
-      {
-        "file": "sequential/h264_dec/h264_dec.c",
-        "bounds": [
-          [
-            8450,
-            8450
-          ],
-          [
-            4050,
-            4050
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            1,
-            1
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            4,
-            4
-          ]
-        ],
-        "n_loops": 16,
-        "max_iter": 8450
-      },
-      {
-        "file": "sequential/rijndael_enc/rijndael_enc.c",
-        "bounds": [
-          [
-            31369,
-            31369
-          ],
-          [
-            64,
-            64
-          ],
-          [
-            1,
-            16
-          ],
-          [
-            1960,
-            1960
-          ],
-          [
-            16,
-            16
           ],
           [
             6,
             6
           ],
           [
+            256,
+            256
+          ],
+          [
+            256,
+            256
+          ],
+          [
+            256,
+            256
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "n_loops": 10,
+        "max_iter": 256
+      },
+      {
+        "file": "sequential/adpcm_dec/adpcm_dec.c",
+        "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1999
+          ],
+          [
+            849,
+            2424
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "n_loops": 14,
+        "max_iter": 2424
+      },
+      {
+        "file": "sequential/ndes/ndes.c",
+        "bounds": [
+          [
+            57,
+            57
+          ],
+          [
+            49,
+            49
+          ],
+          [
+            31,
+            31
+          ],
+          [
+            28,
+            28
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            2,
+            2
+          ],
+          [
             16,
             16
           ]
         ],
-        "n_loops": 7,
-        "max_iter": 31369
+        "n_loops": 14,
+        "max_iter": 57
       },
       {
-        "file": "sequential/rijndael_enc/rijndael_enc_libc.c",
+        "file": "sequential/adpcm_enc/adpcm_enc.c",
         "bounds": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1999
+          ],
+          [
+            849,
+            2424
+          ],
           [
             10,
-            16
+            10
           ],
           [
-            0,
-            0
+            22,
+            22
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            1,
+            30
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            23,
+            23
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
           ]
         ],
-        "n_loops": 2,
-        "max_iter": 16
-      },
-      {
-        "file": "sequential/rijndael_enc/aes.c",
-        "bounds": [
-          [
-            0,
-            0
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            7,
-            7
-          ],
-          [
-            0,
-            0
-          ]
-        ],
-        "n_loops": 4,
-        "max_iter": 7
+        "n_loops": 15,
+        "max_iter": 2424
       },
       {
         "file": "sequential/statemate/statemate.c",
@@ -4800,65 +4859,6 @@
         ],
         "n_loops": 2,
         "max_iter": 100
-      },
-      {
-        "file": "sequential/huff_dec/huff_dec.c",
-        "bounds": [
-          [
-            600,
-            600
-          ],
-          [
-            1,
-            1
-          ],
-          [
-            0,
-            2
-          ],
-          [
-            257,
-            257
-          ],
-          [
-            32,
-            32
-          ],
-          [
-            256,
-            256
-          ],
-          [
-            1,
-            32
-          ],
-          [
-            257,
-            257
-          ],
-          [
-            0,
-            1
-          ],
-          [
-            257,
-            257
-          ],
-          [
-            0,
-            9
-          ],
-          [
-            601,
-            601
-          ],
-          [
-            3,
-            9
-          ]
-        ],
-        "n_loops": 13,
-        "max_iter": 601
       }
     ]
   },
@@ -4867,6 +4867,40 @@
     "n_loops_total": 142,
     "max_iter_global": 400,
     "loops": [
+      {
+        "file": "test/duff/duff.c",
+        "bounds": [
+          [
+            400,
+            400
+          ],
+          [
+            100,
+            100
+          ]
+        ],
+        "n_loops": 2,
+        "max_iter": 400
+      },
+      {
+        "file": "test/cover/cover.c",
+        "bounds": [
+          [
+            120,
+            120
+          ],
+          [
+            50,
+            50
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "n_loops": 3,
+        "max_iter": 120
+      },
       {
         "file": "test/test3/test3.c",
         "bounds": [
@@ -5421,40 +5455,6 @@
         ],
         "n_loops": 137,
         "max_iter": 32
-      },
-      {
-        "file": "test/cover/cover.c",
-        "bounds": [
-          [
-            120,
-            120
-          ],
-          [
-            50,
-            50
-          ],
-          [
-            10,
-            10
-          ]
-        ],
-        "n_loops": 3,
-        "max_iter": 120
-      },
-      {
-        "file": "test/duff/duff.c",
-        "bounds": [
-          [
-            400,
-            400
-          ],
-          [
-            100,
-            100
-          ]
-        ],
-        "n_loops": 2,
-        "max_iter": 400
       }
     ]
   }

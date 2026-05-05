@@ -1,0 +1,10 @@
+# multi_proc_pmu: samples=100, active_cores=2, lock_freq_khz=2400000
+# cpu0=audiobeam (measured)  cpu1=MEM
+[sample=0] cpu=0 bench=audiobeam cycles=604896 instructions=1138636 cache-misses=309
+[sample=1] cpu=0 bench=audiobeam cycles=580077 instructions=1138636 cache-misses=277
+[sample=2] cpu=0 bench=audiobeam cycles=548910 instructions=1138636 cache-misses=147
+[sample=3] cpu=0 bench=audiobeam cycles=558999 instructions=1138636 cache-misses=98
+
+--STDERR--
+[info] offlined cpu2..cpu3 to isolate the active cores
+[info] cpu0..cpu1 locked to 2400000 kHz via 'performance' governor (user-specified)

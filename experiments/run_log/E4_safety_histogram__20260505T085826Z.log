@@ -1,0 +1,9 @@
+# step=E4_safety_histogram
+# started_utc=20260505T085826Z
+# argv=/home/gjh/CRISP/experiments/04_24h/e4_safety_histogram.py
+# params={"out_dir": "/home/gjh/CRISP/experiments/data/processed", "raw_dir": "/home/gjh/CRISP/experiments/data/raw", "reps": null, "dry_run": false, "bounds": "/home/gjh/CRISP/experiments/data/processed/e3_bounds.csv", "case_study": ["fir2dim", "fmref", "cosf", "test3", "jfdctint", "fac"], "attackers": ["PR_CACHE", "PR_MEMBUS", "MTH_MEM"], "R": 100, "duration_s": 60, "sudo_pw": null}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output c33e18355ebb8dcf39242b86ab5184ba26ca852fe1b110528d469c1b56ee73b3  /home/gjh/CRISP/experiments/data/processed/e4_safety_histogram.csv
+# finished_utc=20260505T085929Z

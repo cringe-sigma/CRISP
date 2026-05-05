@@ -1,0 +1,10 @@
+# step=E33_additive_violations
+# started_utc=20260505T083835Z
+# argv=/home/gjh/CRISP/experiments/03_bounding/e33_additive_violations.py
+# params={"out_dir": "/home/gjh/CRISP/experiments/data/processed", "raw_dir": "/home/gjh/CRISP/experiments/data/raw", "reps": null, "dry_run": false, "bounds": "/home/gjh/CRISP/experiments/data/processed/e3_bounds.csv", "R": 100, "max_triples": 20, "seed": 42, "time_budget_s": 0, "sudo_pw": null}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output 070dc7d74e87f7a6d5f93f3a24a8e0b9d5fb39e1cb0618c4c327cb9d20487079  /home/gjh/CRISP/experiments/data/processed/e33_additive_violations.csv
+# output 9d8dde755797cc3825231446d579940d03e3a3330ca8e9123c209f3f6157d68d  /home/gjh/CRISP/experiments/figs/e33_additive_scatter.svg
+# finished_utc=20260505T085825Z

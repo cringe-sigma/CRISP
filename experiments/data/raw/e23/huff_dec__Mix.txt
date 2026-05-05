@@ -1,0 +1,6 @@
+# multi_proc_pmu: samples=100, active_cores=4, lock_freq_khz=2400000
+# cpu0=huff_dec (measured)  cpu1=CACHE  cpu2=BUS  cpu3=MEM
+[sample=0] cpu=0 bench=huff_dec cycles=186148 instructions=319701 cache-misses=225
+
+--STDERR--
+[info] cpu0..cpu3 locked to 2400000 kHz via 'performance' governor (user-specified)

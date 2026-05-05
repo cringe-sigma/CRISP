@@ -1,0 +1,11 @@
+# step=E23_five_config_sweep
+# started_utc=20260505T082131Z
+# argv=/home/gjh/CRISP/experiments/02_phase2/e23_five_config_sweep.py
+# params={"benches": ["adpcm_dec", "adpcm_enc", "ammunition", "anagram", "audiobeam", "binarysearch", "bitcount", "bitonic", "bsort", "cjpeg_transupp", "cjpeg_wrbmp", "complex_updates", "cosf", "countnegative", "cover", "cubic", "deg2rad", "dijkstra", "duff", "epic", "fac", "fft", "filterbank", "fir2dim", "fmref", "g723_enc", "gsm_dec", "gsm_enc", "h264_dec", "huff_dec", "huff_enc", "iir", "insertsort", "isqrt", "jfdctint", "lift", "lms", "ludcmp", "matrix1", "md5", "minver", "mpeg2", "ndes", "petrinet", "pm", "powerwindow", "prime", "quicksort", "rad2deg", "recursion", "rijndael_dec", "rijndael_enc", "sha", "st", "statemate", "susan", "test3"], "R": 100, "configs": ["Solo", "LLC", "BUS", "MEM", "Mix"], "freq_khz": 2400000}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output b4f2d990996d56e185693a254c8ba647748c0bd0a1a23a6c5caba80b738a72ec  /home/gjh/CRISP/experiments/data/processed/e23_pmc_aggregated.csv
+# output 397a36893d486d0388aaedf0941e0c00feac10d1ec7e9c447774ad275b1fb168  /home/gjh/CRISP/experiments/data/processed/e23_feature_vectors.csv
+# output af472fd15342617885dff3801e869f20c026828f25526aa015c7db8833bb3182  /home/gjh/CRISP/experiments/data/processed/e23_amplification_scalars.csv
+# finished_utc=20260505T082522Z

@@ -1,0 +1,10 @@
+# step=E3_bounds
+# started_utc=20260505T083807Z
+# argv=/home/gjh/CRISP/experiments/03_bounding/interference_bound.py
+# params={"gamma": 1.02, "n_benches": 57}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output 6377e4043458d416e3367018a1fcadf3a6191384de3a8615b829e07dd33cef8b  /home/gjh/CRISP/experiments/data/processed/e3_bounds.csv
+# output 4443a56d99ca5cc3be0c5f74067621cb63fb63624718425e9a9813320846e288  /home/gjh/CRISP/experiments/figs/e3_bounds_cdf.svg
+# finished_utc=20260505T083807Z

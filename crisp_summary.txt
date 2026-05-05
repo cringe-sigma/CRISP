@@ -1,0 +1,48 @@
+CRISP run summary
+started_utc : 2026-05-05T17:07:41+08:00
+finished_utc: 2026-05-05T17:07:41+08:00
+exit_code   : 2
+host        : root  arch=aarch64  cores=4
+mode        : paper
+
+== outputs (experiments/data/processed/) ==
+  e21_stress_validation.csv                rows=9  size=4.0K
+  e22_adversary_optimal_theta.csv          rows=171  size=8.0K
+  e23_amplification_scalars.csv            rows=57  size=4.0K
+  e23_feature_vectors.csv                  rows=57  size=4.0K
+  e23_pmc_aggregated.csv                   rows=285  size=20K
+  e24_lemma1a.csv                          rows=159  size=12K
+  e25_lemma2.csv                           rows=500  size=40K
+  e31_polyrhythm_compare.csv               rows=30  size=4.0K
+  e32_mempol_compare.csv                   rows=20  size=4.0K
+  e33_additive_violations.csv              rows=1140  size=84K
+  e3_bounds.csv                            rows=57  size=12K
+  e4_safety_histogram.csv                  rows=22  size=4.0K
+  e5_ablation.csv                          rows=52  size=4.0K
+  e6_scheduling.csv                        rows=36  size=4.0K
+  e7_case_study.csv                        rows=46  size=4.0K
+  e8_rtc.csv                               rows=10  size=4.0K
+  e9_zephyr.csv                            rows=10  size=4.0K
+  static_estimates.csv                     rows=80  size=4.0K
+
+== run_log ==
+-rw-r--r--  1 gjh  gjh      483 May  5 16:08 E1a_extract_loopbounds__20260505T080853Z.log
+-rw-r--r--  1 gjh  gjh  2862534 May  5 16:08 E1b_static_estimates__20260505T080853Z.log
+-rw-r--r--  1 gjh  gjh      610 May  5 16:08 E21_stress_validation__20260505T080854Z.log
+-rw-r--r--  1 gjh  gjh     1120 May  5 16:21 E22_adversary_search__20260505T080855Z.log
+-rw-r--r--  1 gjh  gjh     1383 May  5 16:25 E23_five_config_sweep__20260505T082131Z.log
+-rw-r--r--  1 gjh  gjh      624 May  5 16:29 E24_lemma1a__20260505T082522Z.log
+-rw-r--r--  1 gjh  gjh      619 May  5 16:38 E25_lemma2__20260505T082952Z.log
+-rw-r--r--  1 gjh  gjh      660 May  5 16:38 E31_polyrhythm_compare__20260505T083807Z.log
+-rw-r--r--  1 gjh  gjh      588 May  5 16:38 E32_mempol_compare__20260505T083827Z.log
+-rw-r--r--  1 gjh  gjh      801 May  5 16:58 E33_additive_violations__20260505T083835Z.log
+-rw-r--r--  1 gjh  gjh      505 May  5 16:38 E3_bounds__20260505T083807Z.log
+-rw-r--r--  1 gjh  gjh      741 May  5 16:59 E4_safety_histogram__20260505T085826Z.log
+-rw-r--r--  1 gjh  gjh      554 May  5 16:59 E5_ablation__20260505T085929Z.log
+-rw-r--r--  1 gjh  gjh      867 May  5 16:59 E6_scheduling__20260505T085929Z.log
+-rw-r--r--  1 gjh  gjh      751 May  5 17:01 E7_case_study__20260505T085930Z.log
+-rw-r--r--  1 gjh  gjh      548 May  5 17:01 E8_rtc__20260505T090138Z.log
+-rw-r--r--  1 gjh  gjh      564 May  5 17:01 E9_zephyr_stub__20260505T090138Z.log
+-rw-r--r--  1 gjh  gjh    15332 May  5 17:01 manifest.jsonl
+-rw-r--r--  1 gjh  gjh    35309 May  5 17:01 run_all_20260505T160853Z.log
+-rw-r--r--  1 root root     252 May  5 17:07 run_all_20260505T170741Z.log

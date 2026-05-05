@@ -1,0 +1,11 @@
+# step=E6_scheduling
+# started_utc=20260505T085929Z
+# argv=/home/gjh/CRISP/experiments/06_scheduling/e6_schedule.py
+# params={"out_dir": "/home/gjh/CRISP/experiments/data/processed", "raw_dir": "/home/gjh/CRISP/experiments/data/raw", "reps": null, "dry_run": false, "n_sets": 200, "m_cores": 4, "n_tasks": [10, 20, 30, 40, 60, 80], "U_grid": [1.0, 1.5, 2.0, 2.5, 3.0, 3.5], "seed": 42}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output 6c22255a9ed18347d8b15ed8d5d622455ac078d63878cd35d08d8fae41e5692b  /home/gjh/CRISP/experiments/data/processed/e6_scheduling.csv
+# output 2fbd45f31bedeadd2e4d69819a40b2030556ebc3517db3a98924c833bb5910c3  /home/gjh/CRISP/experiments/figs/e6_schedulability.svg
+# output 7ff2d3077b150a9ab7e8b047246a4478edaad3738fe653f3a13a8a56db92132c  /home/gjh/CRISP/experiments/figs/e6_ilp_runtime.svg
+# finished_utc=20260505T085930Z

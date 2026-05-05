@@ -1,0 +1,11 @@
+bench,rampart_full,rtc_minplus,delta_pct
+adpcm_dec,186375.4,179814.6,3.65
+adpcm_enc,177067.4,173595.5,2.0
+ammunition,82680339.1,80696834.0,2.46
+anagram,0.0,0.0,0
+audiobeam,0.0,0.0,0
+binarysearch,706.9,693.4,1.95
+bitcount,14317.7,14066.4,1.79
+bitonic,7465.4,7127.9,4.73
+bsort,76539.8,75039.0,2.0
+cjpeg_transupp,2239219.8,2172589.2,3.07

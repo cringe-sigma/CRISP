@@ -1,0 +1,9 @@
+# step=E25_lemma2
+# started_utc=20260505T082952Z
+# argv=/home/gjh/CRISP/experiments/02_phase2/e25_lemma2.py
+# params={"out_dir": "/home/gjh/CRISP/experiments/data/processed", "raw_dir": "/home/gjh/CRISP/experiments/data/raw", "reps": null, "dry_run": false, "amp": "/home/gjh/CRISP/experiments/data/processed/e23_amplification_scalars.csv", "R": 100, "seed": 42, "n_triples": 500, "sudo_pw": null}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output edf585370c79bc62f196da852189e3ba930bd442d97333cefc8087dd0a0a04c5  /home/gjh/CRISP/experiments/data/processed/e25_lemma2.csv
+# finished_utc=20260505T083807Z

@@ -1,0 +1,9 @@
+# step=E31_polyrhythm_compare
+# started_utc=20260505T083807Z
+# argv=/home/gjh/CRISP/experiments/03_bounding/e31_polyrhythm_compare.py
+# params={"out_dir": "/home/gjh/CRISP/experiments/data/processed", "raw_dir": "/home/gjh/CRISP/experiments/data/raw", "reps": null, "dry_run": false, "theta": "/home/gjh/CRISP/experiments/data/processed/e22_adversary_optimal_theta.csv", "R": 100, "n_benches": 10, "seed": 42, "sudo_pw": null}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output 94c4da04395f6400334e7b1c9d6fa5790b1747e010b6ba0c4d2251cbb79cdffd  /home/gjh/CRISP/experiments/data/processed/e31_polyrhythm_compare.csv
+# finished_utc=20260505T083826Z

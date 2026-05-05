@@ -1,0 +1,10 @@
+# step=E21_stress_validation
+# started_utc=20260505T080854Z
+# argv=/home/gjh/CRISP/experiments/02_phase2/e21_stress_validate.py
+# params={"reps": 1, "channel_attackers": {"LLC": "CACHE", "BUS": "MTH_BUS", "MEM": "PR_ROWBUF"}, "victim_core": 1}
+# ---- begin step ----
+# ---- end step ----
+# status=ok
+# output ec310ad8d0a20e9bc0bb4764098f6404d113fe1c1e54d76ba84b4413b9eecd4e  /home/gjh/CRISP/experiments/data/processed/e21_stress_validation.csv
+# output 33f957d32caf5b3495fa6d28f8f7d63fefa2c9f99217ab2b991e5112df81623a  /home/gjh/CRISP/experiments/figs/e21_stress_validation.svg
+# finished_utc=20260505T080855Z

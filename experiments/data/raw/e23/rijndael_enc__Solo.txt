@@ -1,0 +1,7 @@
+# multi_proc_pmu: samples=100, active_cores=1, lock_freq_khz=2400000
+# cpu0=rijndael_enc (measured)  (solo: all other cpus offlined)
+
+--STDERR--
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 2400000 kHz via 'performance' governor (user-specified)
+*** stack smashing detected ***: terminated
