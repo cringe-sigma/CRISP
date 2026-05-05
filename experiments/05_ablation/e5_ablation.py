@@ -29,6 +29,7 @@ def main() -> int:
     log = start_step("E5_ablation", params=vars(args))
     out = Path(args.out_dir) / "e5_ablation.csv"
     rows = []
+    skipped = []
     with open(args.bounds) as f:
         for r in csv.DictReader(f):
             # Support both schemas:
@@ -47,6 +48,10 @@ def main() -> int:
                 d = d_total
                 # Approximate A_i = rampart_full/gamma - c - 0.92*d
                 A = max(float(r.get("rampart_full", 0)) / gamma - c - 0.92 * d, 0.0)
+            if c <= 0:
+                # Solo measurement empty / failed for this bench (e.g. PMU
+                # returned 0 cycles).  Skip rather than divide by zero.
+                skipped.append(r["bench"]); continue
             opt0 = gamma * (c + 3 * max(d_llc, d_bus, d_mem))
             opt1 = gamma * (c + d)            # + type exclusion
             opt2 = gamma * (c + 0.92 * d)     # + stall discount (0.92)
@@ -58,9 +63,15 @@ def main() -> int:
                          "opt2": round(opt2/c, 4),
                          "rampart_add": round(opt3/c, 4),
                          "rampart_full": round(opt4/c, 4)})
+    fields = ["bench","full_iso","opt1","opt2","rampart_add","rampart_full"]
     with out.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-        w.writeheader(); w.writerows(rows)
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        if rows:
+            w.writerows(rows)
+    if skipped:
+        print(f"[warn] skipped {len(skipped)} bench(es) with c_solo<=0: "
+              f"{','.join(skipped)}", file=sys.stderr)
     # Aggregate medians
     def med(k):
         v = sorted(r[k] for r in rows)
@@ -68,7 +79,8 @@ def main() -> int:
     print("medians:", {k: med(k) for k in
                         ("full_iso","opt1","opt2","rampart_add","rampart_full")},
           file=sys.stderr)
-    end_step(outputs=[str(out)])
+    end_step(outputs=[str(out)],
+             extra={"n_rows": len(rows), "n_skipped": len(skipped)})
     return 0
 
 

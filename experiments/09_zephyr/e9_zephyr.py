@@ -35,9 +35,12 @@ def main() -> int:
                          "rampart_zephyr": "TBD",
                          "delta_pct": "TBD"})
     out = Path(args.out_dir) / "e9_zephyr.csv"
+    fields = ["bench","rampart_linux","rampart_zephyr","delta_pct"]
     with out.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-        w.writeheader(); w.writerows(rows)
+        w = csv.DictWriter(f, fieldnames=(list(rows[0].keys()) if rows else fields))
+        w.writeheader()
+        if rows:
+            w.writerows(rows)
     end_step(outputs=[str(out)])
     return 0
 

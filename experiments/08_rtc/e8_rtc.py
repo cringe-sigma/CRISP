@@ -46,10 +46,13 @@ def main() -> int:
                          "delta_pct": round(delta, 2)})
     rows = rows[:args.n_spot]
     out = Path(args.out_dir) / "e8_rtc.csv"
+    fields = ["bench","rampart_full","rtc_minplus","delta_pct"]
     with out.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-        w.writeheader(); w.writerows(rows)
-    end_step(outputs=[str(out)])
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        if rows:
+            w.writerows(rows)
+    end_step(outputs=[str(out)], extra={"n_rows": len(rows)})
     return 0
 
 

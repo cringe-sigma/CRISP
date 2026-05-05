@@ -105,9 +105,12 @@ def main() -> int:
             rows.append({"n_tasks": n, "U_total": U,
                          **{k: v/args.n_sets for k, v in sched_ok.items()}})
     out = Path(args.out_dir) / "e6_scheduling.csv"
+    fields = ["n_tasks","U_total","ilp","heur","wfd","ffd"]
     with out.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-        w.writeheader(); w.writerows(rows)
+        w = csv.DictWriter(f, fieldnames=(list(rows[0].keys()) if rows else fields))
+        w.writeheader()
+        if rows:
+            w.writerows(rows)
 
     # Plot ILP fraction-schedulable vs U for each n
     f1 = FIG_DIR / "e6_schedulability.svg"

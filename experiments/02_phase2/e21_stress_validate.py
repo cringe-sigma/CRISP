@@ -99,9 +99,12 @@ def main() -> int:
               f"ok={accept[ch]['ok']}", file=sys.stderr)
 
     out = Path(args.out_dir) / "e21_stress_validation.csv"
+    fields = ["channel","attacker","rate_miss_per_cycle","is_pick","theta"]
     with out.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-        w.writeheader(); w.writerows(rows)
+        w = csv.DictWriter(f, fieldnames=(list(rows[0].keys()) if rows else fields))
+        w.writeheader()
+        if rows:
+            w.writerows(rows)
     fig = FIG_DIR / "e21_stress_validation.svg"
     bar(values=[r["rate_miss_per_cycle"] for r in rows],
         labels=[f"{r['channel']}/{r['attacker']}" for r in rows],
