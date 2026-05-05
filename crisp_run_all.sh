@@ -9,6 +9,7 @@
 #     ./crisp_run_all.sh            # quick mode (R=100, durations scaled down)
 #     ./crisp_run_all.sh --paper    # paper sizes (R=1000, 24h E4/E7)
 #     ./crisp_run_all.sh --steps E1 E2 E3
+#     ./crisp_run_all.sh --push     # auto git-commit + push results after run
 #     SUDO_PW=mypw ./crisp_run_all.sh
 #
 # What it does:
@@ -31,6 +32,7 @@ MODE_PAPER=0
 ONLY_BUILD=0
 SKIP_BUILD=0
 DRY=0
+PUSH=0
 STEPS=()
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -39,6 +41,7 @@ while [[ $# -gt 0 ]]; do
     --build-only)  ONLY_BUILD=1; shift ;;
     --skip-build)  SKIP_BUILD=1; shift ;;
     --dry-run)     DRY=1; shift ;;
+    --push)        PUSH=1; shift ;;
     -h|--help)
       sed -n '2,30p' "$0"; exit 0 ;;
     *) echo "unknown arg: $1"; exit 2 ;;
@@ -263,4 +266,33 @@ SUMM=crisp_summary.txt
 } | tee "$SUMM"
 
 log "Done. See $SUMM and experiments/data/processed/."
+
+# ---------- 8. optional auto-push to current branch ----------
+if [[ $PUSH -eq 1 && $DRY -eq 0 ]]; then
+  log "== Pushing results to $(git branch --show-current) =="
+  # Restore to invoking user before git ops (if we ran as root via sudo)
+  INVOKER="${SUDO_USER:-$USER}"
+  _push() {
+    BRANCH=$(git branch --show-current)
+    git add \
+      experiments/data/processed/ \
+      experiments/data/raw/ \
+      experiments/run_log/ \
+      crisp_summary.txt 2>/dev/null || true
+    if git diff --cached --quiet; then
+      log "Nothing new to commit."
+    else
+      git commit -m "Data: $(hostname) ${BRANCH} run $(date -u +%Y-%m-%dT%H:%M:%SZ) (rc=${RC})"
+      git push origin "${BRANCH}" \
+        && log "Pushed to origin/${BRANCH} successfully." \
+        || warn "git push failed ¡ª push manually: git push origin ${BRANCH}"
+    fi
+  }
+  if [[ "$EUID" -eq 0 && -n "${SUDO_USER:-}" ]]; then
+    sudo -u "$SUDO_USER" bash -c "cd '$ROOT' && $(declare -f _push); _push"
+  else
+    _push
+  fi
+fi
+
 exit "$RC"
