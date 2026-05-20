@@ -1,0 +1,9 @@
+# board=imx8mm
+# config=BUS+MEM
+# repeats=1000
+# expected_active_cores=4
+# runner=crisp_run_paper_matrix.sh
+[sudo] password for gjh: [info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=1000, active_cores=4, lock_freq_khz=1600000
+# cpu0=rijndael_dec (measured)  cpu1=MAX_BUS  cpu2=MAX_MEM  cpu3=MAX_MEM
+*** stack smashing detected ***: terminated

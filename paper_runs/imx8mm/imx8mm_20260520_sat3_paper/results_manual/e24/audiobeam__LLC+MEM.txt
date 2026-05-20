@@ -1,0 +1,12 @@
+# board=imx8mm
+# config=LLC+MEM
+# repeats=1000
+# expected_active_cores=4
+# runner=crisp_run_paper_matrix.sh
+[sudo] password for gjh: [info] cpu0..cpu3 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=1000, active_cores=4, lock_freq_khz=1600000
+# cpu0=audiobeam (measured)  cpu1=MAX_LLC  cpu2=MAX_MEM  cpu3=MAX_MEM
+[sample=0] cpu=0 bench=audiobeam cycles=1721617 instructions=1138638 cache-misses=143
+[sample=1] cpu=0 bench=audiobeam cycles=1769124 instructions=1138592 cache-misses=175
+[sample=2] cpu=0 bench=audiobeam cycles=1716874 instructions=1138587 cache-misses=142
+[sample=3] cpu=0 bench=audiobeam cycles=1727893 instructions=1138585 cache-misses=185

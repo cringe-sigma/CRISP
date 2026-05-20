@@ -1,0 +1,49 @@
+board=imx8mm
+valid_benchmark_count=56
+missing_config_count=40
+sample_count_min=1000
+sample_count_max=1000
+p99_additive_violations=19
+strongest_p99={'board': 'imx8mm', 'bench': 'st', 'pair': 'LLC+BUS', 'q': 'p99', 'sample_count': 1000, 'C_solo': 321977, 'C_a': 324127, 'C_b': 372792, 'C_pair': 681633, 'slowdown_a': 1.0066774955975115, 'slowdown_b': 1.1578218319942108, 'slowdown_pair': 2.117023886799368, 'delta_a': 2150, 'delta_b': 50815, 'delta_pair': 359656, 'delta_pos_a': 2150, 'delta_pos_b': 50815, 'additive_violation': 6.790446521287643, 'dominant_amplification': 7.077752632096821, 'verdict': 'violation', 'source_solo': 'paper_runs/imx8mm/imx8mm_20260520_sat3_paper/results_manual/e23/st__solo.txt', 'source_a': 'paper_runs/imx8mm/imx8mm_20260520_sat3_paper/results_manual/e24/st__LLC.txt', 'source_b': 'paper_runs/imx8mm/imx8mm_20260520_sat3_paper/results_manual/e24/st__BUS.txt', 'source_pair': 'paper_runs/imx8mm/imx8mm_20260520_sat3_paper/results_manual/e24/st__LLC+BUS.txt'}
+strongest_max={'board': 'imx8mm', 'bench': 'st', 'pair': 'LLC+BUS', 'q': 'max', 'sample_count': 1000, 'C_solo': 329985, 'C_a': 334641, 'C_b': 447035, 'C_pair': 935910, 'slowdown_a': 1.0141097322605572, 'slowdown_b': 1.3547130930193796, 'slowdown_pair': 2.836219828174008, 'delta_a': 4656, 'delta_b': 117050, 'delta_pair': 605925, 'delta_pos_a': 4656, 'delta_pos_b': 117050, 'additive_violation': 4.978595960757892, 'dominant_amplification': 5.176633917129432, 'verdict': 'violation', 'source_solo': 'paper_runs/imx8mm/imx8mm_20260520_sat3_paper/results_manual/e23/st__solo.txt', 'source_a': 'paper_runs/imx8mm/imx8mm_20260520_sat3_paper/results_manual/e24/st__LLC.txt', 'source_b': 'paper_runs/imx8mm/imx8mm_20260520_sat3_paper/results_manual/e24/st__BUS.txt', 'source_pair': 'paper_runs/imx8mm/imx8mm_20260520_sat3_paper/results_manual/e24/st__LLC+BUS.txt'}
+missing_configs=
+  audiobeam,solo
+  audiobeam,LLC
+  audiobeam,BUS
+  audiobeam,MEM
+  audiobeam,LLC+BUS
+  audiobeam,LLC+MEM
+  audiobeam,BUS+MEM
+  audiobeam,Mix
+  g723_enc,solo
+  g723_enc,LLC
+  g723_enc,BUS
+  g723_enc,MEM
+  g723_enc,LLC+BUS
+  g723_enc,LLC+MEM
+  g723_enc,BUS+MEM
+  g723_enc,Mix
+  huff_dec,solo
+  huff_dec,LLC
+  huff_dec,BUS
+  huff_dec,MEM
+  huff_dec,LLC+BUS
+  huff_dec,LLC+MEM
+  huff_dec,BUS+MEM
+  huff_dec,Mix
+  rijndael_dec,solo
+  rijndael_dec,LLC
+  rijndael_dec,BUS
+  rijndael_dec,MEM
+  rijndael_dec,LLC+BUS
+  rijndael_dec,LLC+MEM
+  rijndael_dec,BUS+MEM
+  rijndael_dec,Mix
+  rijndael_enc,solo
+  rijndael_enc,LLC
+  rijndael_enc,BUS
+  rijndael_enc,MEM
+  rijndael_enc,LLC+BUS
+  rijndael_enc,LLC+MEM
+  rijndael_enc,BUS+MEM
+  rijndael_enc,Mix

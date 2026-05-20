@@ -1,0 +1,2 @@
+board,soc,cpu,cores,freq_khz,governor,kernel,compiler,date,thermal_policy,dvfs_disabled,dma_disabled,pmu_access,notes
+imx8mm,TOPEET i.MX8MM EVK board,aarch64,4,1600000,performance,4.14.78+,gcc (Ubuntu 9.4.0-1ubuntu1~20.04) 9.4.0,2026-05-20T02:13:00-04:00,checked,true,true,perf_event_open,generated_by_crisp_run_paper_matrix

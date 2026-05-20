@@ -1,0 +1,10 @@
+# board=imx8mm
+# config=solo
+# repeats=1000
+# expected_active_cores=1
+# runner=crisp_run_paper_matrix.sh
+[sudo] password for gjh: [info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=1000, active_cores=1, lock_freq_khz=1600000
+# cpu0=rijndael_dec (measured)  (solo: all other cpus offlined)
+*** stack smashing detected ***: terminated
