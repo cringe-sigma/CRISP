@@ -1,0 +1,2 @@
+board,soc,cpu,cores,freq_khz,governor,kernel,compiler,date,thermal_policy,dvfs_disabled,dma_disabled,pmu_access,notes
+pi5,Raspberry Pi 5 Model B Rev 1.1,aarch64,4,2400000,performance,6.8.0-1053-raspi,gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0,2026-05-20T19:05:23+08:00,checked,true,true,perf_event_open,generated_by_crisp_run_paper_matrix

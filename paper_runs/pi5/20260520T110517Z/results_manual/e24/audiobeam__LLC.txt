@@ -1,0 +1,12 @@
+# board=pi5
+# config=LLC
+# repeats=1000
+# expected_active_cores=4
+# runner=crisp_run_paper_matrix.sh
+[info] cpu0..cpu3 locked to 2400000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=1000, active_cores=4, lock_freq_khz=2400000
+# cpu0=audiobeam (measured)  cpu1=MAX_LLC  cpu2=MAX_LLC  cpu3=MAX_LLC
+[sample=0] cpu=0 bench=audiobeam cycles=587441 instructions=1138636 cache-misses=386
+[sample=1] cpu=0 bench=audiobeam cycles=591514 instructions=1138636 cache-misses=347
+[sample=2] cpu=0 bench=audiobeam cycles=684540 instructions=1138636 cache-misses=232
+[sample=3] cpu=0 bench=audiobeam cycles=804183 instructions=1138636 cache-misses=230

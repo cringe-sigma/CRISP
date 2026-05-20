@@ -1,0 +1,9 @@
+# board=pi5
+# config=MEM
+# repeats=1000
+# expected_active_cores=4
+# runner=crisp_run_paper_matrix.sh
+[info] cpu0..cpu3 locked to 2400000 kHz via 'performance' governor (user-specified)
+# multi_proc_pmu: samples=1000, active_cores=4, lock_freq_khz=2400000
+# cpu0=anagram (measured)  cpu1=MAX_MEM  cpu2=MAX_MEM  cpu3=MAX_MEM
+[sample=0] cpu=0 bench=anagram cycles=2989755 instructions=5031768 cache-misses=889
