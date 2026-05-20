@@ -1,0 +1,9 @@
+[sudo] password for gjh: [info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+436546328,,cycles,193841500,68.28,,
+244168483,,instructions,197580875,69.59,0.56,insn per cycle
+251352,,cache-misses,201224750,70.88,,
+28397217,,branch-instructions,205205625,72.28,,
+2629227,,branch-misses,205155875,72.26,9.26,of all branches
+3726,,dTLB-load-misses,230762875,81.28,,
+852,,iTLB-load-misses,256984625,90.52,,

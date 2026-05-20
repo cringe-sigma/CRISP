@@ -1,0 +1,9 @@
+[info] offlined cpu1..cpu3 to isolate the active cores
+[info] cpu0..cpu0 locked to 1600000 kHz via 'performance' governor (user-specified)
+6132190401,,cycles,2429512125,62.96,,
+4639697347,,instructions,2425385375,62.85,0.76,insn per cycle
+1042230,,cache-misses,2426982875,62.90,,
+322499995,,branch-instructions,2429977000,62.97,,
+38005516,,branch-misses,2433136375,63.05,11.78,of all branches
+12236,,dTLB-load-misses,2905828625,75.30,,
+4663,,iTLB-load-misses,3380338875,87.60,,

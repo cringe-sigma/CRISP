@@ -1,0 +1,6 @@
+run_root=paper_runs/imx8mm/imx8mm_20260520_sat3_paper
+repeats=1000
+freq_khz=1600000
+events=cycles,instructions,cache-misses,branch-instructions,branch-misses,dTLB-load-misses,iTLB-load-misses
+bench_count=51
+generated_utc=2026-05-20T15:30:17Z
