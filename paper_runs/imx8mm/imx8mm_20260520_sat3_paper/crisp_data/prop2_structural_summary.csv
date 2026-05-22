@@ -1,0 +1,2 @@
+board,active_cores,lambda_max,chi,prop2_ceiling,measured_max_a,measured_source,headroom,status
+imx8mm,4,0.75,3,7.75,5.17663,st:pair,1.49711,covers

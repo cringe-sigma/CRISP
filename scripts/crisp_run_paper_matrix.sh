@@ -379,6 +379,21 @@ if [[ $DRY -eq 0 ]]; then
     --data-root "$DATA_ROOT" \
     --manifest "$MANIFEST" \
     --require-complete
+  if [[ -f scripts/crisp_prop2_audit.py ]]; then
+    log "Generating Proposition-2 structural-ceiling audit"
+    python3 scripts/crisp_prop2_audit.py \
+      --board "$BOARD" \
+      --data-root "$DATA_ROOT" \
+      --active-cores 4
+  fi
+  if [[ -f scripts/crisp_shield_latency_audit.py ]]; then
+    log "Generating shield activation-latency audit"
+    python3 scripts/crisp_shield_latency_audit.py \
+      --data-root "$DATA_ROOT" \
+      --freq-khz "$FREQ_KHZ" \
+      --repeats 10000 \
+      --cpu 0
+  fi
 fi
 
 log "Done. Main p99 table: ${DATA_ROOT}/e24_pair_additivity_summary.csv"

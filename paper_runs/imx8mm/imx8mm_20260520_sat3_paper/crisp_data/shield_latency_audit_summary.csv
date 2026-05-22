@@ -1,0 +1,7 @@
+board,component,samples,min_ns,mean_ns,p99_ns,max_ns,max_cycles_at_freq,method,kernel
+imx8mm,checkpoint,20000,0.000,108.000,125.000,625.000,1000.000,userspace_proxy_clock_signal_yield_affinity,4.14.78+
+imx8mm,predicate,20000,375.000,390.131,500.000,10500.000,16800.000,userspace_proxy_clock_signal_yield_affinity,4.14.78+
+imx8mm,signal,20000,5125.000,5376.150,5875.000,59250.000,94800.000,userspace_proxy_clock_signal_yield_affinity,4.14.78+
+imx8mm,yield,20000,1500.000,1678.706,1750.000,41000.000,65600.000,userspace_proxy_clock_signal_yield_affinity,4.14.78+
+imx8mm,budget_update,20000,1375.000,1534.181,1625.000,86375.000,138200.000,userspace_proxy_clock_signal_yield_affinity,4.14.78+
+imx8mm,total,20000,8625.000,9087.169,9750.000,149250.000,238800.000,userspace_proxy_clock_signal_yield_affinity,4.14.78+

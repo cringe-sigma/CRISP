@@ -1,0 +1,4 @@
+board,channel,W_k,mu_min,alpha_sat,lambda_k,L_k,source
+imx8mm,LLC,8,8,0.72,0.72,1,A53 bounded outstanding-window audit; normalized saturated LLC service window
+imx8mm,BUS,8,8,0.75,0.75,1,NIC/interconnect saturated-window audit; normalized service window
+imx8mm,MEM,8,8,0.7,0.7,1,DDR saturated-window audit; refresh folded into mu_min
